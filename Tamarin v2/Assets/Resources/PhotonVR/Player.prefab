@@ -639,6 +639,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 4700191535244681972}
   - {fileID: 297400774434684667}
+  - {fileID: 97737814724002519}
   HeadCosmetics: {fileID: 182381451631106285}
   FaceCosmetics: {fileID: 38331861477394824}
   BodyCosmetics: {fileID: 7856659514856215809}
