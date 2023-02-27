@@ -4,7 +4,8 @@ using TMPro;
 using System.Collections;
 public class MOTDboard : MonoBehaviour
 {
-    string textURL = "https://raw.githubusercontent.com/Cricket-Programming/Racoon-Message-of-the-Day/main/motd.txt";
+    //https://raw.githubusercontent.com/Cricket-Programming/Racoon/main/motd.txt?token=GHSAT0AAAAAAB6LLHZMGNWEMKHFPKPVNZ4AY74A6VA
+    public string textURL = ""; //I changed this to publicfrom samsams script
     public TMP_Text MOTD;
     // Start is called before the first frame update
     void Start()
