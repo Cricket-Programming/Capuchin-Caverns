@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 9028175754179646619}
   - component: {fileID: 9028175754179646620}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Monitor Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8014,7 +8014,7 @@ GameObject:
   - component: {fileID: 9028175754646597954}
   - component: {fileID: 9028175754646597955}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Monitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
