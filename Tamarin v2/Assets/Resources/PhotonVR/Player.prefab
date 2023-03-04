@@ -494,13 +494,14 @@ GameObject:
   - component: {fileID: 7285113592471539406}
   - component: {fileID: 8599182322973927868}
   - component: {fileID: 972717197911569148}
+  - component: {fileID: 9214062816548592519}
   m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &559698232146303671
 Transform:
   m_ObjectHideFlags: 0
@@ -509,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4972137583939609464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.333, z: 0.084}
+  m_LocalPosition: {x: 0, y: 0.333, z: 0.099}
   m_LocalScale: {x: 0.066822544, y: 0.041708507, z: 0.054696582}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,6 +580,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9214062816548592519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972137583939609464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c472e12267244143ba519612f52e1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5550819733793230860
 GameObject:
   m_ObjectHideFlags: 0
