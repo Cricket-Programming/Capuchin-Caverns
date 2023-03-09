@@ -7,7 +7,10 @@ public class AIFollow : MonoBehaviour
     //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
     public NavMeshAgent Enemy;
     public Transform Player; 
+    public Transform Floor;
     public float EnemyRange = 4.0f; //changes the range of the enemy
+
+    Vector3 newRandLocation;
 
     void Update()
     {
@@ -17,6 +20,19 @@ public class AIFollow : MonoBehaviour
         {
             Enemy.SetDestination(Player.position);
         }
+        else 
+        {
+            StartCoroutine(wait(10));
+            
+        }
+    }
+    IEnumerator wait(float seconds)
+    {
+        newRandLocation = new Vector3(Random.Range(-61, -30), Random.Range(0, ), Random.Range(0, ));
+        Debug.LogWarning(newRandLocation);
+        Enemy.SetDestination(newRandLocation);
+
+        yield return new WaitForSeconds(seconds);
     }
 
 }
