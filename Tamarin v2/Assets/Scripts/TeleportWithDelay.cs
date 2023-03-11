@@ -35,6 +35,7 @@ public class TeleportWithDelay : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         // Teleport the object
+        objectToTeleport.transform.position = new Vector3(objectToTeleport.transform.position.x, objectToTeleport.transform.position.y + 7, objectToTeleport.transform.position.z); //y is the up direction
         objectToTeleport.transform.position = targetObject.transform.position;
 
         // Wait for the specified time after teleporting

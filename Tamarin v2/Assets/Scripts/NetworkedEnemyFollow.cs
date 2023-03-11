@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
 
-public class EnemyFollow : MonoBehaviourPunCallbacks
+public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
 {
     [Header("THIS SCRIPT WAS MADE BY FLIMCYVR. IT IS NOT YOURS.")]
     [Header("Distributing This Script Will Lead To A Permanent Ban and MORE!")]
@@ -25,9 +25,9 @@ public class EnemyFollow : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            if (target == null)
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+            if (target == null) //nobody is in the enemy's range
             {
                 Collider[] colliders = Physics.OverlapSphere(transform.position, detectRange);
                 float closestDistance = Mathf.Infinity;
@@ -47,16 +47,16 @@ public class EnemyFollow : MonoBehaviourPunCallbacks
                     }
                 }
             }
-            else
+            else //somebody is in the enemy's range
             {
                 agent.SetDestination(target.position);
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
+                float distanceToTarget = Vector3.Distance(transform.position, target.position);
                 if (distanceToTarget > detectRange)
                 {
                     target = null;
                 }
             }
-        }
+        //}
     }
 }
