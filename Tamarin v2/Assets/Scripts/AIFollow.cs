@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+//networking should work, if there is a photon view and photon transform view.
 public class AIFollow : MonoBehaviour
 {
     //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
