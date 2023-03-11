@@ -1,2 +1,2 @@
-# Racoon
-My racoon game with gorilla locomotion
+# Midday Monkeys
+Midday Monkeys cloud for version control codebase
