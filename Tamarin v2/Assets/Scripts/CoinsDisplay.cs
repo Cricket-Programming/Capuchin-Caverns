@@ -13,6 +13,6 @@ public class CoinsDisplay : MonoBehaviour
 
     void Update()
     {
-        text.text = "You Have " + coins.coins + " " + name;
+        text.text = "You Have\n" + coins.coins + " " + name;
     }
 }
