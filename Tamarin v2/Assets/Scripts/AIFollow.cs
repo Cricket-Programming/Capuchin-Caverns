@@ -32,7 +32,7 @@ public class AIFollow : MonoBehaviour
     IEnumerator wait()
     {
         newRandLocation = new Vector3(Random.Range(-61, -30), 21, Random.Range(-2, 24));
-        Debug.LogWarning(newRandLocation);
+        //Debug.LogWarning(newRandLocation); uncomment this to see the newRandLocation in the console
         Enemy.SetDestination(newRandLocation);
 
         yield return new WaitForSeconds(3);

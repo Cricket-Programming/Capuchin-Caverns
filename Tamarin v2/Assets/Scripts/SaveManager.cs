@@ -21,3 +21,4 @@ public NameScript NameScript;
                PlayerPrefs.SetString("PhotonUsername", NameScript.NameVar);
     }
 }
+    
