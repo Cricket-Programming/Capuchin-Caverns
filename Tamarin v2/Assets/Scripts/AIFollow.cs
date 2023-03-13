@@ -12,6 +12,52 @@ public class AIFollow : MonoBehaviour
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
     Vector3 newRandLocation;
+    float sec = 0;
+    void Start() {
+        StartCoroutine(wait());
+    }
+    void Update()
+    {
+        float distance = Vector3.Distance(transform.position, Player.transform.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
+
+        if (distance < EnemyRange) //if the player is in range to the enemy, 
+        {
+            Enemy.SetDestination(Player.position);
+        }
+        sec += Time.deltaTime;
+
+    }
+    IEnumerator wait()
+    {
+        sec = 0;
+        newRandLocation = new Vector3(Random.Range(-61, -17), 21, Random.Range(-3, 24)); //this is where you put in the corners of the floor
+        //Debug.LogWarning(newRandLocation); uncomment this to see the newRandLocation in the console
+
+        Enemy.SetDestination(newRandLocation);
+
+        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 7) );
+        //yield return new WaitForSeconds(4); //how many seconds until you set a new random location
+        StartCoroutine(wait());
+    }
+
+}
+
+/*
+//SCRIPT INFO: based on time 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+//networking should work, if there is a photon view and photon transform view.
+public class AIFollow : MonoBehaviour
+{
+    //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
+    public NavMeshAgent Enemy;
+    public Transform Player; 
+    public Transform Floor;
+    public float EnemyRange = 4.0f; //changes the range of the enemy
+
+    Vector3 newRandLocation;
 
     void Start() {
         StartCoroutine(wait());
@@ -31,59 +77,23 @@ public class AIFollow : MonoBehaviour
     }
     IEnumerator wait()
     {
-        newRandLocation = new Vector3(Random.Range(-61, -30), 21, Random.Range(-2, 24));
+        newRandLocation = new Vector3(Random.Range(-61, 17), 21, Random.Range(-3, 24));
         //Debug.LogWarning(newRandLocation); uncomment this to see the newRandLocation in the console
         Enemy.SetDestination(newRandLocation);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4); //how many seconds until you set a new random location
         StartCoroutine(wait());
     }
 
 }
 
-/*
-    //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
-    public NavMeshAgent Enemy;
-    public Transform Player; 
-    public Transform Floor;
-    public float EnemyRange = 4.0f; //changes the range of the enemy
-
-    Vector3 newRandLocation;
-
-    private void Start() {
-        StartCoroutine(wait());
-    }
-    void Update()
-    {
-        float distance = Vector3.Distance(transform.position, Player.transform.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
-
-        if (distance < EnemyRange) //if the player is in range to the enemy, 
-        {
-            Enemy.SetDestination(Player.position);
-        }
-        else 
-        {
-            
-            
-        }
-    }
-    IEnumerator wait()
-    {
-        newRandLocation = new Vector3(Random.Range(-61, -30), 21, Random.Range(-2, 24));
-        Debug.LogWarning(newRandLocation);
-        Enemy.SetDestination(newRandLocation);
-
-        yield return new WaitForSeconds(10);
-    }
 
 
 
 
 
 
-
-
-
+SCRIPT INFO: Original script from the school tutorial
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
