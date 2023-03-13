@@ -8,8 +8,14 @@ public class NameScript : MonoBehaviour
 {
     public string NameVar;
     public TextMeshPro NameText;
+    void Start() {
+        if (NameVar.Length == 0)
+        {
+            NameVar = "Monkey" + Random.Range(100, 1000);
+        }
+    }
     private void Update()
-    {
+    {   
         if (NameVar.Length > 12)
         {
             NameVar = NameVar.Substring(0, 12);
