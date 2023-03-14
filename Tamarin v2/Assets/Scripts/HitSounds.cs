@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class HitSounds : MonoBehaviour
 {   
-    public AudioSource Hitsound;
+    AudioSource Hitsound;
+    void Start() 
+    {
+        Hitsound = GetComponent<AudioSource>();
+    }
     void OnCollisionEnter() //this is for the object the the gorilla player hit
     {
         Hitsound.Play();
