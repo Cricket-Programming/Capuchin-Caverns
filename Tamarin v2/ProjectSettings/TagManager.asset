@@ -8,6 +8,7 @@ TagManager:
   - HandTag
   - EnemyCat
   - GorillaRig
+  - WoodSound
   layers:
   - Default
   - TransparentFX
