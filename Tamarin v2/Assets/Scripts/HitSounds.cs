@@ -3,22 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HitSounds : MonoBehaviour
-{
-public AudioSource Hitsound;
-    // Start is called before the first frame update
-    void Start()
+{   ///<p>blah</p>
+    public AudioSource Hitsound;
+    void OnCollisionEnter()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void OnTriggerEnter()
-    {
- Hitsound.Play();
+        Hitsound.Play();
     
     }
 }
