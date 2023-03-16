@@ -18,10 +18,10 @@ public GameObject NewTab;
         
     }
     public void OnTriggerEnter(){
-            NewTab.SetActive(true);
+
             foreach (var obj in OldTabs)
                 obj.SetActive(false);
-
+            NewTab.SetActive(true);
 
 
     }

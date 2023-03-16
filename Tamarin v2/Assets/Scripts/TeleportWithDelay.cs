@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportWithDelay : MonoBehaviour
@@ -10,6 +11,58 @@ public class TeleportWithDelay : MonoBehaviour
     public GameObject objectToTeleport;
 
     // Reference to the target object
+    public List<GameObject> targetObjects = new List<GameObject>();
+
+    // Time to wait before teleporting (in seconds)
+    public float waitTimeBeforeTeleport = 1.0f;
+
+    // Time to wait after teleporting (in seconds)
+    public float waitTimeAfterTeleport = 1.0f;
+
+    public void OnTriggerEnter()
+    {
+        // Disable the object
+        objectToDisable.SetActive(false);
+
+        // Wait for the specified time before teleporting
+        StartCoroutine(WaitAndTeleport(waitTimeBeforeTeleport));      
+    }
+
+    IEnumerator WaitAndTeleport(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        
+        
+        foreach (var obj in targetObjects)
+        {
+            objectToTeleport.transform.position = obj.transform.position;
+        }
+
+        // Wait for the specified time after teleporting
+        yield return new WaitForSeconds(waitTimeAfterTeleport);
+
+        // Enable the object
+        objectToDisable.SetActive(true);
+           
+    }
+}
+
+
+/*
+
+using System.Collections;
+using UnityEngine;
+
+public class TeleportWithDelay : MonoBehaviour
+{
+    // Reference to the object to disable
+    public GameObject objectToDisable;
+
+    // Reference to the object to teleport
+    public GameObject objectToTeleport;
+
+    // Reference to the target object
+    
     public GameObject targetObject1;
     public GameObject targetObject2;
     public GameObject targetObject3;
@@ -70,3 +123,6 @@ public class TeleportWithDelay : MonoBehaviour
            
     }
 }
+
+
+*/
