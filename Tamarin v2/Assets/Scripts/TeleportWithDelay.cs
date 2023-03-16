@@ -32,12 +32,12 @@ public class TeleportWithDelay : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         
-        
         foreach (var obj in targetObjects)
         {
             objectToTeleport.transform.position = obj.transform.position;
         }
-
+        //objectToTeleport.transform.position = targetObjects[4].transform.position;
+        //objectToTeleport.transform.position = targetObjects[5].transform.position;
         // Wait for the specified time after teleporting
         yield return new WaitForSeconds(waitTimeAfterTeleport);
 
