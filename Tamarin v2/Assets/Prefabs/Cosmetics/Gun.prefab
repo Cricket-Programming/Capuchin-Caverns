@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 3822056631513055794}
   - component: {fileID: 3822056631513055805}
   - component: {fileID: 3822056631513055804}
-  - component: {fileID: 3822056631513055807}
   m_Layer: 0
-  m_Name: Gun Showcase
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,18 +859,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3822056631513055806}
-  m_Mesh: {fileID: 0}
---- !u!64 &3822056631513055807
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3822056631513055806}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
