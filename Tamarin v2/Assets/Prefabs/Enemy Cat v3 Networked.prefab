@@ -412,7 +412,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2510
+  m_VersionIndex: 2516
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2690
+  m_VersionIndex: 2696
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2699
+  m_VersionIndex: 2705
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3864
+  m_VersionIndex: 3870
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2696
+  m_VersionIndex: 2702
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2693
+  m_VersionIndex: 2699
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2693
+  m_VersionIndex: 2699
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2566,7 +2566,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2690
+  m_VersionIndex: 2696
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2677,10 +2677,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4389997135455361677}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2298002, y: 1.2298, z: 1.2298002}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: -42.19, y: 21.87, z: 0.2499981}
+  m_LocalScale: {x: 1.2298005, y: 1.2298, z: 1.2298005}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2762722880605059336}
   - {fileID: 2762722882569056124}
@@ -2745,8 +2745,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToDisable: {fileID: 0}
   objectToTeleport: {fileID: 0}
-  targetObject1: {fileID: 0}
-  targetObject2: {fileID: 0}
+  targetObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   waitTimeBeforeTeleport: 0.2
   waitTimeAfterTeleport: 0.2
 --- !u!65 &2762722882223146213

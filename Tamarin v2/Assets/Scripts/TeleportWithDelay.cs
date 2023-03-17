@@ -23,7 +23,7 @@ public class TeleportWithDelay : MonoBehaviour
         if (objectToTeleport.transform.position.y < 15)
         {
             objectToDisable.SetActive(false);
-            objectToTeleport.transform.position = targetObjects[9].transform.position;
+            objectToTeleport.transform.position = targetObjects[targetObjects.Count-1].transform.position;
             StartCoroutine(x());
 
         }
@@ -50,6 +50,11 @@ public class TeleportWithDelay : MonoBehaviour
         {
             objectToTeleport.transform.position = obj.transform.position;
         }
+        /*
+        for (int i = 0; i < objectToTeleport.Count; i++) {
+            objectToTeleport.transform.position = targetObjects[i].transform.position;
+        }
+        */
 
         yield return new WaitForSeconds(waitTimeAfterTeleport);
 

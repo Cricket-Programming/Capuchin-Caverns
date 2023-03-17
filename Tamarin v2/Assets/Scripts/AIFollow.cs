@@ -35,8 +35,7 @@ public class AIFollow : MonoBehaviour
 
         Enemy.SetDestination(newRandLocation);
 
-        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 7) );
-        //yield return new WaitForSeconds(4); //how many seconds until you set a new random location
+        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 7) && Vector3.Distance(transform.position, Player.position) > EnemyRange);
         StartCoroutine(wait());
     }
 
