@@ -8,7 +8,7 @@ public class AIFollow : MonoBehaviour
     //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
     public NavMeshAgent Enemy;
     public Transform Player; 
-    public Transform Floor;
+    
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
     Vector3 newRandLocation;   
@@ -24,7 +24,7 @@ public class AIFollow : MonoBehaviour
         {
             Enemy.SetDestination(Player.position);
             sec = 5; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
-            Debug.Log(Player.position.z);
+            //Debug.Log(Player.position.z);
         }
 
         sec += Time.deltaTime;
@@ -34,7 +34,7 @@ public class AIFollow : MonoBehaviour
     {
         sec = 0;
         newRandLocation = new Vector3(Random.Range(-61, -17), 21, Random.Range(-3, 24)); //this is where you put in the corners of the floor
-        //Debug.LogWarning(newRandLocation); uncomment this to see the newRandLocation in the console
+        //Debug.Log(newRandLocation); uncomment this to see the newRandLocation in the console
 
         Enemy.SetDestination(newRandLocation);
 
