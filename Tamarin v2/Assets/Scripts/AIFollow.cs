@@ -11,19 +11,22 @@ public class AIFollow : MonoBehaviour
     public Transform Floor;
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
-    Vector3 newRandLocation;
+    Vector3 newRandLocation;   
     float sec = 0;
     void Start() {
         StartCoroutine(wait());
     }
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, Player.transform.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
+        float distance = Vector3.Distance(transform.position, Player.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
 
-        if (distance < EnemyRange) //if the player is in range to the enemy, 
+        if (distance < EnemyRange && Player.position.z < 15) //if the player is in range to the enemy, and is in the horror area
         {
             Enemy.SetDestination(Player.position);
+            sec = 5; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
+            Debug.Log(Player.position.z);
         }
+
         sec += Time.deltaTime;
 
     }
@@ -35,7 +38,7 @@ public class AIFollow : MonoBehaviour
 
         Enemy.SetDestination(newRandLocation);
 
-        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 7) && Vector3.Distance(transform.position, Player.position) > EnemyRange);
+        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 5) ); //&& Vector3.Distance(transform.position, Player.position) > EnemyRange);
         StartCoroutine(wait());
     }
 
