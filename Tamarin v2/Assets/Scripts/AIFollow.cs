@@ -8,6 +8,7 @@ public class AIFollow : MonoBehaviour
     //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
     public NavMeshAgent Enemy;
     public Transform Player; 
+    public AudioSource HorrorBG;
     
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
@@ -24,8 +25,16 @@ public class AIFollow : MonoBehaviour
         {
             Enemy.SetDestination(Player.position);
             sec = 5; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
-            //Debug.Log(Player.position.z);
+            
         }
+        if (Player.position.z < 25)
+        {
+            HorrorBG.volume = 0.1f;
+        }
+        else {
+            HorrorBG.volume = 0;
+        }
+        Debug.Log(Player.position.z);
 
         sec += Time.deltaTime;
 
