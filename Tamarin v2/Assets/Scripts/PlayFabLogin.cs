@@ -3,18 +3,30 @@ using PlayFab;
 using PlayFab.ClientModels;
 using Photon.VR;
 using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 public class PlayFabLogin : MonoBehaviour
 {
+    //changes made using https://www.youtube.com/watch?v=HR9PgoPREVA
     public GameObject BanStuff;
     public List<GameObject> specialitems;
     public string CatalogName;
-        public string MyPlayFabID;
+    public string MyPlayFabID;
+    public TextMeshPro idText;
     void Start()
     {
+        StartCoroutine(Text());
+
+
         Login();
     }
+    IEnumerator Text()
+    {
+        yield return new WaitForSeconds(1);
+        idText.text = MyPlayFabID;
+    }
 
-    void Login() {
+    void Login() { 
         Debug.Log("Logging in/creating account now.");
         var request = new LoginWithCustomIDRequest {
             CustomId = SystemInfo.deviceUniqueIdentifier,
