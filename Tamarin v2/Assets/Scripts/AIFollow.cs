@@ -24,16 +24,10 @@ public class AIFollow : MonoBehaviour
         if (distance < EnemyRange && Player.position.z < 15) //if the player is in range to the enemy, and is in the horror area
         {
             Enemy.SetDestination(Player.position);
-            sec = 5; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
+            sec = 5.99f; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
             
         }
-        if (Player.position.z < 25)
-        {
-            HorrorBG.volume = 0.1f;
-        }
-        else {
-            HorrorBG.volume = 0;
-        }
+
         Debug.Log(Player.position.z);
 
         sec += Time.deltaTime;
@@ -47,7 +41,7 @@ public class AIFollow : MonoBehaviour
 
         Enemy.SetDestination(newRandLocation);
 
-        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 3 || Mathf.RoundToInt(sec) > 5) ); //&& Vector3.Distance(transform.position, Player.position) > EnemyRange);
+        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 2 || Mathf.RoundToInt(sec) > 6) ); //&& Vector3.Distance(transform.position, Player.position) > EnemyRange);
         StartCoroutine(wait());
     }
 

@@ -50,11 +50,7 @@ public class TeleportWithDelay : MonoBehaviour
         {
             objectToTeleport.transform.position = obj.transform.position;
         }
-        /*
-        for (int i = 0; i < objectToTeleport.Count; i++) {
-            objectToTeleport.transform.position = targetObjects[i].transform.position;
-        }
-        */
+        
 
         yield return new WaitForSeconds(waitTimeAfterTeleport);
 
@@ -63,6 +59,8 @@ public class TeleportWithDelay : MonoBehaviour
     }
 
 }
+
+
 
 
 /*
@@ -87,14 +85,19 @@ public class TeleportWithDelay : MonoBehaviour
     // Time to wait after teleporting (in seconds)
     public float waitTimeAfterTeleport = .2f;
 
-    bool dead = false;
     void Update() {
-        if (objectToTeleport.transform.position.y < 15 && !dead)
+        if (objectToTeleport.transform.position.y < 15)
         {
-            dead = true;
-            StartCoroutine(WaitAndTeleport(waitTimeBeforeTeleport));
+            objectToDisable.SetActive(false);
+            objectToTeleport.transform.position = targetObjects[targetObjects.Count-1].transform.position;
+            StartCoroutine(x());
 
         }
+    }
+    IEnumerator x()
+    {
+        yield return new WaitForSeconds(0.2f);
+        objectToDisable.SetActive(true);
     }
     public void OnTriggerEnter()
     {
@@ -107,27 +110,44 @@ public class TeleportWithDelay : MonoBehaviour
 
     IEnumerator WaitAndTeleport(float waitTime) //change this to IEnumerator
     {
-        //yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime);
         
         foreach (var obj in targetObjects)
         {
             objectToTeleport.transform.position = obj.transform.position;
         }
-        //objectToTeleport.transform.position = targetObjects[4].transform.position;
-        //objectToTeleport.transform.position = targetObjects[5].transform.position;
-        // Wait for the specified time after teleporting
-        //yield return new WaitForSeconds(waitTimeAfterTeleport);
+        
 
-        // Enable the object
+        yield return new WaitForSeconds(waitTimeAfterTeleport);
+
         objectToDisable.SetActive(true);
-        dead = false;
            
     }
-    void respawnPlayer()
-    {
-        
-    }
+
 }
 
+Rising lava thing script
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class TeleportWithDelay : MonoBehaviour
+{
+    //https://www.youtube.com/watch?v=6uAFX3ktuzw by pear <3
+    public GameObject GorillaPlayer;
+
+    public GameObject RespawnPoint;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Body"))
+        {
+            GorillaPlayer.transform.position = RespawnPoint.transform.position;
+        }
+        if (other.gameObject.CompareTag("MainCamera"))
+        {
+            GorillaPlayer.transform.position = RespawnPoint.transform.position;
+        }
+    }
+}
 */

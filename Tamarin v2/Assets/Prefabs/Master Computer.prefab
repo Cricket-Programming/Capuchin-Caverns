@@ -459,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304248121518893186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.232, y: -0.042, z: 0.138}
+  m_LocalPosition: {x: 0.25, y: -0.042, z: -0.257}
   m_LocalScale: {x: 0.53507704, y: 0.53507704, z: 0.53507704}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -722,7 +722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866072607028441818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.603, z: 0.069}
+  m_LocalPosition: {x: -0.078, y: -0.603, z: -0.393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1099,6 +1099,7 @@ GameObject:
   - component: {fileID: 985164632711073288}
   - component: {fileID: 1025894416777055208}
   - component: {fileID: 926652803421543309}
+  - component: {fileID: 1414809134409849874}
   m_Layer: 0
   m_Name: 'Players Online: (1)'
   m_TagString: Untagged
@@ -1114,7 +1115,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4433555612475873735}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.4336}
+  m_LocalPosition: {x: 0, y: 0, z: 0.546}
   m_LocalScale: {x: 0.03247355, y: 0.03247355, z: 0.03247355}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1123,8 +1124,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.547}
-  m_SizeDelta: {x: 16.1002, y: 5.9084}
+  m_AnchoredPosition: {x: -0.14, y: 0.5707}
+  m_SizeDelta: {x: 23.0224, y: 4.4508}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1025894416777055208
 MeshRenderer:
@@ -1260,6 +1261,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1025894416777055208}
   m_maskType: 0
+--- !u!114 &1414809134409849874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433555612475873735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ca8f726e9c54047874c47910ac27f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4520148487716740239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6036,8 +6049,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5501330239906838930}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.81685936, y: -1.436126, z: -1.2302917}
-  m_LocalScale: {x: 0.3349494, y: 0.3349494, z: 0.3349494}
+  m_LocalPosition: {x: -0.87, y: -1.436126, z: -1.14}
+  m_LocalScale: {x: 0.39286786, y: 0.39286786, z: 0.39286786}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5501330239896263833}
@@ -14187,7 +14200,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -15332,7 +15345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2fd078cbcbc419741ac26ac659ecadf6, type: 2}
+  - {fileID: 2100000, guid: 379034a0db54d4e4bb4bce9fcdac20c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -6,11 +6,15 @@ using TMPro;
 public class CoinsDisplay : MonoBehaviour
 {
 
-    public coinsScripts coins;
-    //if this was a textmesh pro 
-    public TextMeshPro text;
-    public string name = "coins";
+    public coinsScripts coins; //importing other scripts
+    
+    //public TextMeshPro text; //TextMeshPro3dObject
+    private TMP_Text text;
+    public string name = "coins"; //name of the currenct
 
+    void Start() {
+        text = GetComponent<TMP_Text>();
+    }
     void Update()
     {
         text.text = "You Have\n" + coins.coins + " " + name;

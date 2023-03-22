@@ -13,13 +13,14 @@ public class LeaderBoard : MonoBehaviour
     [SerializeField] public string activereportperson;
 
 
-    private void Update()
+    void Update()
     {
-        usernames = new string[PhotonNetwork.PlayerList.Length]; //creates new array of a certain length
+        usernames = new string[PhotonNetwork.PlayerList.Length]; //creates new string of a certain length
+        Debug.Log(usernames);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
             usernames[i] = PhotonNetwork.PlayerList[i].NickName;
             displaySpot.text = string.Join("\n", usernames);
         }
     }
-}
+}   

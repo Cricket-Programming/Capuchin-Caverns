@@ -15,10 +15,9 @@ public class PlayFabLogin : MonoBehaviour
     public TextMeshPro idText;
     void Start()
     {
+        Login();
         StartCoroutine(Text());
 
-
-        Login();
     }
     IEnumerator Text()
     {
