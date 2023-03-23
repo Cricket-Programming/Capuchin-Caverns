@@ -2,11 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //use camelCase
+/*
+This script deactivates the 
+INSTRUCTIONS:
+1) Attach this script to the thing
+2) put in audiosource and drag audiosource into HorrorBG.
+3) make sure box collider istrigger is false
+4) mesh renderer Disabled
+5) 
+*/
 //this script beeps faster the closer the enemy is to the player, it should be on the enemy
 public class HorrorSounds : MonoBehaviour
 {
-    public Transform Player; 
     public AudioSource HorrorBG;
+    
+    bool playing = false;
+    void OnTriggerEnter(Collider other) { //even though this cube's box collider istrigger is false, istrigger is still activated by the gorilla player
+        int leftHand = LayerMask.NameToLayer("Left Hand"); //since .layer takes an int, to get from name to int, use this.
+        if (other.gameObject.CompareTag("HandTag") && other.gameObject.layer == leftHand) {
+            if (playing) {
+                HorrorBG.Pause();
+                playing = false;
+                Debug.Log("Not Playing");
+            }
+            else {
+                HorrorBG.Play();
+                playing = true;
+                Debug.Log("Playing");
+            }
+        }
+    }
+}
+        /*
+        */
+    /*
     void Update() {
         if (Player.position.z < 25) {
             HorrorBG.volume = 0.1f;
@@ -16,7 +45,9 @@ public class HorrorSounds : MonoBehaviour
         }
     }
 
-}
+    */
+
+
 /*
 using System.Collections;
 using System.Collections.Generic;

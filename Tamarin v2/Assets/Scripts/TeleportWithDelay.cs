@@ -46,12 +46,10 @@ public class TeleportWithDelay : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         
-        foreach (var obj in targetObjects)
-        {
+        foreach (var obj in targetObjects) {
             objectToTeleport.transform.position = obj.transform.position;
         }
-        
-
+    
         yield return new WaitForSeconds(waitTimeAfterTeleport);
 
         objectToDisable.SetActive(true);
@@ -140,8 +138,8 @@ public class TeleportWithDelay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Body"))
-        {
+            if (other.gameObject.CompareTag("Body"))
+            {
             GorillaPlayer.transform.position = RespawnPoint.transform.position;
         }
         if (other.gameObject.CompareTag("MainCamera"))
