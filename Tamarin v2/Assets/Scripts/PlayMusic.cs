@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class PlayMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public AudioSource HorrorBG;
+    void OnTriggerEnter() {
+        HorrorBG.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
