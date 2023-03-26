@@ -16,7 +16,7 @@ public class LeaderBoard : MonoBehaviour
     void Update()
     {
         usernames = new string[PhotonNetwork.PlayerList.Length]; //creates new string of a certain length
-        Debug.Log(usernames);
+        //Debug.Log(usernames);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
             usernames[i] = PhotonNetwork.PlayerList[i].NickName;

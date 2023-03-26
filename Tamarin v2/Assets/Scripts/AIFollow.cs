@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 //networking should work, if there is a photon view and photon transform view.
+//this script should have the enemy attack any player that is closest, not just the mastClient
 public class AIFollow : MonoBehaviour
 {
-    //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
+    
     public NavMeshAgent Enemy;
     public Transform Player; 
-    public AudioSource HorrorBG;
+
     
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
@@ -24,7 +25,7 @@ public class AIFollow : MonoBehaviour
         if (distance < EnemyRange && Player.position.z < 15) //if the player is in range to the enemy, and is in the horror area
         {
             Enemy.SetDestination(Player.position);
-            sec = 5.99f; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
+            sec = 6f; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
             
         }
 
