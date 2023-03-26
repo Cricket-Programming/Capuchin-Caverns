@@ -48,8 +48,7 @@ public class AIFollow : MonoBehaviour
 }
 
 /*
-//SCRIPT INFO: based on time 
-using System.Collections;
+/using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -59,34 +58,40 @@ public class AIFollow : MonoBehaviour
     //CHANGE THE SPEED OF THE ENEMY IN THE NAVMESHAGENT COMPONENT
     public NavMeshAgent Enemy;
     public Transform Player; 
-    public Transform Floor;
+    public AudioSource HorrorBG;
+    
     public float EnemyRange = 4.0f; //changes the range of the enemy
 
-    Vector3 newRandLocation;
-
+    Vector3 newRandLocation;   
+    float sec = 0;
     void Start() {
         StartCoroutine(wait());
     }
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, Player.transform.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
+        float distance = Vector3.Distance(transform.position, Player.position); //returns the distance between A and B, transform.position is the Enemy (basically the position of the player this script is part of)
 
-        if (distance < EnemyRange) //if the player is in range to the enemy, 
+        if (distance < EnemyRange && Player.position.z < 15) //if the player is in range to the enemy, and is in the horror area
         {
             Enemy.SetDestination(Player.position);
-        }
-        else 
-        {
+            sec = 5.99f; //this is so that if player leaves horror area (goes to the entrance), StartCoroutine(wait()); can be triggered and the enemy will right away leave the horror entrance
             
         }
+
+        Debug.Log(Player.position.z);
+
+        sec += Time.deltaTime;
+
     }
     IEnumerator wait()
     {
-        newRandLocation = new Vector3(Random.Range(-61, 17), 21, Random.Range(-3, 24));
-        //Debug.LogWarning(newRandLocation); uncomment this to see the newRandLocation in the console
+        sec = 0;
+        newRandLocation = new Vector3(Random.Range(-61, -17), 21, Random.Range(-3, 24)); //this is where you put in the corners of the floor
+        //Debug.Log(newRandLocation); uncomment this to see the newRandLocation in the console
+
         Enemy.SetDestination(newRandLocation);
 
-        yield return new WaitForSeconds(4); //how many seconds until you set a new random location
+        yield return new WaitUntil( () =>  (Vector3.Distance(transform.position, newRandLocation) < 2 || Mathf.RoundToInt(sec) > 6) ); //&& Vector3.Distance(transform.position, Player.position) > EnemyRange);
         StartCoroutine(wait());
     }
 

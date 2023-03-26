@@ -8,6 +8,7 @@ public class OnlinePlayerCounter : MonoBehaviour
 {
     //credits flimcy and pearvr
     private TMP_Text playerCountText;
+    int playerCount;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class OnlinePlayerCounter : MonoBehaviour
     {
         if (PhotonNetwork.IsConnected)
         {
-            int playerCount = PhotonNetwork.CountOfPlayers;
+            playerCount = PhotonNetwork.CountOfPlayers;
             playerCountText.text = playerCount.ToString();
         }
     }
