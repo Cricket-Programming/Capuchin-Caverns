@@ -61819,7 +61819,7 @@ GameObject:
   - component: {fileID: 1642830622}
   - component: {fileID: 1642830621}
   m_Layer: 0
-  m_Name: Horror
+  m_Name: Horror Floor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
