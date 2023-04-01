@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6656069275511001013}
   - component: {fileID: 8666263093632836160}
   - component: {fileID: 1060129648280679432}
+  - component: {fileID: 780640379888157998}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cricket (own
+  m_text: KIPUNJI
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -172,6 +173,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8666263093632836160}
   m_maskType: 0
+--- !u!114 &780640379888157998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228723478001943549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c472e12267244143ba519612f52e1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357333449147112282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352749034241915995, guid: eda8d95259a483a4e98698665267fede, type: 3}
       propertyPath: m_VersionIndex
-      value: 3594
+      value: 3597
       objectReference: {fileID: 0}
     - target: {fileID: 4352749034241915998, guid: eda8d95259a483a4e98698665267fede, type: 3}
       propertyPath: m_Mesh
@@ -2520,7 +2533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942866620931072486, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942866620931072489, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_RootOrder

@@ -14,7 +14,7 @@ public class Vibrations : MonoBehaviour
             if(LeftHand)
             {
                 StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amplitude, 0.15f));
-                Debug.Log("VIBRATED");
+                //Debug.Log("VIBRATED"); Logs VIBRATED if the hand is vibrated.
                 
             }
             else if(!LeftHand)
