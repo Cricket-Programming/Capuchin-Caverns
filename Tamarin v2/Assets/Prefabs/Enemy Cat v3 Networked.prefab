@@ -412,7 +412,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2528
+  m_VersionIndex: 2537
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2714
+  m_VersionIndex: 2723
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2726
+  m_VersionIndex: 2735
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3882
+  m_VersionIndex: 3891
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2714
+  m_VersionIndex: 2723
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2711
+  m_VersionIndex: 2720
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2711
+  m_VersionIndex: 2720
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2566,7 +2566,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2714
+  m_VersionIndex: 2723
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2659,7 +2659,7 @@ GameObject:
   - component: {fileID: 3044359715768000330}
   - component: {fileID: 2762722882223146213}
   - component: {fileID: 2762722882223146210}
-  - component: {fileID: 2762722882223146209}
+  - component: {fileID: 7484643733171914506}
   - component: {fileID: 2762722882223146212}
   - component: {fileID: 7891332766816784113}
   - component: {fileID: 2762722882223146214}
@@ -2679,7 +2679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4389997135455361677}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -36.981, y: 22.07, z: -8.2079}
+  m_LocalPosition: {x: -36.981, y: 22.07, z: -8.51}
   m_LocalScale: {x: 1.4798189, y: 1.4798183, z: 1.4798189}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2725,11 +2725,11 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.98
   m_BaseOffset: 0.52
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2762722882223146209
+--- !u!114 &7484643733171914506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2738,12 +2738,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4389997135455361677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8273e85d564d2e41bb425afe1f7d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: b2e53714d37cad34583f2b380d2df88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 2762722882223146210}
-  Player: {fileID: 0}
-  EnemyRange: 8
+  detectRange: 10
 --- !u!114 &2762722882223146212
 MonoBehaviour:
   m_ObjectHideFlags: 0
