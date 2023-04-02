@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1225250570946210118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5596294, y: 2.836088, z: 1.1768}
+  m_LocalScale: {x: 4.5596294, y: 2.8786292, z: 1.1768}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9172286459562161316}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5516893482381729211}
   - component: {fileID: 8929150019069526881}
   m_Layer: 0
-  m_Name: MONKEY
+  m_Name: MONKEY Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
