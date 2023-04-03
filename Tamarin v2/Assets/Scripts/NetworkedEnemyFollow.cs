@@ -47,8 +47,8 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
                     
                     if (collider.gameObject.CompareTag("HandTag")) //checks if the collider is a player
                     {
-                        
                         float distance = Vector3.Distance(transform.position, collider.transform.position);
+                        
                         
                         if (distance < closestDistance)
                         {
