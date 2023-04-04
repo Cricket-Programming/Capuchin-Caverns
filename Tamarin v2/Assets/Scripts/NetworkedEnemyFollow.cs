@@ -22,20 +22,25 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
     {
         nma = this.GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;
-        SetRandomDestination();
 
+        //Fluffy only works when connected to multiplayer
+        if (PhotonNetwork.IsMasterClient) {
+            SetRandomDestination(); 
+        }
+        
         target = null;
     }
 
     void Update()
     {
-        if (nma.hasPath == false && flag == false)
-        {
-            flag = true;
-            SetRandomDestination();
-        }
+
         if (PhotonNetwork.IsMasterClient)
         {      
+            if (!nma.hasPath && !flag)
+            {
+                flag = true;
+                SetRandomDestination();
+            }
             if (target == null) //nobody is in the enemy's range
             {
                 
