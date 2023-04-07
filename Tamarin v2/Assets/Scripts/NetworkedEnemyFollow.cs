@@ -44,7 +44,7 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
             if (target == null) //nobody is in the enemy's range
             {
                 
-                Collider[] colliders = Physics.OverlapSphere(transform.position, detectRange);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, detectRange); //OverlapSphere(Vector3 position, float radius,
                 float closestDistance = Mathf.Infinity;
                 
                 foreach (Collider collider in colliders)
@@ -53,7 +53,6 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
                     if (collider.gameObject.CompareTag("HandTag")) //checks if the collider is a player
                     {
                         float distance = Vector3.Distance(transform.position, collider.transform.position);
-                        
                         
                         if (distance < closestDistance)
                         {
