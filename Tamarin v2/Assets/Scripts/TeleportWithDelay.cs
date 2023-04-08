@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//camelcase for variables, pascalcase for function names
 public class TeleportWithDelay : MonoBehaviour
 {
     // Reference to the object to disable
@@ -11,53 +11,52 @@ public class TeleportWithDelay : MonoBehaviour
     public GameObject objectToTeleport;
 
     // Reference to the target object
-    public List<GameObject> targetObjects = new List<GameObject>();
+    //public List<GameObject> targetObjects = new List<GameObject>();
+    public Transform jumpscareLocation;
+    public Transform respawnLocation;
 
     // Time to wait before teleporting (in seconds)
-    public float waitTimeBeforeTeleport = .2f;
+    public float waitTime = .5f;
 
-    // Time to wait after teleporting (in seconds)
-    public float waitTimeAfterTeleport = .2f;
-
-    void Update() {
+    void teleportIfFall()
+    {
         if (objectToTeleport.transform.position.y < 15)
         {
             objectToDisable.SetActive(false);
-            objectToTeleport.transform.position = targetObjects[targetObjects.Count-1].transform.position;
-            StartCoroutine(x());
-
+            objectToTeleport.transform.position = respawnLocation.position;
+            Invoke("showDisableObject", 0.2f);
         }
     }
-    IEnumerator x()
-    {
-        yield return new WaitForSeconds(0.2f);
-        objectToDisable.SetActive(true);
+    void showDisableObject() { objectToDisable.SetActive(true); }
+
+    void Update() {
+        teleportIfFall();
     }
-    public void OnTriggerEnter()
+
+    void OnTriggerEnter()
     {
-        // Disable the object
         objectToDisable.SetActive(false);
 
-        // Wait for the specified time before teleporting
-        StartCoroutine(WaitAndTeleport(waitTimeBeforeTeleport));      
+        StartCoroutine(TeleportAndJumpScare());      
     }
 
-    IEnumerator WaitAndTeleport(float waitTime) //change this to IEnumerator
+    IEnumerator TeleportAndJumpScare() 
     {
-        yield return new WaitForSeconds(waitTime);
-        
-        foreach (var obj in targetObjects) {
-            objectToTeleport.transform.position = obj.transform.position;
-        }
-    
-        yield return new WaitForSeconds(waitTimeAfterTeleport);
+        objectToTeleport.transform.position = jumpscareLocation.position;
 
-        objectToDisable.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+
+        objectToTeleport.transform.position = respawnLocation.position;
+
+
+        showDisableObject();
            
     }
 
 }
 
+
+//teleport if fall off map
 
 
 
@@ -84,22 +83,26 @@ public class TeleportWithDelay : MonoBehaviour
     public float waitTimeAfterTeleport = .2f;
 
     void Update() {
+        teleportIfFall();
+
+    }
+    void teleportIfFall()
+    {
         if (objectToTeleport.transform.position.y < 15)
         {
             objectToDisable.SetActive(false);
             objectToTeleport.transform.position = targetObjects[targetObjects.Count-1].transform.position;
-            StartCoroutine(x());
+            Invoke("showObject", 0.2f);
 
         }
     }
-    IEnumerator x()
-    {
-        yield return new WaitForSeconds(0.2f);
+    void showObject() {
         objectToDisable.SetActive(true);
     }
-    public void OnTriggerEnter()
+
+
+    void OnTriggerEnter()
     {
-        // Disable the object
         objectToDisable.SetActive(false);
 
         // Wait for the specified time before teleporting
@@ -109,43 +112,17 @@ public class TeleportWithDelay : MonoBehaviour
     IEnumerator WaitAndTeleport(float waitTime) //change this to IEnumerator
     {
         yield return new WaitForSeconds(waitTime);
-        
-        foreach (var obj in targetObjects)
-        {
+
+        foreach (var obj in targetObjects) {
             objectToTeleport.transform.position = obj.transform.position;
         }
-        
-
+    
         yield return new WaitForSeconds(waitTimeAfterTeleport);
-
         objectToDisable.SetActive(true);
            
     }
 
 }
 
-Rising lava thing script
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class TeleportWithDelay : MonoBehaviour
-{
-    //https://www.youtube.com/watch?v=6uAFX3ktuzw by pear <3
-    public GameObject GorillaPlayer;
-
-    public GameObject RespawnPoint;
-
-    private void OnTriggerEnter(Collider other)
-    {
-            if (other.gameObject.CompareTag("Body"))
-            {
-            GorillaPlayer.transform.position = RespawnPoint.transform.position;
-        }
-        if (other.gameObject.CompareTag("MainCamera"))
-        {
-            GorillaPlayer.transform.position = RespawnPoint.transform.position;
-        }
-    }
-}
 */

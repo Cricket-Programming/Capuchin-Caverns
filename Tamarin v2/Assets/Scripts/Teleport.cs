@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,7 @@ public class Teleport : MonoBehaviour
         {
             GorillaPlayer.transform.position = RespawnPoint.transform.position;
         }
-        /*
 
-        */
     }
 }
+*/
