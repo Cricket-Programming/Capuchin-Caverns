@@ -4,63 +4,56 @@ using UnityEngine;
 //camelcase for variables, pascalcase for function names
 public class TeleportWithDelay : MonoBehaviour
 {
-    // Reference to the object to disable
-    public GameObject objectToDisable;
+    public GameObject mapToDisable;
 
-    // Reference to the object to teleport
-    public GameObject objectToTeleport;
-    public Transform fluffyJumpscareObject;
+    public Transform gorillaPlayer;
 
-    // Reference to the target object
-    //public List<GameObject> targetObjects = new List<GameObject>();
+    //public List<GameObject> targetObjects;
     public Transform jumpscareLocation;
     public Transform respawnLocation;
 
-    // Time to wait before teleporting (in seconds)
-    public float waitTime = .5f;
+    public float waitTime;
+    public GameObject jumpscareObjects;
     public AudioSource jumpscareSound;
 
-    private Vector3 previousPos;
 
     void teleportIfFall()
     {
-        if (objectToTeleport.transform.position.y < 15)
+        if (gorillaPlayer.position.y < 15)
         {
-            objectToDisable.SetActive(false);
-            objectToTeleport.transform.position = respawnLocation.position;
-            Invoke("showDisableObject", 0.2f);
+            Debug.Log("Teleporting");
+            StartCoroutine(Teleport());
         }
     }
-    void showDisableObject() { objectToDisable.SetActive(true); }
 
     void Update() {
         teleportIfFall();
-        objectToTeleport.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(TeleportAndJumpScare());      
+        if (other.transform.IsChildOf(gorillaPlayer)) {
+           StartCoroutine(Teleport());  
+        }
+            
     }
 
-    IEnumerator TeleportAndJumpScare() 
+    IEnumerator Teleport() //and jumpscare
     {
-        objectToDisable.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
-        objectToTeleport.transform.position = jumpscareLocation.position;
+        mapToDisable.SetActive(false);   
+        
+        gorillaPlayer.position = jumpscareLocation.position;
 
-
-
+        jumpscareObjects.SetActive(true);
         jumpscareSound.Play();
         yield return new WaitForSeconds(waitTime);
-
-        //objectToTeleport.transform.position = respawnLocation.position;
-
-        yield return new WaitForSeconds(0.1f);
-
-        showDisableObject();
+        gorillaPlayer.position = respawnLocation.position;
+        jumpscareObjects.SetActive(false);
+        mapToDisable.SetActive(true);
            
     }
+    //the jumpscare is NOT networked which is good (like 3rd person)
+
 
 }
 
@@ -77,10 +70,10 @@ using UnityEngine;
 public class TeleportWithDelay : MonoBehaviour
 {
     // Reference to the object to disable
-    public GameObject objectToDisable;
+    public GameObject mapToDisable;
 
     // Reference to the object to teleport
-    public GameObject objectToTeleport;
+    public GameObject gorillaPlayer;
 
     // Reference to the target object
     public List<GameObject> targetObjects = new List<GameObject>();
@@ -97,22 +90,22 @@ public class TeleportWithDelay : MonoBehaviour
     }
     void teleportIfFall()
     {
-        if (objectToTeleport.transform.position.y < 15)
+        if (gorillaPlayer.transform.position.y < 15)
         {
-            objectToDisable.SetActive(false);
-            objectToTeleport.transform.position = targetObjects[targetObjects.Count-1].transform.position;
+            mapToDisable.SetActive(false);
+            gorillaPlayer.transform.position = targetObjects[targetObjects.Count-1].transform.position;
             Invoke("showObject", 0.2f);
 
         }
     }
     void showObject() {
-        objectToDisable.SetActive(true);
+        mapToDisable.SetActive(true);
     }
 
 
     void OnTriggerEnter()
     {
-        objectToDisable.SetActive(false);
+        mapToDisable.SetActive(false);
 
         // Wait for the specified time before teleporting
         StartCoroutine(WaitAndTeleport(waitTimeBeforeTeleport));      
@@ -123,11 +116,11 @@ public class TeleportWithDelay : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         foreach (var obj in targetObjects) {
-            objectToTeleport.transform.position = obj.transform.position;
+            gorillaPlayer.transform.position = obj.transform.position;
         }
     
         yield return new WaitForSeconds(waitTimeAfterTeleport);
-        objectToDisable.SetActive(true);
+        mapToDisable.SetActive(true);
            
     }
 
