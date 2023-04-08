@@ -9,6 +9,7 @@ public class TeleportWithDelay : MonoBehaviour
 
     // Reference to the object to teleport
     public GameObject objectToTeleport;
+    public Transform fluffyJumpscareObject;
 
     // Reference to the target object
     //public List<GameObject> targetObjects = new List<GameObject>();
@@ -17,6 +18,9 @@ public class TeleportWithDelay : MonoBehaviour
 
     // Time to wait before teleporting (in seconds)
     public float waitTime = .5f;
+    public AudioSource jumpscareSound;
+
+    private Vector3 previousPos;
 
     void teleportIfFall()
     {
@@ -31,23 +35,28 @@ public class TeleportWithDelay : MonoBehaviour
 
     void Update() {
         teleportIfFall();
+        objectToTeleport.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
     void OnTriggerEnter()
     {
-        objectToDisable.SetActive(false);
-
         StartCoroutine(TeleportAndJumpScare());      
     }
 
     IEnumerator TeleportAndJumpScare() 
     {
+        objectToDisable.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         objectToTeleport.transform.position = jumpscareLocation.position;
 
+
+
+        jumpscareSound.Play();
         yield return new WaitForSeconds(waitTime);
 
-        objectToTeleport.transform.position = respawnLocation.position;
+        //objectToTeleport.transform.position = respawnLocation.position;
 
+        yield return new WaitForSeconds(0.1f);
 
         showDisableObject();
            
