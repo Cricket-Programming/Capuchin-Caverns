@@ -8,8 +8,10 @@ TagManager:
   - HandTag
   - EnemyCat
   - GorillaRig
-  - WoodSound
   - WalkThrough
+  - DontColor
+  - PlayerActual
+  - Body2
   layers:
   - Default
   - TransparentFX

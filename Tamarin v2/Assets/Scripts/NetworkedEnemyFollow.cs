@@ -23,7 +23,8 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
         nma = this.GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;
 
-        //Fluffy only works when connected to multiplayer
+        //Fluffy only works when connected to multiplayer 
+        //the masterclient is the first player in the room I think
         if (PhotonNetwork.IsMasterClient) {
             SetRandomDestination(); 
         }

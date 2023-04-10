@@ -46,7 +46,9 @@ public class TeleportWithDelay : MonoBehaviour
 
         jumpscareObjects.SetActive(true);
         jumpscareSound.Play();
+
         yield return new WaitForSeconds(waitTime);
+
         gorillaPlayer.position = respawnLocation.position;
         jumpscareObjects.SetActive(false);
         mapToDisable.SetActive(true);
@@ -58,7 +60,6 @@ public class TeleportWithDelay : MonoBehaviour
 }
 
 
-//teleport if fall off map
 
 
 
