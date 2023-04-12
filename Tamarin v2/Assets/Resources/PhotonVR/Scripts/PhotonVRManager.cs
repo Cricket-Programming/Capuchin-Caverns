@@ -172,6 +172,7 @@ namespace Photon.VR
         /// Sets the colour
         /// </summary>
         /// <param name="PlayerColour">The colour you want the player to be</param>
+        /*
         public static void SetColour(Color PlayerColour)
         {
             Manager.Colour = PlayerColour;
@@ -184,6 +185,7 @@ namespace Photon.VR
                 if (Manager.LocalPlayer != null)
                     Manager.LocalPlayer.RefreshPlayerValues();
         }
+        */
 
         /// <summary>
         /// Sets the cosmetics

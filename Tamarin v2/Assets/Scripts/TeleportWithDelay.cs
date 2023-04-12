@@ -51,6 +51,7 @@ public class TeleportWithDelay : MonoBehaviour
 
         gorillaPlayer.position = respawnLocation.position;
         jumpscareObjects.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         mapToDisable.SetActive(true);
            
     }

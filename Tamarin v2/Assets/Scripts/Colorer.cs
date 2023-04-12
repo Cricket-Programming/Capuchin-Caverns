@@ -7,6 +7,6 @@ public class Colorer : MonoBehaviour
     public Color YourColor;
     void OnTriggerEnter() {
         Color myColour = YourColor;
-        PhotonVRManager.SetColour(myColour);
+        //PhotonVRManager.SetColour(myColour);
     }
 }

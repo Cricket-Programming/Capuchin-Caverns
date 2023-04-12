@@ -12,6 +12,6 @@ public class SliderScript : MonoBehaviour
     void Update()
     {
         Color myColour = new Color(sliderRed.value, sliderGreen.value, sliderBlue.value);
-        PhotonVRManager.SetColour(myColour);
+        //PhotonVRManager.SetColour(myColour);
     }
 }

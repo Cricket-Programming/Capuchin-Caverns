@@ -8,6 +8,6 @@ namespace Photon.VR.Testing
     {
         public Color Colour;
 
-        public void ChangeColour(Color Colour) => PhotonVRManager.SetColour(Colour);
+        //public void ChangeColour(Color Colour) => PhotonVRManager.SetColour(Colour);
     }
 }

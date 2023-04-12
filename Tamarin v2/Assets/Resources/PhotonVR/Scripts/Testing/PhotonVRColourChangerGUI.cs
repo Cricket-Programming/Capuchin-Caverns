@@ -15,8 +15,8 @@ namespace Photon.VR.Testing
             {
                 PhotonVRColourChanger manager = (PhotonVRColourChanger)target;
                 base.OnInspectorGUI();
-                if (GUILayout.Button("Change"))
-                    manager.ChangeColour(manager.Colour);
+                //if (GUILayout.Button("Change"))
+                    //manager.ChangeColour(manager.Colour);
             }
             else
             {
