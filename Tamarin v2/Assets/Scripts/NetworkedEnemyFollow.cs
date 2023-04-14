@@ -42,26 +42,17 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
                 flag = true;
                 SetRandomDestination();
             }
-            if (target == null) //nobody is in the enemy's range
-            {
-                findClosestPlayersTransform();
-            }
-            else //some player is in range
-            {
-                
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
-                if (distanceToTarget > detectRange) //if player is out of ranges
-                {
-                    target = null;
-                }
-                //this else if comes after the  if (distanceToTarget > detectRange) so that if player get teleported, it will not go to the player's position anymore.
-                else if (target.position.z < 15.5) { //if target is in horror area, go to the horror area.
-                    nma.SetDestination(target.position);
-                }
 
-            }
+            findClosestPlayersTransform();
+           
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            if (target.position.z < 15.5 && distanceToTarget < detectRange) { //if target is in horror area and is in range to the enemy
+                nma.SetDestination(target.position);
+            }  
         }
     }
+    //sets the target variable to the closest player transform position
     void findClosestPlayersTransform() {
         float distanceToClosestPlayer = Mathf.Infinity;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 people in the room, then the length of this array will be 3.
