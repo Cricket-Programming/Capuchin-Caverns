@@ -9,8 +9,9 @@ public class ChangeServer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("HandTag"))
-        {
+        {   
             PhotonVRManager.ChangeServers(AppID, VoiceID);
         }
+
     }
 }

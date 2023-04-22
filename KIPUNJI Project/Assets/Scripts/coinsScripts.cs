@@ -8,11 +8,11 @@ public class coinsScripts : MonoBehaviour
 {
     public int coins;
     public int HowMuchADay = 100;
-    public void Start()
+    public void Start() 
     {
         if (PlayerPrefs.GetInt("coin") == 0)
         {
-            PlayerPrefs.SetInt("coins", 500);
+            PlayerPrefs.SetInt("coins", coins); //changed 500 to coins. 
             PlayerPrefs.SetInt("coin", 1);
         }
         time();

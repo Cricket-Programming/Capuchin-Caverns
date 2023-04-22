@@ -6,17 +6,17 @@ using TMPro;
 public class CoinsDisplay : MonoBehaviour
 {
 
-    public coinsScripts coins; //importing other scripts
+    public coinsScripts coinsScripts; //importing other scripts
     
     //public TextMeshPro text; //TextMeshPro3dObject
     private TMP_Text text;
-    public string name = "coins"; //name of the currenct
+    public string currencyName = "marbles"; //changed this to currecyName from name to prevent the new keyword hiding intending.
 
     void Start() {
         text = GetComponent<TMP_Text>();
     }
     void Update()
     {
-        text.text = "You Have\n" + coins.coins + " " + name;
+        text.text = "You Have\n" + coinsScripts.coins + " " + currencyName;
     }
 }

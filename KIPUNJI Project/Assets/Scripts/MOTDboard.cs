@@ -5,11 +5,11 @@ using System.Collections;
 public class MOTDboard : MonoBehaviour
 {
     //In github, the repository has to be public
-    string textURL = "https://raw.githubusercontent.com/Cricket-Programming/motd/main/motd.txt"; //I changed this to public from samsams script
-    public TMP_Text MOTD;
-    // Start is called before the first frame update
+    private string textURL = "https://raw.githubusercontent.com/Cricket-Programming/motd/main/motd.txt"; //I changed this to public from samsams script
+    private TMP_Text MOTD;
     void Start()
     {
+        MOTD = GetComponent<TMP_Text>();
         StartCoroutine(GetText(textURL));
     }
     public IEnumerator GetText(string tURL)
