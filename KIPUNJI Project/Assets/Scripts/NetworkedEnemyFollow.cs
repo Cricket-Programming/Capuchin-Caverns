@@ -30,7 +30,7 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        //the MasterClient is the first player in the room. The MasterClient will switch automatically if the current one leaves.
+        //the MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
         if (PhotonNetwork.IsMasterClient)
         {      
             if (!nma.hasPath && !flag)

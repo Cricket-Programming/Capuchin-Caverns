@@ -14,7 +14,7 @@ public class LeaderBoard : MonoBehaviour
 
     void Update()
     {
-        usernames = new string[PhotonNetwork.PlayerList.Length]; //creates new string of a certain length
+        usernames = new string[PhotonNetwork.PlayerList.Length]; //creates new string of a certain length #In summary, use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room, and use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
         //Debug.Log(usernames);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
