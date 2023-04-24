@@ -4,10 +4,13 @@ using UnityEngine;
 using easyInputs;
 public class Vibrations : MonoBehaviour
 { 
-    public float Amplitude;
+    //public float Amplitude;
     public bool LeftHand; //if you create a bool, it will show up as a checkbox in the editor
     //public LayerMask vibrationEnabledLayers;
     private static int walkThroughLayerNumber;
+
+    private float amplitude = 0.3f;
+    private float duration = 0.12f;
     
     private void Start() {
         walkThroughLayerNumber = LayerMask.NameToLayer("Walk Through");
@@ -16,13 +19,14 @@ public class Vibrations : MonoBehaviour
         if (other.gameObject.layer != walkThroughLayerNumber) { //make gameobject have Walk Through layer and WalkThrough tag//does not let vibrations happen for objects with certain tags, should be replaced in the future with objects with certain layers.
             if(LeftHand)
             {
-                StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amplitude, 0.1f)); //duration
+                StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, amplitude, duration)); //StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amlplitude, Duration));
+
                 Debug.Log("VIBRATED"); //Logs VIBRATED if the hand is vibrated.
                 
             }
             else //right hand
             {
-                StartCoroutine(EasyInputs.Vibration(EasyHand.RightHand, Amplitude, 0.1f));
+                StartCoroutine(EasyInputs.Vibration(EasyHand.RightHand, amplitude, duration));
             }
         }
 

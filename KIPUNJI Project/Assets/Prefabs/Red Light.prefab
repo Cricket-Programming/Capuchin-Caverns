@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4176359140914321110}
   - component: {fileID: 4176359140914321111}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4176359141038020150}
   - component: {fileID: 4176359141038020147}
   - component: {fileID: 4176359141038020146}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Red Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

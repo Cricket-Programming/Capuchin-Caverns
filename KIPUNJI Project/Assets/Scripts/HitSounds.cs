@@ -1,26 +1,29 @@
 using System.Collections;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 //OBJECT BASED SCRIPT WORKING
+//put this script along with an audioSource component on the gameobject you want to have hitsounds on. Put the audio sound you want to play in the audiosource component
 [RequireComponent(typeof(AudioSource))]
 public class HitSounds : MonoBehaviour
 {   
-    AudioSource Hitsound;
+    AudioSource hitSound;
     void Start() 
-    {
-        Hitsound = GetComponent<AudioSource>();
+    { 
+        hitSound = GetComponent<AudioSource>();
     }
 
-    void OnCollisionEnter() //this is for the object the the gorilla player hit if its the body 
+    //onCollisonEnter() gets called when the gorilla player touches the ground with his body.
+    void OnCollisionEnter() 
     {
-        Hitsound.Play();
+        hitSound.Play();
     }
-
-    void OnTriggerEnter()  //this is for the gorilla player's hands
+    // onTriggerEnter() gets called when the gorilla player touches things with his hands.
+    void OnTriggerEnter()  
     {
-        Hitsound.Play();
+        hitSound.Play();
     }
+    
 }
 
 /*
