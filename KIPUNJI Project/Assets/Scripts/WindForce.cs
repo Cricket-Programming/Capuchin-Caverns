@@ -10,9 +10,9 @@ public class WindForce : MonoBehaviour
     [Header("Gorilla Player RigidBody")]
     public Rigidbody GorillaPlayer;
 
-    [Header("Default values are for regular trampoline")]
+    [Header("Default values are for regular launchpad trampoline")]
     public int XForce = 0;
-    public int YForce = 30;
+    public int YForce = 35;
     public int ZForce = 0;
  
     void OnTriggerEnter() 
