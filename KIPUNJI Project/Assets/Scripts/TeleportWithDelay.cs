@@ -13,6 +13,8 @@ public class TeleportWithDelay : MonoBehaviour
     public Transform respawnLocation;
 
     public float waitTime;
+
+    //jumpscareObjects are the objects 
     public GameObject jumpscareObjects;
     public AudioSource jumpscareSound;
 

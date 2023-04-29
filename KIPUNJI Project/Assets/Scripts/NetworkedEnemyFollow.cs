@@ -43,10 +43,11 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
 
             //If target is in the horror area and is in range to the enemy.
             if (target != null) { //if the player for some reason disconnects from the server making the target is destroyed, this code makes sure the target exists before trying to access the transform component
-                if (target.position.z < 15.5 && distanceToClosestPlayer < detectRange) { 
-                nma.SetDestination(target.position);
-            }  
+                if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) { 
+                    nma.SetDestination(target.position);
+                } 
             }
+            //Debug.Log(target.position.z);
 
         }
     }
