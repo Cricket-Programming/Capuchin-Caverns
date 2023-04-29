@@ -2,6 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using easyInputs;
+
+//if I want a gameobject to not vibrate AND not touch the player, then set that gameobjects layer to Walk Through. 
+//Note: For this code to make a gameobject not have vibrations, In project Settings > Physics > Layer Collision Matrix, The Walk Through Layer MUST NOT COLLIDE WITH ANYTHING.
+public class Vibrations : MonoBehaviour
+{ 
+    public bool LeftHand; //if you create a bool, it will show up as a checkbox in the editor 
+
+    private float amplitude = 0.3f;
+    private float duration = 0.12f;
+
+    void OnTriggerEnter(Collider other) {
+
+        if(LeftHand)
+        {
+            StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, amplitude, duration)); //StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amlplitude, Duration));
+            //Debug.Log("LEFT HAND VIBRATED");  
+        }
+        else //right hand
+        {
+            StartCoroutine(EasyInputs.Vibration(EasyHand.RightHand, amplitude, duration));
+            //Debug.Log("RIGHT HAND VIBRATED");
+        }
+    }
+}
+
+/*
+//the bug with this code is t
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using easyInputs;
+
+//note in general: If I want a 
 public class Vibrations : MonoBehaviour
 { 
     public bool LeftHand; //if you create a bool, it will show up as a checkbox in the editor
@@ -19,20 +53,24 @@ public class Vibrations : MonoBehaviour
             {
                 StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, amplitude, duration)); //StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amlplitude, Duration));
 
-                //Debug.Log("LEFT HAND VIBRATED"); //Logs VIBRATED if the hand is vibrated.
+                Debug.Log("LEFT HAND VIBRATED"); //Logs VIBRATED if the hand is vibrated.
                 
             }
             else //right hand
             {
                 StartCoroutine(EasyInputs.Vibration(EasyHand.RightHand, amplitude, duration));
-                //Debug.Log("RIGHT HAND VIBRATED");
+                Debug.Log("RIGHT HAND VIBRATED");
             }
         }
 
     }
 }
 
-/*
+
+
+
+//bad dont use
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

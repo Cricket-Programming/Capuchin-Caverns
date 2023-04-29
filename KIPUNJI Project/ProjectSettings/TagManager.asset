@@ -10,6 +10,7 @@ TagManager:
   - DontColor
   - PlayerActual
   - Body2
+  - Body
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,6 @@ TagManager:
   - Right Hand
   - Walk Through
   - Cull
-  - Post Processing
   - 
   - 
   - 
@@ -43,6 +43,7 @@ TagManager:
   - 
   - 
   - 
+  - '''Teleport'''
   m_SortingLayers:
   - name: Default
     uniqueID: 0

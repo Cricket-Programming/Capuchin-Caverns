@@ -23,7 +23,7 @@ public class TeleportWithDelay : MonoBehaviour
     {
         if (gorillaPlayer.position.y < 15)
         {
-            Debug.Log("Teleporting");
+            //Debug.Log("Teleporting");
             StartCoroutine(Teleport());
         }
     }
