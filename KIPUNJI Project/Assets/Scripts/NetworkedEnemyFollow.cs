@@ -41,8 +41,8 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
 
             findClosestPlayersTransform(); //sets distanceToClosestPlayer and target (target is the closest player)
 
-            //If target is in the horror area and is in range to the enemy.
-            if (target != null) { //if the player for some reason disconnects from the server making the target is destroyed, this code makes sure the target exists before trying to access the transform component
+            //If target is in the horror area and is in range to the enemy. go to the target player.
+            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component.s
                 if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) { 
                     nma.SetDestination(target.position);
                 } 
@@ -51,10 +51,10 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
 
         }
     }
-    //sets target to closest player transform position, set distanceToClosestPlayer to distance to closest player
+    //sets target to closest player transform position, sets distanceToClosestPlayer to distance to closest player.
     void findClosestPlayersTransform() {
         distanceToClosestPlayer = Mathf.Infinity;
-        players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 people in the room, then the length of this array will be 3.
+        players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 players in the room, then the length of this array will be 3.
         foreach (GameObject p in players)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, p.transform.position);
@@ -66,7 +66,7 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
             }
         }
     }
-    //SetRandomDestination picks a random x and z and sets the enemy's destination to that point
+    //SetRandomDestination picks a random x and z and sets the enemy's destination to that point.
     private void SetRandomDestination()
     {
         float rx = Random.Range(bndFloor.min.x, bndFloor.max.x);
