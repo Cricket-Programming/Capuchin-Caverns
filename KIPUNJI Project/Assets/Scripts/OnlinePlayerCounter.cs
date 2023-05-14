@@ -5,33 +5,25 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class OnlinePlayerCounter : MonoBehaviourPunCallbacks
+public class OnlinePlayerCounter : MonoBehaviour
 {
-    private TMP_Text playerCountText;
-    private int playerCount;
+    public TMP_Text playerCountText;
 
-    void Start()
+    private void Start()
     {
         playerCountText = GetComponent<TMP_Text>();
-        UpdatePlayerCount();
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    private void Update()
     {
-        UpdatePlayerCount();
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        UpdatePlayerCount();
-    }
-
-    private void UpdatePlayerCount()
-    {
-        playerCount = PhotonNetwork.PlayerList.Length;
-        playerCountText.text = playerCount.ToString();
+        if (PhotonNetwork.IsConnected)
+        {
+            int playerCount = PhotonNetwork.CountOfPlayers;
+            playerCountText.text = "Online Players: " + playerCount.ToString();
+        }
     }
 }
+
 
 /*
 using System.Collections;

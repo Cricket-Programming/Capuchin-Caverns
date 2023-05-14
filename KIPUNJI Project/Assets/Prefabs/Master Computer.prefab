@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 985164632711073288}
   - component: {fileID: 1025894416777055208}
   - component: {fileID: 926652803421543309}
-  - component: {fileID: 1414809134409849874}
+  - component: {fileID: 2585818457852954720}
   m_Layer: 0
   m_Name: Players Online
   m_TagString: Untagged
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1025894416777055208}
   m_maskType: 0
---- !u!114 &1414809134409849874
+--- !u!114 &2585818457852954720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1508,6 +1508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ca8f726e9c54047874c47910ac27f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCountText: {fileID: 926652803421543309}
 --- !u!1 &4520148487716740239
 GameObject:
   m_ObjectHideFlags: 0
