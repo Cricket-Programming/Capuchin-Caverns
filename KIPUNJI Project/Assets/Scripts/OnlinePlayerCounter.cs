@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class OnlinePlayerCounter : MonoBehaviour
 {
-    public TMP_Text playerCountText;
+    private TMP_Text playerCountText;
 
     private void Start()
     {

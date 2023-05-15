@@ -2806,12 +2806,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064865114439861713, guid: a3e1c28931ee4d94d896aeb7064bcb2f, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064865114439861713, guid: a3e1c28931ee4d94d896aeb7064bcb2f, type: 3}
       propertyPath: m_VersionIndex
-      value: 847
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 7064865114439861724, guid: a3e1c28931ee4d94d896aeb7064bcb2f, type: 3}
       propertyPath: m_Mesh
