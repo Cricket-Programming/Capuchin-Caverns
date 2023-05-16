@@ -7,10 +7,6 @@ TagManager:
   - HandTag
   - GorillaRig
   - WalkThrough
-  - DontColor
-  - PlayerActual
-  - Body2
-  - Body
   layers:
   - Default
   - TransparentFX

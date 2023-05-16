@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using Photon.Pun;
 //networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s
 //This script currently makes Fluffy work only when connected to multiplayer. 
-public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
+public class NetworkedEnemyFollow : MonoBehaviour 
 {
     //credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
     [Header("Set the speed of Fluffy in the NavMeshAgent component.")]
@@ -31,6 +31,7 @@ public class NetworkedEnemyFollow : MonoBehaviourPunCallbacks
     void Update()
     {
         //the MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
+        //you don't need MonoBehaviourPuncallbacks to access this PhotonNetwork.IsMasterClient.
         if (PhotonNetwork.IsMasterClient)
         {      
             if (!nma.hasPath && !flag)
