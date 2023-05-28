@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using Photon.Pun;
 //networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s
 //This script currently makes Fluffy work only when connected to multiplayer. 
+//this script works with navmesh's component based workflow Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ
 public class NetworkedEnemyFollow : MonoBehaviour 
 {
     //credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
@@ -20,10 +21,10 @@ public class NetworkedEnemyFollow : MonoBehaviour
     private GameObject[] players; 
     private float distanceToClosestPlayer;
 
-    //Everything regarding networking should be controlled by the masterclient
+    //Everything regarding networking should be controlled by the MasterClient
     void Start()
     {
-        //this needs to be accessed by every player, not only the masterclient.
+        //this needs to be accessed by every player, not only the MasterClient.
         nma = GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;   
     }
@@ -31,9 +32,10 @@ public class NetworkedEnemyFollow : MonoBehaviour
     void Update()
     {
         //the MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
-        //you don't need MonoBehaviourPuncallbacks to access this PhotonNetwork.IsMasterClient.
+        //you don't need MonoBehaviourPunCallbacks to access this PhotonNetwork.IsMasterClient.
         if (PhotonNetwork.IsMasterClient)
         {      
+            print(nma.hasPath);
             if (!nma.hasPath && !flag)
             {
                 flag = true;
@@ -43,12 +45,12 @@ public class NetworkedEnemyFollow : MonoBehaviour
             findClosestPlayersTransform(); //sets distanceToClosestPlayer and target (target is the closest player)
 
             //If target is in the horror area and is in range to the enemy. go to the target player.
-            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component.s
-                if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) { 
+            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component.
+                if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) {  
                     nma.SetDestination(target.position);
                 } 
             }
-            //Debug.Log(target.position.z);
+            //  Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can do this to find the value of the beginning of the horror area.
 
         }
     }
