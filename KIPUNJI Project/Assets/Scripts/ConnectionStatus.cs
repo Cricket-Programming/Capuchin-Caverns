@@ -5,21 +5,24 @@ using TMPro;
 using Photon.Pun;
 
 //this script sets a tmp text to say whether the player is connected to a photon room or not connected to a photon room
-public class ConnectionStatus : MonoBehaviourPunCallbacks //MonoBehaviorPunCallbacks is a class in the PUN class that extends the MonoBehavior class
+public class ConnectionStatus : MonoBehaviour   
 {
     //you can also use TMP_Text it works the same.
     private TextMeshPro textObject;
     void Start()
     {
         textObject = GetComponent<TextMeshPro>();
+        Debug.Log("TextMeshPro Component: " + textObject);
     }
 
     void Update()
     {
+        //if (PhotonNetwork.CurrentRoom.Name != null) { Debug.Log(PhotonNetwork.CurrentRoom.Name); }
+        
         if (PhotonNetwork.IsConnected)
         {
             // Player is connected to a Photon server
-            textObject.text = "Connected to a Room";
+            textObject.text = "Connected to a room ";/// + PhotonNetwork.CurrentRoom.Name;
         }
         else
         {

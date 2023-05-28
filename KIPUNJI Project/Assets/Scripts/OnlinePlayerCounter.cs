@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class OnlinePlayerCounter : MonoBehaviour
 {
@@ -19,11 +18,10 @@ public class OnlinePlayerCounter : MonoBehaviour
         if (PhotonNetwork.IsConnected)
         {
             int playerCount = PhotonNetwork.CountOfPlayers;
-            playerCountText.text = "Online Players: " + playerCount.ToString();
+            playerCountText.text = playerCount.ToString();
         }
     }
 }
-
 
 /*
 using System.Collections;
