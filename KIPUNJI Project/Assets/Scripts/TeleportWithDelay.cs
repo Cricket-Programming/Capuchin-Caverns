@@ -65,11 +65,13 @@ public class TeleportWithDelay : MonoBehaviour
         // Deactivate the jumpscare objects
         jumpscareObjects.SetActive(false);
 
+        // Re-enable the Rigidbody's movement
+        gorillaRigidbody.isKinematic = false;
+        
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
 
-        // Re-enable the Rigidbody's movement
-        gorillaRigidbody.isKinematic = false;
+
 
         // Re-enable the map
         mapToDisable.SetActive(true);
