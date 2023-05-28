@@ -67,7 +67,7 @@ public class TeleportWithDelay : MonoBehaviour
 
         // Re-enable the Rigidbody's movement
         gorillaRigidbody.isKinematic = false;
-        
+        //yield retru
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
 
