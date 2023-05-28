@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonkeButton : MonoBehaviour
+public class buttonColorChanger : MonoBehaviour
 {   
     
     public Material buttonPressed;

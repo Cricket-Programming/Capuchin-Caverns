@@ -21,18 +21,25 @@ public class NetworkedEnemyFollow : MonoBehaviour
     private GameObject[] players; 
     private float distanceToClosestPlayer;
 
-    //Everything regarding networking should be controlled by the MasterClient
+    //Everything regarding networking should be controlled by the MasterClient.
     void Start()
     {
         //this needs to be accessed by every player, not only the MasterClient.
         nma = GetComponent<NavMeshAgent>();
-        bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;   
+
+        //this gets the bounds of the horror floor
+        if (GameObject.Find("Horror Floor1") == null) {
+            Debug.LogError("You typed in the name of the horror floor wrong");
+        } else {
+            bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;  
+        }
+         
     }
 
     void Update()
     {
         //the MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
-        //you don't need MonoBehaviourPunCallbacks to access this PhotonNetwork.IsMasterClient.
+        //you don't need MonoBehaviourPunCallbacks to access this anything from PhotonNetwork such as the PhotonNetwork.IsMasterClient.
         if (PhotonNetwork.IsMasterClient)
         {      
             //print(nma.hasPath);
@@ -40,7 +47,6 @@ public class NetworkedEnemyFollow : MonoBehaviour
             {
                 flag = true;
                 SetRandomDestination();
-                print("asdfadsf");
             
             }
 
