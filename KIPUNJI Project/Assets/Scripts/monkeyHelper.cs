@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,4 +14,4 @@ public class monkeyHelper : Editor
  
         UnityEngine.AI.NavMesh.RemoveAllNavMeshData();
     }
-}
+}*/

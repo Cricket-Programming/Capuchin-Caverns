@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class PlayerColliders : MonoBehaviour
+public class BodyColliders : MonoBehaviour
 { 
     public PhotonView PhotonView;
 
