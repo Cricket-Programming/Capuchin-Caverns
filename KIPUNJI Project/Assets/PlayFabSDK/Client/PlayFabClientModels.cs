@@ -1966,16 +1966,6 @@ namespace PlayFab.ClientModels
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
         /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeSteamFriends;
-        /// <summary>
         /// Maximum number of entries to retrieve. Default 10, maximum 100.
         /// </summary>
         public int? MaxResultsCount;
@@ -2039,16 +2029,6 @@ namespace PlayFab.ClientModels
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
         /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeSteamFriends;
-        /// <summary>
         /// Maximum number of entries to retrieve. Default 10, maximum 100.
         /// </summary>
         public int? MaxResultsCount;
@@ -2088,16 +2068,6 @@ namespace PlayFab.ClientModels
         /// comma-separated list of platforms.
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
-        /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", true)]
-        public bool? IncludeSteamFriends;
         /// <summary>
         /// If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         /// only the allowed client profile properties for the title may be requested. These allowed properties are configured in
@@ -4380,6 +4350,10 @@ namespace PlayFab.ClientModels
         /// (https://developers.google.com/identity/sign-in/android/offline-access) Google client API.
         /// </summary>
         public string ServerAuthCode;
+        /// <summary>
+        /// Optional boolean to opt out of setting the MPA email when creating a Google account, defaults to true.
+        /// </summary>
+        public bool? SetEmail;
         /// <summary>
         /// Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         /// title has been selected.
