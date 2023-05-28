@@ -42,6 +42,8 @@ public class TeleportWithDelay : MonoBehaviour
 
     IEnumerator Teleport() //and jumpscare
     {
+        //the issue with setting the maps to inactive is that while the jumpscare is happening, the agent is not moving. 
+        //If the player being jumpscared is the masterclient, the players won't see him being moved
         mapToDisable.SetActive(false);   
         
         gorillaPlayer.position = jumpscareLocation.position;
@@ -49,7 +51,7 @@ public class TeleportWithDelay : MonoBehaviour
         jumpscareObjects.SetActive(true);
         jumpscareSound.Play();
 
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime +12233);
 
         gorillaPlayer.position = respawnLocation.position;
         jumpscareObjects.SetActive(false);
@@ -66,67 +68,67 @@ public class TeleportWithDelay : MonoBehaviour
 
 
 
-/*
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//camelcase for variables, pascalcase for function names
 public class TeleportWithDelay : MonoBehaviour
 {
-    // Reference to the object to disable
     public GameObject mapToDisable;
 
-    // Reference to the object to teleport
-    public GameObject gorillaPlayer;
+    public Transform gorillaPlayer;
 
-    // Reference to the target object
-    public List<GameObject> targetObjects = new List<GameObject>();
+    //public List<GameObject> targetObjects;
+    public Transform jumpscareLocation;
+    public Transform respawnLocation;
 
-    // Time to wait before teleporting (in seconds)
-    public float waitTimeBeforeTeleport = .2f;
+    public float waitTime;
 
-    // Time to wait after teleporting (in seconds)
-    public float waitTimeAfterTeleport = .2f;
+    //jumpscareObjects are the objects 
+    public GameObject jumpscareObjects;
+    public AudioSource jumpscareSound;
+
+
+    void teleportIfFall()
+    {
+        if (gorillaPlayer.position.y < 15)
+        {
+            //Debug.Log("Teleporting");
+            StartCoroutine(Teleport());
+        }
+    }
 
     void Update() {
         teleportIfFall();
-
     }
-    void teleportIfFall()
-    {
-        if (gorillaPlayer.transform.position.y < 15)
-        {
-            mapToDisable.SetActive(false);
-            gorillaPlayer.transform.position = targetObjects[targetObjects.Count-1].transform.position;
-            Invoke("showObject", 0.2f);
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.IsChildOf(gorillaPlayer)) {
+           StartCoroutine(Teleport());  
         }
-    }
-    void showObject() {
-        mapToDisable.SetActive(true);
+            
     }
 
-
-    void OnTriggerEnter()
+    IEnumerator Teleport() //and jumpscare
     {
-        mapToDisable.SetActive(false);
+        mapToDisable.SetActive(false);   
+        
+        gorillaPlayer.position = jumpscareLocation.position;
 
-        // Wait for the specified time before teleporting
-        StartCoroutine(WaitAndTeleport(waitTimeBeforeTeleport));      
-    }
+        jumpscareObjects.SetActive(true);
+        jumpscareSound.Play();
 
-    IEnumerator WaitAndTeleport(float waitTime) //change this to IEnumerator
-    {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime +12233);
 
-        foreach (var obj in targetObjects) {
-            gorillaPlayer.transform.position = obj.transform.position;
-        }
-    
-        yield return new WaitForSeconds(waitTimeAfterTeleport);
+        gorillaPlayer.position = respawnLocation.position;
+        jumpscareObjects.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         mapToDisable.SetActive(true);
            
     }
+    //the jumpscare is NOT networked which is good (like 3rd person)
+
 
 }
 

@@ -35,11 +35,13 @@ public class NetworkedEnemyFollow : MonoBehaviour
         //you don't need MonoBehaviourPunCallbacks to access this PhotonNetwork.IsMasterClient.
         if (PhotonNetwork.IsMasterClient)
         {      
-            print(nma.hasPath);
+            //print(nma.hasPath);
             if (!nma.hasPath && !flag)
             {
                 flag = true;
                 SetRandomDestination();
+                print("asdfadsf");
+            
             }
 
             findClosestPlayersTransform(); //sets distanceToClosestPlayer and target (target is the closest player)
