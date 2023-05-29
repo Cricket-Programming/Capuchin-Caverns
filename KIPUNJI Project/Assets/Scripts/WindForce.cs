@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class WindForce : MonoBehaviour
 {
-    [Header("THIS SCRIPT WAS MADE BY SAMSAM. IT IS NOT YOURS.")]
-    [Header("Distributing This Script Will Lead To A Permanent Ban")]
+    [Header("Thanks Samsam for part of this script")]
 
-    [Header("Gorilla Player RigidBody")]
-    public Rigidbody GorillaPlayer;
+    // [Header("Gorilla Player RigidBody")]
+    // public Rigidbody GorillaPlayer;
 
     [Header("Default values are for regular launchpad trampoline")]
     public int XForce = 0;
     public int YForce = 35;
     public int ZForce = 0;
  
+    private Rigidbody GorillaPlayer;
+
+    void Start() {
+        if (GameObject.Find("GorillaPlayer") == null) { 
+            Debug.LogError("Make sure that the name of the gorilla player is `GorillaPlayer`");
+        }
+    }
     void OnTriggerEnter() 
     {
+        GorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
         GorillaPlayer.AddForce(new Vector3(XForce, YForce, ZForce), ForceMode.Impulse);
     }
 
