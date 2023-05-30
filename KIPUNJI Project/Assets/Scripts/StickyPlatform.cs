@@ -10,10 +10,13 @@ public class StickyPlatform : MonoBehaviour
         gorillaOrigin.SetParent(transform);
     }
     void OnTriggerEnter() {
-
+        gorillaOrigin.SetParent(transform);
     }
     void OnCollisionExit(Collision collision)
     {
+        gorillaOrigin.SetParent(null);
+    }
+    void OnTriggerExit() {
         gorillaOrigin.SetParent(null);
     }
 }
