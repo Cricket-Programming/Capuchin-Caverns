@@ -7,6 +7,8 @@ TagManager:
   - HandTag
   - WalkThrough
   - GorillaOrigin
+  - Body
+  - TrainTrackEnd
   layers:
   - Default
   - TransparentFX
