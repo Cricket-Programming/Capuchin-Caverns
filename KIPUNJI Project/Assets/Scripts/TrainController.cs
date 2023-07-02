@@ -10,7 +10,6 @@ public class TrainController : MonoBehaviour
 
     private int currentWaypointIndex = 0;
 
-
     private void Update()
     {
         if (waypoints.Length > 0)
@@ -21,18 +20,26 @@ public class TrainController : MonoBehaviour
 
     void MoveAlongTracks()
     {
-        Vector3 targetPosition = waypoints[currentWaypointIndex].position;
-        Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
-        
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+        if (waypoints[currentWaypointIndex] != null) {
+            Vector3 targetPosition = waypoints[currentWaypointIndex].position;
+            Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+            
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                IncrementWaypointIndex();
+            }
+                
+        }
+        else { //this means the space in the inspector is blandk missing a value or something.
+            IncrementWaypointIndex();
         }
     }
-
+    void IncrementWaypointIndex() {
+        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length; //0 1 2  0 1 2  0 1 2  0 1 2, this resets when currenWaypointIndex equals waypoints.Length
+    }
 }
 
 
