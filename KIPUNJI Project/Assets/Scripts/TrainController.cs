@@ -12,6 +12,7 @@ public class TrainController : MonoBehaviour
 
     private void Update()
     {
+        //if (PhotonNetwork.IsMasterClient) {}
         if (waypoints.Length > 0)
         {
             MoveAlongTracks();
