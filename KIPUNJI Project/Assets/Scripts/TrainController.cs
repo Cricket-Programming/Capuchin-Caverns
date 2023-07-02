@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class TrainController : MonoBehaviour
 {
-    //[SerializeField] Transform[] waypoints; //camelcase
-    private GameObject[] waypoints;
+    [SerializeField] Transform[] waypoints; //camelcase
     [SerializeField] float speed;
     [SerializeField] float rotationSpeed = 5f;
-    [Header("Set name of tag of all waypoint inside the code")]
+
     private int currentWaypointIndex = 0;
 
-    private void Start() {
-        waypoints = GameObject.FindGameObjectsWithTag("Train Track Waypoint");
-    }
+
     private void Update()
     {
         if (waypoints.Length > 0)
@@ -24,7 +21,7 @@ public class TrainController : MonoBehaviour
 
     void MoveAlongTracks()
     {
-        Vector3 targetPosition = waypoints[currentWaypointIndex].transform.position;
+        Vector3 targetPosition = waypoints[currentWaypointIndex].position;
         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
         
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -35,7 +32,51 @@ public class TrainController : MonoBehaviour
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
+
 }
+
+
+
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class TrainController : MonoBehaviour
+// {
+//     //[SerializeField] Transform[] waypoints; //camelcase
+//     private GameObject[] waypoints;
+//     [SerializeField] float speed;
+//     [SerializeField] float rotationSpeed = 5f;
+//     [Header("Set name of tag of all waypoint inside the code")]
+//     private int currentWaypointIndex = 0;
+
+//     private void Start() {
+//         waypoints = GameObject.FindGameObjectsWithTag("Train Track Waypoint");
+//     }
+//     private void Update()
+//     {
+//         if (waypoints.Length > 0)
+//         {
+//             MoveAlongTracks();
+//         }
+//     }
+
+//     void MoveAlongTracks()
+//     {
+//         Vector3 targetPosition = waypoints[currentWaypointIndex].transform.position;
+//         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+        
+//         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+//         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        
+//         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+//         {
+//             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+//         }
+//     }
+
+// }
 
 
 // using System.Collections;
