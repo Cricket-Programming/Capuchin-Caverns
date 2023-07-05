@@ -2888,7 +2888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20447046295299096}
   m_Layer: 0
-  m_Name: Curve 4.0
+  m_Name: Curved Rail 4.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
