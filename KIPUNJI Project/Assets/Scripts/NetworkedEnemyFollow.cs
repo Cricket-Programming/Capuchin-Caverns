@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.AI;
-using Photon.Pun;
+using Photon.Pun; //the stuff of this are all pascalcase. Ex: PhotonNetwork
 //networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s
 //This script currently makes Fluffy work only when connected to multiplayer. 
 //this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ
@@ -41,7 +41,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
     {
         //the MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
         //you don't need MonoBehaviourPunCallbacks to access this anything from PhotonNetwork such as the PhotonNetwork.IsMasterClient.
-        if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected) //The !PhotonNetwork.IsConnected part makes it so that Fluffy moves when the player is not connected to multiplayer.      
+        if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected) { //The !PhotonNetwork.IsConnected part makes it so that Fluffy moves when the player is not connected to multiplayer.      
             //print(nma.hasPath);
             if (!nma.hasPath && !flag)
             {
