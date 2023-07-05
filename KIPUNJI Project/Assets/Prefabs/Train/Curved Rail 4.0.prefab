@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1697262534978801439}
   m_Layer: 0
-  m_Name: Waypoints Curve
+  m_Name: Waypoints Curve 1
   m_TagString: Train Track Waypoint
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535911845840359572}
-  m_LocalRotation: {x: -0, y: 0.026848553, z: -0, w: -0.9996396}
-  m_LocalPosition: {x: 0.71716815, y: 0.5, z: -0.1645038}
+  m_LocalRotation: {x: -0, y: 0.7258367, z: -0, w: -0.6878671}
+  m_LocalPosition: {x: -0.8594874, y: 0.5, z: 0.898932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -745,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6790915570239999864}
   m_Layer: 0
-  m_Name: Waypoints Curve
+  m_Name: Waypoints Curve 3
   m_TagString: Train Track Waypoint
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -758,8 +758,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2285357536629475280}
-  m_LocalRotation: {x: -0, y: 0.7258367, z: -0, w: -0.6878671}
-  m_LocalPosition: {x: -0.8594874, y: 0.5, z: 0.898932}
+  m_LocalRotation: {x: -0, y: 0.026848553, z: -0, w: -0.9996396}
+  m_LocalPosition: {x: 0.71716815, y: 0.5, z: -0.1645038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2919,9 +2919,41 @@ Transform:
   - {fileID: 1697262534978801439}
   - {fileID: 939723268385212381}
   - {fileID: 6790915570239999864}
+  - {fileID: 8707477077989232326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 363.077, z: 0}
+--- !u!1 &7382942760915950249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8707477077989232326}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8707477077989232326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382942760915950249}
+  m_LocalRotation: {x: -0, y: 0.7258367, z: -0, w: -0.6878671}
+  m_LocalPosition: {x: -0.8594874, y: 0.5, z: 0.898932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 20447046295299096}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8197357903157934544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,7 +3668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939723268385212381}
   m_Layer: 0
-  m_Name: Waypoints Curve
+  m_Name: Waypoints Curve 2
   m_TagString: Train Track Waypoint
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
