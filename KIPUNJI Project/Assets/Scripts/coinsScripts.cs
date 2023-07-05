@@ -31,7 +31,7 @@ public class coinsScripts : MonoBehaviour
             print("Currency = " + coins);
             PlayerPrefs.SetInt("coin", 1);
         }
-        print("" + PlayerPrefs.GetString("a"));
+        //print("" + PlayerPrefs.GetString("a"));
     }
 
     public void Update()

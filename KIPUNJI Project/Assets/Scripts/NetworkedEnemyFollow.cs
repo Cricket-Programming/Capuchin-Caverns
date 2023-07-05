@@ -4,8 +4,8 @@ using UnityEngine;
 
 using UnityEngine.AI;
 using Photon.Pun; //the stuff of this are all pascalcase. Ex: PhotonNetwork
+
 //networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s
-//This script currently makes Fluffy work only when connected to multiplayer. 
 //this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ
 public class NetworkedEnemyFollow : MonoBehaviour 
 {
@@ -65,7 +65,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
     //sets target to closest player transform position, sets distanceToClosestPlayer to distance to closest player.
     void findClosestPlayersTransform() {
         distanceToClosestPlayer = Mathf.Infinity;
-        players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 players in the room, then the length of this array will be 3.
+        players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 players in the room, then the length of this array will be 3. The reason I put this on the head instead of the parent is because the parent always stays at Vector3(0, 0 ,0)
         foreach (GameObject p in players)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, p.transform.position);

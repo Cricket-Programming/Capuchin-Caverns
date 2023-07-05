@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Photon.Pun;
 
+//this script needs to be on the same gameobject as the one with the photonview and PhotonTransformView.
 public class TrainController : MonoBehaviour
 {
     [SerializeField] Transform[] waypoints; //[SerializeField] is a decorator just like [PunRPC]
@@ -23,7 +24,7 @@ public class TrainController : MonoBehaviour
 
     }
 
-    private  void MoveAlongTracks()
+    private void MoveAlongTracks()
     {
         if (waypoints[currentWaypointIndex] != null) {
             Vector3 targetPosition = waypoints[currentWaypointIndex].position;
