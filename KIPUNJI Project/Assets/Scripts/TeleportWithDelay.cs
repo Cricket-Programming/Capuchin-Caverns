@@ -14,10 +14,9 @@ public class TeleportWithDelay : MonoBehaviour
 
     public float jumpscareRunningTime;
 
-    //jumpscareObjects are the objects 
+    //jumpscareObjects are the things like the box that shows around the player
     public GameObject jumpscareObjects;
     public AudioSource jumpscareSound;
-
 
     void teleportIfFall()
     {
