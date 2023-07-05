@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Photon.Pun;
+
 public class TrainController : MonoBehaviour
 {
     [SerializeField] Transform[] waypoints; //camelcase
@@ -12,11 +14,13 @@ public class TrainController : MonoBehaviour
 
     private void Update()
     {
-        //if (PhotonNetwork.IsMasterClient) {}
-        if (waypoints.Length > 0)
-        {
-            MoveAlongTracks();
+        if (PhotonNetwork.IsMasterClient || PhotonNetwork.IsConnected == false) {
+            if (waypoints.Length > 0)
+            {
+                MoveAlongTracks();
+            }
         }
+
     }
 
     void MoveAlongTracks()
@@ -38,7 +42,7 @@ public class TrainController : MonoBehaviour
             IncrementWaypointIndex();
         }
     }
-    void IncrementWaypointIndex() {
+    private void IncrementWaypointIndex() {
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length; //0 1 2  0 1 2  0 1 2  0 1 2, this resets when currenWaypointIndex equals waypoints.Length
     }
 }

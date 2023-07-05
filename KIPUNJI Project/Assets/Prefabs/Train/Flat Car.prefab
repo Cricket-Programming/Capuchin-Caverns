@@ -7850,7 +7850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7510876565608365775}
   m_Layer: 0
-  m_Name: FlatCar2
+  m_Name: Flat Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
