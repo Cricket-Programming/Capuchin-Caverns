@@ -14,17 +14,20 @@ public class WindForce : MonoBehaviour
     public int YForce = 35;
     public int ZForce = 0;
  
-    private Rigidbody GorillaPlayer;
+    private Rigidbody gorillaPlayer;
 
     void Start() {
         if (GameObject.Find("GorillaPlayer") == null) { 
             Debug.LogError("Make sure that the name of the gorilla player is `GorillaPlayer`");
         }
+        else {
+            gorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
+        }
     }
     void OnTriggerEnter() 
     {
-        GorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
-        GorillaPlayer.AddForce(new Vector3(XForce, YForce, ZForce), ForceMode.Impulse);
+        //gorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
+        gorillaPlayer.AddForce(new Vector3(XForce, YForce, ZForce), ForceMode.Impulse);
     }
 
 }
