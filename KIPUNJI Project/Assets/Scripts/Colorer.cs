@@ -10,6 +10,7 @@ public class Colorer : MonoBehaviour
     [SerializeField] private Color customColor;
     
     private Color setColor;
+
     private void Start() {
         if (useCustomColor) {
             setColor = customColor;
@@ -18,10 +19,8 @@ public class Colorer : MonoBehaviour
             setColor = GetComponent<MeshRenderer>().material.color;
         }
     }
+    
     void OnTriggerEnter() {
         PhotonVRManager.SetColour(setColor);
-
-    }
-
-        
+    }  
 }
