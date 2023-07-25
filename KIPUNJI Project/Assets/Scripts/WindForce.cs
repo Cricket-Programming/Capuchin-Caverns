@@ -11,7 +11,7 @@ public class WindForce : MonoBehaviour
 
     [Header("Default values are for regular launchpad trampoline")]
     public int XForce = 0;
-    public int YForce = 35;
+    public int YForce = 30;
     public int ZForce = 0;
  
     private Rigidbody gorillaPlayer;
