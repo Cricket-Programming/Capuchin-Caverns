@@ -44,7 +44,9 @@ public class TeleportWithDelay : MonoBehaviour
         // Stop the player's movement
         gorillaPlayerRigidbody.isKinematic = true;
 
+        //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
         yield return new WaitForSeconds(0.02f);
+
         // Teleport the player to the jumpscare location
         gorillaPlayer.position = jumpscareLocation.position;
 
