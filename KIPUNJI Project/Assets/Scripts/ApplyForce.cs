@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindForce : MonoBehaviour
+public class ApplyForce : MonoBehaviour
 {
     [Header("Thanks Samsam for part of this script")]
 

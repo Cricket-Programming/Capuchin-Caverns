@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//camelcase for variables, pascalcase for function names
+
 public class TeleportWithDelay : MonoBehaviour
 {
     public GameObject mapToDisable;
 
     public Transform gorillaPlayer;
 
-    //public List<GameObject> targetObjects;
     public Transform jumpscareLocation;
     public Transform respawnLocation;
 
@@ -18,25 +17,13 @@ public class TeleportWithDelay : MonoBehaviour
     public GameObject jumpscareObjects;
     public AudioSource jumpscareSound;
 
-    void teleportIfFall()
-    {
-        if (gorillaPlayer.position.y < 15)
-        {
-            //Debug.Log("Teleporting");
-            StartCoroutine(Teleport());
-        }
-    }
-
-    void Update() {
-        teleportIfFall();      
-    }
 
     void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Teleport());
         if (other.transform.IsChildOf(gorillaPlayer)) {
            
-        }
+        }   
             
     }
 
@@ -66,11 +53,9 @@ public class TeleportWithDelay : MonoBehaviour
 
         // Re-enable the Rigidbody's movement
         gorillaRigidbody.isKinematic = false;
-        //yield retru
+
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
-
-
 
         // Re-enable the map
         mapToDisable.SetActive(true);
@@ -79,106 +64,21 @@ public class TeleportWithDelay : MonoBehaviour
     //the jumpscare is NOT networked which is good (like 3rd person)
 
 }
+
+
 /*
+    //This code teleports the player back if he falls out of the map. Keep this code in case need to implement this in the future. 
+    //Bug: If non-horror maps blocking path to respawn location, this will fail.
+    // void teleportIfFall()
+    // {
+    //     if (gorillaPlayer.position.y < 15)
+    //     {
+    //         //Debug.Log("Teleporting");
+    //         StartCoroutine(Teleport());
+    //     }
+    // }
 
-    IEnumerator Teleport() //and jumpscare
-    {
-        //when the map is disabled and the player is the masterclient, Fluffy won't move around the navmesh anymore since it is disabled.
-        //By having a wait of 0.01 seconds, the player can get to the jumpscare location, but other players will only see Fluffy stop moving for 0.01 seconds
-        mapToDisable.SetActive(false);   
-
-        gorillaPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(0.01f);
-        gorillaPlayer.position = jumpscareLocation.position;
-        //gorillaPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        jumpscareObjects.SetActive(true);
-        jumpscareSound.Play();
-        //yield return new WaitForSeconds(0.01f);
-        mapToDisable.SetActive(true);
-        //gorillaPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-        yield return new WaitForSeconds(jumpscareRunningTime); //This is the time that I allow the jumpscare to run
-
-        gorillaPlayer.position = respawnLocation.position;
-        jumpscareObjects.SetActive(false);
-        
-
-           
-    }
-
-
-
-
-
-
-
-
-
-
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-//camelcase for variables, pascalcase for function names
-public class TeleportWithDelay : MonoBehaviour
-{
-    public GameObject mapToDisable;
-
-    public Transform gorillaPlayer;
-
-    //public List<GameObject> targetObjects;
-    public Transform jumpscareLocation;
-    public Transform respawnLocation;
-
-    public float jumpscareRunningTime;
-
-    //jumpscareObjects are the objects 
-    public GameObject jumpscareObjects;
-    public AudioSource jumpscareSound;
-
-
-    void teleportIfFall()
-    {
-        if (gorillaPlayer.position.y < 15)
-        {
-            //Debug.Log("Teleporting");
-            StartCoroutine(Teleport());
-        }
-    }
-
-    void Update() {
-        teleportIfFall();
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.IsChildOf(gorillaPlayer)) {
-           StartCoroutine(Teleport());  
-        }
-            
-    }
-
-    IEnumerator Teleport() //and jumpscare
-    {
-        mapToDisable.SetActive(false);   
-        
-        gorillaPlayer.position = jumpscareLocation.position;
-
-        jumpscareObjects.SetActive(true);
-        jumpscareSound.Play();
-
-        yield return new WaitForSeconds(jumpscareRunningTime +12233);
-
-        gorillaPlayer.position = respawnLocation.position;
-        jumpscareObjects.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
-        mapToDisable.SetActive(true);
-           
-    }
-    //the jumpscare is NOT networked which is good (like 3rd person)
-
-
-}
-
-
+    // void Update() {
+    //     teleportIfFall();      
+    // }
 */
