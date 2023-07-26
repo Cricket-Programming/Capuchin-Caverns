@@ -7,6 +7,7 @@ public class TeleportWithDelay : MonoBehaviour
     public GameObject mapToDisable;
 
     public Transform gorillaPlayer;
+    private Rigidbody gorillaPlayerRigidbody;
 
     public Transform jumpscareLocation;
     public Transform respawnLocation;
@@ -17,8 +18,14 @@ public class TeleportWithDelay : MonoBehaviour
     public GameObject jumpscareObjects;
     public AudioSource jumpscareSound;
 
-
-    void OnTriggerEnter(Collider other)
+    private void Start() {
+        //gets the gorillaPlayer's Rigidbody.
+        if (!gorillaPlayer.TryGetComponent(out gorillaPlayerRigidbody)) {
+            Debug.LogError("TeleportWithDelay Cannot Access the GorillaPlayer's Rigidbody.");
+        }
+        
+    }
+    private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Teleport());
         if (other.transform.IsChildOf(gorillaPlayer)) {
@@ -35,9 +42,9 @@ public class TeleportWithDelay : MonoBehaviour
         mapToDisable.SetActive(false);
 
         // Stop the player's movement
-        Rigidbody gorillaRigidbody = gorillaPlayer.GetComponent<Rigidbody>();
-        gorillaRigidbody.isKinematic = true;
+        gorillaPlayerRigidbody.isKinematic = true;
 
+        yield return new WaitForSeconds(0.02f);
         // Teleport the player to the jumpscare location
         gorillaPlayer.position = jumpscareLocation.position;
 
@@ -52,7 +59,7 @@ public class TeleportWithDelay : MonoBehaviour
         jumpscareObjects.SetActive(false);
 
         // Re-enable the Rigidbody's movement
-        gorillaRigidbody.isKinematic = false;
+        gorillaPlayerRigidbody.isKinematic = false;
 
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
