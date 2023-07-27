@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OBJECT BASED SCRIPT WORKING
-//put this script along with an audioSource component on the gameobject you want to have hitsounds on. Put the audio sound you want to play in the audiosource component
+//How to add hitsounds:
+// add audiosource
+// uncheck play on awake 
+// put hit sound into the Audio Source component's AudioClip.
+// add hitsounds script
+
 [RequireComponent(typeof(AudioSource))]
 public class HitSounds : MonoBehaviour
 {   
