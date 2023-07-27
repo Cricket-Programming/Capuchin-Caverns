@@ -25,6 +25,7 @@ public class TeleportWithDelay : MonoBehaviour
         }
         
     }
+
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Teleport());
@@ -44,6 +45,8 @@ public class TeleportWithDelay : MonoBehaviour
         // Stop the player's movement
         gorillaPlayerRigidbody.isKinematic = true;
 
+        jumpscareSound.Play();
+
         //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
         yield return new WaitForSeconds(0.02f);
 
@@ -52,7 +55,7 @@ public class TeleportWithDelay : MonoBehaviour
 
         // Activate the jumpscare objects and play the jumpscare sound
         jumpscareObjects.SetActive(true);
-        jumpscareSound.Play();
+
 
         // Wait for the jumpscare running time
         yield return new WaitForSeconds(jumpscareRunningTime);
