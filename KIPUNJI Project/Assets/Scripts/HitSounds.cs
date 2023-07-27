@@ -13,7 +13,7 @@ public class HitSounds : MonoBehaviour
         hitSound = GetComponent<AudioSource>();
     }
 
-    //onCollisonEnter() gets called when the gorilla player touches the ground with his body.
+    // onCollisonEnter() gets called when the gorilla player touches the ground with his body.
     void OnCollisionEnter() 
     {
         hitSound.Play();

@@ -53,7 +53,7 @@ public class TeleportWithDelay : MonoBehaviour
         // Teleport the player to the jumpscare location
         gorillaPlayer.position = jumpscareLocation.position;
 
-        // Activate the jumpscare objects and play the jumpscare sound
+        // Activate the jumpscare objects
         jumpscareObjects.SetActive(true);
 
 

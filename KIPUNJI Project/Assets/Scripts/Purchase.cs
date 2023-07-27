@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Purchase : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject enable;
     public GameObject disable;
     public string CosmeticName;
