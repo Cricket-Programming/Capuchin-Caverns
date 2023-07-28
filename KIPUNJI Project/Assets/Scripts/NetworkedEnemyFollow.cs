@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun; //the stuff of this are all pascalcase. Ex: PhotonNetwork
 
-//networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s
-//this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ
+//networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s.
+//this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ.
+//credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
 public class NetworkedEnemyFollow : MonoBehaviour 
 {
-    //credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
+    
     [Header("Set the speed of Fluffy in the NavMeshAgent component.")]
     public float detectRange = 10f;
     private NavMeshAgent nma = null; //nma stands for navMeshAgent

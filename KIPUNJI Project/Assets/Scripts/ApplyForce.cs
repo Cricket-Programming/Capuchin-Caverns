@@ -10,24 +10,21 @@ public class ApplyForce : MonoBehaviour
     // public Rigidbody GorillaPlayer;
 
     [Header("Default values are for regular launchpad trampoline")]
-    public int XForce = 0;
-    public int YForce = 30;
-    public int ZForce = 0;
+    [SerializeField] private Vector3 forcesXYZ = new Vector3(0, 30, 0);
  
-    private Rigidbody gorillaPlayer;
+    private Rigidbody gorillaPlayerRigidbody;
 
-    void Start() {
-        if (GameObject.Find("GorillaPlayer") == null) { 
-            Debug.LogError("Make sure that the name of the gorilla player is `GorillaPlayer`");
+    private void Start() {
+        GameObject gorillaPlayer = GameObject.Find("GorillaPlayer");
+        if (gorillaPlayer == null) { 
+            Debug.LogError("In order to access the rigidbody, make sure the name of the gorilla player is `GorillaPlayer`");
         }
         else {
-            gorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
+            gorillaPlayerRigidbody = gorillaPlayer.GetComponent<Rigidbody>();
         }
     }
-    void OnTriggerEnter() 
-    {
-        //gorillaPlayer = GameObject.Find("GorillaPlayer").GetComponent<Rigidbody>();
-        gorillaPlayer.AddForce(new Vector3(XForce, YForce, ZForce), ForceMode.Impulse);
+    private void OnTriggerEnter() {
+        gorillaPlayerRigidbody.AddForce(forcesXYZ, ForceMode.Impulse);
     }
 
 }

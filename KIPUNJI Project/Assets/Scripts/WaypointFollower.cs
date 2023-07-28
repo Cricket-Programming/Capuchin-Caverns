@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class WaypointFollower : MonoBehaviour
 {
-    [SerializeField] GameObject[] waypoints;
-    int currentWaypointIndex = 0;
-    [SerializeField] float speed = 1f;
-    [SerializeField] float waitTime = 2f; // Delay time at each waypoint
-    float timer = 0f; // Timer for tracking the delay
+    [SerializeField] private GameObject[] waypoints;
 
-    void Update()
-    {
-        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].transform.position) < .1f) //this means the elevator reaches the waypoint
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float waitTime = 2f; // Delay time at each waypoint
+
+    private int currentWaypointIndex = 0;
+    private float timer = 0f; // Timer for tracking the delay
+
+    private void Start() {
+        if (waypoints == null || waypoints.Length == 0) {
+            for (int i = 0; i < 1000; i++) {
+                Debug.LogWarning("No waypoints assigned to WaypointFollower script.");
+            }
+            
+        }
+    }
+    private void Update()
+    {               
+        Vector3 waypointPosition = waypoints[currentWaypointIndex].transform.position; // example of a local variable.
+        if (Vector3.Distance(transform.position, waypointPosition) < 0.1f) //this means the elevator reaches the waypoint
         {
             // Stop and wait at the current waypoint
             timer += Time.deltaTime;
@@ -27,7 +38,7 @@ public class WaypointFollower : MonoBehaviour
             }
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, waypointPosition, speed * Time.deltaTime);
 
     }
 }

@@ -21,7 +21,7 @@ public class TeleportWithDelay : MonoBehaviour
     private void Start() {
         //gets the gorillaPlayer's Rigidbody.
         if (!gorillaPlayer.TryGetComponent(out gorillaPlayerRigidbody)) {
-            Debug.LogError("TeleportWithDelay Cannot Access the GorillaPlayer's Rigidbody.");
+            Debug.LogError("In order to access the rigidbody, make sure the name of the gorilla player is `GorillaPlayer`");
         }
         
     }
@@ -29,14 +29,14 @@ public class TeleportWithDelay : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Teleport());
-        if (other.transform.IsChildOf(gorillaPlayer)) {
+        // if (other.transform.IsChildOf(gorillaPlayer)) {
            
-        }   
+        // }   
             
     }
 
-        //when the map is disabled and the player is the masterclient, Fluffy won't move around the navmesh anymore since it is disabled.
-        //By having a wait of 0.01 seconds, the player can get to the jumpscare location, but other players will only see Fluffy stop moving for 0.01 seconds
+        // when the map is disabled and the player is the masterclient, Fluffy won't move around the navmesh anymore since it is disabled.
+        // By having a wait of 0.01 seconds, the player can get to the jumpscare location, but other players will only see Fluffy stop moving for 0.01 seconds
     IEnumerator Teleport()
     {
         // Disable the map temporarily
