@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.VR;
 using TMPro;
+
 public class NameScript : MonoBehaviour
 {
     public string NameVar;
