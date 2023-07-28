@@ -3137,8 +3137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: C
+  letter: 
 --- !u!114 &7420599633448367028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3726,8 +3725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: J
+  letter: 
 --- !u!114 &8139598355321209612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3973,8 +3971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: N
+  letter: 
 --- !u!114 &3611345459304951748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4220,8 +4217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: Z
+  letter: 
 --- !u!114 &7026713427747917272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4980,8 +4976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: H
+  letter: 
 --- !u!114 &6737340664098336902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,8 +5222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: B
+  letter: 
 --- !u!114 &6121853709866032578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6193,8 +6187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: F
+  letter: 
 --- !u!114 &3716422273651144930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6611,8 +6604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: D
+  letter: 
 --- !u!114 &689399959536953249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7029,8 +7021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: A
+  letter: 
 --- !u!114 &4483606456230303664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7460,8 +7451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: U
+  letter: 
 --- !u!114 &5254788521432069815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7707,8 +7697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: P
+  letter: 
 --- !u!114 &4654830293217470949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7954,8 +7943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: L
+  letter: 
 --- !u!114 &2502936097986141798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8747,8 +8735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: Y
+  letter: 
 --- !u!114 &3559901965816420782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8994,8 +8981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: R
+  letter: 
 --- !u!114 &6413587925151077816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9412,8 +9398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: X
+  letter: 
 --- !u!114 &1908985961711065945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9659,8 +9644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: V
+  letter: 
 --- !u!114 &4556976496339392238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11051,8 +11035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: G
+  letter: 
 --- !u!114 &3521487155183934165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11469,8 +11452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: S
+  letter: 
 --- !u!114 &8055486026285684293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11716,8 +11698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: E
+  letter: 
 --- !u!114 &7834454114693989490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12134,8 +12115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: I
+  letter: 
 --- !u!114 &1177654156779105946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12381,8 +12361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: Q
+  letter: 
 --- !u!114 &2074367219217314699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13312,8 +13291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: M
+  letter: 
 --- !u!114 &5366342433860341373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13559,8 +13537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: W
+  letter: 
 --- !u!114 &7804099023515569670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13977,8 +13954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: T
+  letter: 
 --- !u!114 &2708347834057465246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14395,8 +14371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: O
+  letter: 
 --- !u!114 &4417086891440582354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14642,8 +14617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: K
+  letter: 
 --- !u!114 &670622608128510072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18540,8 +18514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameScript: {fileID: 5501330239906838933}
-  Handtag: HandTag
-  Letter: ' '
+  letter: ' '
 --- !u!1 &8489695766776929618
 GameObject:
   m_ObjectHideFlags: 0

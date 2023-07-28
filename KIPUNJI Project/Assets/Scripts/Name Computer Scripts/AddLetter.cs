@@ -5,12 +5,12 @@ using UnityEngine;
 public class AddLetter : MonoBehaviour
 {
     public NameScript nameScript;
-    public string handTag;
     public string letter;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == handTag) 
+        //HandTag is on Left and Right hand controllers.
+        if (other.transform.tag == "HandTag") 
         {
             nameScript.NameVar += letter;
         }
