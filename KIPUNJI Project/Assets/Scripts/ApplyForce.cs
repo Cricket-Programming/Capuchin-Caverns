@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ApplyForce : MonoBehaviour
 {
+    //Sideways Trampoline Force: Vector3(16.1000004,2,23.5499992)
+    //Note: Small trampolines may not pick up rigidbody collision when the collider is not big/tall enough.
     [Header("Thanks Samsam for part of this script")]
-
-    // [Header("Gorilla Player RigidBody")]
-    // public Rigidbody GorillaPlayer;
-
     [Header("Default values are for regular launchpad trampoline")]
     [SerializeField] private Vector3 forcesXYZ = new Vector3(0, 30, 0);
  
