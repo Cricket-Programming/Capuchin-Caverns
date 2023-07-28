@@ -1632,8 +1632,8 @@ Transform:
   m_GameObject: {fileID: 5550819733793230860}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00052678, y: -0.044785, z: -0.0003021}
+  m_LocalScale: {x: 0.96048796, y: 0.96048796, z: 0.96048796}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7815435375531854782}
@@ -2456,8 +2456,8 @@ Transform:
   m_GameObject: {fileID: 9136088697401770677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0354, y: 1.0354, z: 1.0354}
+  m_LocalPosition: {x: 0.0028486, y: -0.0082143, z: 0.0016331}
+  m_LocalScale: {x: 1.2564136, y: 1.2564136, z: 1.2564136}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1001497101044623100}
@@ -2634,7 +2634,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 67aca31b40801f1418f672e25d5d4f2b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 376e8304d3bd2e947906443968917890, type: 2}
+      objectReference: {fileID: 2100000, guid: 411075764774dcc4ea2cdb49eaee0167, type: 2}
     - target: {fileID: 919132149155446097, guid: 67aca31b40801f1418f672e25d5d4f2b, type: 3}
       propertyPath: m_Name
       value: VRHand Right
@@ -3069,7 +3069,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 67aca31b40801f1418f672e25d5d4f2b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 376e8304d3bd2e947906443968917890, type: 2}
+      objectReference: {fileID: 2100000, guid: 411075764774dcc4ea2cdb49eaee0167, type: 2}
     - target: {fileID: 919132149155446097, guid: 67aca31b40801f1418f672e25d5d4f2b, type: 3}
       propertyPath: m_Name
       value: VRHand Left
