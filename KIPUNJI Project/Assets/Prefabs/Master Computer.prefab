@@ -2149,16 +2149,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4526184664279296102}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.381}
-  m_LocalScale: {x: 0.03247355, y: 0.03247355, z: 0.03247355}
+  m_LocalPosition: {x: 0, y: 0, z: 0.134}
+  m_LocalScale: {x: 0.03689128, y: 0.03689128, z: 0.03689128}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7363710898161261304}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.354}
-  m_SizeDelta: {x: 39.1598, y: 4.5491}
+  m_AnchoredPosition: {x: -0.14, y: 0.33538}
+  m_SizeDelta: {x: 23.0903, y: 3.5081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1581581418795802155
 MeshRenderer:
@@ -2222,7 +2222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coming soon!
+  m_text: discord.gg/yXnJ3gK7Du
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2249,8 +2249,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3136,8 +3136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &7420599633448367028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,8 +3725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &8139598355321209612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,8 +3972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &3611345459304951748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4216,8 +4219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &7026713427747917272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4975,8 +4979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &6737340664098336902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5221,8 +5226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &6121853709866032578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6186,8 +6192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &3716422273651144930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6603,8 +6610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &689399959536953249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7020,8 +7028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &4483606456230303664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7450,8 +7459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &5254788521432069815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7696,8 +7706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &4654830293217470949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7942,8 +7953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &2502936097986141798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8734,8 +8746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &3559901965816420782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8980,8 +8993,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &6413587925151077816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9397,8 +9411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &1908985961711065945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9643,8 +9658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &4556976496339392238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10789,7 +10805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameScript: {fileID: 5501330239906838933}
-  HandTag: HandTag
 --- !u!114 &3202708397927013592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11034,8 +11049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &3521487155183934165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11451,8 +11467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &8055486026285684293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11697,8 +11714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &7834454114693989490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12114,8 +12132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &1177654156779105946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12360,8 +12379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &2074367219217314699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13290,8 +13310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &5366342433860341373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13536,8 +13557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &7804099023515569670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13953,8 +13975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &2708347834057465246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14370,8 +14393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &4417086891440582354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14616,8 +14640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: 
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 1
+  Letter: 
 --- !u!114 &670622608128510072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17027,7 +17052,7 @@ GameObject:
   - component: {fileID: 1768683599880793091}
   - component: {fileID: 5216271438161910454}
   m_Layer: 0
-  m_Name: Backspace Text
+  m_Name: Space Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17041,7 +17066,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6786925903802790492}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2541}
+  m_LocalPosition: {x: 0, y: 0, z: -0.288}
   m_LocalScale: {x: 0.065661706, y: 0.19032806, z: 0.13872309}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17049,7 +17074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.064916, y: 0.513}
+  m_AnchoredPosition: {x: -0.06, y: 0.513}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1768683599880793091
@@ -18286,7 +18311,7 @@ GameObject:
   - component: {fileID: 2470432463948774248}
   - component: {fileID: 4541272132137014607}
   m_Layer: 0
-  m_Name: Backspace (1)
+  m_Name: Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18513,8 +18538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bdb7e0d2d9b34aa378e3d142a21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScript: {fileID: 5501330239906838933}
-  letter: ' '
+  NameScript: {fileID: 5501330239906838933}
+  overrideLetterWithGameObjectName: 0
+  Letter: ' '
 --- !u!1 &8489695766776929618
 GameObject:
   m_ObjectHideFlags: 0
@@ -18745,7 +18771,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865185502953630570}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.381}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2072}
   m_LocalScale: {x: 0.03247355, y: 0.03247355, z: 0.03247355}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18753,8 +18779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.191}
-  m_SizeDelta: {x: 39.1598, y: 4.5491}
+  m_AnchoredPosition: {x: -0.14, y: 0.1891}
+  m_SizeDelta: {x: 28.4541, y: 4.435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &558825014079805130
 MeshRenderer:
@@ -18818,7 +18844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coming soon!
+  m_text: sites.google.com/view/capuchincaverns/home
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18845,8 +18871,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

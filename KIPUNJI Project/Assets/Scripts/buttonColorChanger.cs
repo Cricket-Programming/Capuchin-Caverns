@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class buttonColorChanger : MonoBehaviour
 {   
-    
     public Material buttonPressed;
     public Material buttonUnPressed;
-    //the sound of this button is on a hitsounds script
+    //the sound of this button is on a hitsounds script.
 
-    void OnTriggerEnter(Collider other)
-    {
-        
+    void OnTriggerEnter(Collider other) {    
         this.GetComponent<Renderer>().material = buttonPressed;
-
     }
 
-    void OnTriggerExit()
-    {
+    void OnTriggerExit() {
         this.GetComponent<Renderer>().material = buttonUnPressed;
-
     }
 }
