@@ -16,12 +16,10 @@ public class PlayFabLogin : MonoBehaviour
     void Start()
     {
         Login();
-        StartCoroutine(Text());
+        Invoke("Text", 1f);
 
     }
-    IEnumerator Text()
-    {
-        yield return new WaitForSeconds(1);
+    private void Text() {
         idText.text = MyPlayFabID;
     }
 

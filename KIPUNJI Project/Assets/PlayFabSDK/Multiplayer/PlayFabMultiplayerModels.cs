@@ -107,6 +107,7 @@ namespace PlayFab.MultiplayerModels
         Fsv2,
         Dasv4,
         Dav4,
+        Dadsv5,
         Eav4,
         Easv4,
         Ev4,
@@ -155,6 +156,10 @@ namespace PlayFab.MultiplayerModels
         Standard_D4a_v4,
         Standard_D8a_v4,
         Standard_D16a_v4,
+        Standard_D2ads_v5,
+        Standard_D4ads_v5,
+        Standard_D8ads_v5,
+        Standard_D16ads_v5,
         Standard_E2a_v4,
         Standard_E4a_v4,
         Standard_E8a_v4,
@@ -640,12 +645,6 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public ServerResourceConstraintParams ServerResourceConstraints;
         /// <summary>
-        /// DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        /// written first to disc.
-        /// </summary>
-        [Obsolete("Use '' instead", false)]
-        public bool? UseStreamingForAssetDownloads;
-        /// <summary>
         /// The VM size to create the build on.
         /// </summary>
         public AzureVmSize? VmSize;
@@ -815,12 +814,6 @@ namespace PlayFab.MultiplayerModels
         /// The command to run when the multiplayer server is started, including any arguments.
         /// </summary>
         public string StartMultiplayerServerCommand;
-        /// <summary>
-        /// DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        /// written first to disc.
-        /// </summary>
-        [Obsolete("Use '' instead", false)]
-        public bool? UseStreamingForAssetDownloads;
         /// <summary>
         /// The VM size to create the build on.
         /// </summary>
@@ -999,12 +992,6 @@ namespace PlayFab.MultiplayerModels
         /// relative to the root asset folder when unzipped.
         /// </summary>
         public string StartMultiplayerServerCommand;
-        /// <summary>
-        /// DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        /// written first to disc.
-        /// </summary>
-        [Obsolete("Use '' instead", false)]
-        public bool? UseStreamingForAssetDownloads;
         /// <summary>
         /// The VM size to create the build on.
         /// </summary>
@@ -2345,7 +2332,7 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public string FQDN;
         /// <summary>
-        /// The IPv4 address of the virtual machine that is hosting this multiplayer server.
+        /// The public IPv4 address of the virtual machine that is hosting this multiplayer server.
         /// </summary>
         public string IPV4Address;
         /// <summary>
@@ -2356,6 +2343,10 @@ namespace PlayFab.MultiplayerModels
         /// The ports the multiplayer server uses.
         /// </summary>
         public List<Port> Ports;
+        /// <summary>
+        /// The list of public Ipv4 addresses associated with the server.
+        /// </summary>
+        public List<PublicIpAddress> PublicIPV4Addresses;
         /// <summary>
         /// The region the multiplayer server is located in.
         /// </summary>
@@ -3836,6 +3827,23 @@ namespace PlayFab.MultiplayerModels
     }
 
     [Serializable]
+    public class PublicIpAddress : PlayFabBaseModel
+    {
+        /// <summary>
+        /// FQDN of the public IP
+        /// </summary>
+        public string FQDN;
+        /// <summary>
+        /// Server IP Address
+        /// </summary>
+        public string IpAddress;
+        /// <summary>
+        /// Routing Type of the public IP.
+        /// </summary>
+        public string RoutingType;
+    }
+
+    [Serializable]
     public class QosServer : PlayFabBaseModel
     {
         /// <summary>
@@ -4031,7 +4039,7 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public string FQDN;
         /// <summary>
-        /// The IPv4 address of the virtual machine that is hosting this multiplayer server.
+        /// The public IPv4 address of the virtual machine that is hosting this multiplayer server.
         /// </summary>
         public string IPV4Address;
         /// <summary>
@@ -4042,6 +4050,10 @@ namespace PlayFab.MultiplayerModels
         /// The ports the multiplayer server uses.
         /// </summary>
         public List<Port> Ports;
+        /// <summary>
+        /// The list of public Ipv4 addresses associated with the server.
+        /// </summary>
+        public List<PublicIpAddress> PublicIPV4Addresses;
         /// <summary>
         /// The region the multiplayer server is located in.
         /// </summary>
@@ -4092,6 +4104,12 @@ namespace PlayFab.MultiplayerModels
         /// The username for accessing the container registry.
         /// </summary>
         public string Username;
+    }
+
+    public enum RoutingType
+    {
+        Microsoft,
+        Internet
     }
 
     [Serializable]

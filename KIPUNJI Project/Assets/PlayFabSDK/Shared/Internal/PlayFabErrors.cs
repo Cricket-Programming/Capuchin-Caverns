@@ -650,6 +650,7 @@ namespace PlayFab
         MultiplayerServerBuildReferencedByMatchmakingQueue = 6002,
         MultiplayerServerBuildReferencedByBuildAlias = 6003,
         MultiplayerServerBuildAliasReferencedByMatchmakingQueue = 6004,
+        PartySerializationError = 6005,
         ExperimentationExperimentStopped = 7000,
         ExperimentationExperimentRunning = 7001,
         ExperimentationExperimentNotFound = 7002,
@@ -739,7 +740,9 @@ namespace PlayFab
         PlayerCustomPropertiesVersionMismatch = 19004,
         PlayerCustomPropertiesPropertyCountTooHigh = 19005,
         PlayerCustomPropertiesDuplicatePropertyName = 19006,
-        PlayerCustomPropertiesPropertyDoesNotExist = 19007
+        PlayerCustomPropertiesPropertyDoesNotExist = 19007,
+        AddonAlreadyExists = 19008,
+        AddonDoesntExist = 19009
     }
 
     public class PlayFabError

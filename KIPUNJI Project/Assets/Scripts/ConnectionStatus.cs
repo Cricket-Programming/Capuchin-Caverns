@@ -12,7 +12,6 @@ public class ConnectionStatus : MonoBehaviour
     void Start()
     {
         textObject = GetComponent<TextMeshPro>();
-        Debug.Log("TextMeshPro Component: " + textObject);
     }
 
     void Update()
