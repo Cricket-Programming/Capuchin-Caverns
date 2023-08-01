@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 48
+  controlID: 122
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -70.6562, y: 23.566153, z: 62.223583}
+    m_Target: {x: -70.17621, y: 22.041277, z: 62.70213}
     speed: 2
     m_Value: {x: -70.6562, y: 23.566153, z: 62.223583}
   m_RenderMode: 0
@@ -668,11 +668,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.021852894, y: 0.5957107, z: 0.011177958, w: -0.8028754}
+    m_Target: {x: -0.016920611, y: 0.95248693, z: -0.29616305, w: -0.06926312}
     speed: 2
     m_Value: {x: 0.021852894, y: 0.5957107, z: 0.011177958, w: -0.8028754}
   m_Size:
-    m_Target: 9.709428
+    m_Target: 1.9339279
     speed: 2
     m_Value: 9.709428
   m_Ortho:
@@ -736,9 +736,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8a540000
+      m_SelectedIDs: 8e540000
       m_LastClickedID: 0
-      m_ExpandedIDs: 908cffffda8cffff12aafffff8bcffff44bdffff9cdaffffeafaffff
+      m_ExpandedIDs: eafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: androidmanifest
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -903,26 +903,26 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 0
+    m_SearchArea: 2
     m_Folders:
-    - Packages/com.unity.xr.openxr/OculusQuest/Editor
+    - Assets
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: androidmanifest
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.unity.xr.openxr/OculusQuest/Editor
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity Projects\Capuchin Caverns\Kipunji\KIPUNJI Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 775.80005}
-    m_SelectedIDs: 822e0200
-    m_LastClickedID: 142978
-    m_ExpandedIDs: 00000000069800008c980000a6980000842e0200862e020000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 72980000
+    m_LastClickedID: 39026
+    m_ExpandedIDs: 0000000072980000da980000dc98000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -950,7 +950,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 180}
     m_SelectedIDs: 0e2b0100062b0100
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000006980000
+    m_ExpandedIDs: 0000000072980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
