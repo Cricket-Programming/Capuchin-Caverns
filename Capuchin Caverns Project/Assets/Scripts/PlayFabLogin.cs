@@ -16,12 +16,10 @@ public class PlayFabLogin : MonoBehaviour
     void Start()
     {
         Login();
-        Invoke("Text", 1f);
+        //Invoke("Text", 1f);
 
     }
-    private void Text() {
-        idText.text = MyPlayFabID;
-    }
+
 
     void Login() { 
         Debug.Log("Logging in/creating account now.");
@@ -39,13 +37,16 @@ public class PlayFabLogin : MonoBehaviour
     void OnLoginSuccess(LoginResult result) {
         Debug.Log("Account Login/Create successful!");
         PhotonVRManager.Connect();
-                GetAccountInfoRequest InfoRequest = new GetAccountInfoRequest();
+        GetAccountInfoRequest InfoRequest = new GetAccountInfoRequest();
         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
+
+
     }
        public void AccountInfoSuccess(GetAccountInfoResult result)
     {
         MyPlayFabID = result.AccountInfo.PlayFabId;
-
+        idText.text = MyPlayFabID;
+        
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
         (result) =>
         {
