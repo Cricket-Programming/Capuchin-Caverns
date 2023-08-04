@@ -13,15 +13,13 @@ public class PlayFabLogin : MonoBehaviour
     public string CatalogName;
     public string MyPlayFabID;
     public TextMeshPro idText;
-    void Start()
+    private void Start()
     {
         Login();
-        //Invoke("Text", 1f);
-
     }
 
 
-    void Login() { 
+    private void Login() { 
         Debug.Log("Logging in/creating account now.");
         var request = new LoginWithCustomIDRequest {
             CustomId = SystemInfo.deviceUniqueIdentifier,
@@ -42,11 +40,11 @@ public class PlayFabLogin : MonoBehaviour
 
 
     }
-       public void AccountInfoSuccess(GetAccountInfoResult result)
+    public void AccountInfoSuccess(GetAccountInfoResult result)
     {
         MyPlayFabID = result.AccountInfo.PlayFabId;
         idText.text = MyPlayFabID;
-        
+
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
         (result) =>
         {
