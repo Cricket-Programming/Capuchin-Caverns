@@ -1,46 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using System;
 
-public class coinsScripts : MonoBehaviour
+public class CoinsManager : MonoBehaviour
 {
     [HideInInspector] public int coins;
-    public int HowMuchADay = 100;
-    [SerializeField] private int startingCoins;
+
+    [SerializeField] private int HowMuchADay = 100;
+    [SerializeField] private int startingCoins = 500;
     private string todayDate;
-    public void Start() 
+
+    private void Start() 
     {
+        todayDate = DateTime.Today.ToBinary().ToString();
         if (PlayerPrefs.GetInt("existingUser") == 0)
         {
-            PlayerPrefs.SetInt("coins", startingCoins); 
-            
-            PlayerPrefs.SetInt("existingUser", 1);
+            PlayerPrefs.SetInt("coins", startingCoins);
 
             //if new user,set the date
-            PlayerPrefs.SetString("previousDate", todayDate);
-            
+            PlayerPrefs.SetString("previousDate", todayDate);  
+
+            PlayerPrefs.SetInt("existingUser", 1); 
         }
-        todayDate = DateTime.Today.ToBinary().ToString();
         
         UpdateDailyRewards();
     }
 
-    public void UpdateDailyRewards()
+    private void UpdateDailyRewards()
     {
-
         if (PlayerPrefs.GetString("previousDate") != todayDate)
         {
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + HowMuchADay);
             print("Currency = " + coins);
             PlayerPrefs.SetString("previousDate", todayDate);
         }
-        Debug.Log(todayDate);
-
     }
 
-    public void Update()
+    private void Update()
     {
         coins = PlayerPrefs.GetInt("coins");
     }

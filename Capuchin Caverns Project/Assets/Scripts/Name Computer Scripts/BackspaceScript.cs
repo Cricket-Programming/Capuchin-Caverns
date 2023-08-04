@@ -8,9 +8,11 @@ public class BackspaceScript : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "HandTag" && NameScript.NameVar.Length > 0) //the last condition makes sure the backspace does not backspace nothing ad generate an error
-        {
-            NameScript.NameVar = NameScript.NameVar.Remove(NameScript.NameVar.Length - 1);
+        int nameLength = NameScript.NameVar.Length;
+        if (nameLength > 0 && other.transform.tag == "HandTag") {
+            NameScript.NameVar = NameScript.NameVar.Remove(nameLength - 1);
         }
+
+
     }
 }

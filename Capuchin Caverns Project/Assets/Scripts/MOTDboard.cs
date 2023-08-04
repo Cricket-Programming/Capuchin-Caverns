@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Networking;
-public class MOTDboard : MonoBehaviour
-{
+
     //In github, the repository holding the MOTD text file MUST to be public.
 
     // How to change MOTD text:
@@ -14,14 +13,17 @@ public class MOTDboard : MonoBehaviour
     // 4) Make your edits 
     // 5) Commit changes/Ctrl S 
     // 6) Wait a little bit for changes to sync.
+public class MOTDboard : MonoBehaviour
+{
+
     private string textURL = "https://raw.githubusercontent.com/Cricket-Programming/motd/main/motd.txt"; //I changed this to public from samsams script
     private TMP_Text MOTD;
     void Start()
     {
         MOTD = GetComponent<TMP_Text>();
-        StartCoroutine(GetText(textURL));
+        StartCoroutine(GetTextFromGithub(textURL));
     }
-    public IEnumerator GetText(string tURL)
+    public IEnumerator GetTextFromGithub(string tURL)
     {
         UnityWebRequest www = UnityWebRequest.Get(tURL);
         yield return www.SendWebRequest();

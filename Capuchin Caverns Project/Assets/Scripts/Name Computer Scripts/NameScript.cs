@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 using Photon.VR;
 using TMPro;
-
 public class NameScript : MonoBehaviour
 {
-    public string NameVar;
-    public TextMeshPro NameText;
-    void Start() {
-        if (NameVar.Length == 0)
-        {
-            NameVar = "Monkey" + Random.Range(100, 1000);
-        }
+    [HideInInspector] public string NameVar;
+    [SerializeField] private TextMeshPro nameText;
+    private void Start() {
+        NameVar = PlayerPrefs.GetString("PlayerUsername");
+        if (NameVar == "") SetDefaultName();
     }
-    private void Update()
-    {   
-        if (NameVar.Length > 12)
-        {
-            NameVar = NameVar.Substring(0, 12);
-        }
-        NameText.text = NameVar;
+    private void Update() {   
+        nameText.text = NameVar;
+    
+        PlayerPrefs.SetString("PlayerUsername", NameVar);
         PhotonVRManager.SetUsername(NameVar);
+    }
+    public void SetDefaultName() {
+        NameVar = "Monkey" + Random.Range(100, 1000);
     }
 }
