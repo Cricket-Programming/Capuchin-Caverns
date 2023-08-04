@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.VR;
-using Photon.VR.Cosmetics;
+using Photon.VR.Cosmetics; 
 public class ChangeHeadCosmetic : MonoBehaviour
 {
     public string Head;

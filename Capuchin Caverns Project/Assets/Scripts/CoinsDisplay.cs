@@ -8,15 +8,14 @@ public class CoinsDisplay : MonoBehaviour
 
     public coinsScripts coinsScripts; //importing other scripts
     
-    //public TextMeshPro text; //TextMeshPro3dObject
-    private TMP_Text text;
-    public string currencyName = "marbles"; //changed this to currecyName from name to prevent the new keyword hiding intending.
+    private TMP_Text textComponent;
+    [SerializeField] private string currencyName = "marbles"; //changed this to currecyName from name to prevent the new keyword hiding intending.
 
-    void Start() {
+    private void Start() {
         text = GetComponent<TMP_Text>();
     }
-    void Update()
+    private void Update()
     {
-        text.text = "You Have\n" + coinsScripts.coins + " " + currencyName;
+        textComponent.text = "You Have\n" + coinsScripts.coins + " " + currencyName;
     }
 }
