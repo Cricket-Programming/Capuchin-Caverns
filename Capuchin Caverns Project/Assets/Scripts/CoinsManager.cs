@@ -8,7 +8,7 @@ public class CoinsManager : MonoBehaviour
     [HideInInspector] public int coins;
 
     [SerializeField] private int HowMuchADay = 100;
-    [SerializeField] private int startingCoins = 500;
+    [SerializeField] private int startingCoins = 800;
     private string todayDate;
 
     private void Start() 

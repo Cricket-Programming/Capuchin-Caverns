@@ -11,13 +11,13 @@ public class ChangeCosmetic : MonoBehaviour
     [SerializeField] private CosmeticType cosmeticType;
 
     [Tooltip("The name of the gameobject of the cosmetic in PhotonVR player prefab")]
-    public string CosmeticName;
+    [SerializeField] private string cosmeticName;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("HandTag"))
         {
-            PhotonVRManager.SetCosmetic(cosmeticType, CosmeticName);
+            PhotonVRManager.SetCosmetic(cosmeticType, cosmeticName);
         }
     }
 }
