@@ -3,10 +3,11 @@ using System;
 using System.Collections;
 public class FindGameObjectsByTag : MonoBehaviour
 {
+    [SerializeField] private string tagName;
     private void Start()
     {
         // Find all GameObjects with the specified tag
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Train Track Waypoint");
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagName);
 
         // Iterate over the taggedObjects array
         foreach (GameObject taggedObject in taggedObjects)
