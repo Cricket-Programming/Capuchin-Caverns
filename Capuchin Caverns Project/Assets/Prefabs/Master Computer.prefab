@@ -604,8 +604,8 @@ Transform:
   m_GameObject: {fileID: 304248121518893186}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -0.086385, z: -0.257}
-  m_LocalScale: {x: 0.53507704, y: 0.090438716, z: 0.53507704}
+  m_LocalPosition: {x: 0.25, y: -0.141, z: -0.257}
+  m_LocalScale: {x: 0.53507704, y: 0.12095273, z: 0.53507704}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1109383659668827396}
@@ -2365,7 +2365,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4526184664279296102}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.134}
+  m_LocalPosition: {x: 0, y: 0, z: -0.266}
   m_LocalScale: {x: 0.03689128, y: 0.03689128, z: 0.03689128}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2373,8 +2373,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.33538}
-  m_SizeDelta: {x: 23.0903, y: 3.5081}
+  m_AnchoredPosition: {x: -0.14, y: 0.297}
+  m_SizeDelta: {x: 29.1527, y: 3.5081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1581581418795802155
 MeshRenderer:
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: discord.gg/yXnJ3gK7Du
+  m_text: capuchincaverns@gmail.com
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7444,7 +7444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameVar: 
-  NameText: {fileID: 5501330239021068688}
+  nameText: {fileID: 0}
 --- !u!114 &3778812949141967343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15914,7 +15914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.18369998}
+  m_AnchoredPosition: {x: -0.14, y: 0.15759999}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &958879107076256374
@@ -16558,16 +16558,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6467913868969158124}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.489}
-  m_LocalScale: {x: 0.03247355, y: 0.03247355, z: 0.03247355}
+  m_LocalPosition: {x: 0, y: 0, z: -0.493}
+  m_LocalScale: {x: 0.02328873, y: 0.02328873, z: 0.02328873}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7363710898161261304}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.34669998}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -0.14, y: 0.386}
+  m_SizeDelta: {x: 27.1104, y: 5.9895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4241278511956450087
 MeshRenderer:
@@ -16631,7 +16631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Discord:'
+  m_text: Contact Email
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18995,7 +18995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 0.1891}
+  m_AnchoredPosition: {x: -0.14, y: 0.163}
   m_SizeDelta: {x: 28.4541, y: 4.435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &558825014079805130
