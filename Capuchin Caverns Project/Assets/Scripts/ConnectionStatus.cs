@@ -22,14 +22,17 @@ public class ConnectionStatus : MonoBehaviour
         {
             // Player is connected to a Photon server
             textObject.text = "Connected to a room ";/// + PhotonNetwork.CurrentRoom.Name;
+            textObject.color = Color.green;
         }
         else
         {
             // Player is not connected to a Photon server
             textObject.text = "Not Connected to Room";
+            textObject.color = Color.red;
         }
     }
     /*
+    //may need to change monobehaviour to monobehaviourpuncallbacks.
     public override void OnJoinedRoom() { //changing a parent class method OnJoinedRoom() which was empty with this code 
         textObject.text = "In a room";
     }
