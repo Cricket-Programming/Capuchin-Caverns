@@ -20,13 +20,12 @@ public class TrainController : MonoBehaviourPunCallbacks
     }
     private int currentWaypointIndex = 0;
 
-        //this is so that the train does not all restart and become positionally messed up. These isNewMasterClient stuff are to prevent the bug of the train pieces individually heading to first waypoint and colliding when the masterclient switches.
-        public override void OnMasterClientSwitched(Player newMasterClient) {
-            if (newMasterClient == PhotonNetwork.LocalPlayer) {
-                transform.position = respawnLocation;
-                isNewMasterClient = true;
-                Invoke("NotIsNewMasterClient", 1f);      
-            }
+    //this is so that the train does not all restart and become positionally messed up. These isNewMasterClient stuff are to prevent the bug of the train pieces individually heading to first waypoint and colliding when the masterclient switches.
+    public override void OnMasterClientSwitched(Player newMasterClient) {
+        if (newMasterClient == PhotonNetwork.LocalPlayer) {
+            transform.position = respawnLocation;
+            isNewMasterClient = false;    
+        }
     }
 
     private void Update()
