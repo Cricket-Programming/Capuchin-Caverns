@@ -32,7 +32,7 @@ public class ConnectionStatus : MonoBehaviour
         }
     }
     /*
-    //may need to change monobehaviour to monobehaviourpuncallbacks.
+    //may need to change monobehaviour to monobehaviourpuncallbacks for this to work.
     public override void OnJoinedRoom() { //changing a parent class method OnJoinedRoom() which was empty with this code 
         textObject.text = "In a room";
     }
