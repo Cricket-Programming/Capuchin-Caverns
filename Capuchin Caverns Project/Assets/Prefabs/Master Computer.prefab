@@ -7444,7 +7444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameVar: 
-  nameText: {fileID: 0}
+  nameText: {fileID: 5501330239021068688}
 --- !u!114 &3778812949141967343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17096,6 +17096,7 @@ GameObject:
   - component: {fileID: 6789746749179253582}
   - component: {fileID: 2246121140165092468}
   - component: {fileID: 4938403742915673334}
+  - component: {fileID: 3975644109506514288}
   m_Layer: 0
   m_Name: My ID
   m_TagString: Untagged
@@ -17256,6 +17257,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2246121140165092468}
   m_maskType: 0
+--- !u!114 &3975644109506514288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679715363882116052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb49da0cb7227448828277c8ba78dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6786925903802790492
 GameObject:
   m_ObjectHideFlags: 0

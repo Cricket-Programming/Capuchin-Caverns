@@ -69,7 +69,7 @@ public class PlayFabShopManager : MonoBehaviour
     private void OnAddCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
         Debug.Log("Currency added: " + result.Balance);
-        Playfablogin.instance.GetVirtualCurrencies();
+        PlayFabLogin.instance.GetVirtualCurrencies();
     }
 
     private void OnAddCurrencyFailure(PlayFabError error)
@@ -82,7 +82,7 @@ public class PlayFabShopManager : MonoBehaviour
         if (other.CompareTag("HandTag"))
         {
             BuyProduct();
-            Playfablogin.instance.GetVirtualCurrencies();
+            PlayFabLogin.instance.GetVirtualCurrencies();
         }
     }
 }

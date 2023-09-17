@@ -7,10 +7,10 @@ using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Playfablogin : MonoBehaviour
+public class PlayFabLogin : MonoBehaviour
 {
     [Header("COSMETICS")]
-    public static Playfablogin instance;
+    public static PlayFabLogin instance;
     public string MyPlayFabID;
     public string CatalogName;
     public List<GameObject> specialitems;
