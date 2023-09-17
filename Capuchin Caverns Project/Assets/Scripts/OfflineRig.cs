@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class OfflineRig : MonoBehaviour
 {
-    public GameObject offlineRig;
+    private GameObject offlineRig;
 
-    public void Update()
+    private void Update()
     {
         if(PhotonNetwork.InRoom == false)
         {
