@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4471643663198300598}
   m_Layer: 0
   m_Name: Nose
-  m_TagString: DontColor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 2072756109618249625}
   m_Layer: 0
   m_Name: Right Eye
-  m_TagString: DontColor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 7213885038449125083}
   m_Layer: 0
   m_Name: Left Eye
-  m_TagString: DontColor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 6089992880711713129}
   m_Layer: 0
   m_Name: Right Ear
-  m_TagString: Body2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 3995847258823147512}
   m_Layer: 0
   m_Name: Left Ear
-  m_TagString: Body2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 697596446452071774}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Body2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2092,7 +2092,7 @@ GameObject:
   - component: {fileID: 6480094711854729629}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Body2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AddLetter : MonoBehaviour
 {
-    public NameScript NameScript;
+    [SerializeField] private NameScript NameScript;
 
     [Tooltip("Check this if you want to turn the letter into the name of this gameobject and disregard the public letter blank below.")]
     [SerializeField] private bool overrideLetterWithGameObjectName;

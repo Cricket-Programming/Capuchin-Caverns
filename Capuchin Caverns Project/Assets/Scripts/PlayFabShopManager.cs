@@ -1,10 +1,11 @@
-using Oculus.Platform;
-using Oculus.Platform.Models;
 using UnityEngine;
-using PlayFab;
-using PlayFab.ClientModels;
 using System.Collections;
 using System.Collections.Generic; 
+using Oculus.Platform;
+using Oculus.Platform.Models;
+using PlayFab;
+using PlayFab.ClientModels;
+
 
 public class PlayFabShopManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayFabShopManager : MonoBehaviour
 
     private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
 
-    void Start()
+    private void Start()
     {
         GetPrices();
         GetPurchases();
@@ -42,15 +43,7 @@ public class PlayFabShopManager : MonoBehaviour
     public void BuyProduct()
     {
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
-        IAP.ConsumePurchase(skuToPurchase).OnComplete(newVariable => {
-            if (newVariable.IsError) {
-                // Handle the error if ConsumePurchase fails
-                Debug.LogError("Purchase consumption failed: ");
-            } else {
-                // Handle a successful purchase consumption
-                Debug.Log("Purchase consumption successful");
-            }
-        });
+        IAP.ConsumePurchase(skuToPurchase); //Oncomplete() is optional and in this method I don't need it.
     }
 
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
@@ -76,6 +69,7 @@ public class PlayFabShopManager : MonoBehaviour
     {
         Debug.LogError("Failed to add currency: " + error.ErrorMessage);
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
