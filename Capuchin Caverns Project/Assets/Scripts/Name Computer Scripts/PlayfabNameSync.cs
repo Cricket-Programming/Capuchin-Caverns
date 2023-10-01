@@ -1,13 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
-using Photon.VR;
-using System.Collections.Generic;
 
 // this script synchronizes the display name of a player with PlayFab, a cloud-based game backend service created by SamSam.
 public class PlayfabNameSync : MonoBehaviour
 {
-    public NameScript namepc;
+    [SerializeField] private NameScript namepc;
     private string oldUsername;
 
     private void Start()

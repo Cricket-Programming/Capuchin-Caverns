@@ -28,10 +28,9 @@ public class PlayFabLogin : MonoBehaviour
     public TextMeshPro UserName;
     public string StartingUsername;
     public string name;
-    [SerializeField]
+
     public bool UpdateName;
     
-
 
 
     public void Awake()
@@ -110,7 +109,7 @@ public class PlayFabLogin : MonoBehaviour
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnError);
     }
 
-    void OnGetUserInventorySuccess(GetUserInventoryResult result)
+    private void OnGetUserInventorySuccess(GetUserInventoryResult result)
     {
         coins = result.VirtualCurrency["HS"];
         currencyText.text = "You have " + coins.ToString() + " " + CurrencyName;
