@@ -9,8 +9,8 @@ using PlayFab.ClientModels;
 public class Purchase : MonoBehaviour
 {
     [SerializeField] private GameObject enable;
-    public GameObject disable;
-    public string CosmeticName;
+    [SerializeField] private GameObject disable;
+    [SerializeField] private string CosmeticName;
     [SerializeField] private int price;
 
     private void Start()
@@ -23,9 +23,6 @@ public class Purchase : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    
-
-        //PlayFabLogin.instance.GetVirtualCurrencies();
 
     private void OnTriggerEnter()
     {

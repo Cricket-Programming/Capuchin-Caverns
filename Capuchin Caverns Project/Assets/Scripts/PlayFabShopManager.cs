@@ -12,33 +12,33 @@ public class PlayFabShopManager : MonoBehaviour
     [SerializeField] private string skuToPurchase;
     [SerializeField] private int currencyAmount;
 
-    private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
+    //private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
 
-    private void Start()
-    {
-        GetPrices();
-        GetPurchases();
-    }
+    // private void Start()
+    // {
+    //     //GetPrices();
+    //     GetPurchases();
+    // }
 
-    private void GetPrices()
-    {
-        IAP.GetProductsBySKU(skus).OnComplete(GetPricesCallback);
-    }
+    // private void GetPrices()
+    // {
+    //     IAP.GetProductsBySKU(skus).OnComplete(GetPricesCallback);
+    // }
 
-    private void GetPricesCallback(Message<ProductList> msg)
-    {
-        if (msg.IsError) return;
-    }
+    // private void GetPricesCallback(Message<ProductList> msg)
+    // {
+    //     if (msg.IsError) return;
+    // }
 
-    private void GetPurchases()
-    {
-        IAP.GetViewerPurchases().OnComplete(GetPurchasesCallback);
-    }
+    // private void GetPurchases()
+    // {
+    //     IAP.GetViewerPurchases().OnComplete(GetPurchasesCallback);
+    // }
 
-    private void GetPurchasesCallback(Message<PurchaseList> msg)
-    {
-        if (msg.IsError) return;
-    }
+    // private void GetPurchasesCallback(Message<PurchaseList> msg)
+    // {
+    //     if (msg.IsError) return;
+    // }
 
     public void BuyProduct()
     {

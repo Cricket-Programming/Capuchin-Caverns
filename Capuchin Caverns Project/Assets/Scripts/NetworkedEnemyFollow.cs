@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.AI;
-using Photon.Pun; //the stuff of this are all pascalcase. Ex: PhotonNetwork
+using Photon.Pun; //the stuff of this are all PascalCase. Ex: PhotonNetwork
 
-//networking should work, if there is a photon view and photon transform view set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s.
+//networking should work, if there are photon view and photon transform view components set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s.
 //this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ.
 //credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
 public class NetworkedEnemyFollow : MonoBehaviour 
@@ -55,12 +55,12 @@ public class NetworkedEnemyFollow : MonoBehaviour
             findClosestPlayersTransform(); 
 
             //If target is in the horror area and is in range to the enemy, go to the target player.
-            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component.
+            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component preventing a nullreferenceexception.
                 if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) {  
                     nma.SetDestination(target.position);
                 } 
             }
-            //  Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can do this to find the value of the beginning of the horror area.
+            //  Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can uncomment this to find the value of the beginning of the horror area.
 
         }
     }
