@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 0}
 --- !u!1 &306853892961529669
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3995975765916920323}
   - component: {fileID: 6753038487508536231}
   m_Layer: 0
-  m_Name: Right Eye (1)
+  m_Name: Right Eye Body Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &357333449147112282
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 7477367369909515802}
   - component: {fileID: 1202727326694794041}
   m_Layer: 0
-  m_Name: Right Ear (1)
+  m_Name: Right Ear Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &2147703198369354245
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 7671523644090355194}
   - component: {fileID: 2002054215452414495}
   m_Layer: 0
-  m_Name: Left Eye (1)
+  m_Name: Left Eye Body Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &3262867443076953688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ GameObject:
   - component: {fileID: 7731527555150007319}
   - component: {fileID: 7969321962866643580}
   m_Layer: 0
-  m_Name: Body (1)
+  m_Name: Body  Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &4309453172556824011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 5734721103510779318}
   - component: {fileID: 8948167925806893696}
   m_Layer: 0
-  m_Name: Nose (1)
+  m_Name: Nose Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &4433407948066432573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ GameObject:
   - component: {fileID: 8519459074180494871}
   - component: {fileID: 1727212706714600763}
   m_Layer: 0
-  m_Name: Head (1)
+  m_Name: Head Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &6985276999123595001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +1973,7 @@ GameObject:
   - component: {fileID: 4399491829395982906}
   - component: {fileID: 5239907813609212500}
   m_Layer: 0
-  m_Name: Left Ear (1)
+  m_Name: Left Ear Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2078,7 +2078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000905948f4e1944a376acc9c9e15e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhotonView: {fileID: 7780029385335637883}
+  photonView: {fileID: 7780029385335637883}
 --- !u!1 &7065688520741473448
 GameObject:
   m_ObjectHideFlags: 0
