@@ -4358,7 +4358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8388156196171224677, guid: 2efa0cdd87dad83479a2bb0caa3dff3d, type: 3}
       propertyPath: m_Name
-      value: Gravestone cosmetic
+      value: Gravestone
       objectReference: {fileID: 0}
     - target: {fileID: 8388156196171224677, guid: 2efa0cdd87dad83479a2bb0caa3dff3d, type: 3}
       propertyPath: m_IsActive
