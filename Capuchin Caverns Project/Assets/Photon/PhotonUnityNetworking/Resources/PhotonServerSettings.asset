@@ -45,6 +45,10 @@ MonoBehaviour:
   - RPCRefreshPlayerValues
   - OnTagged
   - OnUnTagged
+  - LimitMovementAndVibrateHands
+  - PlayTagSound
+  - TagPlayer
+  - UntagPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

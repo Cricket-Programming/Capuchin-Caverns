@@ -56,6 +56,8 @@ namespace Photon.VR.Player
         {
             if (photonView.IsMine)
             {
+                this.transform.position = PhotonVRManager.Manager.Head.transform.position; //this is for the tag mode.
+
                 Head.transform.position = PhotonVRManager.Manager.Head.transform.position;
                 Head.transform.rotation = PhotonVRManager.Manager.Head.transform.rotation;
 

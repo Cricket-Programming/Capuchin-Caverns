@@ -7,6 +7,8 @@ TagManager:
   - HandTag
   - GorillaOrigin
   - Train Track Waypoint
+  - OthersVRHand
+  - Player Head
   layers:
   - Default
   - TransparentFX

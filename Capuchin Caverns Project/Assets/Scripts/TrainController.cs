@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Photon.Pun;
-using Photon.Realtime; //to access type player
+using Photon.Realtime; //to access Player Object type
 
 //this script needs to be on the same gameobject as the one with the photonview and PhotonTransformView.
 public class TrainController : MonoBehaviourPunCallbacks
@@ -13,7 +13,7 @@ public class TrainController : MonoBehaviourPunCallbacks
     [SerializeField] float rotationSpeed = 5f;
 
     private Vector3 respawnLocation;
-    private bool isNewMasterClient;
+    private bool isNewMasterClient = false;
 
     private void Start() {
         respawnLocation = transform.position;
@@ -24,7 +24,8 @@ public class TrainController : MonoBehaviourPunCallbacks
     public override void OnMasterClientSwitched(Player newMasterClient) {
         if (newMasterClient == PhotonNetwork.LocalPlayer) {
             transform.position = respawnLocation;
-            isNewMasterClient = false;    
+            isNewMasterClient = false;   
+            currentWaypointIndex = 0; 
         }
     }
 
