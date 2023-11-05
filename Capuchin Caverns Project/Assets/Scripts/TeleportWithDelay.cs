@@ -68,7 +68,7 @@ public class TeleportWithDelay : MonoBehaviour
 
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
-
+    
         // Re-enable the map
         mapToDisable.SetActive(true);
     }

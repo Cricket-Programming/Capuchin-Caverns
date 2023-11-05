@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Enable : MonoBehaviour
 {
-    public GameObject objectEnable;
+    [SerializeField] private GameObject objectEnable;
 
-    public void OnTriggerEnter()
+    private void OnTriggerEnter()
     { 
-        new WaitForSeconds(1);
+
         objectEnable.SetActive(true); 
     } 
 
-    public void OnTriggerExit() 
+    private void OnTriggerExit() 
     { 
-        new WaitForSeconds(1);
+
         objectEnable.SetActive(true); 
     }
 
