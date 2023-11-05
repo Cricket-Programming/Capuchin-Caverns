@@ -25,6 +25,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     [SerializeField] private Transform headTransform; // Head GameObject of PhotonVR player prefab.
     [SerializeField] private Material itMaterial;
     [SerializeField] private AudioSource tagSound;
+    [Tooltip("When player gets tagged, this is the amount of time before the player can start tagging other players. Also, it is the amount of time movement is limited.")]
     [SerializeField] private float touchbackDuration = 2f;
 
     private Material initialMaterial;
