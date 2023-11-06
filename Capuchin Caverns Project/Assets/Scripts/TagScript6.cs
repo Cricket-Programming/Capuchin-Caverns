@@ -6,20 +6,10 @@ using Photon.Pun;
 using Photon.VR.Player; 
 using easyInputs;
 
-//How to set up tag in a project without it.
-// 1) say thank you gorilla tag for inspiration.
-// parent player should have player tag
-// 2) Yep add player model mesh renderer/filter and collider onto your player model. Make sure that the objects you want to be tagged is referenced in Photon.VR.Player's colourObjects.
-// 3) Yep configure tag/infection script, add the audiosources (tagSound: vol 0.5 spatial blend: 0.6), add a sphere collider set to isTrigger, and add a rigidbody and uncheck use gravity on the player parent.
-// 4) Yep Set up tag entrance by putting values into script.
-// 5) Yep In PhotonVRPlayer.cs put this.transform.position = PhotonVRManager.Manager.Head.transform.position; in Update() function, for some reason this makes head not go random place.
-// 6) Yep This is for handtagging:  Add mesh collider is trigger and OthersVRHand tag and Walkthrough layer to VR Hand left and VRHandRight. Also, for both, add the TagIfOtherVRHandScript.
-// 7) Yep switch relational operators for divideLine IF the tag zone is > than non tag zone, AND switch the position from transform x to transform z if that's the way the entrance goes.
+//SEE DOCUMENTATION (in google drive coding) FOR INFORMATION
+//Direction to Tag Area: > Z
 
-//CC - Z and > 
 
-//initial color moved to no mans zone possibly
-//not turning to initial color with one player
 public class TagScript6 : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform headTransform; // Head GameObject of PhotonVR player prefab.
