@@ -5,16 +5,20 @@ using System;
 
 public class CoinsManager : MonoBehaviour
 {
-    [HideInInspector] public int coins;
+    private int coins;
 
     [SerializeField] private int HowMuchADay = 100;
     [SerializeField] private int startingCoins = 800;
     private string todayDate;
 
+    //accessor method for the coins instance variable. (It will be accessed in CoinsDisplay.cs)
+    public int GetCoins() {
+        return coins;
+    }
     private void Start() 
     {
         todayDate = DateTime.Today.ToBinary().ToString();
-        if (PlayerPrefs.GetInt("existingUser") == 0)
+        if (PlayerPrefs.GetInt("existingUsewr") == 0)
         {
             PlayerPrefs.SetInt("coins", startingCoins);
 

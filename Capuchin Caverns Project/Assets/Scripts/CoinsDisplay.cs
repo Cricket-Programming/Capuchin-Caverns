@@ -16,6 +16,6 @@ public class CoinsDisplay : MonoBehaviour
     }
     private void Update()
     {
-        textComponent.text = "You Have\n" + CoinsManager.coins + " " + currencyName;
+        textComponent.text = "You Have\n" + CoinsManager.GetCoins() + " " + currencyName;
     }
 }
