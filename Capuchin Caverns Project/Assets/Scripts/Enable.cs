@@ -12,11 +12,6 @@ public class Enable : MonoBehaviour
         objectEnable.SetActive(true); 
     } 
 
-    private void OnTriggerExit() 
-    { 
-
-        objectEnable.SetActive(true); 
-    }
 
 
 } 

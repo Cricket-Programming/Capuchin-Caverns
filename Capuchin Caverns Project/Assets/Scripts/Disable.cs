@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Disable : MonoBehaviour
 {
-   public GameObject objectDisable;
+   [SerializeField] private GameObject objectDisable;
    
-   void OnTriggerEnter()
+   private void OnTriggerEnter()
    {
-        new WaitForSeconds(1);
         objectDisable.SetActive(false);
    }
 
-   void OnTriggerExit()
-   {
-        new WaitForSeconds(1);
-        objectDisable.SetActive(false);
-   }
+
 }
