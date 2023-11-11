@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using easyInputs;
+//this script implements haptics in VR.
 
+//Objects with a NoVibrations tag will recieve no vibrations
+//Objects with a Walk Through layer will get no vibrations and will be Walkthroughable
 public class Vibrations : MonoBehaviour
 { 
     public bool LeftHand; //if you create a bool, it will show up as a checkbox in the editor
@@ -15,7 +18,7 @@ public class Vibrations : MonoBehaviour
         walkThroughLayerNumber = LayerMask.NameToLayer("Walk Through");
     }
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer != walkThroughLayerNumber) { //make gameobject have Walk Through layer in order for vibrations to NOT occur.
+        if (other.gameObject.layer != walkThroughLayerNumber && !other.gameObject.CompareTag("NoVibrations")) { //make gameobject have Walk Through layer in order for vibrations to NOT occur.
             if (LeftHand) {
                 StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, amplitude, duration)); //StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, Amplitude, Duration));
 

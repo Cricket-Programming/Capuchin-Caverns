@@ -9,6 +9,7 @@ TagManager:
   - Train Track Waypoint
   - OthersVRHand
   - Player Head
+  - NoVibrations
   layers:
   - Default
   - TransparentFX
