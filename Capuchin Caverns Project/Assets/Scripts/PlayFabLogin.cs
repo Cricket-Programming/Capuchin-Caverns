@@ -27,7 +27,7 @@ public class PlayFabLogin : MonoBehaviour
     [Header("PLAYER DATA")]
     public TextMeshPro UserName;
     public string StartingUsername;
-    public string name;
+    public string playerName; // changed from name
 
     public bool UpdateName;
     
