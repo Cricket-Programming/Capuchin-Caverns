@@ -1,0 +1,7 @@
+/*
+All the candy canes are prefab variants of the red and white candy cane. This means that changes to the red and white candy cane affects the properties of the other candy canes.
+
+The only difference between all of the candycanes is the color.
+
+
+*/
