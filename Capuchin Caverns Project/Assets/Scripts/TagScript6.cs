@@ -71,6 +71,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         Debug.Log(headTransform.position.z);
         // These stuff are for doing tag entrance logic.
         ////red is the enter
+        ///inside tag area
         if (headTransform.position.z > divideLine  && infectionPlayers.Count > 1 && performFlag)
         {
             photonView.RPC("PlayTagSound", RpcTarget.All);
