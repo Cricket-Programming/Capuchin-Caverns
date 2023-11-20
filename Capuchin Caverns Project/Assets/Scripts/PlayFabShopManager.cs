@@ -5,12 +5,16 @@ using Oculus.Platform;
 using Oculus.Platform.Models;
 using PlayFab;
 using PlayFab.ClientModels;
+using Photon.VR;
 
 
 public class PlayFabShopManager : MonoBehaviour
 {
     [SerializeField] private string skuToPurchase;
     [SerializeField] private int currencyAmount;
+
+    private string appID;
+    private string voiceAppID;
 
 //
     private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
@@ -46,13 +50,21 @@ public class PlayFabShopManager : MonoBehaviour
     {
 
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
-        IAP.ConsumePurchase(skuToPurchase); //Oncomplete() is optional and in this method I don't need it.
+        IAP.ConsumePurchase(skuToPurchase);//.OnComplete(ConsumePurchaseCallback); //is optional and in this method I don't need it.
+        
     }
-
+    // private void ConsumePurchaseCallback(Message.Callback callbackParameter) {
+       
+    // }
+    private void ReconnectToServer()
+    {
+        // Assuming PhotonVRManager is a static class
+        PhotonVRManager.ChangeServers(appID, voiceAppID);
+    }
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {
         if (msg.IsError) return;
-
+         Invoke("ReconnectToServer", 0.1f);
         var request = new AddUserVirtualCurrencyRequest
         {   
             Amount = currencyAmount,
@@ -78,7 +90,14 @@ public class PlayFabShopManager : MonoBehaviour
     {
         if (other.CompareTag("HandTag"))
         {
-            BuyProduct();
+            PhotonVRManager photonVRManager = FindObjectOfType<PhotonVRManager>();
+            appID = PhotonVRManager.Manager.AppId;
+            voiceAppID = PhotonVRManager.Manager.VoiceAppId;
+
+            photonVRManager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
+            Invoke("BuyProduct", 0.1f);
+
+            //BuyProduct();
             PlayFabLogin.instance.GetVirtualCurrencies();
         }
     }

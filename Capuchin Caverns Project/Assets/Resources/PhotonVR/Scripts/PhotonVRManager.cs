@@ -16,8 +16,7 @@ using ExitGames.Client.Photon;
 // Things in PhotonVR that I changed 
 // 1) These Comments
 // 2) PhotonVRPlayer.cs bc I need it for tag stuff
-// 3) PhotonVRPlayerName.cs
-// 
+
 
 namespace Photon.VR
 {

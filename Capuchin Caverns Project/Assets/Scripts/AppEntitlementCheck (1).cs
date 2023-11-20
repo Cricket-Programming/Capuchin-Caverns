@@ -6,6 +6,7 @@ public class AppEntitlementCheck : MonoBehaviour
 
     void Awake()
     {
+        //Oculus.Platform.Core.Initialize();
         try
         {
             Core.AsyncInitialize();
