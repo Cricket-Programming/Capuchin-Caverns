@@ -8,6 +8,7 @@ Library: C:\Unity Projects\Capuchin Caverns\Capuchin Caverns Project\Temp\BurstO
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=Meta.XR.Audio;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=Oculus.Platform;
@@ -127,6 +128,7 @@ Library: C:\Unity Projects\Capuchin Caverns\Capuchin Caverns Project\Temp\BurstO
 --target-framework=NetFramework
 --float-mode=Fast
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=Meta.XR.Audio;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=Oculus.Platform;

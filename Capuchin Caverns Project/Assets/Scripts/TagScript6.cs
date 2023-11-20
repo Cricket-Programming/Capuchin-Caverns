@@ -17,13 +17,13 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     [SerializeField] private AudioSource tagSound;
     [Tooltip("When player gets tagged, this is the amount of time before the player can start tagging other players. Also, it is the amount of time movement is limited.")]
     [SerializeField] private float touchbackDuration = 2f;
-
+    [SerializeField] private float divideLine;  
     private Material initialMaterial;
     private string itMaterialName;
     private bool isInfected = false;
     private float touchbackCountdown;
     private float limitMovementCountdown;
-    private float divideLine = 78f;  
+
     private Rigidbody gorillaPlayerRigidbody;
     private List<MeshRenderer> colourObjects = new List<MeshRenderer>();
 
@@ -70,7 +70,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         }
         //Debug.Log(headTransform.position.z);
         // These stuff are for doing tag entrance logic.
-        ////red is the enter
+        ////red bar is the enter
         ///inside tag area
         if (headTransform.position.z > divideLine  && infectionPlayers.Count > 1 && performFlag)
         {
@@ -109,6 +109,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
+            Debug.Log(player.transform.position.z);
             if (player.transform.position.z > divideLine - 0.5f)
             {
                 infectionPlayers.Add(player);
