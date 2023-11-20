@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/kipunjiMap.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e78425d8fef91ee4fafba43f2a0a3d3c, type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ea21cd023bd527040871cc07c84cb3a3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6a6aeeed88d57054cbe27eb49dcf7d45, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f41fd4996cee5b2478a942f5281f12aa, type: 2}

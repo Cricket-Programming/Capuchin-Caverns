@@ -19,7 +19,7 @@ MonoBehaviour:
     AppIdVoice: 86dbaa97-0c17-45ca-a33c-656d22a9f1e2
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: us
+    FixedRegion: 
     Server: 
     Port: 0
     ProxyServer: 
@@ -38,15 +38,10 @@ MonoBehaviour:
   - ChangeColour
   - ClickRpc
   - DestroyRpc
-  - DestroySpaceship
-  - Fire
   - HeresWhy
-  - RespawnSpaceship
-  - RPCRefreshPlayerValues
-  - OnTagged
-  - OnUnTagged
   - LimitMovementAndVibrateHands
   - PlayTagSound
+  - RPCRefreshPlayerValues
   - TagPlayer
   - UntagPlayer
   DisableAutoOpenWizard: 1
