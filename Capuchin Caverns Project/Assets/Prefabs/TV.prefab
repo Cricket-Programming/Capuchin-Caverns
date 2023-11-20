@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5628045039204164332}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.86241996, y: 1.28564, z: 1.5985299}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4905360756446575502}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3683171839180368715
 MonoBehaviour:
@@ -312,9 +312,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5628045039204164332}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
@@ -426,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe0de3657d44c42a54446de6468c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualVolume: 0
 --- !u!1 &7901033684207313751
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +458,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7901033684207313751}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37947783, y: 0.37947783, z: 0.37947783}
@@ -457,7 +467,6 @@ Transform:
   - {fileID: 5498228844330144124}
   - {fileID: 6157938161276556001}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9040859727158048768
 GameObject:
@@ -489,13 +498,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9040859727158048768}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: -0.084, y: 0.067, z: -0.082}
   m_LocalScale: {x: 0.34594998, y: 1.1452, z: 1.4484999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4905360756446575502}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &656595102735919903
 MonoBehaviour:
@@ -772,9 +781,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9040859727158048768}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
@@ -797,16 +814,15 @@ VideoPlayer:
   m_RenderMode: 3
   m_AspectRatio: 2
   m_DataSource: 0
+  m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -823,7 +839,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 47b3973e1132e104cb7bf520f7f6fa75, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d703ae53f039365469696157d2b06961, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -921,3 +937,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe0de3657d44c42a54446de6468c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualVolume: 0
