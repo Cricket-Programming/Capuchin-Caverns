@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.meta.xr.sdk.all": "59.0.0",
+    "com.meta.xr.sdk.audio": "59.0.0",
+    "com.meta.xr.sdk.core": "59.0.0",
+    "com.meta.xr.sdk.interaction": "59.0.0",
     "com.meta.xr.sdk.platform": "59.0.0",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.1.0",
@@ -19,6 +23,7 @@
     "com.unity.xr.interaction.toolkit": "2.5.2",
     "com.unity.xr.management": "4.4.0",
     "com.unity.xr.oculus": "4.1.2",
+    "com.unity.xr.openxr": "1.8.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -51,14 +56,5 @@
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
   },
-  "scopedRegistries": [
-    {
-      "name": "Normal",
-      "url": "https://normcore-registry.normcore.io",
-      "scopes": [
-        "com.normalvr",
-        "io.normcore"
-      ]
-    }
-  ]
+  "scopedRegistries": []
 }
