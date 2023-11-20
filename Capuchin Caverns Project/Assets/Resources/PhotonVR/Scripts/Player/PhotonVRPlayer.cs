@@ -17,7 +17,7 @@ namespace Photon.VR.Player
         public Transform Body;
         public Transform LeftHand;
         public Transform RightHand;
-        [Tooltip("The objects that will get the colour of the player applied to them")]
+        [Tooltip("The objects that will get the of the player applied to them")]
         public List<MeshRenderer> ColourObjects;
 
         [Header("Cosmetics Parents")]
