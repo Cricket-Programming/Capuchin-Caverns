@@ -19,7 +19,7 @@ public class PlayFabLogin : MonoBehaviour
     public string CurrencyName;
     public TextMeshPro currencyText;
     [SerializeField]
-    public int coins;
+    public int coins; //the player's coins.
     [Header("BANNED")]
     public string bannedscenename;
     [Header("TITLE DATA")]
@@ -38,7 +38,7 @@ public class PlayFabLogin : MonoBehaviour
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         login();
         

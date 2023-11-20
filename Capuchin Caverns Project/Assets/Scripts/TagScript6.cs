@@ -68,7 +68,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
                 CheckIfNoneInfected();
             }
         }
-        Debug.Log(headTransform.position.z);
+        //Debug.Log(headTransform.position.z);
         // These stuff are for doing tag entrance logic.
         ////red is the enter
         ///inside tag area
@@ -104,7 +104,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
 
     private void UpdateInfectionPlayersList()
     {
-        Debug.Log(headTransform.position.z);
+        
         infectionPlayers.Clear();
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
