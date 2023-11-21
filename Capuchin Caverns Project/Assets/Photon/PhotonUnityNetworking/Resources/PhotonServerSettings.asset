@@ -19,7 +19,7 @@ MonoBehaviour:
     AppIdVoice: 86dbaa97-0c17-45ca-a33c-656d22a9f1e2
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: us
     Server: 
     Port: 0
     ProxyServer: 
@@ -44,6 +44,9 @@ MonoBehaviour:
   - RPCRefreshPlayerValues
   - TagPlayer
   - UntagPlayer
+  - setSkin
+  - SetSkin
+  - RemoveSkin
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
