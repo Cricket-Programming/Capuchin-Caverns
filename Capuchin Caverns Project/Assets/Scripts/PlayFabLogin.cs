@@ -18,8 +18,9 @@ public class PlayFabLogin : MonoBehaviour
     [Header("CURRENCY")]
     public string CurrencyName;
     public TextMeshPro currencyText;
-    [SerializeField]
-    public int coins; //the player's coins.
+    public CurrencyManager CurrencyManager;
+
+    public int coins; //the player's coins. Accessed in Purchase.cs from singleton pattern
     [Header("BANNED")]
     public string bannedscenename;
     [Header("TITLE DATA")]
@@ -31,7 +32,6 @@ public class PlayFabLogin : MonoBehaviour
 
     public bool UpdateName;
     
-
 
     public void Awake()
     {
@@ -66,6 +66,7 @@ public class PlayFabLogin : MonoBehaviour
         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
         GetVirtualCurrencies();
         GetMOTD();
+        CurrencyManager.SetUpDailyRewardsData();
     }
 
     public void AccountInfoSuccess(GetAccountInfoResult result)

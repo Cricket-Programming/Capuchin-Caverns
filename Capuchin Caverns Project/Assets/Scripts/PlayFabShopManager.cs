@@ -64,7 +64,7 @@ public class PlayFabShopManager : MonoBehaviour
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {
         if (msg.IsError) return;
-         Invoke("ReconnectToServer", 0.1f);
+        // Invoke("ReconnectToServer", 0.1f);
         var request = new AddUserVirtualCurrencyRequest
         {   
             Amount = currencyAmount,
@@ -90,14 +90,14 @@ public class PlayFabShopManager : MonoBehaviour
     {
         if (other.CompareTag("HandTag"))
         {
-            PhotonVRManager photonVRManager = FindObjectOfType<PhotonVRManager>();
-            appID = PhotonVRManager.Manager.AppId;
-            voiceAppID = PhotonVRManager.Manager.VoiceAppId;
+            // PhotonVRManager photonVRManager = FindObjectOfType<PhotonVRManager>();
+            // appID = PhotonVRManager.Manager.AppId;
+            // voiceAppID = PhotonVRManager.Manager.VoiceAppId;
 
-            photonVRManager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
-            Invoke("BuyProduct", 0.1f);
+            // photonVRManager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
+            //Invoke("BuyProduct", 0.1f);
 
-            //BuyProduct();
+            BuyProduct();
             PlayFabLogin.instance.GetVirtualCurrencies();
         }
     }

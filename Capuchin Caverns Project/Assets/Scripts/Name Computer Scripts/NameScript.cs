@@ -18,9 +18,8 @@ public class NameScript : MonoBehaviour
         nameText = GetComponent<TextMeshPro>();
         
         NameVar = PlayerPrefs.GetString("Username"); //PhotonVRManager sets this
-        if (NameVar == "") SetDefaultName();
-
         oldUsername = NameVar;
+        if (NameVar == "") SetDefaultName();
 
         nameText.text = NameVar;    
     }

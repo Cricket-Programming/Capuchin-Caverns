@@ -16,7 +16,8 @@ public class CurrencyManager : MonoBehaviour
 
     private string todayDate;
 
-    private void Start() 
+    //called after player logs in in the PlayFabLogin script.
+    public void SetUpDailyRewardsData() 
     {
         todayDate = DateTime.Today.ToBinary().ToString();
         if (PlayerPrefs.GetInt("existingUser") == 0)
@@ -35,15 +36,18 @@ public class CurrencyManager : MonoBehaviour
         if (PlayerPrefs.GetString("previousDate") != todayDate)
         {
             //give player currency
-            var request = new AddUserVirtualCurrencyRequest
-            {
-                Amount = HowMuchADay,
-                VirtualCurrency = "HS"
-            };
-            PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
-
+            AddPlayFabCurrency();
             PlayerPrefs.SetString("previousDate", todayDate);
         }
+    }
+
+    private void AddPlayFabCurrency() {
+        var request = new AddUserVirtualCurrencyRequest
+        {
+            Amount = HowMuchADay,
+            VirtualCurrency = "HS"
+        };
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
     }
 
     private void OnAddCurrencySuccess(ModifyUserVirtualCurrencyResult result)

@@ -15,10 +15,10 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     [SerializeField] private Transform headTransform; // Head GameObject of PhotonVR player prefab.
     [SerializeField] private Material itMaterial;
     [SerializeField] private AudioSource tagSound;
-    [Tooltip("When player gets tagged, this is the amount of time before the player can start tagging other players. Also, it is the amount of time movement is limited.")]
+    [Tooltip("When player gets tagged, this is the amount of time in seconds before the player can start tagging other players. Also, it is the amount of time movement is limited.")]
     [SerializeField] private float touchbackDuration = 2f;
     [SerializeField] private float divideLine;  
-    private Material initialMaterial;
+    public Material initialMaterial; //gets changed by ChangeSkin.cs
     private string itMaterialName;
     private bool isInfected = false;
     private float touchbackCountdown;
@@ -61,6 +61,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
+
         if (PhotonNetwork.IsMasterClient)
         {
             UpdateInfectionPlayersList();
@@ -76,6 +77,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         {
             photonView.RPC("PlayTagSound", RpcTarget.All);
             performFlag = false;
+            
         } 
         //outside tag area.
         else if (headTransform.position.z <= divideLine && isInfected) {
@@ -109,7 +111,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
-            Debug.Log(player.transform.position.z);
+            //Debug.Log(player.transform.position.z);
             if (player.transform.position.z > divideLine - 0.5f)
             {
                 infectionPlayers.Add(player);

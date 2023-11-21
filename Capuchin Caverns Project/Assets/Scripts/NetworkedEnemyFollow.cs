@@ -78,7 +78,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
             {
                 distanceToClosestPlayer = distanceToPlayer;
                 target = p.transform;
-                Debug.Log(p.transform.position.z);
+                //Debug.Log(p.transform.position.z);
             }
         }
     }
