@@ -17,34 +17,34 @@ public class PlayFabShopManager : MonoBehaviour
     private string voiceAppID;
 
 //
-    private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
+    // private string[] skus = { "Marbles3000", "Marbles5000", "Marbles1000" };
 
-    private void Start()
-    {
-        GetPrices();
-        GetPurchases();
-    }
+    // private void Start()
+    // {
+    //     GetPrices();
+    //     GetPurchases();
+    // }
 
-    private void GetPrices()
-    {
-        IAP.GetProductsBySKU(skus).OnComplete(GetPricesCallback);
-    }
+    // private void GetPrices()
+    // {
+    //     IAP.GetProductsBySKU(skus).OnComplete(GetPricesCallback);
+    // }
 
-    private void GetPricesCallback(Message<ProductList> msg)
-    {
-        if (msg.IsError) return;
-    }
+    // private void GetPricesCallback(Message<ProductList> msg)
+    // {
+    //     if (msg.IsError) return;
+    // }
 
-    private void GetPurchases()
-    {
-        IAP.GetViewerPurchases().OnComplete(GetPurchasesCallback);
-    }
+    // private void GetPurchases()
+    // {
+    //     IAP.GetViewerPurchases().OnComplete(GetPurchasesCallback);
+    // }
 
-    private void GetPurchasesCallback(Message<PurchaseList> msg)
-    {
-        if (msg.IsError) return;
-    }
-    //
+    // private void GetPurchasesCallback(Message<PurchaseList> msg)
+    // {
+    //     if (msg.IsError) return;
+    // }
+    // //
 
     public void BuyProduct()
     {
@@ -94,8 +94,8 @@ public class PlayFabShopManager : MonoBehaviour
             // appID = PhotonVRManager.Manager.AppId;
             // voiceAppID = PhotonVRManager.Manager.VoiceAppId;
 
-            // photonVRManager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
-            //Invoke("BuyProduct", 0.1f);
+            PhotonVRManager.Manager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
+            Invoke("BuyProduct", 0.1f);
 
             BuyProduct();
             PlayFabLogin.instance.GetVirtualCurrencies();
