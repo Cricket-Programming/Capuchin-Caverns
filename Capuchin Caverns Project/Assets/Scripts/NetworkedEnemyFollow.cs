@@ -13,6 +13,9 @@ public class NetworkedEnemyFollow : MonoBehaviour
     
     [Header("Set the speed of Fluffy in the NavMeshAgent component.")]
     [SerializeField] private float detectRange = 10f;
+
+    [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction")]
+    [SerializeField] private float divideLine = 15.5f;
     private NavMeshAgent nma = null; //nma stands for navMeshAgent
 
     private Bounds bndFloor;
@@ -59,7 +62,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
 
             //If target is in the horror area and is in range to the enemy, go to the target player.
             if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component preventing a nullreferenceexception.
-                if (distanceToClosestPlayer < detectRange && target.position.z < 15.5) {  
+                if (distanceToClosestPlayer < detectRange && target.position.z < divideLine) {  
                     nma.SetDestination(target.position);
                 } 
             }
