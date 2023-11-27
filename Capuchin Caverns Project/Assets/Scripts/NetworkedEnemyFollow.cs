@@ -16,6 +16,8 @@ public class NetworkedEnemyFollow : MonoBehaviour
 
     [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction")]
     [SerializeField] private float divideLine = 15.5f;
+
+    [SerializeField] private string horrorFloorName;
     private NavMeshAgent nma = null; //nma stands for navMeshAgent
 
     private Bounds bndFloor;
@@ -34,10 +36,10 @@ public class NetworkedEnemyFollow : MonoBehaviour
         nma = GetComponent<NavMeshAgent>();
 
         //this gets the bounds of the horror floor
-        if (GameObject.Find("Horror Floor1") == null) {
+        if (GameObject.Find(horrorFloorName) == null) {
             Debug.LogError("You typed in the name of the horror floor wrong");
         } else {
-            bndFloor = GameObject.Find("Horror Floor1").GetComponent<Renderer>().bounds;  
+            bndFloor = GameObject.Find(horrorFloorName).GetComponent<Renderer>().bounds;  
         }
 
 
