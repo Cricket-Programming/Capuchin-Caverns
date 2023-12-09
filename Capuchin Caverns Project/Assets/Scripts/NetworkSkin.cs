@@ -12,8 +12,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     [SerializeField] private Material skin;
     private void Start() {
         ColourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
-
-            
+       
         Invoke("newPlayerSkinCatchUp", 0.1f); 
     }
 
@@ -40,7 +39,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         photonView.RPC("RemoveSkin", RpcTarget.All);
     }
     [PunRPC]
-    public void SetSkin() {
+    private void SetSkin() {
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material.mainTexture = skin.mainTexture;
             colourObject.material.color = skin.color; //usually skin.color is white
@@ -48,7 +47,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         }
     }
     [PunRPC]
-    public void RemoveSkin() {
+    private void RemoveSkin() {
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material.mainTexture = null;
             colourObject.material.color = PhotonVRManager.Manager.Colour; //usually skin.color is white

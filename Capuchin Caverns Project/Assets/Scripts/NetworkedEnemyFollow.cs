@@ -11,7 +11,7 @@ using Photon.Pun; //all these classes inside of this is PascalCase. Ex: PhotonNe
 public class NetworkedEnemyFollow : MonoBehaviour 
 {
     
-    [Header("Set the speed of Fluffy in the NavMeshAgent component.")]
+    [Header("Set the speed of the creature in the NavMeshAgent component.")]
     [SerializeField] private float detectRange = 10f;
 
     [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction")]
