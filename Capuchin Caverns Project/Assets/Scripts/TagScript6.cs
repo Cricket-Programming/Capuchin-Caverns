@@ -18,7 +18,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     [Tooltip("When player gets tagged, this is the amount of time in seconds before the player can start tagging other players. Also, it is the amount of time movement is limited.")]
     [SerializeField] private float touchbackDuration = 2f;
     [SerializeField] private float divideLine;  
-    public Material initialMaterial; //gets changed by ChangeSkin.cs
+    [HideInInspector] public Material initialMaterial; //gets changed by ChangeSkin.cs
     private string itMaterialName;
     private bool isInfected = false;
     private float touchbackCountdown;

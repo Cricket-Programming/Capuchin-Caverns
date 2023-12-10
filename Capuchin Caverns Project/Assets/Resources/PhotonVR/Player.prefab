@@ -1906,7 +1906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38423e0a8f6f6134aa3c6f4f1548e532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skin: {fileID: 2100000, guid: 3114584c1a5b4444e96c42adbaa34ad7, type: 2}
+  skins:
+  - {fileID: 2100000, guid: 3114584c1a5b4444e96c42adbaa34ad7, type: 2}
+  - {fileID: 2100000, guid: 9adcbfd4f29971a429e28c1eca2a56fe, type: 2}
+  - {fileID: 2100000, guid: 1693b36803b1cfb4ebf01d0e58db8666, type: 2}
 --- !u!1 &5733000909736595080
 GameObject:
   m_ObjectHideFlags: 0

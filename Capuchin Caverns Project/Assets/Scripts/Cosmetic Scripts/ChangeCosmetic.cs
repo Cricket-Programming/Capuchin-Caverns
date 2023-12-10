@@ -7,7 +7,7 @@ using Photon.VR.Cosmetics; //this namespace is where the CosmeticType public enu
 
 public class ChangeCosmetic : MonoBehaviour
 {
-    //accessing CosmeticType public enum in Photon.VR.Cosmetics.
+    //accessing CosmeticType public enum in Photon.VR.Cosmetics namespace (class PhotonVRCosmeticsData).
     [SerializeField] private CosmeticType cosmeticType;
 
     [Tooltip("The name of the gameobject of the cosmetic in PhotonVR player prefab")]

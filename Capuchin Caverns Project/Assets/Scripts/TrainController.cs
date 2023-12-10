@@ -8,9 +8,9 @@ using Photon.Realtime; //to access Player Object type
 //this script needs to be on the same gameobject as the one with the photonview and PhotonTransformView.
 public class TrainController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Transform[] waypoints; //[SerializeField] is a decorator just like [PunRPC]
-    [SerializeField] float speed;
-    [SerializeField] float rotationSpeed = 5f;
+    [SerializeField] private Transform[] waypoints; //[SerializeField] is a decorator just like [PunRPC]
+    [SerializeField] private float speed;
+    [SerializeField] private float rotationSpeed = 5f;
 
     private Vector3 respawnLocation;
     private bool isNewMasterClient = false;
