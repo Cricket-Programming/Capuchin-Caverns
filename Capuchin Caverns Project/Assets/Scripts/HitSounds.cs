@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OBJECT BASED SCRIPT WORKING
-//How to add hitsounds:
-// add hitsounds script
-//on the audiosource component
-//- uncheck play on awake 
+//How to add hitsounds to objects:
+// add hitsounds script, this will also add an audiosource component
+//- uncheck play on awake on audiosource component
 //- put hit sound into the Audio Source component's AudioClip.
+
 
 
 [RequireComponent(typeof(AudioSource))]
