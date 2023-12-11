@@ -74,7 +74,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
                     nma.SetDestination(target.position);
                 } 
             }
-            Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can uncomment this to find the value of the beginning of the horror area.
+            //Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can uncomment this to find the value of the beginning of the horror area.
 
         }
     }

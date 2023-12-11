@@ -320,7 +320,7 @@ namespace Photon.VR
         }
 
         /// <summary>
-        /// Joins a private room
+        /// Joins a private room    
         /// </summary>
         /// <param name="RoomId">The room code</param>
         /// <param name="MaxPlayers">The maximum amount of players that can be in the room</param>

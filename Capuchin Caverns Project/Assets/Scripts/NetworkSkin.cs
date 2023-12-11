@@ -42,10 +42,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
 
         }
     }
-    // private void Update() {
-    //     Debug.Log(GetComponent<PhotonVRPlayer>().ColourObjects[0].material.mainTexture.name);
-    //     Debug.Log(skin.mainTexture.name);
-    // }
+
     public void RunSetNetworkSkin(int index) {
         photonView.RPC("SetSkin", RpcTarget.All, index);
     }
