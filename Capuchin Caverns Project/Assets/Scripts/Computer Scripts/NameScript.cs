@@ -9,7 +9,7 @@ using PlayFab.ClientModels;
 //NameScript manages all the stuff for setting and saving the player name. 
 //It sets a textmeshpro to the NameVar (Player's display name). It syncs NameVar with PlayFab and PhotonVRManager. PhotonVRManager saves NameVar to PlayerPrefs as "Username" key 
 //and sets the Photon Network Player Nickname to NameVar
-public class NameScript : MonoBehaviour
+public class NameScript : MonoBehaviour, IAddLetterable
 {
     [HideInInspector] public string NameVar;
     private TextMeshPro nameText;
@@ -40,12 +40,27 @@ public class NameScript : MonoBehaviour
             }
 
             //Sync the new NameVar with PhotonVRManager. PhotonVRManager will then sync NameVar with PlayerPrefs and PhotonNetwork.LocalPlayer.NickName
-            //inside of photonvrmanager, it sets the username key in playerprefs to the NameVar, meaning
+            //inside of photonvrmanager, it also sets the "username key" in playerprefs to the NameVar.
             PhotonVRManager.SetUsername(NameVar);
 
         }
         
     }
+    //the AddLetter script does whatever is in here.
+    public void AddLetter(string letter) {
+            if (NameVar.Length < 12) {
+                NameVar += letter;
+            } else {
+                NameVar = NameVar.Substring(0, 12);
+            }
+    }
+
+    public void Backspace() {
+        int nameLength = NameVar.Length;
+        if (nameLength > 0) 
+            NameVar = NameVar.Remove(nameLength - 1);
+    }
+    
     private void OnUpdateDisplayNameSuccess(UpdateUserTitleDisplayNameResult result)
     {
         Debug.Log("Display Name Changed!");

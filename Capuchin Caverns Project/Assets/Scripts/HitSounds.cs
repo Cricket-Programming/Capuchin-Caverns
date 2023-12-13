@@ -13,6 +13,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class HitSounds : MonoBehaviour
 {   
+    [Tooltip("When this is checked, the volume on the audiosource component is used for the hitsound instead.")]
     [SerializeField] private bool manualVolume = false;
     private AudioSource hitSound;
     private void Start() 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackspaceScript : MonoBehaviour
 {
+    //this script works only for NameScript
     public NameScript NameScript;
     
     private void OnTriggerEnter(Collider other)
