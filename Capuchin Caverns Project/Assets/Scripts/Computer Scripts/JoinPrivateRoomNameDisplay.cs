@@ -12,6 +12,8 @@ public class JoinPrivateRoomNameDisplay : MonoBehaviour, IAddLetterable //interf
     }
     //Invoked by AddLetter() script through IAddLetterable interface.
     public void AddLetter(string letter) {
+        if (roomNameText.text.Equals("_"))
+            Backspace();
         roomNameText.text += letter;
     }
 

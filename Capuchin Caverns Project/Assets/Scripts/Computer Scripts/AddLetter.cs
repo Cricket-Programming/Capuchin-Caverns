@@ -31,13 +31,13 @@ public class AddLetter : MonoBehaviour
         {
             // Check if the assigned script implements the ILetterReceiver interface
             var addLetterable = addLetterableScript.GetComponent<IAddLetterable>();    
-            //guard clause - prevents overly complicated control logic        
+            //guard clause - simplifies unnecessarily complicated nested control flow     
             if (addLetterable == null)
             {
                 Debug.LogError("The assigned script does not implement IAddLetterable interface.");
                 return;
             }
-            Debug.Log(letter);
+
             if (letter.Equals("-1"))  {
                 Debug.Log("Backspacing");
                 addLetterable.Backspace();
