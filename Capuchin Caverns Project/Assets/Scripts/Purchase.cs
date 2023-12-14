@@ -13,6 +13,8 @@ public class Purchase : MonoBehaviour
     [SerializeField] private string CosmeticName;
     [SerializeField] private int price;
 
+
+
     private void Start()
     {
 
@@ -35,11 +37,15 @@ public class Purchase : MonoBehaviour
                 Amount = price
             };
             PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractSuccess, OnSubtractFailure);
+
+            PlayerPrefs.SetInt(CosmeticName, 1);
+
+
             enable.SetActive(true);
             disable.SetActive(true);
             gameObject.SetActive(false); //same as this.gameObject
 
-            PlayerPrefs.SetInt(CosmeticName, 1);
+
         }
     }
 
