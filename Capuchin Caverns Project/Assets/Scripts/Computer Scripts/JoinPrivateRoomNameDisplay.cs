@@ -22,4 +22,8 @@ public class JoinPrivateRoomNameDisplay : MonoBehaviour, IAddLetterable //interf
         if (nameLength > 0) 
             roomNameText.text = roomNameText.text.Remove(nameLength - 1);
     }
+    //accessed by the JoinPrivateRoom class.
+    public string GetRoomName() {
+        return roomNameText.text;
+    }
 }
