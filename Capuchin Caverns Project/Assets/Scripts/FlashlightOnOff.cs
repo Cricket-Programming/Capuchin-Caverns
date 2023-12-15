@@ -13,7 +13,8 @@ public class FlashlightOnOff : MonoBehaviour
     [SerializeField] private AudioSource clickSound;
     private void Update() {
         if (!PhotonNetwork.InRoom) return;
-        //if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
+        //only turn on and off if the player has it on.
+        if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
 
         if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand)) {
             if (isOn) {//turnoff
