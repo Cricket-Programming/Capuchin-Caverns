@@ -39,7 +39,6 @@ public class AddLetter : MonoBehaviour
             }
 
             if (letter.Equals("-1"))  {
-                Debug.Log("Backspacing");
                 addLetterable.Backspace();
                 return;
             }

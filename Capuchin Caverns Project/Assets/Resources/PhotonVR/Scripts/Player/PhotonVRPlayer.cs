@@ -31,6 +31,13 @@ namespace Photon.VR.Player
         public TextMeshPro NameText;
         public bool HideLocalPlayer = true;
 
+        private PhotonVRCosmeticsData cosmetics;
+        //this is a C# property that gets the active Cosmetics of the player.
+        public PhotonVRCosmeticsData Cosmetics {
+            get {
+                return cosmetics;
+            }
+        }
         private void Awake()
         {
             if (photonView.IsMine)
@@ -91,13 +98,14 @@ namespace Photon.VR.Player
             }
 
             // Cosmetics - it's a little ugly to look at
-            PhotonVRCosmeticsData cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>((string)photonView.Owner.CustomProperties["Cosmetics"]);
-            if(HeadCosmetics != null)
+            cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>((string)photonView.Owner.CustomProperties["Cosmetics"]);
+            if (HeadCosmetics != null)
                 foreach (Transform cos in HeadCosmetics)
                     if (cos.name != cosmetics.Head)
                         cos.gameObject.SetActive(false);
-                    else
+                    else  
                         cos.gameObject.SetActive(true);
+
             if (BodyCosmetics != null)
                 foreach (Transform cos in BodyCosmetics.transform)
                     if (cos.name != cosmetics.Body)

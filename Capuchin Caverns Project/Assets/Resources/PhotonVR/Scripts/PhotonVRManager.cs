@@ -11,12 +11,23 @@ using Photon.Pun;
 using Photon.Realtime;
 using Photon.Voice;
 
+using JoinPrivateRoomScript;
+
 using ExitGames.Client.Photon;
 
-// Things in PhotonVR that I changed 
+// Documentation of my unique changes to my version of Photon.VR in Capuchin Caverns.
 // 1) These Comments
-// 2) PhotonVRPlayer.cs bc I need it for tag stuff
-
+// 2) PhotonVRPlayer.cs, which has a namespace of Photon.VR.Player
+//      - For the tag mode: syncs this transform position with the head transform position in the Update() function.
+//      - For the Flashlight cosmetic: 
+//          - Changed cosmetics variable from local to be a private instance variable of type PhotonVRCosmeticsData.
+//          - Created a C# property that gets accessed by FlashlightOnOff.cs.
+            
+// 3) In this script for private rooms
+//      -using JoinPrivateRoomScript.
+//      - && !JoinPrivateRoom1.Manager.GetInPrivateRoom() in OnConnectedToMaster() callback in if statement for JoinRoomOnConnect because this prevents the player auto-rejoining a public room when pushing the enter for private room
+//      -
+//  4) My player model (Player Prefab)
 
 namespace Photon.VR
 {
@@ -41,12 +52,17 @@ namespace Photon.VR
         public string DefaultQueue = "Default";
         public int DefaultRoomLimit = 16;
 
+        
+
         [Header("Other")]
         // This shuold always be true
         [Tooltip("If the user shall connect when this object has awoken")]
         public bool ConnectOnAwake = true;
         [Tooltip("If the user shall join a room when they connect")]
         public bool JoinRoomOnConnect = true;
+
+        //accessed by the changeserverscript
+        //public JoinPrivateRoom JoinPrivateRoomScript;
 
         [NonSerialized]
         public PhotonVRPlayer LocalPlayer;
@@ -256,7 +272,7 @@ namespace Photon.VR
             PhotonNetwork.LocalPlayer.CustomProperties["Colour"] = JsonUtility.ToJson(Colour);
             PhotonNetwork.LocalPlayer.CustomProperties["Cosmetics"] = JsonUtility.ToJson(Cosmetics);
 
-            if (JoinRoomOnConnect)
+            if (JoinRoomOnConnect && !(JoinPrivateRoomManager.Manager.GetInPrivateRoom()))
                 JoinRandomRoom(DefaultQueue, DefaultRoomLimit);
         }
 
