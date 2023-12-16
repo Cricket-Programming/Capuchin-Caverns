@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//teleports the player, meant to be applied to horror
 public class TeleportWithDelay : MonoBehaviour
 {
-    public GameObject mapToDisable;
+    [SerializeField] private GameObject mapToDisable;
 
-    public Transform gorillaPlayer;
+    [SerializeField] private Transform gorillaPlayer;
     private Rigidbody gorillaPlayerRigidbody;
 
-    public Transform jumpscareLocation;
-    public Transform respawnLocation;
+    [SerializeField] private Transform jumpscareLocation;
+    [SerializeField] private Transform respawnLocation;
 
-    public float jumpscareRunningTime;
+    [SerializeField] private float jumpscareRunningTime;
 
     //jumpscareObjects are the things like the box that shows around the player
-    public GameObject jumpscareObjects;
-    public AudioSource jumpscareSound;
+    [SerializeField] private GameObject jumpscareObjects;
+    [SerializeField] private AudioSource jumpscareSound;
 
     private void Start() {
         //gets the gorillaPlayer's Rigidbody.
