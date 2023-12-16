@@ -26,7 +26,7 @@ using ExitGames.Client.Photon;
 // 3) In this script for private rooms
 //      -using JoinPrivateRoomScript.
 //      - && !JoinPrivateRoom1.Manager.GetInPrivateRoom() in OnConnectedToMaster() callback in if statement for JoinRoomOnConnect because this prevents the player auto-rejoining a public room when pushing the enter for private room
-//      -
+//      -Disconnect method changed to static and the two other places in PhotonVRManager accessing it are changed to call that function, instead of directly calling PhotonNetwork.Disconnect
 //  4) My player model (Player Prefab)
 
 namespace Photon.VR
@@ -144,9 +144,10 @@ namespace Photon.VR
         /// <summary>
         /// Disconnects from the Photon servers
         /// </summary>
-        public void Disconnect()
+        public static void Disconnect()
         {
             PhotonNetwork.Disconnect();
+            JoinPrivateRoomManager.Manager.SetInPrivateRoom(false); 
         }
 
         /// <summary>
@@ -156,7 +157,7 @@ namespace Photon.VR
         /// <param name="VoiceId">The new VoiceAppId</param>
         public static void ChangeServers(string Id, string VoiceId)
         {
-            PhotonNetwork.Disconnect();
+            Disconnect();
             Manager.AppId = Id;
             Manager.VoiceAppId = VoiceId;
             Connect();
@@ -169,7 +170,7 @@ namespace Photon.VR
         /// <param name="VoiceId">The new VoiceAppId</param>
         public static void ChangeServersAuthenticated(string Id, string VoiceId, string username, string token)
         {
-            PhotonNetwork.Disconnect();
+            Disconnect();
             Manager.AppId = Id;
             Manager.VoiceAppId = VoiceId;
             ConnectAuthenticated(username, token);

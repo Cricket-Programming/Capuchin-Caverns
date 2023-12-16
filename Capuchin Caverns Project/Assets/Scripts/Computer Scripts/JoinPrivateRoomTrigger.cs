@@ -7,10 +7,23 @@ using JoinPrivateRoomScript;
 //goes on the enter button that the player pushes when they are ready to join the private room
 public class JoinPrivateRoomTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("HandTag")) {
+   private bool canTrigger = true;
+    public float cooldownTime = 3.0f; // Adjust the cooldown time as needed
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (canTrigger && other.CompareTag("HandTag"))
+        {
             JoinPrivateRoomManager.Manager.JoinPrivateRoomLogic();
-        }   
+            StartCoroutine(Cooldown());
+        }
+    }
+
+    private System.Collections.IEnumerator Cooldown()
+    {
+        canTrigger = false;
+        yield return new WaitForSeconds(cooldownTime);
+        canTrigger = true;
     }
 }
 

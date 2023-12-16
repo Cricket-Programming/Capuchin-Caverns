@@ -15,10 +15,8 @@ public class PlayFabShopManager : MonoBehaviour
 
     public void BuyProduct()
     {
-
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
-        IAP.ConsumePurchase(skuToPurchase);//is optional and in this method I don't need it.
-        
+        IAP.ConsumePurchase(skuToPurchase);//is optional and in this method I don't need it.        
     }
 
 
@@ -55,7 +53,7 @@ public class PlayFabShopManager : MonoBehaviour
             // appID = PhotonVRManager.Manager.AppId;
             // voiceAppID = PhotonVRManager.Manager.VoiceAppId;
 
-            PhotonVRManager.Manager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
+            PhotonVRManager.Disconnect(); //I have no idea why, but whe connected to photon, in app purchases do not work.
             Invoke("BuyProduct", 0.1f);
 
             //BuyProduct();

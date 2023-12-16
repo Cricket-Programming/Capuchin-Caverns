@@ -48,11 +48,11 @@ public class NameScript : MonoBehaviour, IAddLetterable
     }
     //the AddLetter script does whatever is in here.
     public void AddLetter(string letter) {
-            if (NameVar.Length < 12) {
+            if (NameVar.Length < 12) 
                 NameVar += letter;
-            } else {
-                NameVar = NameVar.Substring(0, 12);
-            }
+            // } else {
+            //     NameVar = NameVar.Substring(0, 12);
+            // }
     }
 
     public void Backspace() {

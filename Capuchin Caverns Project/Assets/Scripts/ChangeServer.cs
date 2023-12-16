@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Photon.VR;
-using JoinPrivateRoomScript;
+//using JoinPrivateRoomScript;
 
 public class ChangeServer : MonoBehaviour
 {
@@ -15,7 +15,6 @@ public class ChangeServer : MonoBehaviour
         if (other.gameObject.CompareTag("HandTag"))
         {   
             PhotonVRManager.ChangeServers(AppID, VoiceID);
-            JoinPrivateRoomManager.Manager.SetInPrivateRoom(false); 
         }
 
     }

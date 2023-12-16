@@ -26,7 +26,7 @@ namespace JoinPrivateRoomScript {
         public void ToggleLeaveInstructions(bool value) {
             LeaveWarningToShow.gameObject.SetActive(value);
         }
-        public bool GetInPrivateRoom() {
+        public bool GetInPrivateRoom() { 
             return inPrivateRoom;
         }
         public void SetInPrivateRoom(bool value) {
@@ -35,29 +35,35 @@ namespace JoinPrivateRoomScript {
         }
 
         public void JoinPrivateRoomLogic() {
+            if (JoinPrivateRoomNameDisplay.GetRoomName().Equals("")) return;
+
+            inPrivateRoom = true;
             if (PhotonNetwork.InRoom) {
                 PhotonNetwork.LeaveRoom();
+                Debug.Log("Leaving room dude");
             } else {
                 PhotonVRManager.Connect();
             }
-            inPrivateRoom = true;
+
             StartCoroutine(WaitForConnection());
         }
-        
+
         private IEnumerator WaitForConnection() {
             yield return new WaitUntil(() => PhotonNetwork.IsConnectedAndReady);
-
-            // Debug.Log("Joining the private room");  
+            
+            // Debug.Log("Joining the private room");
             // Debug.Log(PhotonNetwork.NetworkClientState);
-            //this if statement is here to prevent joinroom errors caused by player spamming the enter button
-            if (PhotonNetwork.NetworkClientState != ClientState.Joining)//makes sure player is Joined before.
+            //this if statement is here to prevent joinroom errors caused by player spamming the enter button(
+            if (PhotonNetwork.NetworkClientState != ClientState.Joining)//makes sure player is Joined before. //PhotonNetwork.NetworkClientState == ClientState.ConnectedToMaster || !PhotonNetwork.IsConnected
             {
                 PhotonVRManager.JoinPrivateRoom(JoinPrivateRoomNameDisplay.GetRoomName());
                 LeaveWarningToShow.gameObject.SetActive(true);
+                
             }
             
+            
         }
-        
+
 
     }
 
