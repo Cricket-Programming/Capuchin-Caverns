@@ -9,6 +9,8 @@ using Photon.Pun; //all these classes inside of this is PascalCase. Ex: PhotonNe
 //this script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ.
 //credit omarVision for some of the SetRandomDestination() code, credit FlimcyVR for part of the findClosestPlayerTransform() code.
 
+// Note: If there is a shadow thing to produce darkness in horror, that is the same as in that area disabling the directional light.
+
 public enum HorrorDirection {
     LessThan,
     GreaterThan,
