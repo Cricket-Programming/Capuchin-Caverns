@@ -2060,16 +2060,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032483806902634290}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0211}
-  m_LocalScale: {x: 0.03697949, y: 0.03697949, z: 0.17716323}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0044}
+  m_LocalScale: {x: 0.03174985, y: 0.03174985, z: 0.1521088}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5501330239480791863}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.372, y: 1.0651}
-  m_SizeDelta: {x: 49.7538, y: 5.112}
+  m_AnchoredPosition: {x: 0.247, y: 1.122}
+  m_SizeDelta: {x: 57.1073, y: 4.4867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8767489646393513649
 MeshRenderer:
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Not Connected
+  m_text: 'Connected to Private Room: fa;ldksjfasldkjfdf'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

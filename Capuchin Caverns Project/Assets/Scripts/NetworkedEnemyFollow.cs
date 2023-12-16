@@ -24,6 +24,8 @@ public class NetworkedEnemyFollow : MonoBehaviour
     [SerializeField] private float divideLine = 15.5f;
     [SerializeField] private HorrorDirection directionToHorror;
     [SerializeField] private string horrorFloorName;
+    [Tooltip(" //if you don't know what to put for the divideLine, you can uncomment this to to Debug.Log the value of the beginning of the horror area. ")]
+    [SerializeField] private bool PrintPlayerPosForDivLineTesting;
     private NavMeshAgent nma = null; //nma stands for navMeshAgent
 
     private Bounds bndFloor;
@@ -74,7 +76,10 @@ public class NetworkedEnemyFollow : MonoBehaviour
                     nma.SetDestination(target.position);
                 } 
             }
-            //Debug.Log(target.position.z); //if you don't know what to put for the 15.5 above, you can uncomment this to find the value of the beginning of the horror area.
+            if (PrintPlayerPosForDivLineTesting) {
+                Debug.Log(target.position.z);
+            }
+            
 
         }
     }

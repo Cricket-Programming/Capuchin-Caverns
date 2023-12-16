@@ -43,7 +43,6 @@ namespace JoinPrivateRoomScript {
             inPrivateRoom = true;
             StartCoroutine(WaitForConnection());
         }
-
         
         private IEnumerator WaitForConnection() {
             yield return new WaitUntil(() => PhotonNetwork.IsConnectedAndReady);
