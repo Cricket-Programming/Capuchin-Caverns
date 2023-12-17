@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AntiHandPhase : MonoBehaviour
 {
-    public Transform sphere;
-    public Transform controller;
+    [SerializeField] private Transform sphere;
+    [SerializeField] private Transform controller;
 
-    void Update()
+    private void Update()
     {
         sphere.rotation = controller.rotation;
     }

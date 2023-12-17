@@ -2793,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass Hat
       objectReference: {fileID: 0}
+    - target: {fileID: 6943193663406829329, guid: 983b104db581a7742bc05df1d08a649a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
