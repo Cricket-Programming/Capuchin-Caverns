@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //teleports the player, meant to be applied to horror
-public class TeleportWithDelay : MonoBehaviour
+public class TeleportAndJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
 

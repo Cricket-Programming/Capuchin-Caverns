@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//teleports the player, meant to be applied to horror
+//teleports the player
 public class TeleportPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
     [SerializeField] private Transform gorillaPlayer;
     private Rigidbody gorillaPlayerRigidbody;
-
+    
     [SerializeField] private Transform respawnLocation;
 
     private void Start() {
         //gets the gorillaPlayer's Rigidbody.
         if (!gorillaPlayer.TryGetComponent(out gorillaPlayerRigidbody)) {
             Debug.LogError("In order to access the rigidbody, make sure the name of the gorilla player is `GorillaPlayer`");
-        }
-        
+        }    
     }
     private void OnTriggerEnter() {
         StartCoroutine(Teleport());
@@ -29,17 +28,18 @@ public class TeleportPlayer : MonoBehaviour
         // Stop the player's movement
         gorillaPlayerRigidbody.isKinematic = true;
 
-        //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
-        yield return new WaitForSeconds(0.02f);
+        // //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
+        yield return new WaitForSeconds(0.1f);
 
-        // Re-enable the Rigidbody's movement
+        // // Re-enable the Rigidbody's movement
         gorillaPlayerRigidbody.isKinematic = false;
 
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
-    
+        yield return new WaitForSeconds(0.1f);
         // Re-enable the map
         mapToDisable.SetActive(true);
+        //yield break;
     }
 }
 
