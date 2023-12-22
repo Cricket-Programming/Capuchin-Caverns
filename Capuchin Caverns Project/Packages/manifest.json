@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.meta.xr.sdk.all": "60.0.0",
+    "com.meta.xr.sdk.all": "59.0.0",
     "com.meta.xr.sdk.audio": "59.0.0",
     "com.meta.xr.sdk.core": "59.0.0",
     "com.meta.xr.sdk.interaction": "59.0.0",

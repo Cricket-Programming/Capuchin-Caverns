@@ -1,10 +1,10 @@
 using UnityEngine;
 using Oculus.Platform;
-using TMPro;
+
 public class AppEntitlementCheck : MonoBehaviour
 {
-    [SerializeField] private TMP_Text x;
-    private void Awake()
+
+    void Awake()
     {
         //Oculus.Platform.Core.Initialize();
         try
@@ -20,17 +20,15 @@ public class AppEntitlementCheck : MonoBehaviour
     }
 
 
-    private void EntitlementCallback(Message msg)
+    void EntitlementCallback(Message msg)
     {
         if (msg.IsError)
         {
             Debug.LogError("You are NOT entitled to use this app.");
-            x.text = "You are NOT entitled to use this app.";
         }
         else
         {
             Debug.Log("You are entitled to use this app.");
-            x.text = "You are entitled to use this app.";
         }
     }
 }

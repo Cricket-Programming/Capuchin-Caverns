@@ -149,11 +149,6 @@ namespace Photon.VR
             PhotonNetwork.Disconnect();
             JoinPrivateRoomManager.Manager.SetInPrivateRoom(false); 
         }
-        // public void Disconnect1()
-        // {
-        //     PhotonNetwork.Disconnect();
-        //     JoinPrivateRoomManager.Manager.SetInPrivateRoom(false); 
-        // }
 
         /// <summary>
         /// Changes Photon servers
