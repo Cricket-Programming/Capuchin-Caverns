@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
+//these namespaces are for the SubtractUserVirtualCurrencyRequest
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class Purchase : MonoBehaviour
 {
@@ -12,11 +13,16 @@ public class Purchase : MonoBehaviour
     [SerializeField] private string CosmeticName;
     [SerializeField] private int price;
 
+
+
     private void Start()
     {
+
         if (PlayerPrefs.GetInt(CosmeticName) == 1)
         {
-            ActivateCosmeticObjects();
+            enable.SetActive(true);
+            disable.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
@@ -26,17 +32,31 @@ public class Purchase : MonoBehaviour
         int marbles = PlayFabLogin.instance.coins;
         if (marbles >= price)
         {
-            CurrencyManager.SubtractPlayFabCurrency(price);
+            var request = new SubtractUserVirtualCurrencyRequest {
+                VirtualCurrency = "HS",
+                Amount = price
+            };
+            PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractSuccess, OnSubtractFailure);
+
             PlayerPrefs.SetInt(CosmeticName, 1);
-            ActivateCosmeticObjects();
+
+
+            enable.SetActive(true);
+            disable.SetActive(true);
+            gameObject.SetActive(false); //same as this.gameObject
+
+
         }
-        
     }
-    private void ActivateCosmeticObjects() {
-        enable?.SetActive(true);
-        disable?.SetActive(true);
-        gameObject.SetActive(false); //same as this.gameObject
+
+    private void OnSubtractSuccess(ModifyUserVirtualCurrencyResult result) {
+        Debug.Log("Currency subtracted" + result.Balance);
+        PlayFabLogin.instance.GetVirtualCurrencies(); //this refreshes it so the user can see the decrease in currency right away.
     }
+    private void OnSubtractFailure(PlayFabError error) {
+        Debug.Log("Error Subtracting Virtual Currency " + error.ErrorMessage);
+    }
+
 
 }
 // using System.Collections;

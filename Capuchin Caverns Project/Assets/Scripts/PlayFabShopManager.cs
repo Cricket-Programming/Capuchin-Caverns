@@ -1,29 +1,49 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic; 
-
 using Oculus.Platform;
 using Oculus.Platform.Models;
-
+using PlayFab;
+using PlayFab.ClientModels;
 using Photon.VR;
+
 
 public class PlayFabShopManager : MonoBehaviour
 {
     [SerializeField] private string skuToPurchase;
     [SerializeField] private int currencyAmount;
 
-    private void BuyProduct()
+    public void BuyProduct()
     {
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
         IAP.ConsumePurchase(skuToPurchase);//is optional and in this method I don't need it.        
     }
 
+
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {
         if (msg.IsError) return;
         // Invoke("ReconnectToServer", 0.1f);
-        CurrencyManager.AddPlayFabCurrency(currencyAmount);
+        var request = new AddUserVirtualCurrencyRequest
+        {   
+            Amount = currencyAmount,
+            VirtualCurrency = "HS"
+        };
+    
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
     }
+
+    private void OnAddCurrencySuccess(ModifyUserVirtualCurrencyResult result)
+    {
+        Debug.Log("Currency added: " + result.Balance);
+        PlayFabLogin.instance.GetVirtualCurrencies();
+    }
+
+    private void OnAddCurrencyFailure(PlayFabError error)
+    {
+        Debug.LogError("Failed to add currency: " + error.ErrorMessage);
+    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +57,7 @@ public class PlayFabShopManager : MonoBehaviour
             Invoke("BuyProduct", 0.1f);
 
             //BuyProduct();
+            PlayFabLogin.instance.GetVirtualCurrencies();
         }
     }
 }
