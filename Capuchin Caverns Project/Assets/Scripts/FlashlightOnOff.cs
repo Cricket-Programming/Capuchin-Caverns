@@ -6,35 +6,81 @@ using easyInputs;
 using Photon.VR;
 using Photon.Pun;
 using Photon.VR.Player;
+
 public class FlashlightOnOff : MonoBehaviour
 {
     [SerializeField] private bool isOn = true;
     [SerializeField] private GameObject lightSource;
     [SerializeField] private AudioSource clickSound;
     private bool canTrigger = true;
-    private void Update() {
+    [SerializeField] private float triggerCooldown = 0.5f; // Adjust the cooldown time as needed
+    private float lastTriggerTime;
+
+    private void Update()
+    {
         if (!PhotonNetwork.InRoom) return;
-        //only turn on and off if the player has it on.
+
+        // Only turn on and off if the player has it on.
         if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
 
-        if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand) && canTrigger) {
-            if (isOn) {
-                //turnoff
-                clickSound.Play();
-                lightSource.SetActive(true);
-                isOn = false;
-            }
-            else {
-                // Turn on
-                clickSound.Play();
-                lightSource.SetActive(false);
-                isOn = true;
-            }
-            canTrigger = false;
+        if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand) && CanTrigger())
+        {
+            ToggleFlashlight();
+            lastTriggerTime = Time.time;
         }
-        else {
-            canTrigger = true;
-        }
+    }
 
+    private bool CanTrigger()
+    {
+        return canTrigger && (Time.time - lastTriggerTime) >= triggerCooldown;
+    }
+
+    private void ToggleFlashlight()
+    {
+        clickSound.Play();
+        lightSource.SetActive(!isOn);
+        isOn = !isOn;
     }
 }
+
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using easyInputs;
+
+// using Photon.VR;
+// using Photon.Pun;
+// using Photon.VR.Player;
+// public class FlashlightOnOff : MonoBehaviour
+// {
+//     [SerializeField] private bool isOn = true;
+//     [SerializeField] private GameObject lightSource;
+//     [SerializeField] private AudioSource clickSound;
+//     private bool canTrigger = true;
+//     private void Update() {
+//         if (!PhotonNetwork.InRoom) return;
+//         //only turn on and off if the player has it on.
+//         if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
+
+//         if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand) && canTrigger) {
+//             if (isOn) {
+//                 //turnoff
+//                 clickSound.Play();
+//                 lightSource.SetActive(true);
+//                 isOn = false;
+//             }
+//             else {
+//                 // Turn on
+//                 clickSound.Play();
+//                 lightSource.SetActive(false);
+//                 isOn = true;
+//             }
+//             canTrigger = false;
+//         }
+//         else {
+//             canTrigger = true;
+//         }
+
+//     }
+// }

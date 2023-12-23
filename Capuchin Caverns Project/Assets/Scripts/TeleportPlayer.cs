@@ -25,21 +25,23 @@ public class TeleportPlayer : MonoBehaviour
         // Disable the map temporarily
         mapToDisable.SetActive(false);
 
-        // Stop the player's movement
+        // allow player to only be affected by game code instead of physics engine/ basically stops player's movement.
         gorillaPlayerRigidbody.isKinematic = true;
 
-        // //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
+        // slight delay to allow the above code to execute
+        yield return new WaitForSeconds(0.1f);
+        
+        // Teleport the player to the respawn location
+        gorillaPlayer.position = respawnLocation.position; 
+        
+        // slight delay to allow the above code to execute before re-enabling the map
         yield return new WaitForSeconds(0.1f);
 
-        // // Re-enable the Rigidbody's movement
+        // Re-enable the Rigidbody's movement
         gorillaPlayerRigidbody.isKinematic = false;
 
-        // Teleport the player to the respawn location
-        gorillaPlayer.position = respawnLocation.position;
-        yield return new WaitForSeconds(0.1f);
         // Re-enable the map
         mapToDisable.SetActive(true);
-        //yield break;
     }
 }
 
@@ -47,7 +49,7 @@ public class TeleportPlayer : MonoBehaviour
 /*
     //This code teleports the player back if he falls out of the map. Keep this code in case need to implement this in the future. 
     //Bug: If non-horror maps blocking path to respawn location, this will fail.
-    // void teleportIfFall()
+    // private void teleportIfFall()
     // {
     //     if (gorillaPlayer.position.y < 15)
     //     {
@@ -56,7 +58,7 @@ public class TeleportPlayer : MonoBehaviour
     //     }
     // }
 
-    // void Update() {
+    // private void Update() {
     //     teleportIfFall();      
     // }
 */
