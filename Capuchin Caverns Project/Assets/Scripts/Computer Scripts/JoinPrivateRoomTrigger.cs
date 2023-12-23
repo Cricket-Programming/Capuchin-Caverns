@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using JoinPrivateRoomScript;
@@ -7,8 +5,8 @@ using JoinPrivateRoomScript;
 //goes on the enter button that the player pushes when they are ready to join the private room
 public class JoinPrivateRoomTrigger : MonoBehaviour
 {
-   private bool canTrigger = true;
-    public float cooldownTime = 3.0f; // Adjust the cooldown time as needed
+    private bool canTrigger = true;
+    private float cooldownTimeSec = 3.0f; // Adjust the cooldown time as needed
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +20,7 @@ public class JoinPrivateRoomTrigger : MonoBehaviour
     private System.Collections.IEnumerator Cooldown()
     {
         canTrigger = false;
-        yield return new WaitForSeconds(cooldownTime);
+        yield return new WaitForSeconds(cooldownTimeSec);
         canTrigger = true;
     }
 }

@@ -11,23 +11,29 @@ public class FlashlightOnOff : MonoBehaviour
     [SerializeField] private bool isOn = true;
     [SerializeField] private GameObject lightSource;
     [SerializeField] private AudioSource clickSound;
+    private bool canTrigger = true;
     private void Update() {
         if (!PhotonNetwork.InRoom) return;
         //only turn on and off if the player has it on.
         if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
 
-        if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand)) {
-            if (isOn) {//turnoff
-                isOn = false;
+        if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand) && canTrigger) {
+            if (isOn) {
+                //turnoff
                 clickSound.Play();
                 lightSource.SetActive(true);
+                isOn = false;
             }
             else {
-                isOn = true;
+                // Turn on
                 clickSound.Play();
                 lightSource.SetActive(false);
-                //turn on
+                isOn = true;
             }
+            canTrigger = false;
+        }
+        else {
+            canTrigger = true;
         }
 
     }

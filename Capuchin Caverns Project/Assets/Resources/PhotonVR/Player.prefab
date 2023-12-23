@@ -4088,22 +4088,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight
       objectReference: {fileID: 0}
-    - target: {fileID: 336189725223742303, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787464040453079862, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4010869
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787464040453079862, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.46919146
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787464040453079862, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4010869
-      objectReference: {fileID: 0}
     - target: {fileID: 4787464040453079862, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06700003
@@ -4145,8 +4129,16 @@ PrefabInstance:
       value: -790.192
       objectReference: {fileID: 0}
     - target: {fileID: 7520901354501055262, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520901354501055262, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
       propertyPath: m_VersionIndex
-      value: 4154
+      value: 4157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683756813019675288, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

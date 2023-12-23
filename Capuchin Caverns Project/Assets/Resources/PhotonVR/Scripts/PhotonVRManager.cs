@@ -15,7 +15,7 @@ using JoinPrivateRoomScript;
 
 using ExitGames.Client.Photon;
 
-// Documentation of my unique changes to my version of Photon.VR in Capuchin Caverns.
+// Documentation of the unique changes to the version of Photon.VR in Capuchin Caverns.
 // 1) These Comments
 // 2) PhotonVRPlayer.cs, which has a namespace of Photon.VR.Player
 //      - For the tag mode: syncs this transform position with the head transform position in the Update() function.
@@ -26,7 +26,10 @@ using ExitGames.Client.Photon;
 // 3) In this script for private rooms
 //      -using JoinPrivateRoomScript.
 //      - && !JoinPrivateRoom1.Manager.GetInPrivateRoom() in OnConnectedToMaster() callback in if statement for JoinRoomOnConnect because this prevents the player auto-rejoining a public room when pushing the enter for private room
-//      -Disconnect method changed to static and the two other places in PhotonVRManager accessing it are changed to call that function, instead of directly calling PhotonNetwork.Disconnect
+//      -Disconnect() method related changes:
+//          - changed to static 
+//          - the two other places in PhotonVRManager accessing it are changed to call that Disconnect(), instead of directly calling PhotonNetwork.Disconnect()
+//          - JoinPrivateRoomManager.Manager.SetInPrivateRoom(false);  added to Disconnect() method
 //  4) My player model (Player Prefab)
 
 namespace Photon.VR
