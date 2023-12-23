@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Connected to Private Room: fa;ldksjfasldkjfdf'
+  m_text: Not Connected...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8570,6 +8570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef0f9fa13361a04f937a58fc2dd3ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 3
 --- !u!1 &4314458527871651868
 GameObject:
   m_ObjectHideFlags: 0

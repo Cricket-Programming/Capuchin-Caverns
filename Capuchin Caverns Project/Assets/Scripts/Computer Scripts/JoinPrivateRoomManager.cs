@@ -7,7 +7,7 @@ using Photon.Pun;
 using Photon.Realtime; //for Clientstate.Joining
 using TMPro;
 
-//goes on the enter button that the player pushes when they are ready to join the private room
+
 namespace JoinPrivateRoomScript {
     public class JoinPrivateRoomManager : MonoBehaviourPunCallbacks
     {

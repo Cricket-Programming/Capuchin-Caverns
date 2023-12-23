@@ -22,11 +22,11 @@ public class NetworkedEnemyFollow : MonoBehaviour
     [Header("Set the speed of the creature in the NavMeshAgent component.")]
     [SerializeField] private float detectRange = 10f;
 
-    [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction")]
+    [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction.")]
     [SerializeField] private float divideLine = 15.5f;
     [SerializeField] private HorrorDirection directionToHorror;
     [SerializeField] private string horrorFloorName;
-    [Tooltip(" //if you don't know what to put for the divideLine, you can uncomment this to to Debug.Log the value of the beginning of the horror area. ")]
+    [Tooltip("If you don't know what to put for the divideLine, you can uncomment this to Debug.Log the value of the beginning of the horror area.")]
     [SerializeField] private bool PrintPlayerPosForDivLineTesting;
     private NavMeshAgent nma = null; //nma stands for navMeshAgent
 
@@ -34,7 +34,9 @@ public class NetworkedEnemyFollow : MonoBehaviour
     private Vector3 moveto;
     private bool flag = false;
 
-    private Transform target; //also the closest player
+
+    //the closest player
+    private Transform target; 
 
     private GameObject[] players;
     private float distanceToClosestPlayer;
