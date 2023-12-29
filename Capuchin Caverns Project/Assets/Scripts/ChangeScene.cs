@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter() 
     {
         SceneManager.LoadScene(sceneName);
     }
