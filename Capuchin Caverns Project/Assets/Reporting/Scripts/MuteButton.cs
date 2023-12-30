@@ -1,73 +1,77 @@
-// using UnityEngine;
-// using System.Collections.Generic;
-// using System.Collections;
-// using Photon.Pun;
-// using Photon.Realtime;
-// public class MuteButton : MonoBehaviour
-// {
-//     [SerializeField] public int ButtonNumber;
-//     [SerializeField] public LeaderBoard LB;
-//     [SerializeField] public string HandTag = "HandTag";
+using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using Photon.Pun;
+using Photon.Realtime;
+using Photon.VR;
+using Photon.VR.Player;
+using Photon.Voice.PUN;
+public class MuteButton : MonoBehaviour
+{
+    [SerializeField] private int ButtonNumber;
 
-//     private bool Muted = false;
-//     public Material MutedMaterial;
-//     private Material UnMutedMaterial;
-//     private Renderer rend;
+    private bool muted = false;
+    public Material MutedMaterial;
+    private Material UnMutedMaterial;
+    private Renderer rend;
 
-//     private Player MutedUser;
+    private Player MutedUser;
 
-//     private void Start()
-//     {
-//         rend = GetComponent<Renderer>();
-//         UnMutedMaterial = rend.material;
-//     }
+    private void Start()
+    {
+        rend = GetComponent<Renderer>();
+        UnMutedMaterial = rend.material;
 
-//     private void Update()
-//     {
-//         if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
-//         {
-//             if (PhotonNetwork.PlayerList[ButtonNumber - 1] != MutedUser && Muted)
-//             {
-//                 Muted = false;
-//                 rend.material = UnMutedMaterial;
-//             }
-//         }
-//     }
+    }
 
-//     public void MutePress(int ButtonNumber)
-//     {
-//         if (PhotonNetwork.PlayerList.Length >= ButtonNumber - 1)
-//         {
-//             foreach (PhotonVRPlayer PVRP in FindObjectsOfType<PhotonVRPlayer>())
-//             {
-//                 if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[ButtonNumber - 1])
-//                 {
-//                     AudioSource audioSource = PVRP.gameObject.GetComponent<PhotonVoiceView>().SpeakerInUse.gameObject.GetComponent<AudioSource>();
-//                     audioSource.mute = !audioSource.mute;
-//                     break;
-//                 }
-//             }
-//         }
-//     }
-//     private void OnTriggerEnter(Collider other)
-//     {
-//         if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
-//         {
-//             if (other.CompareTag("HandTag"))
-//             {
-//                 MutePress(ButtonNumber);
+    private void Update()
+    {
 
-//                 Muted = !Muted;
-//                 MutedUser = PhotonNetwork.PlayerList[ButtonNumber - 1];
-//                 if (Muted)
-//                 {
-//                     rend.material = MutedMaterial;
-//                 }
-//                 else
-//                 {
-//                     rend.material = UnMutedMaterial;
-//                 }
-//             }
-//         }
-//     }
-// }
+        if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
+        {
+            Debug.Log(PhotonNetwork.PlayerList[0]);
+            if (PhotonNetwork.PlayerList[ButtonNumber - 1] != MutedUser && muted)
+            {
+                muted = false;
+                rend.material = UnMutedMaterial;
+            }
+        }
+    }
+
+    private void MutePress(int ButtonNumber)
+    {
+        if (PhotonNetwork.PlayerList.Length >= ButtonNumber - 1)
+        {
+            foreach (PhotonVRPlayer PVRP in FindObjectsOfType<PhotonVRPlayer>())
+            {
+                if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[ButtonNumber - 1])
+                {
+                    AudioSource audioSource = PVRP.gameObject.GetComponent<PhotonVoiceView>().SpeakerInUse.gameObject.GetComponent<AudioSource>();
+                    audioSource.mute = !audioSource.mute;
+                    break;
+                }
+            }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
+        {
+            if (other.CompareTag("HandTag"))
+            {
+                MutePress(ButtonNumber);
+
+                muted = !muted;
+                MutedUser = PhotonNetwork.PlayerList[ButtonNumber - 1];
+                if (muted)
+                {
+                    rend.material = MutedMaterial;
+                }
+                else
+                {
+                    rend.material = UnMutedMaterial;
+                }
+            }
+        }
+    }
+}
