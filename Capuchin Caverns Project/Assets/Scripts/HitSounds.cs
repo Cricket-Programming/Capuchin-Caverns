@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OBJECT BASED SCRIPT WORKING
-//How to add hitsounds to objects:
-// add hitsounds script, this will also add an audiosource component
-//- uncheck play on awake on audiosource component
-//- put hit sound into the Audio Source component's AudioClip.
-
-
-
+//How to add hit sounds to objects:
+// - add hitsounds script, this will also add an audiosource component
+// - Uncheck play on awake on audiosource component
+// - put hit sound into the Audio Source component's AudioClip.
 [RequireComponent(typeof(AudioSource))]
 public class HitSounds : MonoBehaviour
 {   
@@ -20,7 +17,7 @@ public class HitSounds : MonoBehaviour
     { 
         hitSound = GetComponent<AudioSource>();
 
-        //instead of manually adjusting the audiosource volume for each one in the inspector, you can just put the volume values here and change them all in the script.
+        // Instead of manually adjusting the audiosource volume for each one in the inspector, you can just put the volume values here and change them all in the script.
         if (!manualVolume) {
             switch (hitSound.clip.name) {
                 case "Wood":
