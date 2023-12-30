@@ -32,7 +32,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         foreach (GameObject player in players) {
             Material playerMaterial = player.GetComponent<PhotonVRPlayer>().ColourObjects[0].material;
             if (playerMaterial.mainTexture != null) {
-                for(int i = 0; i < skins.Length; i++) {
+                for (int i = 0; i < skins.Length; i++) {
                     if (skins[i].mainTexture.name.Equals(playerMaterial.mainTexture.name)) {   // + " (Instance)" {    
                         player.GetComponent<NetworkSkin>().photonView.RPC("SetSkin", photonView.Owner, i);
                     }
