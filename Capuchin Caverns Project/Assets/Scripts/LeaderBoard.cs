@@ -11,12 +11,28 @@ using TMPro;
 public class LeaderBoard : MonoBehaviour
 {
     // Not currently accessed anywhere but it can be!
-    public static string[] usernames;
-    [SerializeField] private Renderer[] colorSpots;
+    [HideInInspector] public static string[] usernames;
+    [SerializeField] private Transform colorSpotsParent;
+    private Renderer[] colorSpots;
     private TMP_Text peopleDisplay;
     // [SerializeField] private string activereportperson;
     private void Start() {
         peopleDisplay = GetComponent<TMP_Text>();
+
+
+        
+        // Get all of the color Spots
+        int childCount = colorSpotsParent.childCount;
+        colorSpots = new Renderer[childCount]; 
+        // Iterate through each child using a for loop
+        for (int i = 0; i < childCount; i++)
+        {
+            // Get the i-th child using GetChild(i)
+            Transform child = colorSpotsParent.GetChild(i);
+
+            // Do something with the child object
+            colorSpots[i] = child.GetComponent<Renderer>();
+        }
     }
     //FixedUpdate is called less
     private void FixedUpdate()
@@ -43,8 +59,8 @@ public class LeaderBoard : MonoBehaviour
             {   
                 if (PVRP.gameObject.GetComponent<PhotonView>().Owner == currentPlayer)
                 {
-                    //colorSpots[i].material.mainTexture = PVRP.ColourObjects[0].material.mainTexture;
-                    colorSpots[i].material.color = JsonUtility.FromJson<Color>((string)PVRP.gameObject.GetComponent<PhotonView>().Owner.CustomProperties["Colour"]);
+                    colorSpots[i].material.mainTexture = PVRP.ColourObjects[0].material.mainTexture;
+                    colorSpots[i].material.color = PVRP.ColourObjects[0].material.color;
                 }
             }
             peopleDisplay.text = string.Join("\n", usernames);
