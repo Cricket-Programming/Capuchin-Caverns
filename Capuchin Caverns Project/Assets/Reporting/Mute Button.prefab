@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2599734175936085768}
   - component: {fileID: 7356920735346299939}
   - component: {fileID: 2869493144493962629}
+  - component: {fileID: 354579889438760541}
   m_Layer: 0
   m_Name: Mute Button
   m_TagString: Untagged
@@ -216,6 +217,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualVolume: 0
+--- !u!114 &354579889438760541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71419822821205625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63193daa33da4dc42a12a3c37127405e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonNumber: 0
+  MutedMaterial: {fileID: 2100000, guid: 47ba84973e911a0438581c61c0496f53, type: 2}
 --- !u!1 &5393489294191350056
 GameObject:
   m_ObjectHideFlags: 0
