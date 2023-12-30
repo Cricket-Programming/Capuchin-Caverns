@@ -72,21 +72,6 @@
 //         }
 //     }
 
-//     public void MutePress(int ButtonNumber)
-//     {
-//         if (PhotonNetwork.PlayerList.Length >= ButtonNumber - 1)
-//         {
-//             foreach (PhotonVRPlayer PVRP in FindObjectsOfType<PhotonVRPlayer>())
-//             {
-//                 if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[ButtonNumber - 1])
-//                 {
-//                     AudioSource audioSource = PVRP.gameObject.GetComponent<PhotonVoiceView>().SpeakerInUse.gameObject.GetComponent<AudioSource>();
-//                     audioSource.mute = !audioSource.mute;
-//                     break;
-//                 }
-//             }
-//         }
-//     }
 
 //     public void KickPress(int ButtonNumber)
 //     {

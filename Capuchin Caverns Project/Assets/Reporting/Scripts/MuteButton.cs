@@ -1,4 +1,6 @@
 // using UnityEngine;
+// using System.Collections.Generic;
+// using System.Collections;
 // using Photon.Pun;
 // using Photon.Realtime;
 // public class MuteButton : MonoBehaviour
@@ -32,13 +34,28 @@
 //         }
 //     }
 
+//     public void MutePress(int ButtonNumber)
+//     {
+//         if (PhotonNetwork.PlayerList.Length >= ButtonNumber - 1)
+//         {
+//             foreach (PhotonVRPlayer PVRP in FindObjectsOfType<PhotonVRPlayer>())
+//             {
+//                 if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[ButtonNumber - 1])
+//                 {
+//                     AudioSource audioSource = PVRP.gameObject.GetComponent<PhotonVoiceView>().SpeakerInUse.gameObject.GetComponent<AudioSource>();
+//                     audioSource.mute = !audioSource.mute;
+//                     break;
+//                 }
+//             }
+//         }
+//     }
 //     private void OnTriggerEnter(Collider other)
 //     {
 //         if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
 //         {
-//             if (other.CompareTag(HandTag))
+//             if (other.CompareTag("HandTag"))
 //             {
-//                 LB.MutePress(ButtonNumber);
+//                 MutePress(ButtonNumber);
 
 //                 Muted = !Muted;
 //                 MutedUser = PhotonNetwork.PlayerList[ButtonNumber - 1];

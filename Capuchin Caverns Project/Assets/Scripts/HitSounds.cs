@@ -20,7 +20,7 @@ public class HitSounds : MonoBehaviour
     { 
         hitSound = GetComponent<AudioSource>();
 
-        //instead of manually adjusting the audiosource volume for each one in the inspector, you can just put the values here and change them all at once.
+        //instead of manually adjusting the audiosource volume for each one in the inspector, you can just put the volume values here and change them all in the script.
         if (!manualVolume) {
             switch (hitSound.clip.name) {
                 case "Wood":
