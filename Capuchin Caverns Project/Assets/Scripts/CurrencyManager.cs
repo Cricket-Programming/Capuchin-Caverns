@@ -7,11 +7,11 @@ using System; //for DateTime
 using PlayFab; //for PlayFabError type
 using PlayFab.ClientModels; //for ModifyUserVirtualCurrencyResult type
 
-//to view the old script that syncronizes currency using playerprefs, go to the coinsmanager.cs
+//to view the old script that syncronizes currency using playerprefs, go to the coinsmanager.cs.
 
-//THERE SHOULD ONLY BE ONE CURRENCYMANAGER IN THE SCENE
+//THERE SHOULD ONLY BE ONE CURRENCYMANAGER IN THE SCENE!
 //CurrencyManager adds 100 marbles to PlayFab for every day that the player logs in.
-//CurrencyManager   also provides a lot of methods for adding and subtracting currency from PlayFab.
+//CurrencyManager also provides a lot of methods for adding and subtracting currency from PlayFab.
 public class CurrencyManager : MonoBehaviour
 {
     [Header("Set the starting coins in PlayFab itself in Engage > economy > currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
