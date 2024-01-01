@@ -134,7 +134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.383, z: 0}
-  m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.735721}
+  m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.50722814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4600545008840809966}
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 1882495161465573079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.539999, z: 0.01499939}
+  m_LocalPosition: {x: 0, y: -1.57, z: 0.01499939}
   m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.55698466}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 3275645163275771408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2, z: -0.052001953}
+  m_LocalPosition: {x: 0, y: -2.02, z: -0.052001953}
   m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.55698466}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -791,8 +791,8 @@ Transform:
   m_GameObject: {fileID: 6225279642556779363}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
-  m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.735721}
+  m_LocalPosition: {x: 0, y: 0.083, z: 0}
+  m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.49897334}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4600545008840809966}
@@ -1001,7 +1001,7 @@ Transform:
   m_GameObject: {fileID: 7361726277410333106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.3179989, z: 0.003}
+  m_LocalPosition: {x: 0, y: -0.279, z: 0.003}
   m_LocalScale: {x: 0.14495021, y: 0.31168962, z: 0.5076525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1252,7 +1252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.12, y: 1.35}
+  m_AnchoredPosition: {x: -0.085, y: 1.35}
   m_SizeDelta: {x: 7.9995, y: 4.4796}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8386368755272334403
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 188
+  m_VersionIndex: 194
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

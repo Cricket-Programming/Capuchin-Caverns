@@ -36,13 +36,12 @@ public class LeaderBoard : MonoBehaviour
     }
     private IEnumerator UpdateLeaderboardCoroutine(float interval) {
         while (true) {
-            yield return new WaitForSeconds(interval);
-
             if (PhotonNetwork.IsConnected) {
                 UpdateLeaderboardData();
             } else {
                 peopleDisplay.text = "Not Connected";
             }
+            yield return new WaitForSeconds(interval);
         }
 
     }
