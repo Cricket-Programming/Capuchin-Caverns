@@ -26,10 +26,8 @@ public class MuteButton : MonoBehaviour
 
     private void Update()
     {
-
         if (ButtonNumber > 0 && ButtonNumber <= PhotonNetwork.PlayerList.Length)
         {
-            Debug.Log(PhotonNetwork.PlayerList[0]);
             if (PhotonNetwork.PlayerList[ButtonNumber - 1] != MutedUser && muted)
             {
                 muted = false;
