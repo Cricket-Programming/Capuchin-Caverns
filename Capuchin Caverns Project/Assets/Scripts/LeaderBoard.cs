@@ -36,7 +36,6 @@ public class LeaderBoard : MonoBehaviour
     }
     private IEnumerator UpdateLeaderboardCoroutine(float interval) {
         while (true) {
-            Debug.Log("Haha");
             yield return new WaitForSeconds(interval);
 
             if (PhotonNetwork.IsConnected) {
