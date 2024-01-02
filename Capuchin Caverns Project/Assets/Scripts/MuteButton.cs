@@ -9,7 +9,6 @@ using Photon.Voice.PUN;
 public class MuteButton : MonoBehaviour
 {
     [SerializeField] private int ButtonNumber;
-
     private bool muted = false;
     public Material MutedMaterial;
     private Material UnMutedMaterial;

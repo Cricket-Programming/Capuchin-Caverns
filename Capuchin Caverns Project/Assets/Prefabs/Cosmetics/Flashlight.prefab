@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4787464040453079862
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.058629718, y: 0.9274275, z: -0.33260828, w: -0.16066304}
   m_LocalPosition: {x: 0.054, y: 0.64500046, z: -0.327}
-  m_LocalScale: {x: 0.4010869, y: 0.46919146, z: 0.4010869}
+  m_LocalScale: {x: 0.4010869, y: 0.46919146, z: 0.40108693}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4892169133211589699}
@@ -51,6 +51,8 @@ MonoBehaviour:
   isOn: 1
   lightSource: {fileID: 5050718415495568732}
   clickSound: {fileID: 5657281837274016014}
+  triggerCooldown: 0.5
+  hand: 0
 --- !u!82 &5657281837274016014
 AudioSource:
   m_ObjectHideFlags: 0
@@ -955,7 +957,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4157
+  m_VersionIndex: 4163
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1193,7 +1195,7 @@ Transform:
   m_GameObject: {fileID: 5754691711883955562}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.015, y: 0.009, z: 0.004}
   m_LocalScale: {x: 0.27237812, y: 0.047431927, z: 0.27237812}
   m_ConstrainProportionsScale: 0
   m_Children: []

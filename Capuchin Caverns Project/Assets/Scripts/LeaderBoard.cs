@@ -13,12 +13,11 @@ public class LeaderBoard : MonoBehaviour
     [HideInInspector] public static string[] usernames;
     [SerializeField] private Transform colorSpotsParent;
     private Renderer[] colorSpots;
-
     private TMP_Text peopleDisplay;
 
-    // [SerializeField] private string activereportperson;
     private void Start() {
         peopleDisplay = GetComponent<TMP_Text>(); 
+
         // Get all of the color Spots
         int childCount = colorSpotsParent.childCount;
         colorSpots = new Renderer[childCount]; 
@@ -28,7 +27,6 @@ public class LeaderBoard : MonoBehaviour
             // Get the i-th child using GetChild(i)
             Transform child = colorSpotsParent.GetChild(i);
 
-            // Do something with the child object
             colorSpots[i] = child.GetComponent<Renderer>();
         }
 
@@ -46,11 +44,10 @@ public class LeaderBoard : MonoBehaviour
 
     }
 
-    // Refreshes usernames and player colorSpots on the board
-    private void UpdateLeaderboardData() {
-
-        //creates new string of a certain length #In summary, use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room, and use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
+    // Refreshes usernames and player colorSpots on the board.
+    private void UpdateLeaderboardData() {        
         PhotonVRPlayer[] allPhotonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>();  
+        // Use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room, and use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
         int PhotonNetworkPlayerListLength = PhotonNetwork.PlayerList.Length;
 
         usernames = new string[PhotonNetworkPlayerListLength];
@@ -72,7 +69,7 @@ public class LeaderBoard : MonoBehaviour
 
         } 
         peopleDisplay.text = string.Join("\n", usernames);
-        //if the colorSpot has no player, then set the colorSpot back to white.
+        // If the colorSpot has no player, then set the colorSpot back to white.
         resetUnusedColorSpots(PhotonNetworkPlayerListLength);
         
     }
