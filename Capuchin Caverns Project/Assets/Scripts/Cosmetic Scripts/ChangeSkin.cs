@@ -23,7 +23,7 @@ public class ChangeSkin : MonoBehaviourPunCallbacks
             skinIndex = myPlayer.GetComponent<NetworkSkin>().GetSkinIndex(skin);
 
             if (skinIndex == -1) {
-                Debug.LogError("Skin not found in array of skins of networkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material.");
+                Debug.LogError("Skin not found in array of skins of NetworkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material.");
             }
         }
     }  
