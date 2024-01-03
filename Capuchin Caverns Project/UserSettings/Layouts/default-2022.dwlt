@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 273
+  controlID: 50
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 274
+  controlID: 51
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 67
+  controlID: 52
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ProBuilderEditor
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -267,15 +267,15 @@ MonoBehaviour:
     y: 426.4
     width: 1156
     height: 296.4
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 140, y: 49}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 13}
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 2
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -304,7 +304,7 @@ MonoBehaviour:
   - {fileID: 22}
   - {fileID: 23}
   m_Selected: 0
-  m_LastSelected: 3
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,7 +350,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Materials
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets
+  - Assets/Materials
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin Caverns GOOD\Capuchin-Caverns\Capuchin
     Caverns Project
@@ -366,9 +366,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: eed80000
-    m_LastClickedID: 55534
-    m_ExpandedIDs: 00000000eed800004ad9000064d90000e2d90000
+    m_SelectedIDs: 3ad90000
+    m_LastClickedID: 55610
+    m_ExpandedIDs: 00000000f0d800004ed90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -396,7 +396,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000eed80000
+    m_ExpandedIDs: 00000000f0d80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -421,8 +421,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 06b70400
+    m_LastClickedInstanceID: 308998
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002cb2000090c700008c1a0200ae5501006872030000000000
     m_RenameOverlay:
@@ -448,7 +448,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 44}
     m_GridSize: 57
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 180
@@ -488,10 +488,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 186d0000
+      scrollPos: {x: 0, y: 488}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f0faffff
+      m_ExpandedIDs: 84c7fdffcec7fdffc403feff343ffeff8679feffd079feffa4b5feff00f1feff080fffff540fffff864bffff3687ffff2af8ffff3ef8ffff5cf9ffff74f9fffff0faffff7a480200f06b0200b0720200727f0200e884020070420300924c03002e5903004896040034a004003aa7040000b704008abd040022bf04004cc204006eca040026d70400aadb0400
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -881,6 +881,19 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: UnityEditor.SceneViewCameraOverlay
+      index: 12
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: 7303a76bae9e9e04a96d9fe3ce018355
   m_Gizmos: 0
@@ -892,9 +905,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 88.319496, y: 29.8197, z: -26.546501}
+    m_Target: {x: -42.01747, y: 36.436367, z: 100.16164}
     speed: 2
-    m_Value: {x: 88.319496, y: 29.8197, z: -26.546501}
+    m_Value: {x: -42.01747, y: 36.436367, z: 100.16164}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -940,13 +953,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.18562678, y: 0.80795723, z: -0.33466616, w: -0.4481282}
+    m_Target: {x: -0.105226256, y: 0.6541679, z: 0.09229408, w: 0.7435732}
     speed: 2
-    m_Value: {x: -0.18494774, y: 0.808429, z: -0.33344173, w: -0.44838986}
+    m_Value: {x: -0.106318355, y: 0.6538889, z: 0.09325577, w: 0.74325573}
   m_Size:
-    m_Target: 0.14368168
+    m_Target: 12.124356
     speed: 2
-    m_Value: 0.14368168
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1125,7 +1138,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 500
-    width: 1202.2
+    width: 1155
     height: 275.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1204,9 +1217,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1161.6
+    x: 1156
     y: 73.6
-    width: 373.40002
+    width: 379
     height: 701.8
   m_SerializedDataModeController:
     m_DataMode: 0
