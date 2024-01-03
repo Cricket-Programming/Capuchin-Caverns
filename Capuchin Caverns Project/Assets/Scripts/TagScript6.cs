@@ -1,4 +1,4 @@
-//ENTRANCE BASED TAG MODE SCRIPT WORKING 
+//this version is older, newer version is testingvrgame's version of TagScript6
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
