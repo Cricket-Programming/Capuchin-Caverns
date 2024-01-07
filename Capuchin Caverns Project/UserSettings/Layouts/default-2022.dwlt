@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 50
+  controlID: 53
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51
+  controlID: 54
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 55
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 53
+  controlID: 56
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProBuilderEditor
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -267,15 +267,15 @@ MonoBehaviour:
     y: 426.4
     width: 1156
     height: 296.4
-  m_MinSize: {x: 140, y: 49}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,7 +350,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Resources/PhotonVR
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -358,17 +358,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Resources/PhotonVR
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin Caverns GOOD\Capuchin-Caverns\Capuchin
     Caverns Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 3ad90000
-    m_LastClickedID: 55610
-    m_ExpandedIDs: 00000000f0d800004ed90000
+    scrollPos: {x: 0, y: 32.600006}
+    m_SelectedIDs: fcda0000
+    m_LastClickedID: 56060
+    m_ExpandedIDs: 0000000052d90000beda0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -396,7 +396,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f0d80000
+    m_ExpandedIDs: 0000000052d90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -421,8 +421,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 06b70400
-    m_LastClickedInstanceID: 308998
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002cb2000090c700008c1a0200ae5501006872030000000000
     m_RenameOverlay:
@@ -448,7 +448,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 44}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 57
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 180
@@ -488,10 +488,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 488}
+      scrollPos: {x: 0, y: 335.6}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 84c7fdffcec7fdffc403feff343ffeff8679feffd079feffa4b5feff00f1feff080fffff540fffff864bffff3687ffff2af8ffff3ef8ffff5cf9ffff74f9fffff0faffff7a480200f06b0200b0720200727f0200e884020070420300924c03002e5903004896040034a004003aa7040000b704008abd040022bf04004cc204006eca040026d70400aadb0400
+      m_ExpandedIDs: f0faffffc2930000009a0000ec9d000026a40000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -905,9 +905,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -42.01747, y: 36.436367, z: 100.16164}
+    m_Target: {x: -157.80804, y: 18.606936, z: 80.696434}
     speed: 2
-    m_Value: {x: -42.01747, y: 36.436367, z: 100.16164}
+    m_Value: {x: -157.80804, y: 18.606936, z: 80.696434}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -953,13 +953,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.105226256, y: 0.6541679, z: 0.09229408, w: 0.7435732}
+    m_Target: {x: 0.1074378, y: 0.656935, z: -0.09518501, w: 0.7404614}
     speed: 2
-    m_Value: {x: -0.106318355, y: 0.6538889, z: 0.09325577, w: 0.74325573}
+    m_Value: {x: 0.107270785, y: 0.657897, z: -0.09532463, w: 0.73930895}
   m_Size:
     m_Target: 12.124356
     speed: 2
-    m_Value: 12.124355
+    m_Value: 12.124356
   m_Ortho:
     m_Target: 0
     speed: 2
