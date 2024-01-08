@@ -14,11 +14,12 @@ public class FlashlightOnOff : MonoBehaviour
     [SerializeField] private AudioSource clickSound;
     [SerializeField] private float triggerCooldown = 0.5f;
     [SerializeField] private EasyHand hand;
+    [SerializeField] private PhotonView photonView;
     private float lastTriggerTime;
 
     private void Update() {
         if (!PhotonNetwork.InRoom) return;
-
+        if (!photonView.IsMine) return;
         // Only turn on and off if the player has the cosmetic equiped.
         if (!PhotonVRManager.Manager.LocalPlayer.GetComponent<PhotonVRPlayer>().Cosmetics.RightHand.Equals("Flashlight")) return;
 

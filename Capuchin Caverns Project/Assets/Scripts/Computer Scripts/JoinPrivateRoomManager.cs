@@ -7,7 +7,7 @@ using Photon.Pun;
 using Photon.Realtime; //for Clientstate.Joining
 using TMPro;
 
-
+// Bug: If player disconnects because they put their headset down, they can;t join private room
 namespace JoinPrivateRoomScript {
     public class JoinPrivateRoomManager : MonoBehaviourPunCallbacks, IAddLetterable
     {
@@ -38,7 +38,7 @@ namespace JoinPrivateRoomScript {
 
             SetInPrivateRoom(true);
             if (PhotonNetwork.InRoom) {
-                PhotonNetwork.LeaveRoom(); //you are still connected even if you leave the room
+                PhotonNetwork.LeaveRoom(); // You are still connected even if you leave the room
             } else {
                 PhotonVRManager.Connect();
             }

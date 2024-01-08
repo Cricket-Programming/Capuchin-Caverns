@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//teleports the player
+// Teleports the player to respawnLocation.
 public class TeleportPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
