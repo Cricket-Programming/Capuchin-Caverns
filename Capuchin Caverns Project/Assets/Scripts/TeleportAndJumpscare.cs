@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//teleports the player, meant to be applied to horror
+// Teleports the player and jumpscares them. TeleportAndJumpscare.cs is meant for horror purposes.
+
 public class TeleportAndJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
@@ -26,28 +27,24 @@ public class TeleportAndJumpscare : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter()
     {
-        StartCoroutine(Teleport());
-        // if (other.transform.IsChildOf(gorillaPlayer)) {
-           
-        // }   
-            
+        StartCoroutine(Teleport());        
     }
 
-        // when the map is disabled and the player is the masterclient, Fluffy won't move around the navmesh anymore since it is disabled.
-        // By having a wait of 0.01 seconds, the player can get to the jumpscare location, but other players will only see Fluffy stop moving for 0.01 seconds
-    IEnumerator Teleport()
+    // When the map is disabled and the player is the MasterClient, Fluffy won't move around the navmesh anymore since it is disabled.
+    // By having a wait of 0.01 seconds, the player can get to the jumpscare location, but other players will only see Fluffy stop moving for 0.01 seconds
+    private IEnumerator Teleport()
     {
-        // Disable the map temporarily
+        // Disable the map temporarily.
         mapToDisable.SetActive(false);
 
-        // Stop the player's movement
+        // allow player to only be affected by game code instead of physics engine/ basically stops player's movement.
         gorillaPlayerRigidbody.isKinematic = true;
 
         jumpscareSound.Play();
 
-        //this slight delay is likely necessary. If it is necessary, it allows for the above code to have time to execute.
+        // slight delay to allow the above code to execute
         yield return new WaitForSeconds(0.02f);
 
         // Teleport the player to the jumpscare location
@@ -55,7 +52,6 @@ public class TeleportAndJumpscare : MonoBehaviour
 
         // Activate the jumpscare objects
         jumpscareObjects.SetActive(true);
-
 
         // Wait for the jumpscare running time
         yield return new WaitForSeconds(jumpscareRunningTime);
@@ -73,13 +69,13 @@ public class TeleportAndJumpscare : MonoBehaviour
         mapToDisable.SetActive(true);
     }
        
-    //the jumpscare is NOT networked which is good (like 3rd person)
+    // The jumpscare is NOT networked which is good (like 3rd person).
 
 }
 
 
 /*
-    //This code teleports the player back if he falls out of the map. Keep this code in case need to implement this in the future. 
+    //This code teleports the player back if he falls out of the map. Keep this code in case it needs to implement this in the future. 
     //Bug: If non-horror maps blocking path to respawn location, this will fail.
     // void teleportIfFall()
     // {

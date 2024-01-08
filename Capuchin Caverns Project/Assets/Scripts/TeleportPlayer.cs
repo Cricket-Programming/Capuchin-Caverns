@@ -11,7 +11,7 @@ public class TeleportPlayer : MonoBehaviour
     [SerializeField] private Transform respawnLocation;
 
     private void Start() {
-        //gets the gorillaPlayer's Rigidbody.
+        // Gets the gorillaPlayer's Rigidbody.
         if (!gorillaPlayer.TryGetComponent(out gorillaPlayerRigidbody)) {
             Debug.LogError("In order to access the rigidbody, make sure the name of the gorilla player is `GorillaPlayer`");
         }    
@@ -22,19 +22,19 @@ public class TeleportPlayer : MonoBehaviour
 
     private IEnumerator Teleport()
     {
-        // Disable the map temporarily
+        // Disable the map temporarily.
         mapToDisable.SetActive(false);
 
-        // allow player to only be affected by game code instead of physics engine/ basically stops player's movement.
+        // Allow player to only be affected by game code instead of physics engine/ basically stops player's movement.
         gorillaPlayerRigidbody.isKinematic = true;
 
-        // slight delay to allow the above code to execute
+        // Slight delay to allow the above code to execute.
         yield return new WaitForSeconds(0.1f);
         
-        // Teleport the player to the respawn location
+        // Teleport the player to the respawn location.
         gorillaPlayer.position = respawnLocation.position; 
         
-        // slight delay to allow the above code to execute before re-enabling the map
+        // Slight delay to allow the above code to execute before re-enabling the map.
         yield return new WaitForSeconds(0.1f);
 
         // Re-enable the Rigidbody's movement
