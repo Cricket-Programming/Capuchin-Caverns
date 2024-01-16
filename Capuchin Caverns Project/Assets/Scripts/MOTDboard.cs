@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.Networking;
-
-    //In github, the repository holding the MOTD text file MUST to be public.
+using UnityEngine.Networking; // For UnityWebRequest.
+    // How to set up MOTD:
+    // 1) Create Github repository. THE REPOSITORY HOLDING THE MOTD TEXT FILE MUST BE PUBLIC.
+    // 2) Create a .txt file holding your MOTD text.
+    // 3) Put the URL to the raw .txt file into the textURL data field in the inspector.  
 
     // How to change MOTD text:
     // 1) On github.com, locate MOTD repository for Capuchin Caverns.
@@ -15,8 +17,7 @@ using UnityEngine.Networking;
     // 6) Wait a little bit for changes to sync.
 public class MOTDboard : MonoBehaviour
 {
-
-    private string textURL = "https://raw.githubusercontent.com/Cricket-Programming/motd/main/motd.txt"; //I changed this to public from samsams script
+    [SerializeField] private string textURL = "https://raw.githubusercontent.com/Cricket-Programming/motd/main/motd.txt"; 
     private TMP_Text MOTD;
     void Start()
     {

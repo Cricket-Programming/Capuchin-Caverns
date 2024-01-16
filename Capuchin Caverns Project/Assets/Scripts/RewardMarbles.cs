@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RewardMarbles : MonoBehaviour
 {
-    [Tooltip("IE: Claimed text")]
+    [Tooltip("IE: Claimed!")]
     [SerializeField] private GameObject enable;
     [SerializeField] private string rewardName;
     [SerializeField] private int increaseAmount;
