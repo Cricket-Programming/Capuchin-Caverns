@@ -26,15 +26,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5193665823826520608}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.355}
-  m_LocalScale: {x: 0.078428134, y: 0.078428134, z: 0.078428134}
+  m_LocalPosition: {x: 0, y: 0, z: -0.015916}
+  m_LocalScale: {x: 0.068030134, y: 0.068030134, z: 0.068030134}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5513358078631335638}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.232, y: 0.204}
+  m_AnchoredPosition: {x: 0.232, y: 0.25234}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7580809058059244416
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Server\n    1\n"
+  m_text: "Join \nPublic Room"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1165863db319cc409573e5e970d658e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppID: 417dcd6f-c25a-40c1-9f77-be91b5a1326b
-  VoiceID: c398f278-f71a-424b-acde-9a0accf43b50
+  AppID: 52a7b50d-de75-478e-ad49-09baaead388a
+  VoiceID: 8714b844-4d5c-4feb-afd3-126f364ea214
 --- !u!1 &7838583084373549077
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,9 +315,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7838583084373549077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.020000964, y: 0.5248, z: -0.093}
-  m_LocalScale: {x: 0.25720274, y: 0.25720274, z: 0.25720274}
+  m_LocalScale: {x: 0.405296, y: 0.405296, z: 0.405296}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 973505607548288348}

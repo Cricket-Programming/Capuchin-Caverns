@@ -31,6 +31,7 @@ using ExitGames.Client.Photon;
 //          - the two other places in PhotonVRManager accessing it are changed to call that Disconnect(), instead of directly calling PhotonNetwork.Disconnect()
 //          - JoinPrivateRoomManager.Manager.SetInPrivateRoom(false);  added to Disconnect() method
 //  4) My player model (Player Prefab)
+// 5) Two tooltips for the left hand and right hand that say sphere
 
 namespace Photon.VR
 {
@@ -46,7 +47,9 @@ namespace Photon.VR
 
         [Header("Player")]
         public Transform Head;
+        [Tooltip("the L Gorilla Origin's Left Sphere")]
         public Transform LeftHand;
+        [Tooltip("the L Gorilla Origin's Left Sphere")]
         public Transform RightHand;
         public Color Colour;
         public PhotonVRCosmeticsData Cosmetics { get; private set; } = new PhotonVRCosmeticsData();
