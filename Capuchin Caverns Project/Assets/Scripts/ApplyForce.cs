@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ApplyForce sends the gorilla player's rigidbody flying based on forcesXYZ.
+
+// Note: Small trampolines may not pick up rigidbody collision when the collider is not big enough (this is especially critical for trampolines because the rigidbody is moving so fast).
+// Launchpads Sideways Trampoline Force: Vector3(16.1,2,23.5499992).
+
+
 public class ApplyForce : MonoBehaviour
 {
-    //Sideways Trampoline Force: Vector3(16.1000004,2,23.5499992)
-    //Note: Small trampolines may not pick up rigidbody collision when the collider is not big/tall enough.
-    [Header("Thanks Samsam for part of this script")]
-    [Header("Default values are for regular launchpad trampoline")]
+    [Header("Default values are for regular launchpads trampoline")]
+    [Tooltip("You can create a empty gameobject and put it where you want the Gorilla to be. Then, you can calculate the forces based on the position you want.")]
     [SerializeField] private Vector3 forcesXYZ = new Vector3(0, 30, 0);
  
     private Rigidbody gorillaPlayerRigidbody;

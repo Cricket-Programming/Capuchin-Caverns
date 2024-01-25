@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System; //for DateTime
-//these namespaces are for the SubtractAndAddUserVirtualCurrencyRequest.
-using PlayFab; //for PlayFabError type
-using PlayFab.ClientModels; //for ModifyUserVirtualCurrencyResult type
+using System; // For DateTime class
+// These namespaces are for the Subtract/AddUserVirtualCurrency request stuff.
+using PlayFab; // for PlayFabError type
+using PlayFab.ClientModels; // for ModifyUserVirtualCurrencyResult type
 
-//to view the old script that syncronizes currency using playerprefs, go to the coinsmanager.cs.
+// To view the old script that synchronized currency using playerprefs, go to the coinsmanager.cs.
 
-//THERE SHOULD ONLY BE ONE CURRENCYMANAGER IN THE SCENE!
-//CurrencyManager adds 100 marbles to PlayFab for every day that the player logs in.
-//CurrencyManager also provides a lot of methods for adding and subtracting currency from PlayFab.
+// THERE SHOULD ONLY BE ONE CURRENCYMANAGER IN THE SCENE!
+// CurrencyManager adds 100 marbles to PlayFab for every day that the player logs in.
+// CurrencyManager also provides AddPlayFabCurrency() and SubtractPlayFabCurrency() methods used in multiple other scripts.
 public class CurrencyManager : MonoBehaviour
 {
-    [Header("Set the starting coins in PlayFab itself in Engage > economy > currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
+    [Header("Set the starting coins in PlayFab itself in Engage > economy > Currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
     [SerializeField] private int HowMuchADay = 100;
     
     private string todayDate;

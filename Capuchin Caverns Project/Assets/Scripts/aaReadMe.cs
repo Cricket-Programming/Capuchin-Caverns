@@ -1,5 +1,5 @@
 /*
-THIS PROJECT'S CODING CONVENTIONS AND FORMATTING
+THIS PROJECT'S CODING CONVENTIONS AND FORMATTING:
 
 Method names: PascalCase
 Private variables - camelCase, no underscore prefixes.

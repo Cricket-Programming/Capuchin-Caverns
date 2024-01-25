@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//OBJECT BASED SCRIPT WORKING
-//How to add hit sounds to objects:
+
+// How to add hit sounds to objects:
 // - add hitsounds script, this will also add an audiosource component
 // - Uncheck play on awake on audiosource component
 // - put hit sound into the Audio Source component's AudioClip.

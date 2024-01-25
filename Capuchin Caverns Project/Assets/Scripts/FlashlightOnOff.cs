@@ -7,6 +7,8 @@ using Photon.VR;
 using Photon.Pun;
 using Photon.VR.Player;
 
+// This script turns on and off the flashlight when the player pushes the trigger button (index finger button) on their controller.
+// It may have an issue when multiple people have flashlight on, not syncing?
 public class FlashlightOnOff : MonoBehaviour
 {
     [SerializeField] private bool isOn = true;

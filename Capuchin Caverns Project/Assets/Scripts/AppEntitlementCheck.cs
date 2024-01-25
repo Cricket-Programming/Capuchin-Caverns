@@ -1,12 +1,10 @@
 using UnityEngine;
 using Oculus.Platform;
-
+// The Entitlement Check supposedly verifies the user purchased or obtained my app legitimately.
 public class AppEntitlementCheck : MonoBehaviour
 {
-
-    void Awake()
+    private void Awake()
     {
-        //Oculus.Platform.Core.Initialize();
         try
         {
             Core.AsyncInitialize();
@@ -18,9 +16,7 @@ public class AppEntitlementCheck : MonoBehaviour
             Debug.LogException(e);
         }
     }
-
-
-    void EntitlementCallback(Message msg)
+    private void EntitlementCallback(Message msg)
     {
         if (msg.IsError)
         {
