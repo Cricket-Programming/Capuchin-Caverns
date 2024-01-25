@@ -56,7 +56,7 @@ public class LeaderBoard : MonoBehaviour
         //assign the colorSpots and player names
         for (int i = 0; i < PhotonNetworkPlayerListLength; i++)
         {
-            var currentPlayer = PhotonNetwork.PlayerList[i];
+            Player currentPlayer = PhotonNetwork.PlayerList[i];
 
             usernames[i] = currentPlayer.NickName;
 
