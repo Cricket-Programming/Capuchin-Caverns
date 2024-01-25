@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
 using System.Collections;
+// This script is only used for utility purposes.
 public class FindGameObjectsByTag : MonoBehaviour
-{
+{   
     [SerializeField] private string tagName;
     private void Start()
     {

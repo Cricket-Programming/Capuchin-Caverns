@@ -14,6 +14,7 @@ public class FlashlightOnOff : MonoBehaviour
     [SerializeField] private bool isOn = true;
     [SerializeField] private GameObject lightSource;
     [SerializeField] private AudioSource clickSound;
+    [Tooltip("In seconds")]
     [SerializeField] private float triggerCooldown = 0.5f;
     [SerializeField] private EasyHand hand;
     [SerializeField] private PhotonView photonView;
@@ -32,11 +33,11 @@ public class FlashlightOnOff : MonoBehaviour
                     lastTriggerTime = Time.time;
                 }
         }
-    
     }
 
     private bool CanTrigger() {
-        return (Time.time - lastTriggerTime) >= triggerCooldown;
+        float timeElapsedSec = Time.time - lastTriggerTime; 
+        return timeElapsedSec >= triggerCooldown;
     }
 
     private void ToggleFlashlight() {

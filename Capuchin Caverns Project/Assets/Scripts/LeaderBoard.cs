@@ -9,8 +9,9 @@ using TMPro;
 
 public class LeaderBoard : MonoBehaviour
 {
-    // Not currently accessed anywhere but it can be!
+    // Not currently accessed anywhere, but it can be!
     [HideInInspector] public static string[] usernames;
+
     [SerializeField] private Transform colorSpotsParent;
     private Renderer[] colorSpots;
     private TMP_Text peopleDisplay;
@@ -18,15 +19,14 @@ public class LeaderBoard : MonoBehaviour
     private void Start() {
         peopleDisplay = GetComponent<TMP_Text>(); 
 
-        // Get all of the color Spots
+        // Get all of the color Spots in colorSpotsParent.
         int childCount = colorSpotsParent.childCount;
         colorSpots = new Renderer[childCount]; 
-        // Iterate through each child using a for loop
+        // Iterate through each child.
         for (int i = 0; i < childCount; i++)
         {
             // Get the i-th child using GetChild(i)
             Transform child = colorSpotsParent.GetChild(i);
-
             colorSpots[i] = child.GetComponent<Renderer>();
         }
 
@@ -34,7 +34,7 @@ public class LeaderBoard : MonoBehaviour
     }
     private IEnumerator UpdateLeaderboardCoroutine(float interval) {
         while (true) {
-            if (PhotonNetwork.IsConnected) {
+            if (PhotonNetwork.InRoom) {
                 UpdateLeaderboardData();
             } else {
                 peopleDisplay.text = "Not Connected";
@@ -45,9 +45,10 @@ public class LeaderBoard : MonoBehaviour
     }
 
     // Refreshes usernames and player colorSpots on the board.
+    // I'm not sure, but I think this should not be static because it is editing instance specific variables.
     private void UpdateLeaderboardData() {        
         PhotonVRPlayer[] allPhotonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>();  
-        // Use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room, and use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
+        // Use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room. Use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
         int PhotonNetworkPlayerListLength = PhotonNetwork.PlayerList.Length;
 
         usernames = new string[PhotonNetworkPlayerListLength];
@@ -56,6 +57,7 @@ public class LeaderBoard : MonoBehaviour
         for (int i = 0; i < PhotonNetworkPlayerListLength; i++)
         {
             var currentPlayer = PhotonNetwork.PlayerList[i];
+
             usernames[i] = currentPlayer.NickName;
 
             foreach (PhotonVRPlayer PVRP in allPhotonVRPlayerScripts)
