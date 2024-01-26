@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.AI;
-using Photon.Pun; //all these classes inside of this namespace is PascalCase. Ex: PhotonNetwork
+using Photon.Pun; // classes such as the PhotonNetwork in this namespace are PascalCase.
 
-// Networking should work, if there are photon view and photon transform view components set to the settings of https://www.youtube.com/watch?v=hOQ11Es8Ehg&t=254s.
+// Networking should work, if there are photon view and photon transform view components set to the settings Fluffy Networked.
 // This script works with navmesh's component based workflow. Follow this tutorial to get it set up: https://www.youtube.com/watch?v=aHFSDcEQuzQ.
 // Credits to omarVision for some of the SetRandomDestination() code, credits to FlimcyVR for part of the findClosestPlayerTransform() code.
 
@@ -16,7 +16,7 @@ public enum HorrorDirection {
     GreaterThan,
 
 }
-public class NetworkedEnemyFollow : MonoBehaviour 
+public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class this class inherits from, thereby giving it the functions such as Update(), OnCollisionEnter(), etc.
 {
     
     [Header("Set the speed of the creature in the NavMeshAgent component.")]
@@ -35,7 +35,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
     private bool flag = false;
 
 
-    //the closest player
+    // The closest player
     private Transform target; 
 
     private GameObject[] players;
@@ -58,7 +58,7 @@ public class NetworkedEnemyFollow : MonoBehaviour
     private void Update()
     {
         // The MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
-        //you don't need MonoBehaviourPunCallbacks to access this anything from PhotonNetwork such as the PhotonNetwork.IsMasterClient.
+        // MonoBehaviourPunCallbacks to access this anything from PhotonNetwork such as the PhotonNetwork.IsMasterClient.
         if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected) { //The !PhotonNetwork.IsConnected part makes it so that Fluffy moves when the player is not connected to multiplayer.      
 
             if (!nma.hasPath && !flag)
@@ -99,7 +99,6 @@ public class NetworkedEnemyFollow : MonoBehaviour
             {
                 distanceToClosestPlayer = distanceToPlayer;
                 target = p.transform;
-                //Debug.Log(p.transform.position.z);
             }
         }
     }

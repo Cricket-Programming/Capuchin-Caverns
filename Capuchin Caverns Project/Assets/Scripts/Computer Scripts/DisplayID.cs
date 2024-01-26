@@ -9,11 +9,14 @@ public class DisplayID : MonoBehaviour
         TextMeshPro IDText = GetComponent<TextMeshPro>();
         
         if (PlayFabLogin.instance != null) {
-            string playFabID = PlayFabLogin.instance.MyPlayFabID;
+            string playFabID = "dd";//PlayFabLogin.instance.MyPlayFabID;
             IDText.text = playFabID;
         } else {
             Debug.LogError("PlayFabLogin instance is null. Can't access it.");
         }
 
+    }
+    private void Update() {
+        Debug.Log(PlayFabLogin.instance.MyPlayFabID);
     }
 }

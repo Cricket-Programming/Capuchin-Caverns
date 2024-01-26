@@ -7,11 +7,13 @@ using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+// This script connects and logs in the player with PlayFab.
 public class PlayFabLogin : MonoBehaviour
 {
     [Header("COSMETICS")]
     public static PlayFabLogin instance;
     public string MyPlayFabID;
+    [SerializeField] private TMP_Text MyPlayFabIDDisplaySpot;
     public string CatalogName;
     public List<GameObject> specialitems;
     public List<GameObject> disableitems;
@@ -61,7 +63,7 @@ public class PlayFabLogin : MonoBehaviour
 
     public void OnLoginSuccess(LoginResult result)
     {
-        Debug.Log("logging in");
+        Debug.Log("Logged in successfully to PlayFab");
         GetAccountInfoRequest InfoRequest = new GetAccountInfoRequest();
         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
         GetVirtualCurrencies();
@@ -72,7 +74,7 @@ public class PlayFabLogin : MonoBehaviour
     public void AccountInfoSuccess(GetAccountInfoResult result)
     {
         MyPlayFabID = result.AccountInfo.PlayFabId;
-
+        MyPlayFabIDDisplaySpot.text = MyPlayFabID;
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
         (result) =>
         {
