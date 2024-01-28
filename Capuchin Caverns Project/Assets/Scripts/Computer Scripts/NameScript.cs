@@ -6,9 +6,9 @@ using Photon.VR;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
-//NameScript manages all the stuff for setting and saving the player name. 
-//It sets a textmeshpro to the NameVar (Player's display name). It syncs NameVar with PlayFab and PhotonVRManager. PhotonVRManager saves NameVar to PlayerPrefs as "Username" key 
-//and sets the Photon Network Player Nickname to NameVar
+// NameScript manages all the stuff for setting and saving the player name. 
+// It sets a textmeshpro to the NameVar (Player's display name). It syncs NameVar with PlayFab and PhotonVRManager. PhotonVRManager saves NameVar to PlayerPrefs as "Username" key 
+// and sets the Photon Network Player Nickname to NameVar
 
 // change it to only do playfab name saving - remove the stuff about playerprefs.
 public class NameScript : MonoBehaviour, IAddLetterable

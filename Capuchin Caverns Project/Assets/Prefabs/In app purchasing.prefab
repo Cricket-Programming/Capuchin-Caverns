@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 936593267116069867}
   - component: {fileID: 6299971243341838190}
   m_Layer: 0
-  m_Name: IAP Backboard (1)
+  m_Name: IAP Top Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 149
+  m_VersionIndex: 152
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 149
+  m_VersionIndex: 152
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skuToPurchase: Dollars4.99
   currencyAmount: 3000
-  purchaseFailedText: {fileID: 0}
+  purchaseFailedText: {fileID: 5084665746665551324}
 --- !u!1 &4307282632868648153
 GameObject:
   m_ObjectHideFlags: 0

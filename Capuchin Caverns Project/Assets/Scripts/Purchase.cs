@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine;  
+// This script deals with purchasing cosmetics and saving it to PlayerPrefs. 
+
 public class Purchase : MonoBehaviour
-{
+{   [Tooltip("The object to enable when the cosmetic is purchased")]
     [SerializeField] private GameObject enable;
+    [Tooltip("The object to disable when the cosmetic is purchased")]
     [SerializeField] private GameObject disable;
+    [Tooltip("Every CosmeticName must be unique.")]
     [SerializeField] private string CosmeticName;
     [SerializeField] private int price;
 
     private void Start()
-    {
+    {   
+        // If player owns the cosmetic, then show it as purchased.
         if (PlayerPrefs.GetInt(CosmeticName) == 1)
         {
             ActivateCosmeticObjects();
@@ -18,7 +23,7 @@ public class Purchase : MonoBehaviour
 
     private void OnTriggerEnter()
     {
-        //Purchase cosmetic.
+        // Purchase cosmetic.
         int marbles = CurrencyManager.Instance.coins;
         if (marbles >= price)
         {

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.VR;
 
-public class randomColor : MonoBehaviour
+// Sets the player to a random color.
+public class RandomColor : MonoBehaviour
 {
-	void OnTriggerEnter()
+	private void OnTriggerEnter()
 	{
 		float r = Random.Range(0f, 1f);
 		float g = Random.Range(0f, 1f);

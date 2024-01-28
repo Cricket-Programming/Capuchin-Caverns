@@ -16,12 +16,11 @@ using PlayFab.ClientModels; // for ModifyUserVirtualCurrencyResult type
 public class CurrencyManager : MonoBehaviour
 {
     [HideInInspector] public static CurrencyManager Instance;
+    [HideInInspector] public int coins; // The player's coins. Accessed in Purchase.cs from singleton pattern
 
     [Header("Set the starting coins in PlayFab itself in Engage > economy > Currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
-    [SerializeField] private int HowMuchADay = 100;
-    [HideInInspector] public int coins; //the player's coins. Accessed in Purchase.cs from singleton pattern
-    
-    [SerializeField] private string CurrencyName;
+    [SerializeField] private int howMuchADay = 100;
+    [SerializeField] private string currencyName;
     [SerializeField] private TextMeshPro currencyText;
     private void Awake() {
         Instance = this;
@@ -47,8 +46,8 @@ public class CurrencyManager : MonoBehaviour
     {
         if (PlayerPrefs.GetString("previousDate") != todayDate)
         {
-            //give player currency
-            AddPlayFabCurrency(HowMuchADay);
+            // Give player currency
+            AddPlayFabCurrency(howMuchADay);
             PlayerPrefs.SetString("previousDate", todayDate);
         }
     }
@@ -56,12 +55,12 @@ public class CurrencyManager : MonoBehaviour
     private void GetVirtualCurrencies() {
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnGetCurrencyError);
     }
-    private void OnGetCurrencyError(PlayFabError error) {
-        Debug.Log("Could not get the PlayFab User inventory" + error);
-    }
     private void OnGetUserInventorySuccess(GetUserInventoryResult result) {
         coins = result.VirtualCurrency["HS"];
-        currencyText.text = "You have " + coins.ToString() + " " + CurrencyName;
+        currencyText.text = "You have " + coins.ToString() + " " + currencyName;
+    }
+    private void OnGetCurrencyError(PlayFabError error) {
+        Debug.Log("Could not get the PlayFab User inventory" + error);
     }
 
 
@@ -91,7 +90,7 @@ public class CurrencyManager : MonoBehaviour
     } 
     private void OnSubtractCurrencySuccess(ModifyUserVirtualCurrencyResult result) {
         Debug.Log("Currency subtracted: " + result.Balance);
-        GetVirtualCurrencies(); //this refreshes it so the user can see the decrease in currency right away.
+        GetVirtualCurrencies(); // This refreshes it so the user can see the decrease in currency right away.
     }
     private void OnSubtractCurrencyFailure(PlayFabError error) {
         Debug.Log("Error Subtracting Virtual Currency: " + error.ErrorMessage);

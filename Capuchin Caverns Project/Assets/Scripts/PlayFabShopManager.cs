@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic; 
 using Oculus.Platform;
 using Oculus.Platform.Models;
-using Photon.VR;
 using TMPro;
 
 public class PlayFabShopManager : MonoBehaviour
@@ -12,11 +11,9 @@ public class PlayFabShopManager : MonoBehaviour
     [SerializeField] private int currencyAmount;
     [SerializeField] private TMP_Text purchaseFailedText; 
 
-    private void BuyProduct()
-    {
+    private void BuyProduct() {
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
     }
-
 
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {

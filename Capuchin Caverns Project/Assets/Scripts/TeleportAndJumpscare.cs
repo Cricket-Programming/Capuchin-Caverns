@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Teleports the player and jumpscares them. TeleportAndJumpscare.cs is meant for horror purposes.
 
+// Teleports the player and jumpscares them. TeleportAndJumpscare.cs is meant for horror purposes.
 public class TeleportAndJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
-
     [SerializeField] private Transform gorillaPlayer;
     private Rigidbody gorillaPlayerRigidbody;
 
@@ -27,8 +26,7 @@ public class TeleportAndJumpscare : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter()
-    {
+    private void OnTriggerEnter() {
         StartCoroutine(Teleport());        
     }
 

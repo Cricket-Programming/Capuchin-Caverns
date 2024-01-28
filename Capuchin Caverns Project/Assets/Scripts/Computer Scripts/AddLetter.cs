@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//this basically means that all the scripts that implement IAddLetterable must have the AddLetter() method.
+// This means that all the scripts that implement IAddLetterable must have the AddLetter() and Backspace() methods.
 public interface IAddLetterable {
     void AddLetter(string letter);
     void Backspace();
@@ -31,7 +31,7 @@ public class AddLetter : MonoBehaviour
         {
             // Check if the assigned script implements the ILetterReceiver interface
             var addLetterable = addLetterableScript.GetComponent<IAddLetterable>();    
-            //guard clause - simplifies unnecessarily complicated nested control flow     
+            // Guard clauses - simplifies unnecessarily complicated nested control flow     
             if (addLetterable == null)
             {
                 Debug.LogError("The assigned script does not implement IAddLetterable interface.");

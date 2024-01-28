@@ -15,7 +15,6 @@ public class RewardMarbles : MonoBehaviour
     }
     private void OnTriggerEnter() {
         CurrencyManager.Instance.AddPlayFabCurrency(increaseAmount);
-
         PlayerPrefs.SetInt(rewardName, 1);
         ActivateCosmeticObjects();
     }
