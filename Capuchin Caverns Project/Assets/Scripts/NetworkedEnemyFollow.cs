@@ -59,7 +59,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     {
         // The MasterClient (also called the host) is the first player in the room. The MasterClient will switch automatically if the current one leaves.
         // MonoBehaviourPunCallbacks to access this anything from PhotonNetwork such as the PhotonNetwork.IsMasterClient.
-        if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected) { //The !PhotonNetwork.IsConnected part makes it so that Fluffy moves when the player is not connected to multiplayer.      
+        if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected) { //The !PhotonNetwork.IsConnected part makes it so that Fluffy moves when the player is not connected to multiplayer. NOTE: Fluffy won't chase player though.     
 
             if (!nma.hasPath && !flag)
             {
@@ -68,17 +68,17 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
             
             }
             
-            // this method sets distanceToClosestPlayer and target (target is the closest player)
+            // This method sets distanceToClosestPlayer and target (target is the closest player)
             findClosestPlayersTransform(); 
 
             //If target is in the horror area and is in range to the enemy, go to the target player.
-            if (target != null) { //if the player for some reason disconnects from the server making the target destroyed, this code makes sure the target exists before trying to access the transform component preventing a nullreferenceexception.
+            if (target != null) { // If the player is not connected to multiplayer or the target gets destroyed, this will cause a nullreferenceexception.
                 if (TargetInRangeAndInHorror()) {  
                     nma.SetDestination(target.position);
                 } 
-            }
-            if (PrintPlayerPosForDivLineTesting) {
+                if (PrintPlayerPosForDivLineTesting) {
                 Debug.Log(target.position.z);
+                }
             }
         }
     }
@@ -92,6 +92,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     private void findClosestPlayersTransform() {
         distanceToClosestPlayer = Mathf.Infinity;
         players = GameObject.FindGameObjectsWithTag("Player"); //this gets all the gameObjects with a tag of `Player`. This tag is ONLY on the head of the photonVR player. If there is 3 players in the room, then the length of this array will be 3. The reason I put this on the head instead of the parent is because the parent always stays at Vector3(0, 0 ,0), NOT TRUE ANYMORE BC OF this transfomr thing in PhotonVRPlayer
+
         foreach (GameObject p in players)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, p.transform.position);
@@ -100,7 +101,9 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
                 distanceToClosestPlayer = distanceToPlayer;
                 target = p.transform;
             }
+
         }
+
     }
     // SetRandomDestination picks a random x and z and sets the enemy's destination to that point.
     private void SetRandomDestination()
