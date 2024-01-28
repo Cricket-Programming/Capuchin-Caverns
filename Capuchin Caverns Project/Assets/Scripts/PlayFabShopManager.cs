@@ -31,7 +31,7 @@ public class PlayFabShopManager : MonoBehaviour
                 purchaseFailedText.gameObject.SetActive(true);  
                 return;
             }
-            CurrencyManager.AddPlayFabCurrency(currencyAmount);
+            CurrencyManager.Instance.AddPlayFabCurrency(currencyAmount);
         });  
     }    
 

@@ -8,47 +8,35 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 // This script connects and logs in the player with PlayFab.
+
+// IF YOU ARE TRYING TO ACCESS ONE OF THE VARIABLES YOU MIGHT HAVE TO MAKE IT PUBLIC.
 public class PlayFabLogin : MonoBehaviour
 {
     [Header("COSMETICS")]
-    public static PlayFabLogin instance;
-    public string MyPlayFabID;
+    [HideInInspector] public static PlayFabLogin instance;
+    [HideInInspector] public string MyPlayFabID;
     [SerializeField] private TMP_Text MyPlayFabIDDisplaySpot;
-    public string CatalogName;
-    public List<GameObject> specialitems;
-    public List<GameObject> disableitems;
-    [Header("CURRENCY")]
-    public string CurrencyName;
-    public TextMeshPro currencyText;
-    public CurrencyManager CurrencyManager;
+    [SerializeField] private  string CatalogName;
+    [SerializeField] private List<GameObject> specialitems;
+    [SerializeField] private  List<GameObject> disableitems;
 
-    public int coins; //the player's coins. Accessed in Purchase.cs from singleton pattern
     [Header("BANNED")]
-    public string bannedscenename;
+    [SerializeField] private string bannedSceneName;
     [Header("TITLE DATA")]
-    public TextMeshPro MOTDText;
-    [Header("PLAYER DATA")]
-    public TextMeshPro UserName;
-    public string StartingUsername;
-    public string playerName; // changed from name
+    [SerializeField] private TextMeshPro MOTDText;
 
-    public bool UpdateName;
-    
-
-    public void Awake()
+    private void Awake()
     {
         instance = this;
     }
 
     private void Start()
     {
-        login();
-        
+        Login();
     }
 
-    public void login()
+    private void Login()
     {
-
         var request = new LoginWithCustomIDRequest
         {
             CustomId = SystemInfo.deviceUniqueIdentifier,
@@ -61,17 +49,17 @@ public class PlayFabLogin : MonoBehaviour
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
     }
 
-    public void OnLoginSuccess(LoginResult result)
+    private void OnLoginSuccess(LoginResult result)
     {
         Debug.Log("Logged in successfully to PlayFab");
         GetAccountInfoRequest InfoRequest = new GetAccountInfoRequest();
         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
-        GetVirtualCurrencies();
+
         GetMOTD();
-        CurrencyManager.SetUpDailyRewardsData();
+        CurrencyManager.Instance.SetUpDailyRewardsData();
     }
 
-    public void AccountInfoSuccess(GetAccountInfoResult result)
+    private void AccountInfoSuccess(GetAccountInfoResult result)
     {
         MyPlayFabID = result.AccountInfo.PlayFabId;
         MyPlayFabIDDisplaySpot.text = MyPlayFabID;
@@ -107,33 +95,25 @@ public class PlayFabLogin : MonoBehaviour
 
 
 
-    public void GetVirtualCurrencies()
-    {
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnError);
-    }
 
-    private void OnGetUserInventorySuccess(GetUserInventoryResult result)
-    {
-        coins = result.VirtualCurrency["HS"];
-        currencyText.text = "You have " + coins.ToString() + " " + CurrencyName;
-    }
+
+
 
     private void OnError(PlayFabError error)
     {
         if (error.Error == PlayFabErrorCode.AccountBanned)
         {
-            SceneManager.LoadScene(bannedscenename);
+            SceneManager.LoadScene(bannedSceneName);
         }
-
     }
-    //Get TitleData
+    // This is currently not being used, but if MOTD were to be located in PlayFab (instead of GitHub right now), it would retrieve the MOTD from the TitleData
 
-    public void GetMOTD()
+    private void GetMOTD()
     {
         PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), MOTDGot, OnError);
     }
 
-    public void MOTDGot(GetTitleDataResult result)
+    private void MOTDGot(GetTitleDataResult result)
     {
         if (result.Data == null || result.Data.ContainsKey("MOTD") == false)
         {
@@ -147,30 +127,61 @@ public class PlayFabLogin : MonoBehaviour
 
 }
 
+
+
+// using System.Collections;
+// using System.Collections.Generic;
 // using UnityEngine;
 // using PlayFab;
+// using System.Threading.Tasks;
 // using PlayFab.ClientModels;
-// using Photon.VR;
-// using System.Collections.Generic;
-// using System.Collections;
+// using UnityEngine.SceneManagement;
 // using TMPro;
-// public class Playfablogin : MonoBehaviour
+
+// // This script connects and logs in the player with PlayFab.
+// public class PlayFabLogin : MonoBehaviour
 // {
-//     //changes made using https://www.youtube.com/watch?v=HR9PgoPREVA
-//     public GameObject BanStuff;
-//     public List<GameObject> specialitems;
+//     [Header("COSMETICS")]
+//     [HideInInspector] public static PlayFabLogin instance;
+//     [HideInInspector] public string MyPlayFabID;
+//     [SerializeField] private TMP_Text MyPlayFabIDDisplaySpot;
 //     public string CatalogName;
-//     public string MyPlayFabID;
-//     public TextMeshPro idText;
-//     private void Start()
+//     public List<GameObject> specialitems;
+//     public List<GameObject> disableitems;
+//     [Header("CURRENCY")]
+//     public string CurrencyName;
+//     public TextMeshPro currencyText;
+//     [SerializeField] private CurrencyManager CurrencyManager;
+
+//     public int coins; //the player's coins. Accessed in Purchase.cs from singleton pattern
+//     [Header("BANNED")]
+//     public string bannedscenename;
+//     [Header("TITLE DATA")]
+//     public TextMeshPro MOTDText;
+//     [Header("PLAYER DATA")]
+//     public TextMeshPro UserName;
+//     public string StartingUsername;
+//     public string playerName; // changed from name
+
+//     public bool UpdateName;
+    
+
+//     public void Awake()
 //     {
-//         Login();
+//         instance = this;
 //     }
 
+//     private void Start()
+//     {
+//         login();
+        
+//     }
 
-//     private void Login() { 
-//         Debug.Log("Logging in/creating account now.");
-//         var request = new LoginWithCustomIDRequest {
+//     public void login()
+//     {
+
+//         var request = new LoginWithCustomIDRequest
+//         {
 //             CustomId = SystemInfo.deviceUniqueIdentifier,
 //             CreateAccount = true,
 //             InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
@@ -181,19 +192,20 @@ public class PlayFabLogin : MonoBehaviour
 //         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
 //     }
 
-//     void OnLoginSuccess(LoginResult result) {
-//         Debug.Log("Account Login/Create successful!");
-//         PhotonVRManager.Connect();
+//     public void OnLoginSuccess(LoginResult result)
+//     {
+//         Debug.Log("Logged in successfully to PlayFab");
 //         GetAccountInfoRequest InfoRequest = new GetAccountInfoRequest();
 //         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
-
-
+//         GetVirtualCurrencies();
+//         GetMOTD();
+//         CurrencyManager.SetUpDailyRewardsData();
 //     }
+
 //     public void AccountInfoSuccess(GetAccountInfoResult result)
 //     {
 //         MyPlayFabID = result.AccountInfo.PlayFabId;
-//         idText.text = MyPlayFabID;
-
+//         MyPlayFabIDDisplaySpot.text = MyPlayFabID;
 //         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
 //         (result) =>
 //         {
@@ -208,23 +220,61 @@ public class PlayFabLogin : MonoBehaviour
 //                             specialitems[i].SetActive(true);
 //                         }
 //                     }
+//                     for (int i = 0; i < disableitems.Count; i++)
+//                     {
+//                         if (disableitems[i].name == item.ItemId)
+//                         {
+//                             disableitems[i].SetActive(false);
+//                         }
+//                     }
 //                 }
 //             }
 //         },
 //         (error) =>
 //         {
 //             Debug.LogError(error.GenerateErrorReport());
-//         });
+//         }); 
 //     }
 
 
-//     void OnError(PlayFabError error) {
-//         Debug.Log("Error while logging in/creating account!");
-//         Debug.Log(error.GenerateErrorReport());
 
-//         if(error.Error == PlayFabErrorCode.AccountBanned)
+//     public void GetVirtualCurrencies()
+//     {
+//         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnError);
+//     }
+
+//     private void OnGetUserInventorySuccess(GetUserInventoryResult result)
+//     {
+//         coins = result.VirtualCurrency["HS"];
+//         currencyText.text = "You have " + coins.ToString() + " " + CurrencyName;
+//     }
+
+//     private void OnError(PlayFabError error)
+//     {
+//         if (error.Error == PlayFabErrorCode.AccountBanned)
 //         {
-//             BanStuff.SetActive(true);
+//             SceneManager.LoadScene(bannedscenename);
 //         }
+
 //     }
-// }   
+//     //Get TitleData
+
+//     public void GetMOTD()
+//     {
+//         PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), MOTDGot, OnError);
+//     }
+
+//     public void MOTDGot(GetTitleDataResult result)
+//     {
+//         if (result.Data == null || result.Data.ContainsKey("MOTD") == false)
+//         {
+//             Debug.Log("No MOTD");
+//             return;
+//         }
+//         MOTDText.text = result.Data["MOTD"];
+        
+//     }
+
+
+// }
+

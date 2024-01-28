@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
 using System; // For DateTime class
 // These namespaces are for the Subtract/AddUserVirtualCurrency request stuff.
 using PlayFab; // for PlayFabError type
@@ -14,9 +15,17 @@ using PlayFab.ClientModels; // for ModifyUserVirtualCurrencyResult type
 // CurrencyManager also provides AddPlayFabCurrency() and SubtractPlayFabCurrency() methods used in multiple other scripts.
 public class CurrencyManager : MonoBehaviour
 {
+    [HideInInspector] public static CurrencyManager Instance;
+
     [Header("Set the starting coins in PlayFab itself in Engage > economy > Currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
     [SerializeField] private int HowMuchADay = 100;
+    [HideInInspector] public int coins; //the player's coins. Accessed in Purchase.cs from singleton pattern
     
+    [SerializeField] private string CurrencyName;
+    [SerializeField] private TextMeshPro currencyText;
+    private void Awake() {
+        Instance = this;
+    }
     private string todayDate;
 
     // Invoked after the player gets logged in by the PlayFabLogin script.
@@ -25,13 +34,13 @@ public class CurrencyManager : MonoBehaviour
         todayDate = DateTime.Today.ToBinary().ToString();
         if (PlayerPrefs.GetInt("existingUser") == 0)
         {
-            //if new user, set the date
+            // If is a new user, set the date.
             PlayerPrefs.SetString("previousDate", todayDate);  
 
             PlayerPrefs.SetInt("existingUser", 1); 
         }
-        
-        UpdateDailyRewards();
+        GetVirtualCurrencies();
+        UpdateDailyRewards(); 
     }
 
     private void UpdateDailyRewards()
@@ -44,7 +53,20 @@ public class CurrencyManager : MonoBehaviour
         }
     }
 
-    public static void AddPlayFabCurrency(int amount) {
+    private void GetVirtualCurrencies() {
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnGetCurrencyError);
+    }
+    private void OnGetCurrencyError(PlayFabError error) {
+        Debug.Log("Could not get the PlayFab User inventory" + error);
+    }
+    private void OnGetUserInventorySuccess(GetUserInventoryResult result) {
+        coins = result.VirtualCurrency["HS"];
+        currencyText.text = "You have " + coins.ToString() + " " + CurrencyName;
+    }
+
+
+
+    public void AddPlayFabCurrency(int amount) {
         var request = new AddUserVirtualCurrencyRequest
         {
             VirtualCurrency = "HS",
@@ -52,28 +74,26 @@ public class CurrencyManager : MonoBehaviour
         };
         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
     }
-
-    private static void OnAddCurrencySuccess(ModifyUserVirtualCurrencyResult result) {
+    private void OnAddCurrencySuccess(ModifyUserVirtualCurrencyResult result) {
         Debug.Log("Currency added: " + result.Balance);
-        PlayFabLogin.instance.GetVirtualCurrencies();
+        GetVirtualCurrencies();
     }
-
-    private static void OnAddCurrencyFailure(PlayFabError error) {
+    private void OnAddCurrencyFailure(PlayFabError error) {
         Debug.LogError("Failed to add currency: " + error.ErrorMessage);
     }
 
-    public static void SubtractPlayFabCurrency(int amount) {
+    public void SubtractPlayFabCurrency(int amount) {
         var request = new SubtractUserVirtualCurrencyRequest {
             VirtualCurrency = "HS",
             Amount = amount
         };
         PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractCurrencySuccess, OnSubtractCurrencyFailure);
     } 
-    private static void OnSubtractCurrencySuccess(ModifyUserVirtualCurrencyResult result) {
+    private void OnSubtractCurrencySuccess(ModifyUserVirtualCurrencyResult result) {
         Debug.Log("Currency subtracted: " + result.Balance);
-        PlayFabLogin.instance.GetVirtualCurrencies(); //this refreshes it so the user can see the decrease in currency right away.
+        GetVirtualCurrencies(); //this refreshes it so the user can see the decrease in currency right away.
     }
-    private static void OnSubtractCurrencyFailure(PlayFabError error) {
+    private void OnSubtractCurrencyFailure(PlayFabError error) {
         Debug.Log("Error Subtracting Virtual Currency: " + error.ErrorMessage);
     }
 

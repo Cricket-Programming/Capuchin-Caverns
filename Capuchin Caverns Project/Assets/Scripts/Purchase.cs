@@ -19,10 +19,10 @@ public class Purchase : MonoBehaviour
     private void OnTriggerEnter()
     {
         //Purchase cosmetic.
-        int marbles = PlayFabLogin.instance.coins;
+        int marbles = CurrencyManager.Instance.coins;
         if (marbles >= price)
         {
-            CurrencyManager.SubtractPlayFabCurrency(price);
+            CurrencyManager.Instance.SubtractPlayFabCurrency(price);
             PlayerPrefs.SetInt(CosmeticName, 1);
             ActivateCosmeticObjects();
         }
