@@ -9,7 +9,7 @@ public class PlayFabShopManager : MonoBehaviour
 {
     [SerializeField] private string skuToPurchase;
     [SerializeField] private int currencyAmount;
-    [SerializeField] private TMP_Text purchaseFailedText; 
+    //[SerializeField] private TMP_Text purchaseFailedText; 
 
     private void BuyProduct() {
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
@@ -18,14 +18,14 @@ public class PlayFabShopManager : MonoBehaviour
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {
         if (msg.IsError) {
-            purchaseFailedText.gameObject.SetActive(true);
+            //purchaseFailedText.gameObject.SetActive(true);
             return;
         }         
         IAP.ConsumePurchase(skuToPurchase).OnComplete(msg =>
         {
             if (msg.IsError)
             {
-                purchaseFailedText.gameObject.SetActive(true);  
+                //purchaseFailedText.gameObject.SetActive(true);  
                 return;
             }
             CurrencyManager.Instance.AddPlayFabCurrency(currencyAmount);
