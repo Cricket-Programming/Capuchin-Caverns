@@ -76,12 +76,11 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
                 if (TargetInRangeAndInHorror()) {  
                     nma.SetDestination(target.position);
                 } 
-            }
-            if (PrintPlayerPosForDivLineTesting) {
-            Debug.Log(target.position.z);
+                if (PrintPlayerPosForDivLineTesting) {
+                Debug.Log(target.position.z);
+                }
             }
         }
-
     }
     private bool TargetInRangeAndInHorror() {
         return (distanceToClosestPlayer < detectRange && 
