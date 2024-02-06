@@ -14,7 +14,7 @@ public class TeleportAndJumpscare : MonoBehaviour
 
     [SerializeField] private float jumpscareRunningTime;
 
-    //jumpscareObjects are the things like the box that shows around the player
+    // jumpscareObjects are the things like the box that shows around the player
     [SerializeField] private GameObject jumpscareObjects;
     [SerializeField] private AudioSource jumpscareSound;
 
