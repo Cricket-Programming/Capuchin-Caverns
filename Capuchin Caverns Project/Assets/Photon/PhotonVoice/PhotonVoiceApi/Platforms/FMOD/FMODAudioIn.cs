@@ -45,10 +45,6 @@ namespace Photon.Voice.FMOD
 
             try
             {
-                if (device == -1) // default device
-                {
-                    device = 0;
-                }
                 FMODLib.RESULT res;
 
                 this.coreSystem = coreSystem;

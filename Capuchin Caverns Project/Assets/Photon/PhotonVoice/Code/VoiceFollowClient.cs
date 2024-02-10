@@ -36,11 +36,6 @@ namespace Photon.Voice
 
         #region Private Fields
 
-        private EnterRoomParams voiceRoomParams = new EnterRoomParams
-        {
-            RoomOptions = new RoomOptions { IsVisible = false, PlayerTtl = 2000 }
-        };
-
         /// <summary>Used as deliberate disconnect / prevents automatic (re)connect when moving to state disconnected.</summary>
         /// <remarks>
         /// After a manualDisconnect, the VoiceFollowClient will go online at the next state change of Leader.
@@ -118,7 +113,7 @@ namespace Photon.Voice
                         break;
 
                     case OperationCode.JoinGame:
-                        this.Logger.LogError("Failed to join room. RoomName: '{2}' Region: {3} Error: {0}. Message: {1}.", operationResponse.ReturnCode, operationResponse.DebugMessage, this.voiceRoomParams.RoomName, this.Client.CloudRegion);
+                        this.Logger.LogError("Failed to join room. RoomName: '{2}' Region: {3} Error: {0}. Message: {1}.", operationResponse.ReturnCode, operationResponse.DebugMessage, GetVoiceRoomName(), this.Client.CloudRegion);
 
                         // TODO: replace the following with a cooldown time. check error code if this is a temporary issue and if so, the client can try again
                         this.errAuthOrJoin = true;    // prevents re-connecting without game logic doing something
@@ -202,7 +197,7 @@ namespace Photon.Voice
             }
         }
 
-        private bool JoinVoiceRoom(string voiceRoomName)
+        protected virtual bool JoinVoiceRoom(string voiceRoomName)
         {
             if (string.IsNullOrEmpty(voiceRoomName))
             {
@@ -210,10 +205,14 @@ namespace Photon.Voice
                 return false;
             }
 
-            this.voiceRoomParams.RoomName = voiceRoomName;
+            var roomParams = new EnterRoomParams
+            {
+                RoomOptions = new RoomOptions { IsVisible = false, PlayerTtl = 2000 },
+                RoomName = voiceRoomName
+            };
 
             Debug.Log($"Calling OpJoinOrCreateRoom for room name '{voiceRoomName}' region {this.Client.CloudRegion}.");  // TODO: remove when done debugging VoiceFollowClient
-            return this.Client.OpJoinOrCreateRoom(this.voiceRoomParams);
+            return this.Client.OpJoinOrCreateRoom(roomParams);
         }
 
         private void FollowLeader(ClientState toState)

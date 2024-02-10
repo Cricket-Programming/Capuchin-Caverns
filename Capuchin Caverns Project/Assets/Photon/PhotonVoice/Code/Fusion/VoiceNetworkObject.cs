@@ -36,7 +36,11 @@ namespace Photon.Voice.Fusion
         public bool IsRecording => this.RecorderInUse != null && this.RecorderInUse.IsCurrentlyTransmitting;
 
 
+#if FUSION2
+        public bool IsLocal => Runner.Topology == Topologies.Shared ? this.Object.HasStateAuthority : this.Object.HasInputAuthority;
+#else
         public bool IsLocal => Runner.Topology == SimulationConfig.Topologies.Shared ? this.Object.HasStateAuthority : this.Object.HasInputAuthority;
+#endif
 #endregion
 
 #region Private Methods
@@ -145,7 +149,7 @@ namespace Photon.Voice.Fusion
             this.voiceConnection.RemoveRecorder(this.RecorderInUse);
         }
 
-        #endregion
+#endregion
     }
 }
 #endif

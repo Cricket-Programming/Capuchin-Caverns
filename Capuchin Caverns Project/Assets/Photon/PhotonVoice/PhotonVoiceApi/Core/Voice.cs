@@ -316,6 +316,11 @@ namespace Photon.Voice
             sendVoiceInfoAndConfigFrame(DebugEchoMode, targetPlayers_);
         }
 
+        internal void onLeaveChannel()
+        {
+            sendVoiceRemove(DebugEchoMode, targetPlayers_);
+        }
+
         internal void onPlayerJoin(int playerId)
         {
             if (targetPlayers_ == null || targetPlayers_.Contains(playerId))
@@ -367,11 +372,6 @@ namespace Photon.Voice
                     sendFrame0(configFrame, FrameFlags.Config, targetMe, targetPlayers, 0, true);
                 }
             }
-        }
-
-        internal void sendVoiceRemove()
-        {
-            sendVoiceRemove(DebugEchoMode, targetPlayers_);
         }
 
         protected void sendVoiceRemove(bool targetMe, int[] targetPlayers)
@@ -511,17 +511,8 @@ return;
         {
             int fec = FEC;
 
-            byte borrowedByte = 0;
-            int borrowedBytePos = -1;
-
 //            if (this.evNumber % 7 != 0)
             this.voiceClient.transport.SendFrame(data, flags, this.evNumber, (byte)this.FramesSent, id, this.channelId, sendFramePar);
-
-            // restore borrowed byte
-            if (borrowedBytePos >= 0)
-            {
-                data.Array[borrowedBytePos] = borrowedByte;
-            }
 
             this.sendSpacingProfile.Update(false, false);
             if (this.DebugEchoMode)
@@ -661,6 +652,57 @@ return;
 
     internal class RemoteVoice : IDisposable
     {
+        // Hides FrameBuffer and lock arrays behind a nice interface but slows down operations by 3 times in C# and Unity IL2CPP apps.
+        // The performance impact is negligible in a real app but we still prefer to lock and access without calls.
+        /*
+        class RingBuffer
+        {
+            FrameBuffer[] buf = new FrameBuffer[256];
+            // buf per element lock
+            // A thread tries to lock a frameQueue element by writing 1 to the correspondent bufLock element. If the previous value was already 1, lock fails and the thread starts over.
+            // To release the lock, the thread writes 0.
+            int[] bufLock = new int[256];
+
+            public ref FrameBuffer Lock(int i)
+            {
+                while (Interlocked.Exchange(ref bufLock[i], 1) == 1) ; // lock single slot for writing
+                return ref buf[i];
+            }
+
+            public void Unlock(int i)
+            {
+                Interlocked.Exchange(ref bufLock[i], 0);               // unlock single slot
+            }
+
+            public void Swap(int i, FrameBuffer f)
+            {
+                Lock(i);
+                buf[i].Release(); // unprocessed frame may be in the slot
+                buf[i] = f;
+                Unlock(i);
+            }
+
+            public ref FrameBuffer this[int i]
+            {
+                get => ref buf[i];
+            }
+
+            public void UnloclAll()
+            {
+                Array.Clear(bufLock, 0, bufLock.Length);
+            }
+
+            public void Clear()
+            {
+                for (int i = 0; i < buf.Length; i++)
+                {
+                    buf[i].Release();
+                    buf[i] = nullFrame;
+                }
+            }
+        }
+        */
+
         // Client.RemoteVoiceInfos support
         internal VoiceInfo Info { get; private set; }
         internal RemoteVoiceOptions options;
@@ -874,7 +916,7 @@ return;
         byte eventReadPos;
         AutoResetEvent frameQueueReady;
         int flushingFrameNum = -1; // if >= 0, we are flushing since the frame with this number: process the queue w/o delays until this frame encountered
-        FrameBuffer nullFrame = new FrameBuffer();
+        static FrameBuffer nullFrame = new FrameBuffer();
         // The queue of frames guaranteed to be processed.
         // These are currently only video config frames sent reliably w/o fragmentation.
         // Event queue processor can drop a config frame if it's delivered later than its neighbours.
@@ -1002,7 +1044,10 @@ return;
                     {
                         for (byte j = from; j != (byte)(i + 1); j++)
                         {
-                            Interlocked.Exchange(ref eventQueueLock[j], 0);       // unlock single slot
+                            if (j != lostEvNum) // all but lost
+                            {
+                                Interlocked.Exchange(ref eventQueueLock[j], 0);       // unlock single slot
+                            }
                         }
                         this.voiceClient.logger.LogDebug(LogPrefix + " ev#" + lostEvNum + " FEC failed to recover from events " + from + "-" + fecEvNum + " because at least 2 events are lost");
 
@@ -1014,15 +1059,18 @@ return false;
             // xor directly into FEC event buffer and unlock xored frames
             for (byte i = from; i != fecEvNum; i++)
             {
-                var xf = eventQueue[i];
-                for (int j = 0; j < xf.Length; j++)
+                if (i != lostEvNum) // all but lost
                 {
-                    fecEv.Array[fecEv.Offset + j] ^= xf.Array[xf.Offset + j];
+                    var xf = eventQueue[i];
+                    for (int j = 0; j < xf.Length; j++)
+                    {
+                        fecEv.Array[fecEv.Offset + j] ^= xf.Array[xf.Offset + j];
+                    }
+                    flags ^= xf.Flags;
+                    frNumber ^= xf.FrameNum;
+                    size -= xf.Length;
+                    Interlocked.Exchange(ref eventQueueLock[i], 0);                   // unlock single slot
                 }
-                flags ^= xf.Flags;
-                frNumber ^= xf.FrameNum;
-                size -= xf.Length;
-                Interlocked.Exchange(ref eventQueueLock[i], 0);                   // unlock single slot
             }
 
             if (size >= 0 && size <= fecEv.Length)
@@ -1275,14 +1323,18 @@ return 1;
 
             // no concurrent threads below this line
 
-            if (frameQueueReady != null)
-            {
-#if NETFX_CORE
-                frameQueueReady.Dispose();
-#else
-                frameQueueReady.Close();
-#endif
-            }
+            // Closing requires synchronization with frameQueueReady.Set() to avoid 'ObjectDisposedException: Safe handle has been closed'.
+            // On the other hand, we can simply drop all references to the wait handle and allow the garbage collector to do the job for you sometime later (wait handles implement the disposal pattern whereby the finalizer calls Close).
+            // This is one of the few scenarios where relying on this backup is (arguably)acceptable, because wait handles have a light OS burden (asynchronous delegates rely on exactly this mechanism to release their IAsyncResult’s wait handle):
+            // https://www.cnblogs.com/malaikuangren/archive/2012/06/02/2532239.html
+//            if (frameQueueReady != null)
+//            {
+//#if NETFX_CORE
+//                frameQueueReady.Dispose();
+//#else
+//                frameQueueReady.Close();
+//#endif
+//            }
 
             for (int i = 0; i < eventQueue.Length; i++)
             {

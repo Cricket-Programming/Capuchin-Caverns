@@ -129,7 +129,6 @@ namespace Photon.Voice.Unity
         private void Init()
         {
             this.client = new LoadBalancingTransport2(this.Logger, ConnectionProtocol.Udp, cppCompatibilityMode);
-            this.client.ClientType = ClientAppType.Voice;
             this.client.VoiceClient.OnRemoteVoiceInfoAction += this.OnRemoteVoiceInfo;
             this.client.StateChanged += this.OnVoiceStateChanged;
             this.client.OpResponseReceived += this.OnOperationResponseReceived;
@@ -156,7 +155,7 @@ namespace Photon.Voice.Unity
         /// <remarks>Pass the userID of the local PlayStation user who should receive any incoming audio. This value is used by Photon Voice when sending output to the headphones on the PlayStation.
         /// If you don't provide a user ID, then Photon Voice uses the user ID of the user at index 0 in the list of local users
         /// and in case that there are multiple local users, the audio output might be sent to the headphones of a different user than intended.</remarks>
-        public int PlayStationUserID = 0; // set from your games code
+        public int PlayStationUserID = 0; // set from your game's code
 #endif
 
 #endregion
@@ -359,7 +358,6 @@ namespace Photon.Voice.Unity
                 this.client.LoadBalancingPeer.StopThread();
             }
             this.client.Dispose();
-            SupportClass.StopAllBackgroundCalls();
         }
 
         protected virtual Speaker InstantiateSpeakerForRemoteVoice(int playerId, byte voiceId, object userData)

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: afacb457-a628-4810-b8f1-51ff7d6e3012
+    AppIdRealtime: 
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 86dbaa97-0c17-45ca-a33c-656d22a9f1e2
+    AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: us
+    FixedRegion: 
     Server: 
     Port: 0
     ProxyServer: 
@@ -39,15 +39,14 @@ MonoBehaviour:
   - ClickRpc
   - DestroyRpc
   - HeresWhy
+  - _RPCChangeIsInTagArea
   - LimitMovementAndVibrateHands
   - PlayTagSound
+  - RemoveSkin
   - RPCRefreshPlayerValues
+  - SetSkin
   - TagPlayer
   - UntagPlayer
-  - setSkin
-  - SetSkin
-  - RemoveSkin
-  - _RPCChangeIsInTagArea
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
+  ShowSettings: 0
   DevRegionSetOnce: 0

@@ -1,5 +1,19 @@
 Photon Voice API Change Log
 
+v2.54 (January 08, 2024)
+Core:
+   FIXED: Set() was called sometimes on closed RemoteVoice.frameQueueReady AutoResetEvent
+   FIXED: LoadBalancingTransport sets LoadBalancingClient.ClientType to Voice
+   FIXED: VoiceClient.onVoiceRemove() referenced null in a log message if the voice was not found
+   CHANGED: LoadBalancingTransport.LoadBalancingPeer.ChannelCount is set to at least 4 instead of length of Codec enum + 1 (the enum may be large while we normally do no need more than 4 channels)
+iOS
+   FIXED: AudioIn: routing audio out to earpiece (receiver) instead of loudspeaker since iOS 17 (and earlier versions for new iPad Pro) due to wrong initialization order (regression): session category is now set after AudioUnit creation
+   CHANGED: AudioIn: when stopping recording, session category is set to its previous values instead of Ambient
+PS4/PS5:
+   FIXED: the locking in PlayStationAudioOut.cs
+FMOD:
+   BREAKING: FMOD.AudioInReader no longer replaces -1 device id with 0 assuming that -1 is Voice API default mic: callers should always pass FMOD-specific device id
+
 v2.53 (September 06, 2023)
 Core:
    FIXED: LoadBalancingTransport: config frame delivery mode is Reliable, the same as for VoiceInfo event, otherwise config frame can be delivered earlier than VoiceInfo

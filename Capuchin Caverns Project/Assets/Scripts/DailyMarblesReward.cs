@@ -29,13 +29,6 @@ public class DailyMarblesReward : MonoBehaviour
 
     }
 
-    // Invoked after the player gets logged in by the PlayFabLogin script.
-    // public void SetUpDailyRewardsData() 
-    // {
-
-    //     GetVirtualCurrencies();
-    //     UpdateDailyRewards(); 
-    // }
     private void OnTriggerEnter() {
         // Give player currency
         CurrencyManager.Instance.AddPlayFabCurrency(howMuchADay);

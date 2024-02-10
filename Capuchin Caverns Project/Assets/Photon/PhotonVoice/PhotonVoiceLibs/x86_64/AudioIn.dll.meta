@@ -21,10 +21,16 @@ PluginImporter:
         Exclude Linux: 0
         Exclude Linux64: 0
         Exclude LinuxUniversal: 0
+        Exclude Lumin: 1
         Exclude OSXUniversal: 0
+        Exclude PS4: 1
+        Exclude PS5: 1
+        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 0
         Exclude WindowsStoreApps: 1
+        Exclude iOS: 1
+        Exclude tvOS: 1
   - first:
       Android: Android
     second:
@@ -98,10 +104,27 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
-        DontProcess: False
+        DontProcess: false
         PlaceholderPath: 
         SDK: AnySDK
         ScriptingBackend: AnyScriptingBackend
+  - first:
+      iPhone: iOS
+    second:
+      enabled: 0
+      settings:
+        AddToEmbeddedBinaries: false
+        CPU: AnyCPU
+        CompileFlags: 
+        FrameworkDependencies: 
+  - first:
+      tvOS: tvOS
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+        CompileFlags: 
+        FrameworkDependencies: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 

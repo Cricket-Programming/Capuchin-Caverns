@@ -1,4 +1,4 @@
-﻿#if ((UNITY_IOS || UNITY_SWITCH) && !UNITY_EDITOR) || __IOS__
+﻿#if (((UNITY_IOS || UNITY_VISIONOS) || UNITY_SWITCH) && !UNITY_EDITOR) || __IOS__
 #define DLL_IMPORT_INTERNAL
 #endif
 
@@ -12,7 +12,7 @@
 // https://stackoverflow.com/questions/35536515/variable-argument-function-bad-access-with-va-arg-at-ios-arm64
 
 // use statically linked interop helpers defined outside of opus.lib
-#if (UNITY_IOS && !UNITY_EDITOR) || __IOS__
+#if ((UNITY_IOS || UNITY_VISIONOS) && !UNITY_EDITOR) || __IOS__
 #define OPUS_EGPV_INTEROP_HELPER_EXTERNAL
 #endif
 

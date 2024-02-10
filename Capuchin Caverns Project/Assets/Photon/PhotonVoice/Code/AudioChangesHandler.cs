@@ -80,6 +80,9 @@
             switch (Application.platform)
             {
                 case RuntimePlatform.IPhonePlayer:
+#if UNITY_VISIONOS
+                case RuntimePlatform.VisionOS:
+#endif
                     handle = this.HandleDeviceChangeIOS;
                     break;
                 case RuntimePlatform.Android:

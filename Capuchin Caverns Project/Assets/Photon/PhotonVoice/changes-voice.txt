@@ -1,5 +1,46 @@
 Photon Voice 2 Change Log
 
+v2.54 (January 08, 2024)
+   PUN2: v2.43 (PUN2.43)
+   RT/lib: v4.1.7.1
+   PhotonVoiceApi: revision 7300
+   Unity: 2019.4.39 or higher
+Unity:
+   FIXED: Speaker does not call audioOutput.Push() after stopping even if it receives a decoded packet
+   FIXED: added a null-check in ConnectAndJoin.IsConnected that called sometimes before Start() where voiceConnection is initialized
+   FIXED: removed SupportClass.StopAllBackgroundCalls() call from VoiceConnection.OnDestroy() (accidentally left after removal of AppQuit handling from VoiceConnection)
+   REMOVED: LoadBalancingClient.ClientType update in VoiceConnection since we set it in the transport now
+Fusion:
+   ADDED: support for Fusion 2
+   ADDED: additional security in case the Fusion's runner was not yet connecting during Fusionvoiceclient start
+   FIXED: missing AutoConnectAndJoin checkbox in FusionVoiceClient inspector
+   CHANGED: VoiceFollowClient.JoinVoiceRoom is virtual protected to allow room join customization
+PUN:
+   CHANGED: VoiceFollowClient.JoinVoiceRoom is virtual protected to allow room join customization
+Core:
+   FIXED: Set() was called sometimes on closed RemoteVoice.frameQueueReady AutoResetEvent
+   FIXED: LoadBalancingTransport sets LoadBalancingClient.ClientType to Voice
+   FIXED: VoiceClient.onVoiceRemove() referenced null in a log message if the voice was not found
+   CHANGED: LoadBalancingTransport.LoadBalancingPeer.ChannelCount is set to at least 4 instead of length of Codec enum + 1 (the enum may be large while we normally do no need more than 4 channels)
+iOS
+   FIXED: AudioIn: routing audio out to earpiece (receiver) instead of loudspeaker since iOS 17 (and earlier versions for new iPad Pro) due to wrong initialization order (regression): session category is now set after AudioUnit creation
+   FIXED: audio session 'Game' preset Mode changed to 'VoiceChat' from 'Default' that muted audio out sometimes
+   CHANGED: Recorder default iOS Audio Session settings are 'Game' preset
+   CHANGED: iOS Audio Session settings to 'Game' preset in all demos 
+   NOTE: make sure that Recorder iOS Audio Session Preset is 'Game' in existing projects (it may be 'Custom' with wrong 'Default' mode)
+   CHANGED: AudioIn: when stopping recording, session category is set to its previous values instead of Ambient
+PS4/PS5:
+   FIXED: the locking in PlayStationAudioOut.cs
+   ADDED: AudioPluginPhotonVoice which enables support for routing audio output through the Unity Mixer before re-routing it directly to the Sony audioout APIs via a native mixer plugin on the PS4 and PS5
+   ADDED: a new public 'OutputPlugin' field for PS4 and PS5 to Speaker.cs, which enables the user to select if he wants to use the classic PhotonVoiceAudioOutputPlugin (which does neither support nor require the use of a mixer) or the new AudioPluginPhotonVoice (which supports, but also requires the use of a mixer)
+FMOD:
+   FIXED: FMODHelpersMenu.cs was excluded from the project if FMOD was not enabled resulting in missing 'Photon Voice/Enable FMOD Integration' menu
+   BREAKING: FMOD.AudioInReader no longer replaces -1 device id with 0 assuming that -1 is Voice API default mic: callers should always pass FMOD-specific device id
+DemoVoiceUI:
+   ADDED: FMOD microphone input support implemented via Recorder.InputFactory, added internal MicType and made other changes to integrate FMOD mic into the microphone list and differentiate it from AudioTone source, also factory based
+   CHNAGED: RemoteSpeakerUI does not require Speaker (for easier manipulations in Editor)
+   CHANGED: remote player UserId replaced with NickName + ActorNr in UI
+
 v2.53 (September 06, 2023)
    PUN2: v2.43 (PUN2.43) 
    RT/lib: v4.1.7.1

@@ -106,7 +106,7 @@ namespace Photon.Voice.Unity
             VoIP,
         }
         [SerializeField]
-        private EditorIosAudioSessionPreset editorAudioSessionPreset;
+        private EditorIosAudioSessionPreset editorAudioSessionPreset = EditorIosAudioSessionPreset.Game;
 #endif
 
         [SerializeField]
@@ -723,7 +723,7 @@ namespace Photon.Voice.Unity
             }
         }
 
-        //#if UNITY_EDITOR || UNITY_IOS
+        //#if UNITY_EDITOR || (UNITY_IOS || UNITY_VISIONOS)
         /// <summary>
         /// Sets the AudioSessionParameters for iOS audio initialization when Photon MicrophoneType is used.
         /// </summary>
@@ -891,6 +891,9 @@ namespace Photon.Voice.Unity
                                     this.Logger.LogInfo("Setting recorder's source to UWP.AudioInPusher");
                                     break;
                                 case RuntimePlatform.IPhonePlayer:
+#if UNITY_VISIONOS
+                                case RuntimePlatform.VisionOS:
+#endif
                                     otherParams = audioSessionParameters;
                                     this.Logger.LogInfo("Setting recorder's source to IOS.AudioInPusher with session {0}", audioSessionParameters);
                                     break;

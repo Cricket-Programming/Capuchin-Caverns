@@ -22,6 +22,8 @@ PluginImporter:
         Exclude Linux64: 1
         Exclude LinuxUniversal: 1
         Exclude OSXUniversal: 1
+        Exclude VisionOS: 0
+        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 1
         Exclude WindowsStoreApps: 1
@@ -93,6 +95,11 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
+  - first:
+      VisionOS: VisionOS
+    second:
+      enabled: 1
+      settings: {}
   - first:
       Windows Store Apps: WindowsStoreApps
     second:

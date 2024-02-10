@@ -40,11 +40,27 @@ namespace Photon.Voice.Unity
 #region Public Fields
 
 #if UNITY_PS4 || UNITY_PS5
-        /// <summary>Set the PlayStation User ID to determine on which users headphones to play audio.</summary>
+        /// <summary>Set the PlayStation User ID to determine on which user's headphones to play audio.</summary>
         /// <remarks>
         /// Note: at the moment, only the first Speaker can successfully set the User ID.
         /// Subsequently initialized Speakers will play their audio on the headphones that have been set with the first Speaker initialized.
         public int PlayStationUserID = 0;
+
+        public enum AudioOutputPlugin
+        {
+            /// <summary>Route audio output directly to the Sony audio output APIs, without going through Unity
+            /// <remarks>This is simple to use (no mixer setup required), but does not support the use of an Unity AudioMixer for Voice Chat output.
+            PhotonVoiceAudioOutputPlugin,
+            /// <summary>Send audio output to Unity and afterwards re-route the output of the Unity audio mixer to the Sony audio output APIs.
+            // <remarks>This enables support for using Unity AudioMixer on PlayStation, but requires the app to
+            // <remarks>- specify an AudioMixer as the output for the AudioSource component of your Photon Voice Speaker prefab
+           // <remarks>- to add the 'RouteOutputToSonyPSNativeAPI' effect from AudioPluginPhotonVoice to that AudioMixer
+            AudioPluginPhotonVoice,
+            /// <summary>The default value is PhotonVoiceAudioOutputPlugin
+            Default = PhotonVoiceAudioOutputPlugin
+        }
+
+        public AudioOutputPlugin OutputPlugin;
 #endif
 
 #endregion
@@ -139,18 +155,27 @@ namespace Photon.Voice.Unity
         private void Initialize()
         {
             this.Logger.LogInfo("Initializing.");
-#if !UNITY_EDITOR && (UNITY_PS4 || UNITY_PS5)
-            this.audioOutput = new Photon.Voice.PlayStation.PlayStationAudioOut(this.PlayStationUserID);
-#else
             this.audioOutput = CreateAudioOut();
-#endif
             this.Logger.LogInfo("Initialized.");
         }
 
         protected virtual IAudioOut<float> CreateAudioOut()
         {
-#if UNITY_WEBGL && !UNITY_EDITOR // allows non-WebGL workflow in Editor
-#if UNITY_2021_2_OR_NEWER // requires ES6
+#if !UNITY_EDITOR && (UNITY_PS4 || UNITY_PS5)
+            this.Logger.LogInfo("OutputPlugin is set to " + OutputPlugin);
+            if(OutputPlugin == AudioOutputPlugin.PhotonVoiceAudioOutputPlugin)
+            {
+                this.Logger.LogInfo("sending output to PlayStationAudioOut.");
+                return new Photon.Voice.PlayStation.PlayStationAudioOut(this.PlayStationUserID);
+            }
+            else
+            {
+                this.Logger.LogInfo("sending output to Mixer.");
+                this.GetComponent<AudioSource>().outputAudioMixerGroup.audioMixer.SetFloat("PSUserID", this.PlayStationUserID);
+                // fall through to the default return line at the end of this function
+            }
+#elif UNITY_WEBGL && !UNITY_EDITOR // allows non-WebGL workflow in Editor
+    #if UNITY_2021_2_OR_NEWER // requires ES6
             webOutAudioSource = this.GetComponent<AudioSource>();
             double initSpatialBlend = webOutAudioSource != null ? webOutAudioSource.spatialBlend : 0;
             webOut = new WebAudioAudioOut(this.playDelayConfig, initSpatialBlend, this.Logger, string.Empty, true);
@@ -168,13 +193,12 @@ namespace Photon.Voice.Unity
             }
 
             return webOut;
-#else
+    #else
             this.Logger.LogError("Speaker requies Unity 2021.2 or newer for WebGL");
             return new AudioOutDummy<float>();
+    #endif
 #endif
-#else
             return new UnityAudioOut(this.GetComponent<AudioSource>(), this.playDelayConfig, this.Logger, string.Empty, true);
-#endif
         }
 
         internal bool Link(RemoteVoiceLink stream)
@@ -207,10 +231,13 @@ namespace Photon.Voice.Unity
 
         private void OnAudioFrame(FrameOut<float> frame)
         {
-            this.audioOutput.Push(frame.Buf);
-            if (frame.EndOfStream)
+            if (this.audioOutput != null)
             {
-                this.audioOutput.Flush();
+                this.audioOutput.Push(frame.Buf);
+                if (frame.EndOfStream)
+                {
+                    this.audioOutput.Flush();
+                }
             }
         }
 
@@ -247,6 +274,7 @@ namespace Photon.Voice.Unity
             if (this.audioOutput != null)
             {
                 this.audioOutput.Stop();
+                this.audioOutput = null;
             }
         }
 
@@ -304,9 +332,9 @@ namespace Photon.Voice.Unity
 #endif
         }
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
         // prevents multiple restarts per Update()
         // int instead of bool to use Interlocked.Exchange()

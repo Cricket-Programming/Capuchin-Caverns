@@ -78,7 +78,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
                 } 
             }
             if (PrintPlayerPosForDivLineTesting) {
-                // Debug.Log(target.position.z);
+                Debug.Log(target.position.z);
             }
         }
 

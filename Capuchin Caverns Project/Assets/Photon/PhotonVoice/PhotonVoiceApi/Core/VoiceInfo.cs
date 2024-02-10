@@ -62,19 +62,19 @@ namespace Photon.Voice
         /// <param name="codec">Video codec.</param>
         /// <param name="bitrate">Stream bitrate.</param>
         /// <param name="width">Streamed video width. If 0, width and height of video source used (no rescaling).</param>
-        /// <param name="heigth">Streamed video height. If -1, aspect ratio preserved during rescaling.</param>
+        /// <param name="height">Streamed video height. If -1, aspect ratio preserved during rescaling.</param>
         /// <param name="fps">Streamed video frames per second.</param>
         /// <param name="keyFrameInt">Keyframes interval in frames.</param>///
         /// <param name="userdata">Optional user data. Should be serializable by Photon.</param>
         /// <returns>VoiceInfo instance.</returns>
-        static public VoiceInfo CreateVideo(Codec codec, int bitrate, int width, int heigth, int fps, int keyFrameInt, object userdata = null)
+        static public VoiceInfo CreateVideo(Codec codec, int bitrate, int width, int height, int fps, int keyFrameInt, object userdata = null)
         {
             return new VoiceInfo()
             {
                 Codec = codec,
                 Bitrate = bitrate,
                 Width = width,
-                Height = heigth,
+                Height = height,
                 FPS = fps,
                 KeyFrameInt = keyFrameInt,
                 UserData = userdata,

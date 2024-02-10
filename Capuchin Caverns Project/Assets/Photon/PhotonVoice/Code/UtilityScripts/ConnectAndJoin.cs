@@ -37,7 +37,7 @@ namespace Photon.Voice.Unity.UtilityScripts
             RoomOptions = new RoomOptions()
         };
 
-        public bool IsConnected { get { return this.voiceConnection.Client.IsConnected; } }
+        public bool IsConnected { get { return this.voiceConnection != null && this.voiceConnection.Client != null && this.voiceConnection.Client.IsConnected; } }
 
         private void Start()
        {

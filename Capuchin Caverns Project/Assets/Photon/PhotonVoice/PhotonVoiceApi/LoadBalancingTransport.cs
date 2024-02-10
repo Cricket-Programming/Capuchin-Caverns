@@ -76,6 +76,7 @@ namespace Photon.Voice
         /// <param name="cppCompatibilityMode">Use a protocol compatible with Voice C++ API.</param>
         public LoadBalancingTransport(ILogger logger = null, ConnectionProtocol connectionProtocol = ConnectionProtocol.Udp, bool cppCompatibilityMode = false) : base(connectionProtocol)
         {
+            this.ClientType = ClientAppType.Voice;
             if (logger == null)
             {
                 logger = this;
@@ -84,10 +85,10 @@ namespace Photon.Voice
             base.EventReceived += onEventActionVoiceClient;
             base.StateChanged += onStateChangeVoiceClient;
             this.voiceClient = new VoiceClient(this, logger);
-            var voiceChannelsCount = Enum.GetValues(typeof(Codec)).Length + 1; // channel per stream type, channel 0 is for user events
-            if (LoadBalancingPeer.ChannelCount < voiceChannelsCount)
+            // Pre-allocate a channel for each stream type, assuming the recommended channel setup is used (1 = audio, 2 = video, 3 = screen share).
+            if (LoadBalancingPeer.ChannelCount < 4)
             {
-                this.LoadBalancingPeer.ChannelCount = (byte)voiceChannelsCount;
+                this.LoadBalancingPeer.ChannelCount = 4;
             }
             this.protocol = new PhotonTransportProtocol(voiceClient, logger);
         }
@@ -108,8 +109,8 @@ namespace Photon.Voice
             return this.LoadBalancingPeer.OpChangeGroups(groupsToRemove, groupsToAdd);
         }
 
-        // Photon transport:
-        // Empty TargetActors works the same as null: all players are targeted (as opposed to empty Voice's targetPlayers meaning no targets at all)
+        // Photon transport specific:
+        // Empty TargetActors is the same as null: sending to all except the local client.
         // if TargetActors is not null and non-empty, InterestGroup and ReceiverGroup are ignored
         // if TargetActors is null or empty and InterestGroup is set, ReceiverGroup is ignored
         RaiseEventOptions buildEvOptFromTargets(bool targetMe, int[] targetPlayers)
@@ -134,6 +135,10 @@ namespace Photon.Voice
             }
             else
             {
+                if (opt.TargetActors != null && opt.TargetActors.Length == 0) // Voice Core does not do such calls but better check again because LoadBalancing sends to all except the local client if the list is empty
+                {
+                    throw new ArgumentException("LoadBalancingTransport: no targets specified in Send* method call");
+                }
                 opt.TargetActors = targetPlayers;
             }
 

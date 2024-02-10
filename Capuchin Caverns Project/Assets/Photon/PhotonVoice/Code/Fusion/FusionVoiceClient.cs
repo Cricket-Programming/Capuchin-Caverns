@@ -28,6 +28,7 @@ namespace Photon.Voice.Fusion
             RoomOptions = new RoomOptions { IsVisible = false }
         };
 
+        bool voiceFollowClientStarted = false;
 #endregion
 
 #region Properties
@@ -57,6 +58,16 @@ namespace Photon.Voice.Fusion
             {
                 return;
             }
+            // Actual start code if the runner is already connecting
+            VoiceFollowClientStart();
+        }
+
+        // Starts the VoiceFollowClient and add the recorder.
+        //  Can be either be called from Start, or once the local player has joined the session, if the NetworkRunner was not yet starting during the Start() call
+        void VoiceFollowClientStart() {
+            if (voiceFollowClientStarted) return;
+
+            voiceFollowClientStarted = true;
             base.Start();
 
             if (this.UsePrimaryRecorder)
@@ -122,7 +133,7 @@ namespace Photon.Voice.Fusion
             {
                 if (fusionOfflineVoiceRoomName == null)
                 {
-                    fusionOfflineVoiceRoomName = string.Format("fusion_oflline_{0}_voice", Guid.NewGuid());
+                    fusionOfflineVoiceRoomName = string.Format("fusion_offline_{0}_voice", Guid.NewGuid());
                 }
                 return fusionOfflineVoiceRoomName;
             }
@@ -142,6 +153,21 @@ namespace Photon.Voice.Fusion
             AppSettings settings = new AppSettings();
             if (this.UseFusionAppSettings)
             {
+#if FUSION2
+                settings.AppIdVoice = PhotonAppSettings.Global.AppSettings.AppIdVoice;
+                settings.AppVersion = PhotonAppSettings.Global.AppSettings.AppVersion;
+                settings.FixedRegion = PhotonAppSettings.Global.AppSettings.FixedRegion;
+                settings.UseNameServer = PhotonAppSettings.Global.AppSettings.UseNameServer;
+                settings.Server = PhotonAppSettings.Global.AppSettings.Server;
+                settings.Port = PhotonAppSettings.Global.AppSettings.Port;
+                settings.ProxyServer = PhotonAppSettings.Global.AppSettings.ProxyServer;
+                settings.BestRegionSummaryFromStorage = PhotonAppSettings.Global.AppSettings.BestRegionSummaryFromStorage;
+                settings.EnableLobbyStatistics = false;
+                settings.EnableProtocolFallback = PhotonAppSettings.Global.AppSettings.EnableProtocolFallback;
+                settings.Protocol = PhotonAppSettings.Global.AppSettings.Protocol;
+                settings.AuthMode = (AuthModeOption)(int)PhotonAppSettings.Global.AppSettings.AuthMode;
+                settings.NetworkLogging = PhotonAppSettings.Global.AppSettings.NetworkLogging;
+#else
                 settings.AppIdVoice = PhotonAppSettings.Instance.AppSettings.AppIdVoice;
                 settings.AppVersion = PhotonAppSettings.Instance.AppSettings.AppVersion;
                 settings.FixedRegion = PhotonAppSettings.Instance.AppSettings.FixedRegion;
@@ -155,6 +181,7 @@ namespace Photon.Voice.Fusion
                 settings.Protocol = PhotonAppSettings.Instance.AppSettings.Protocol;
                 settings.AuthMode = (AuthModeOption)(int)PhotonAppSettings.Instance.AppSettings.AuthMode;
                 settings.NetworkLogging = PhotonAppSettings.Instance.AppSettings.NetworkLogging;
+#endif
             }
             else
             {
@@ -294,6 +321,8 @@ namespace Photon.Voice.Fusion
             this.Logger.LogInfo("OnPlayerJoined {0}", player);
             if (runner.LocalPlayer == player)
             {
+                // Will call the VoicefollowClient start code if the runner was not yet connecting during start (not needed in normal cases)
+                VoiceFollowClientStart();
                 this.Logger.LogInfo("Local player joined, calling VoiceConnectOrJoinRoom");
                 LeaderStateChanged(ClientState.Joined);
             }
@@ -326,7 +355,11 @@ namespace Photon.Voice.Fusion
             LeaderStateChanged(ClientState.ConnectedToMasterServer);
         }
 
+#if FUSION2
+        void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
+#else
         void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner)
+#endif
         {
             LeaderStateChanged(ClientState.Disconnected);
         }
@@ -355,9 +388,6 @@ namespace Photon.Voice.Fusion
         {
         }
 
-        void INetworkRunnerCallbacks.OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)
-        {
-        }
 
         void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner)
         {
@@ -367,6 +397,28 @@ namespace Photon.Voice.Fusion
         {
         }
 
+ #if FUSION2
+        public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
+        {
+        }
+
+        public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
+        {
+        }
+
+        void INetworkRunnerCallbacks.OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey reliableKey, ArraySegment<byte> data)
+        {
+        }
+
+        void INetworkRunnerCallbacks.OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey reliableKey, float progress)
+        {
+        }
+
+#else
+        void INetworkRunnerCallbacks.OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)
+        {
+        }
+#endif
 #endregion
     }
 }

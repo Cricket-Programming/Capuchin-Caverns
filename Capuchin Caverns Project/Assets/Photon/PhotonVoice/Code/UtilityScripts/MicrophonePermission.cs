@@ -2,7 +2,7 @@
 using UnityEngine.Android;
 #endif
 
-#if UNITY_IOS && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_VISIONOS) && !UNITY_EDITOR
 using System.Collections;
 using UnityEngine.iOS;
 #endif
@@ -17,7 +17,7 @@ namespace Photon.Voice.Unity.UtilityScripts
     /// </summary>
     public class MicrophonePermission : VoiceComponent
     {
-#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+#if (UNITY_ANDROID || (UNITY_IOS || UNITY_VISIONOS)) && !UNITY_EDITOR
         private bool isRequesting;
 #endif
         private bool hasPermission;
@@ -66,7 +66,7 @@ namespace Photon.Voice.Unity.UtilityScripts
             this.InitVoice();
         }
 
-#if UNITY_IOS && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_VISIONOS) && !UNITY_EDITOR
         IEnumerator PermissionCheck()
         {
             this.isRequesting = true;
@@ -105,7 +105,7 @@ namespace Photon.Voice.Unity.UtilityScripts
 #endif
                 this.isRequesting = true;
             }
-#elif UNITY_IOS && !UNITY_EDITOR
+#elif (UNITY_IOS || UNITY_VISIONOS) && !UNITY_EDITOR
             this.StartCoroutine(this.PermissionCheck());
 #else
             this.HasPermission = true;

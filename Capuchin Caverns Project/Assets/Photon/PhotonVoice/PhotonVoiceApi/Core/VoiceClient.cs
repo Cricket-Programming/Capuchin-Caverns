@@ -207,7 +207,7 @@ namespace Photon.Voice
 
         public void SetRemoteVoiceDelayFrames(Codec codec, int delayFrames)
         {
-            remoteVoiceDelayFrames[codec] = delayFrames;
+            remoteVoiceDelayFramesPerCodec[codec] = delayFrames;
             foreach (var playerVoices in this.remoteVoices)
             {
                 foreach (var voice in playerVoices.Value)
@@ -221,7 +221,7 @@ namespace Photon.Voice
         }
 
         // store delay to apply on new remote voices
-        private Dictionary<Codec, int> remoteVoiceDelayFrames = new Dictionary<Codec, int>();
+        private Dictionary<Codec, int> remoteVoiceDelayFramesPerCodec = new Dictionary<Codec, int>();
 
         public struct CreateOptions
         {
@@ -498,7 +498,7 @@ namespace Photon.Voice
             this.localVoicesPerChannel[voice.channelId].Remove(voice);
             if (this.transport.IsChannelJoined(voice.channelId))
             {
-                voice.sendVoiceRemove();
+                voice.onLeaveChannel();
             }
 
             voice.Dispose();
@@ -665,7 +665,7 @@ namespace Photon.Voice
                 var rv = new RemoteVoice(this, options, channelId, playerId, voiceId, info, eventNumber);
                 playerVoices[voiceId] = rv;
                 int delayFrames;
-                if (remoteVoiceDelayFrames.TryGetValue(info.Codec, out delayFrames))
+                if (remoteVoiceDelayFramesPerCodec.TryGetValue(info.Codec, out delayFrames))
                 {
                     rv.DelayFrames = delayFrames;
                 }
@@ -686,8 +686,7 @@ namespace Photon.Voice
             {
                 foreach (var voiceId in voiceIds)
                 {
-                    RemoteVoice voice;
-                    if (playerVoices.TryGetValue(voiceId, out voice))
+                    if (playerVoices.TryGetValue(voiceId, out RemoteVoice voice))
                     {
                         playerVoices.Remove(voiceId);
                         this.logger.LogInfo("[PV] Remote voice #" + voiceId + " of player " + this.playerStr(playerId) + " at channel " + this.channelStr(voice.channelId) + " removed");
@@ -695,7 +694,7 @@ namespace Photon.Voice
                     }
                     else
                     {
-                        this.logger.LogWarning("[PV] Remote voice #" + voiceId + " of player " + this.playerStr(playerId) + " at channel " + this.channelStr(voice.channelId) + " not found when trying to remove");
+                        this.logger.LogWarning("[PV] Remote voice #" + voiceId + " of player " + this.playerStr(playerId) + " not found when trying to remove");
                     }
                 }
             }

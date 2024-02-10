@@ -34,7 +34,7 @@
         private SerializedProperty useMicrophoneTypeFallbackSp;
         private SerializedProperty recordWhenJoinedSp;
 
-        //#if UNITY_IOS
+        //#if (UNITY_IOS || UNITY_VISIONOS)
         private SerializedProperty audioSessionParametersSp;
         private SerializedProperty editorAudioSessionPresetSp;
 
@@ -67,7 +67,7 @@
             this.stopRecordingWhenPausedSp = this.serializedObject.FindProperty("stopRecordingWhenPaused");
             this.useMicrophoneTypeFallbackSp = this.serializedObject.FindProperty("useMicrophoneTypeFallback");
             this.recordWhenJoinedSp = this.serializedObject.FindProperty("recordWhenJoined");
-            //#if UNITY_IOS
+            //#if (UNITY_IOS || UNITY_VISIONOS)
             this.editorAudioSessionPresetSp = this.serializedObject.FindProperty("editorAudioSessionPreset");
             this.audioSessionParametersSp = this.serializedObject.FindProperty("audioSessionParameters");
             //#elif UNITY_ANDROID

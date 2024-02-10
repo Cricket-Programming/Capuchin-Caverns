@@ -372,7 +372,6 @@ namespace Photon.Voice
                     pushDataQueueReady.Set(); // let worker exit
                 }
             }
-            base.Dispose();
         }
     }
 }
