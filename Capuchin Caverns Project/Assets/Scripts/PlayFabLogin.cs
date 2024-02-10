@@ -56,7 +56,8 @@ public class PlayFabLogin : MonoBehaviour
         PlayFabClientAPI.GetAccountInfo(InfoRequest, AccountInfoSuccess, OnError);
 
         GetMOTD();
-        CurrencyManager.Instance.SetUpDailyRewardsData();
+        CurrencyManager.Instance.GetVirtualCurrencies();
+        //CurrencyManager.Instance.SetUpDailyRewardsData();
     }
 
     private void AccountInfoSuccess(GetAccountInfoResult result)
