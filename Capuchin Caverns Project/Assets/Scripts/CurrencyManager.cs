@@ -21,7 +21,7 @@ public class CurrencyManager : MonoBehaviour
     [Header("Set the starting coins in PlayFab itself in Engage > economy > Currency (legacy) > Click on Marbles Display Name > Change Initial Deposit")]
 
     [SerializeField] private string currencyName;
-    [SerializeField] private TextMeshPro currencyText;
+    [SerializeField] private TextMeshPro[] currencyTexts;
     private void Awake() {
         Instance = this;
     }
@@ -33,7 +33,12 @@ public class CurrencyManager : MonoBehaviour
     }
     private void OnGetUserInventorySuccess(GetUserInventoryResult result) {
         coins = result.VirtualCurrency["HS"];
-        currencyText.text = "You have " + coins.ToString() + " " + currencyName;
+
+        // Assign all the currency texts.
+        for (int i = 0; i < currencyTexts.Length; i++) {
+            currencyTexts[i].text = "You have " + coins.ToString() + " " + currencyName;
+        }
+
     }
     private void OnGetCurrencyError(PlayFabError error) {
         Debug.Log("Could not get the PlayFab User inventory" + error);
