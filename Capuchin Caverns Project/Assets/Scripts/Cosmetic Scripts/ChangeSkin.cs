@@ -11,17 +11,16 @@ using Photon.VR; // For the object type PhotonVRManager
 public class ChangeSkin : MonoBehaviour
 {
     [Header("Remember to put this material in the skins array of NetworkSkin on the player prefab for this to work!")]
-    [Tooltip("Set as null if you want to remove the skin. Each skin (and cosmetic) MUST have an original name")]
+    [Tooltip("Set as null if you want to remove the skin. Each skin (and cosmetic) MUST have an original name.")]
     [SerializeField] private Material skin;
     private int skinIndex = -1;
     private PhotonVRPlayer myPlayer;
     private Material previousMaterial;
 
     private void SetSkinIndex() {
-        if (skin != null) { //ignores the case where the skin has been not assigned on purpose because the ChangeSkin script is for a disable button.
+        if (skin != null) { // ignores the case where the skin has been not assigned on purpose because the ChangeSkin script is for a disable button.
             myPlayer = PhotonVRManager.Manager.LocalPlayer;
             skinIndex = myPlayer.GetComponent<NetworkSkin>().GetSkinIndex(skin);
-
             if (skinIndex == -1) {
                 Debug.LogError("Skin not found in array of skins of NetworkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material.");
             }

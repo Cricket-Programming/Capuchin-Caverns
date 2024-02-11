@@ -1791,12 +1791,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 2100000, guid: 3114584c1a5b4444e96c42adbaa34ad7, type: 2}
-  - {fileID: 2100000, guid: 9adcbfd4f29971a429e28c1eca2a56fe, type: 2}
-  - {fileID: 2100000, guid: 1693b36803b1cfb4ebf01d0e58db8666, type: 2}
-  - {fileID: 2100000, guid: e4cb180285a1a544fa8cbdda3f85344e, type: 2}
+  - {fileID: 2100000, guid: 85d3a3735529fa8449f730526cd21784, type: 2}
+  - {fileID: 2100000, guid: a535fa741142c7e4f925d385f99148f7, type: 2}
   - {fileID: 2100000, guid: 1f143bc1b882af9429f644c05deb756a, type: 2}
+  - {fileID: 2100000, guid: 1693b36803b1cfb4ebf01d0e58db8666, type: 2}
   - {fileID: 2100000, guid: 130fa681ab5830f4e82debc0269e45cf, type: 2}
+  - {fileID: 2100000, guid: e4cb180285a1a544fa8cbdda3f85344e, type: 2}
+  - {fileID: 2100000, guid: 9adcbfd4f29971a429e28c1eca2a56fe, type: 2}
+  - {fileID: 2100000, guid: 3114584c1a5b4444e96c42adbaa34ad7, type: 2}
+  - {fileID: 2100000, guid: 2d4eb4632ff89504084de124ceedf2e4, type: 2}
+  removedMaterial: {fileID: 2100000, guid: 411075764774dcc4ea2cdb49eaee0167, type: 2}
 --- !u!1 &5733000909736595080
 GameObject:
   m_ObjectHideFlags: 0

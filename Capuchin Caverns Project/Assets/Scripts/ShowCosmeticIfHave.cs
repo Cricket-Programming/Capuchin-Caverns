@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// This script will set the cosmetic stand as active only if the player owns the cosmetic.
+// This script will set the cosmetic stand as active only if the player owns the cosmetic/skin.
 // This is mainly for players to put on seasonal cosmetics.
 public class ShowCosmeticIfHave : MonoBehaviour
 {
