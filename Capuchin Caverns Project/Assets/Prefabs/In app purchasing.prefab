@@ -457,7 +457,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 152
+  m_VersionIndex: 155
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -563,8 +563,8 @@ Transform:
   m_GameObject: {fileID: 3315508980595574347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.014543356, z: -0, w: 0.9998943}
-  m_LocalPosition: {x: -0.8088557, y: -1.6602383, z: -1.1606071}
-  m_LocalScale: {x: 1.919145, y: 2.2989554, z: 1.0012233}
+  m_LocalPosition: {x: -0.8088557, y: -1.4538, z: -1.1606071}
+  m_LocalScale: {x: 1.919145, y: 2.0905256, z: 1.0012233}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3036280830729090983}
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 152
+  m_VersionIndex: 155
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -978,7 +978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skuToPurchase: Dollars4.99
   currencyAmount: 3000
-  purchaseFailedText: {fileID: 5084665746665551324}
 --- !u!1 &4307282632868648153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1161,7 @@ GameObject:
   - component: {fileID: 4611210762015471126}
   - component: {fileID: 5621692160813286634}
   m_Layer: 0
-  m_Name: Restart Description
+  m_Name: IAP Top Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
