@@ -22,16 +22,15 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     [Header("Set the speed of the creature in the NavMeshAgent component.")]
     [SerializeField] private float detectRange = 10f;
 
-    [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix > or < and x, y, or z direction.")]
+    [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix x, y, or z direction.")]
     [SerializeField] private float divideLine = 15.5f;
     [SerializeField] private HorrorDirection directionToHorror;
     [SerializeField] private string horrorFloorName;
     [Tooltip("If you don't know what to put for the divideLine, you can uncomment this to Debug.Log the value of the beginning of the horror area.")]
     [SerializeField] private bool PrintPlayerPosForDivLineTesting;
-    private NavMeshAgent nma = null; //nma stands for navMeshAgent
+    private NavMeshAgent nma; //nma stands for navMeshAgent
 
     private Bounds bndFloor;
-    private Vector3 moveto;
     private bool flag = false;
 
 
@@ -72,7 +71,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
             findClosestPlayersTransform(); 
 
             //If target is in the horror area and is in range to the enemy, go to the target player.
-            if (target != null) { // If the player is not connected to multiplayer or the target gets destroyed, this will cause a nullreferenceexception.
+            if (target != null) { // If the player is not connected to multiplayer or the target gets destroyed, target will be null. Not having this will cause a NullReferenceException.
                 if (TargetInRangeAndInHorror()) {  
                     nma.SetDestination(target.position);
                 } 
@@ -111,7 +110,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     {
         float rx = Random.Range(bndFloor.min.x, bndFloor.max.x);
         float rz = Random.Range(bndFloor.min.z, bndFloor.max.z);
-        moveto = new Vector3(rx, transform.position.y, rz); 
+        Vector3 moveto = new Vector3(rx, transform.position.y, rz); 
         nma.SetDestination(moveto); 
 
         flag = false;
