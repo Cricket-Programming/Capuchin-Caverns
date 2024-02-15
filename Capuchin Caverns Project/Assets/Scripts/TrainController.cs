@@ -6,6 +6,7 @@ using Photon.Pun;
 using Photon.Realtime; // To access Player Object type
 
 // This script needs to be on the same gameobject as the one with the PhotonView and PhotonTransformView.
+// Bug: When going to another room, the train sometimes messes up, probably because it needs to go to respawn location or something.
 public class TrainController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform[] waypoints; // [SerializeField] is a decorator just like [PunRPC]
