@@ -65,7 +65,7 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction": {
-      "version": "62.0.0",
+      "version": "60.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -197,8 +197,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.27",
-      "depth": 0,
+      "version": "3.0.25",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
