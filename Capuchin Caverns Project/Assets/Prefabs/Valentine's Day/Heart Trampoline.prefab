@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2310
+  m_VersionIndex: 2316
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1142,8 +1142,8 @@ Transform:
   m_GameObject: {fileID: 6238222544761201750}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00002879227, y: 0.9999659, z: 0.003980044, w: 0.0072341193}
-  m_LocalPosition: {x: 25.778, y: -2.2173, z: -10.48}
-  m_LocalScale: {x: 1.3557364, y: 0.14990798, z: 1.164956}
+  m_LocalPosition: {x: 25.778, y: -2.282, z: -10.481}
+  m_LocalScale: {x: 1.3557364, y: 0.56731176, z: 1.164956}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7125470859700173264}
@@ -2158,7 +2158,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6238222544761201750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

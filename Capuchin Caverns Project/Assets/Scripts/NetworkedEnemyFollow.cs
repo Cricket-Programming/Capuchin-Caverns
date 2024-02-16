@@ -14,7 +14,13 @@ using Photon.Pun; // classes such as the PhotonNetwork in this namespace are Pas
 public enum HorrorDirection {
     LessThan,
     GreaterThan,
+}
 
+// this for horror direction stuff.
+public enum Axes {
+    X,
+    Y,
+    Z
 }
 public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class this class inherits from, thereby giving it the functions such as Update(), OnCollisionEnter(), etc.
 {
@@ -25,6 +31,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix x, y, or z direction.")]
     [SerializeField] private float divideLine = 15.5f;
     [SerializeField] private HorrorDirection directionToHorror;
+    [SerializeField] private Axes directionAxis = Axes.Z;
     [SerializeField] private string horrorFloorName;
     [Tooltip("If you don't know what to put for the divideLine, you can uncomment this to Debug.Log the value of the beginning of the horror area.")]
     [SerializeField] private bool PrintPlayerPosForDivLineTesting;
@@ -83,10 +90,25 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
 
     }
     private bool TargetInRangeAndInHorror() {
-        return (distanceToClosestPlayer < detectRange && 
-                    (directionToHorror == HorrorDirection.LessThan && target.position.z < divideLine) ||
-                    (directionToHorror == HorrorDirection.GreaterThan && target.position.z > divideLine)
-                    );
+        bool dirIsLessThan = directionToHorror == HorrorDirection.LessThan;
+        bool dirIsGreaterThan = directionToHorror == HorrorDirection.GreaterThan;
+        bool closestPlayerInDetectRange = distanceToClosestPlayer < detectRange;
+        // Target not in range
+        if (distanceToClosestPlayer > detectRange) {
+            return false;
+        }
+        // C# Ternary operatorcondition ? expressionIfTrue : expressionIfFalse;
+        float targetPosition = (directionAxis == Axes.X) ? target.position.x : (directionAxis == Axes.Y) ? target.position.y : target.position.z;
+        return ((dirIsLessThan && targetPosition < divideLine) || (dirIsGreaterThan && targetPosition > divideLine));
+        // if (directionAxis == Axes.X) {
+        //     return ((dirIsLessThan && target.position.x < divideLine) ||
+        //         (dirIsGreaterThan && target.position.x > divideLine));
+        // } else if (directionAxis == Axes.Y) {
+        //     return ((dirIsLessThan && target.position.y < divideLine) ||
+        //         (dirIsGreaterThan && target.position.y > divideLine));
+        // } else {
+        //     return ((dirIsLessThan && target.position.y < divideLine) || (dirIsGreaterThan && target.position.y > divideLine));
+        // }                    
     }
     // Sets target to closest player transform position, sets distanceToClosestPlayer to distance to closest player.
     private void findClosestPlayersTransform() {
