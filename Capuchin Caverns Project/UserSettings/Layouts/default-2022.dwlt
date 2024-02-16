@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 38196
+  controlID: 7677
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 38197
+  controlID: 7678
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 38198
+  controlID: 7626
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 38199
+  controlID: 7619
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ProBuilderEditor
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -267,15 +267,15 @@ MonoBehaviour:
     y: 428.8
     width: 1108.8
     height: 294
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 140, y: 49}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 2
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -304,7 +304,7 @@ MonoBehaviour:
   - {fileID: 22}
   - {fileID: 23}
   m_Selected: 2
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -629,9 +629,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -240, y: -135}
+      snapOffset: {x: 526.4, y: 273}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
       index: 10
       layout: 4
@@ -652,7 +652,7 @@ MonoBehaviour:
       sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -661,9 +661,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 52.25793, y: 23.50426, z: 68.49179}
+    m_Target: {x: 5.8137994, y: 21.932669, z: 59.850983}
     speed: 2
-    m_Value: {x: 52.25793, y: 23.50426, z: 68.49179}
+    m_Value: {x: 5.8137994, y: 21.932669, z: 59.850983}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -709,13 +709,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.003287284, y: -0.98218465, z: 0.021064261, w: -0.18886971}
+    m_Target: {x: -0.036926366, y: -0.23149495, z: 0.0042852354, w: -0.9728496}
     speed: 2
-    m_Value: {x: -0.004656958, y: -0.9818822, z: 0.028425876, w: -0.1872905}
+    m_Value: {x: -0.036913075, y: -0.2284146, z: 0.004171501, w: -0.97285503}
   m_Size:
-    m_Target: 0.654302
+    m_Target: 2.732697
     speed: 2
-    m_Value: 0.685133
+    m_Value: 2.7327013
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -776,10 +776,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1485.2}
-      m_SelectedIDs: 6ed60e00
+      scrollPos: {x: 0, y: 197.20001}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e011f7ff1a1bf7ff2028f7fffc47f7ff3e6af7ff620bf8ffae0bf8ff8050f8ff5e9cf8ff66cbf8ff16eff8ff60eff8ff3234f9ffe87ff9ffa8dbf9fff4dbf9ffa820faff5e6cfaff54a9faffa0a9faffd2eefaff183bfbff4c1afcffa28afcff88580200da5d0200367303006eaf0300a6b4030068580500ee5d05007e5f050022080700c00b0700ac110700622b0700fa3e0700e4450700e2620700f8690700e0290900ce4009005e5509009a5c0900fa6209003e6509000a7d0900fc7e09004a7f09003c820900a8870900c28709003c8a0900b08b0900
+      m_ExpandedIDs: a62afbff102bfbffc46ffbff1ebcfbffe6e4fbff34e5fbff062afcff7276fcffd4ecfcff24edfcfff631fdff607efdffb08efdfff81afeff9077feffec77feff1ebdfeffde09ffffe4f7ffff52a400005eaf000076b20000a8b7000012b900005e9904004abc0400a8bc040088bf0400dcc40400f4c4040062c604003ac704006cd30900d8e90900580b0a004e0e0a0048100a00eaa70c0008e60d0070fc0d00021e0e00581e0e00821e0e0002200e00ce220e00e0230e006e240e009a240e009c240e00e4240e00b0250e0058260e00d4260e001c280e002e280e00e0280e00cc2a0e00
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -980,7 +980,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Horror
+    - Assets/Prefabs/Shooter Arena Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -988,16 +988,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Prefabs/Horror
+  - Assets/Prefabs/Shooter Arena Prefabs
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin Caverns\Capuchin Caverns Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 99}
-    m_SelectedIDs: d8450000
-    m_LastClickedID: 17880
-    m_ExpandedIDs: 00000000b442000000430000
+    scrollPos: {x: 0, y: 163}
+    m_SelectedIDs: 6ce30000
+    m_LastClickedID: 58220
+    m_ExpandedIDs: 0000000002e3000040e3000050e300001ed70500
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1025,7 +1025,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b4420000
+    m_ExpandedIDs: 0000000002e30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c262c1329a02fa49b5cb4c297106f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 136, y: 28}
+  m_MinSize: {x: 139, y: 28}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: ProBuilder
@@ -1136,9 +1136,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 436
-    width: 1077.4
-    height: 339.4
+    y: 502.4
+    width: 1107.8
+    height: 273
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 91.20001
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
