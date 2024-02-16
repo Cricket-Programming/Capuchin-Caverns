@@ -84,7 +84,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
                 } 
             }
             if (PrintPlayerPosForDivLineTesting) {
-                Debug.Log(target.position.z);
+                Debug.Log((directionAxis == Axes.X) ? target.position.x : (directionAxis == Axes.Y) ? target.position.y : target.position.z);
             }
         }
 
@@ -97,18 +97,9 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
         if (distanceToClosestPlayer > detectRange) {
             return false;
         }
-        // C# Ternary operatorcondition ? expressionIfTrue : expressionIfFalse;
+        // C# Ternary operator - condition ? expressionIfTrue : expressionIfFalse;
         float targetPosition = (directionAxis == Axes.X) ? target.position.x : (directionAxis == Axes.Y) ? target.position.y : target.position.z;
         return ((dirIsLessThan && targetPosition < divideLine) || (dirIsGreaterThan && targetPosition > divideLine));
-        // if (directionAxis == Axes.X) {
-        //     return ((dirIsLessThan && target.position.x < divideLine) ||
-        //         (dirIsGreaterThan && target.position.x > divideLine));
-        // } else if (directionAxis == Axes.Y) {
-        //     return ((dirIsLessThan && target.position.y < divideLine) ||
-        //         (dirIsGreaterThan && target.position.y > divideLine));
-        // } else {
-        //     return ((dirIsLessThan && target.position.y < divideLine) || (dirIsGreaterThan && target.position.y > divideLine));
-        // }                    
     }
     // Sets target to closest player transform position, sets distanceToClosestPlayer to distance to closest player.
     private void findClosestPlayersTransform() {
