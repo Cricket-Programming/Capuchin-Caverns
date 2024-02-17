@@ -12,10 +12,6 @@ public class PlayMusic : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     private void OnTriggerEnter() {
-        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
-        foreach(AudioSource audioSource in allAudioSources) {
-            audioSource.Pause();
-        }
         audioSource.Play();
     }
 }
