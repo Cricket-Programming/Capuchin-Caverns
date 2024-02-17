@@ -62,6 +62,9 @@ public class TeleportAndJumpscare : MonoBehaviour
 
         // Teleport the player to the respawn location
         gorillaPlayer.position = respawnLocation.position;
+
+        // wait some more not sure if necessary.
+        yield return new WaitForSeconds(0.01f);
     
         // Re-enable the map
         mapToDisable.SetActive(true);
