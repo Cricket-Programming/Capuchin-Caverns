@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Teleports the player and jumpscares them. TeleportAndJumpscare.cs is meant for horror purposes.
+[RequireComponent(typeof(AudioSource))]
 public class TeleportAndJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject mapToDisable;
@@ -12,7 +13,7 @@ public class TeleportAndJumpscare : MonoBehaviour
     [SerializeField] private Transform jumpscareLocation;
     [SerializeField] private Transform respawnLocation;
 
-    [SerializeField] private float jumpscareRunningTime;
+    [SerializeField] private float jumpscareRunningTime = 2f;
 
     // jumpscareObjects are the things like the box that shows around the player
     [SerializeField] private GameObject jumpscareObjects;
@@ -22,8 +23,7 @@ public class TeleportAndJumpscare : MonoBehaviour
         //gets the gorillaPlayer's Rigidbody.
         if (!gorillaPlayer.TryGetComponent(out gorillaPlayerRigidbody)) {
             Debug.LogError("In order to access the rigidbody, make sure the name of the gorilla player is `GorillaPlayer`");
-        }
-        
+        }    
     }
 
     private void OnTriggerEnter() {
