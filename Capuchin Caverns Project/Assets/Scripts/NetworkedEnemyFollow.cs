@@ -11,12 +11,12 @@ using Photon.Pun; // classes such as the PhotonNetwork in this namespace are Pas
 
 // Note: If there is a shadow thing to produce darkness in horror, that is the same as in that area disabling the directional light/ setting directional light to baked instead of realtime.
 // Bug: If MasterClient disconnects, then Fluffy stops moving.
+
+// These enums are for horror direction stuff.
 public enum HorrorDirection {
     LessThan,
     GreaterThan,
 }
-
-// this for horror direction stuff.
 public enum Axes {
     X,
     Y,
