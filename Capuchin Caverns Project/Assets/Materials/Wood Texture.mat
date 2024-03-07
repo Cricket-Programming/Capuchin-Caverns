@@ -30,7 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glossiness: 0
-    - _Metallic: 0.45
+    - _Metallic: 0.448
     m_Colors:
-    - _Color: {r: 0.6792453, g: 0.62413675, b: 0.62413675, a: 1}
+    - _Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_BuildTextureStacks: []

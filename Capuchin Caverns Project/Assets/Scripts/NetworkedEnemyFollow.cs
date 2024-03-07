@@ -47,6 +47,8 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     private GameObject[] players;
     private float distanceToClosestPlayer;
 
+    private bool dirIsLessThan;
+    private bool dirIsGreaterThan;
     // Everything regarding networking should be controlled by the MasterClient.
     private void Start()
     {
@@ -59,6 +61,8 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
         } else {
             bndFloor = GameObject.Find(horrorFloorName).GetComponent<Renderer>().bounds;  
         }
+        dirIsLessThan = directionToHorror == HorrorDirection.LessThan;
+        dirIsGreaterThan = directionToHorror == HorrorDirection.GreaterThan;
     }
 
     private void Update()
@@ -90,8 +94,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
 
     }
     private bool TargetInRangeAndInHorror() {
-        bool dirIsLessThan = directionToHorror == HorrorDirection.LessThan;
-        bool dirIsGreaterThan = directionToHorror == HorrorDirection.GreaterThan;
+
         bool closestPlayerInDetectRange = distanceToClosestPlayer < detectRange;
         // Target not in range
         if (distanceToClosestPlayer > detectRange) {
