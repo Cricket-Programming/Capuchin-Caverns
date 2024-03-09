@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class DestroyTouch : MonoBehaviour
 {
-    private void OnCollisionEnter() {
+    [SerializeField] private AudioSource sound;
+    private void OnTriggerEnter() {
+        sound.Play();
+        // Destroy the object after the sound finishes playing.
+        Invoke("DestroyObject", sound.clip.length); 
+    }
+    private void DestroyObject() {
         Destroy(gameObject);
     }
 }
