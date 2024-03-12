@@ -214,7 +214,7 @@ namespace Photon.VR
 
             if (PhotonNetwork.InRoom)
                 if (Manager.LocalPlayer != null)
-                    Manager.LocalPlayer.RefreshPlayerValues();
+                    Manager.LocalPlayer.RefreshColorValues();
         }
 
         // /// <summary>

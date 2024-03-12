@@ -83,13 +83,10 @@ namespace Photon.VR.Player
         {
             _RefreshPlayerValues();
         }
+        public void RefreshColorValues() => photonView.RPC("RPCRefreshColorValues", RpcTarget.All);
 
-        private void _RefreshPlayerValues()
-        {
-            // Name
-            if (NameText != null)
-                NameText.text = photonView.Owner.NickName;
-
+        [PunRPC]
+        private void RPCRefreshColorValues() {
             // Colour
             foreach (MeshRenderer renderer in ColourObjects)
             {
@@ -97,11 +94,13 @@ namespace Photon.VR.Player
                     // Typecast json formatted string to string. Then, it is converted to a color object.
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
+        }
+        private void _RefreshPlayerValues()
+        {
+            // Name
+            if (NameText != null)
+                NameText.text = photonView.Owner.NickName;
 
-            // // Material
-            // foreach (Renderer colourObject in ColourObjects) {
-            //     colourObject.material = JsonUtility.FromJson<Material>((string)photonView.Owner.CustomProperties["Material"]);
-            // }
 
             // Cosmetics - it's a little ugly to look at
             cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>((string)photonView.Owner.CustomProperties["Cosmetics"]);

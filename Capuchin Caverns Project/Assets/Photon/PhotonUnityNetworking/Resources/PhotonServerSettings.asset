@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: afacb457-a628-4810-b8f1-51ff7d6e3012
+    AppIdRealtime: 52a7b50d-de75-478e-ad49-09baaead388a
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 86dbaa97-0c17-45ca-a33c-656d22a9f1e2
+    AppIdVoice: 8714b844-4d5c-4feb-afd3-126f364ea214
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: us
     Server: 
     Port: 0
     ProxyServer: 
@@ -47,6 +47,7 @@ MonoBehaviour:
   - SetSkin
   - TagPlayer
   - UntagPlayer
+  - RPCRefreshColorValues
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
