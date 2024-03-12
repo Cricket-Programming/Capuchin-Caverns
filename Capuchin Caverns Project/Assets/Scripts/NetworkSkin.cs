@@ -37,15 +37,26 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
                 }
             }
         }
+        if (!PlayerPrefs.HasKey("SkinIndex") || PlayerPrefs.GetInt("SkinIndex") == -1) {
+            
+        } else {
+            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));    
+        }
+        
     }
     
-    // GetSkinIndex(), RunSetNetworkSkin, and RunRemoveNetwork skin are called in the ChangeSkin class.
+    // GetSkinIndex(), RunSetNetworkSkin, and RunRemoveNetworkSkin are called in the ChangeSkin class.
+    // The skin is serialized as a number, which is reconstructed on the receiving end (networkSkin classes). We do this because skins can't travel through RPC calls.
     public int GetSkinIndex(Material skin) {
-        for (int index = 0; index < skins.Length; index++){
-            if (skins[index].mainTexture.name.Equals(skin.mainTexture.name)) {   // + " (Instance)" {    
-                return index;
+        if (skin != null) { // Ignores the case where the skin has been not assigned on purpose because the ChangeSkin script is for a disable button.
+            for (int index = 0; index < skins.Length; index++){
+                if (skins[index].mainTexture.name.Equals(skin.mainTexture.name)) {    
+                    return index;
+                }
             }
+            Debug.LogError("Skin not found in array of skins of NetworkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material.");
         }
+
         return -1;     
     }
     public void RunSetNetworkSkin(int index) {
@@ -56,15 +67,18 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     }
     [PunRPC]
     private void SetSkin(int index) {
+        PlayerPrefs.SetInt("SkinIndex", index);
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material = skins[index];
         }
     }
     [PunRPC]
     private void RemoveSkin() {
+        PlayerPrefs.SetInt("SkinIndex", -1);
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material = materialWithDefaultProperties;    
             colourObject.material.color = PhotonVRManager.Manager.Colour;
-        }   
+        }
+
     }
 }

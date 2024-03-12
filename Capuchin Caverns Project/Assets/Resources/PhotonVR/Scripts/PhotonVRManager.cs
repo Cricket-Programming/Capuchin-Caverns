@@ -52,6 +52,7 @@ namespace Photon.VR
         [Tooltip("the L Gorilla Origin's Left Sphere")]
         public Transform RightHand;
         public Color Colour;
+        // public Material Material;
         public PhotonVRCosmeticsData Cosmetics { get; private set; } = new PhotonVRCosmeticsData();
 
         [Header("Networking")]
@@ -94,9 +95,12 @@ namespace Photon.VR
 
             if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Colour")))
                 Colour = JsonUtility.FromJson<Color>(PlayerPrefs.GetString("Colour"));
+            // if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Material"))) {
+            //     Material = JsonUtility.FromJson<Material>(PlayerPrefs.GetString("Material"));
+            // }
             if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Cosmetics")))
                 Cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>(PlayerPrefs.GetString("Cosmetics"));
-
+            
         }
 
         /// <summary>
@@ -212,6 +216,23 @@ namespace Photon.VR
                 if (Manager.LocalPlayer != null)
                     Manager.LocalPlayer.RefreshPlayerValues();
         }
+
+        // /// <summary>
+        // /// Sets the material, 
+        // /// </summary>
+        // /// <param name="PlayerMaterial">The material you want the player to have</param>
+        // public static void SetMaterial(Material PlayerMaterial)
+        // {
+        //     Manager.Material = PlayerMaterial;
+        //     ExitGames.Client.Photon.Hashtable hash = PhotonNetwork.LocalPlayer.CustomProperties;
+        //     hash["Material"] = JsonUtility.ToJson(PlayerMaterial);
+        //     PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        //     PlayerPrefs.SetString("Material", JsonUtility.ToJson(PlayerMaterial));
+
+        //     if (PhotonNetwork.InRoom)
+        //         if (Manager.LocalPlayer != null)
+        //             Manager.LocalPlayer.RefreshPlayerValues();
+        // }
 
         /// <summary>
         /// Sets the cosmetics

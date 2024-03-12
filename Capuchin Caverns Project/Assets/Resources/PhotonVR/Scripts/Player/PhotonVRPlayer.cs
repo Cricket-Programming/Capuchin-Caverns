@@ -98,6 +98,11 @@ namespace Photon.VR.Player
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
 
+            // // Material
+            // foreach (Renderer colourObject in ColourObjects) {
+            //     colourObject.material = JsonUtility.FromJson<Material>((string)photonView.Owner.CustomProperties["Material"]);
+            // }
+
             // Cosmetics - it's a little ugly to look at
             cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>((string)photonView.Owner.CustomProperties["Cosmetics"]);
             if (HeadCosmetics != null)
