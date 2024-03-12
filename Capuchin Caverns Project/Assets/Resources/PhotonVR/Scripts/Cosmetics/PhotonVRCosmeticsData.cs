@@ -13,7 +13,6 @@ namespace Photon.VR.Cosmetics
         public string Body;
         public string LeftHand;
         public string RightHand;
-        public int SkinIndex;
     }
 
     public enum CosmeticType

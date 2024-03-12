@@ -75,14 +75,7 @@ namespace Photon.VR.Player
                 LeftHand.transform.rotation = PhotonVRManager.Manager.LeftHand.transform.rotation;
             }
         }
-
-        public void RefreshPlayerValues() => photonView.RPC("RPCRefreshPlayerValues", RpcTarget.All);
-
-        [PunRPC]
-        private void RPCRefreshPlayerValues()
-        {
-            _RefreshPlayerValues();
-        }
+        
         public void RefreshColorValues() => photonView.RPC("RPCRefreshColorValues", RpcTarget.All);
 
         [PunRPC]
@@ -95,6 +88,14 @@ namespace Photon.VR.Player
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
         }
+        public void RefreshPlayerValues() => photonView.RPC("RPCRefreshPlayerValues", RpcTarget.All);
+
+        [PunRPC]
+        private void RPCRefreshPlayerValues()
+        {
+            _RefreshPlayerValues();
+        }
+
         private void _RefreshPlayerValues()
         {
             // Name

@@ -37,12 +37,9 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (!PlayerPrefs.HasKey("SkinIndex") || PlayerPrefs.GetInt("SkinIndex") == -1) {
-            
-        } else {
-            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));    
-        }
-        
+        if (PlayerPrefs.HasKey("SkinIndex") && PlayerPrefs.GetInt("SkinIndex") != -1) {
+            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));   
+        }  
     }
     
     // GetSkinIndex(), RunSetNetworkSkin, and RunRemoveNetworkSkin are called in the ChangeSkin class.
