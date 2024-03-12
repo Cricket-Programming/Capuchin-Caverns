@@ -35,7 +35,7 @@ public class ChangeSkin : MonoBehaviour
         myPlayer = PhotonVRManager.Manager.LocalPlayer;
 
         if (skin == null) { // Remove skin
-            myPlayer.GetComponent<NetworkSk in>().RunRemoveNetworkSkin();
+            myPlayer.GetComponent<NetworkSkin>().RunRemoveNetworkSkin();
         }  
         else {
             if (skinIndex == -1) SetSkinIndex(); // skinIndex has not been set yet, so set it.

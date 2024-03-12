@@ -2630,7 +2630,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2d4eb4632ff89504084de124ceedf2e4, type: 2}
   - {fileID: 2100000, guid: 06b68c50990a03e479c0c1c83b6a6bd0, type: 2}
   - {fileID: 2100000, guid: aec8dd69670e67445a703b4fade2ea8f, type: 2}
-  removedMaterial: {fileID: 2100000, guid: 411075764774dcc4ea2cdb49eaee0167, type: 2}
+  materialWithDefaultProperties: {fileID: 0}
 --- !u!1 &5733000909736595080
 GameObject:
   m_ObjectHideFlags: 0
