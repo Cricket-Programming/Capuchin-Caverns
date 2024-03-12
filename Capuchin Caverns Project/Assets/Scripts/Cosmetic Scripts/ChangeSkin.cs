@@ -17,8 +17,9 @@ public class ChangeSkin : MonoBehaviour
     private PhotonVRPlayer myPlayer;
     private Material previousMaterial;
 
+    // The skin is serialized as a number, which is reconstructed on the receiving end (networkSkin classes). We do this because skins can't travel through RPC calls.
     private void SetSkinIndex() {
-        if (skin != null) { // ignores the case where the skin has been not assigned on purpose because the ChangeSkin script is for a disable button.
+        if (skin != null) { // Ignores the case where the skin has been not assigned on purpose because the ChangeSkin script is for a disable button.
             myPlayer = PhotonVRManager.Manager.LocalPlayer;
             skinIndex = myPlayer.GetComponent<NetworkSkin>().GetSkinIndex(skin);
             if (skinIndex == -1) {
@@ -34,7 +35,7 @@ public class ChangeSkin : MonoBehaviour
         myPlayer = PhotonVRManager.Manager.LocalPlayer;
 
         if (skin == null) { // Remove skin
-            myPlayer.GetComponent<NetworkSkin>().RunRemoveNetworkSkin();
+            myPlayer.GetComponent<NetworkSk in>().RunRemoveNetworkSkin();
         }  
         else {
             if (skinIndex == -1) SetSkinIndex(); // skinIndex has not been set yet, so set it.

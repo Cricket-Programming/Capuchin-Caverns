@@ -234,6 +234,7 @@ namespace Photon.VR
         /// Sets a specefic cosmetic
         /// </summary>
         /// <param name="Type">The type of cosmetic you want to set</param>
+        
         public static void SetCosmetic(CosmeticType Type, string CosmeticId)
         {
             PhotonVRCosmeticsData Cosmetics = Manager.Cosmetics;

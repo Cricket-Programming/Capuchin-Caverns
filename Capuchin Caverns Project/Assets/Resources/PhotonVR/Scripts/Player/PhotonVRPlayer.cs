@@ -63,7 +63,7 @@ namespace Photon.VR.Player
         {
             if (photonView.IsMine)
             {
-                this.transform.position = PhotonVRManager.Manager.Head.transform.position; //this is for the tag mode.
+                this.transform.position = PhotonVRManager.Manager.Head.transform.position; // This was added for the tag mode.
 
                 Head.transform.position = PhotonVRManager.Manager.Head.transform.position;
                 Head.transform.rotation = PhotonVRManager.Manager.Head.transform.rotation;
@@ -93,7 +93,8 @@ namespace Photon.VR.Player
             // Colour
             foreach (MeshRenderer renderer in ColourObjects)
             {
-                if(renderer != null)
+                if (renderer != null)
+                    // Typecast json formatted string to string. Then, it is converted to a color object.
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
 

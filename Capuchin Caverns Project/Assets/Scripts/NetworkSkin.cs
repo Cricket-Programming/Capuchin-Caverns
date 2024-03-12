@@ -13,15 +13,15 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     private GameObject[] players;
     [Tooltip("All skins must have mainTextures")]
     [SerializeField] private Material[] skins;
-    // removedMaterial is a material that does not have the properties of the skin materials - such as dark brown material. The player will still keep its original colorwhen removing the skin even with this.
-    [SerializeField] private Material removedMaterial;
+
+    [Tooltip("This material is used to reset material properties when removing the skin. This material has 'default' material properties such as dark brown material. The player will still keep its original color when removing the skin even with this.")]
+    [SerializeField] private Material materialWithDefaultProperties;
 
     private void Start() {
         ColourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
         Invoke("newPlayerSkinCatchUp", 0.1f); 
     }
 
- 
     private void newPlayerSkinCatchUp() {
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players) {
@@ -54,8 +54,6 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     [PunRPC]
     private void SetSkin(int index) {
         foreach (Renderer colourObject in ColourObjects) {
-            // colourObject.material.mainTexture = skins[index].mainTexture;
-            // colourObject.material.color = skins[index].color; //usually skin.color is white
             colourObject.material = skins[index];
             
         }
@@ -63,7 +61,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     [PunRPC]
     private void RemoveSkin() {
         foreach (Renderer colourObject in ColourObjects) {
-            colourObject.material = removedMaterial;    
+            colourObject.material = materialWithDefaultProperties;    
             colourObject.material.color = PhotonVRManager.Manager.Colour;
         }   
     }
