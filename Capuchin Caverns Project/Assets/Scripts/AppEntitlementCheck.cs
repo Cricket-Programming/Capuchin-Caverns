@@ -8,7 +8,11 @@ public class AppEntitlementCheck : MonoBehaviour
         try
         {
             Core.AsyncInitialize();
+            // Entitlement Check.
             Entitlements.IsUserEntitledToApplication().OnComplete(EntitlementCallback);
+            
+            // User Age Group API Compliance
+            UserAgeCategory.Get();
         }
         catch (UnityException e)
         {

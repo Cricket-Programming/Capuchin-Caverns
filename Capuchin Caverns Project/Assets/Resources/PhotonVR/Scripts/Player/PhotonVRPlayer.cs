@@ -57,6 +57,7 @@ namespace Photon.VR.Player
             DontDestroyOnLoad(gameObject);
 
             _RefreshPlayerValues();
+            _RefreshColorValues();
         }
 
         private void Update()
@@ -80,7 +81,10 @@ namespace Photon.VR.Player
 
         [PunRPC]
         private void RPCRefreshColorValues() {
-            // Colour
+            _RefreshColorValues();
+        }
+        private void _RefreshColorValues() {
+            // Colour            
             foreach (MeshRenderer renderer in ColourObjects)
             {
                 if (renderer != null)
@@ -88,6 +92,8 @@ namespace Photon.VR.Player
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
         }
+
+
         public void RefreshPlayerValues() => photonView.RPC("RPCRefreshPlayerValues", RpcTarget.All);
 
         [PunRPC]

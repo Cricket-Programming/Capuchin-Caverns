@@ -34,7 +34,5 @@ public class ChangeSkin : MonoBehaviour
             myPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(skinIndex);
 
         }  
-        
-        myPlayer.GetComponent<TagScript6>().initialMaterial = myPlayer.ColourObjects[0].material;
     }
 }
