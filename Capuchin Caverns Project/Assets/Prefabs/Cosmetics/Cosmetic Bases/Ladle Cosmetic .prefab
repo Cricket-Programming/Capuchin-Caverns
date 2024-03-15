@@ -543,6 +543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3721085346668873915}
+  - component: {fileID: 7663839355768528288}
   m_Layer: 0
   m_Name: 'Ladle Cosmetic '
   m_TagString: Untagged
@@ -558,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8001323707377994618}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.41, y: -1.126, z: 1.19}
   m_LocalScale: {x: 0.6204907, y: 0.6204907, z: 0.6204907}
   m_ConstrainProportionsScale: 0
@@ -570,6 +571,19 @@ Transform:
   - {fileID: 7311215682130334670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7663839355768528288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001323707377994618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196d13ff0d1543042a558eb1da72027a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CosmeticName: Ladle
 --- !u!1 &9101318274386428922
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,15 +810,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4942866619696570309, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_VersionIndex
-      value: 2059
+      value: 2062
       objectReference: {fileID: 0}
     - target: {fileID: 4942866620271946337, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_VersionIndex
-      value: 290
+      value: 293
       objectReference: {fileID: 0}
     - target: {fileID: 4942866620602158677, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_VersionIndex
-      value: 3506
+      value: 3509
       objectReference: {fileID: 0}
     - target: {fileID: 4942866620931072486, guid: 5473447608564c349a0dafce39eb4e4f, type: 3}
       propertyPath: m_Name
