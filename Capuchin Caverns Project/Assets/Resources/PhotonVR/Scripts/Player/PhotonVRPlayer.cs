@@ -57,7 +57,6 @@ namespace Photon.VR.Player
             DontDestroyOnLoad(gameObject);
 
             _RefreshPlayerValues();
-            _RefreshColorValues();
         }
 
         private void Update()
@@ -77,21 +76,6 @@ namespace Photon.VR.Player
             }
         }
         
-        public void RefreshColorValues() => photonView.RPC("RPCRefreshColorValues", RpcTarget.All);
-
-        [PunRPC]
-        private void RPCRefreshColorValues() {
-            _RefreshColorValues();
-        }
-        private void _RefreshColorValues() {
-            // Colour            
-            foreach (MeshRenderer renderer in ColourObjects)
-            {
-                if (renderer != null)
-                    // Typecast json formatted string to string. Then, it is converted to a color object.
-                    renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
-            }
-        }
 
 
         public void RefreshPlayerValues() => photonView.RPC("RPCRefreshPlayerValues", RpcTarget.All);
@@ -107,6 +91,15 @@ namespace Photon.VR.Player
             // Name
             if (NameText != null)
                 NameText.text = photonView.Owner.NickName;
+
+            // Colour  
+            foreach (MeshRenderer renderer in ColourObjects)
+            {
+                if (renderer != null && renderer.material.mainTexture == null)
+                    // Typecast json formatted string to string. Then, it is converted to a color object.
+                    renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
+            }
+            PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material;
 
 
             // Cosmetics - it's a little ugly to look at

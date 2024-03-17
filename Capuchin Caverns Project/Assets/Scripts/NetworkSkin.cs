@@ -12,7 +12,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     private List<MeshRenderer> ColourObjects = new List<MeshRenderer>();
     private GameObject[] players;
     [Tooltip("All skins must have mainTextures")]
-    [SerializeField] private Material[] skins;
+    public Material[] skins; // Accessed for initialMaterialIndex in TagScript
 
     [Tooltip("This material is used to reset material properties when removing the skin. This material has 'default' material properties such as dark brown material. The player will still keep its original color when removing the skin even with this.")]
     [SerializeField] private Material materialWithDefaultProperties;
@@ -23,12 +23,11 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     }
 
     private void newPlayerSkinCatchUp() {
-        //Skin Index key exists if the player has a skin. SkinIndex equals -1 if the player has no skin on, otherwise it will be the index of the skin to put on.
+        // Skin Index key exists if the player has a skin. SkinIndex equals -1 if the player has no skin on, otherwise it will be the index of the skin to put on.
         if (PlayerPrefs.HasKey("SkinIndex") && PlayerPrefs.GetInt("SkinIndex") != -1) {     
             PhotonVRPlayer myPlayer = PhotonVRManager.Manager.LocalPlayer;
             
-            myPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));
-            //RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));            
+            myPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(PlayerPrefs.GetInt("SkinIndex"));        
         }  
 
         // This delay allows the SetNetworkSkin stuff above to have time to execute.      
@@ -68,22 +67,23 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     public void RunSetNetworkSkin(int index) {
         PlayerPrefs.SetInt("SkinIndex", index);
         photonView.RPC("SetSkin", RpcTarget.All, index);
-        TellTagScriptMaterialChanged();
+        PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
+        //TellTagScriptMaterialChanged();
     }
     public void RunRemoveNetworkSkin() {
         PlayerPrefs.SetInt("SkinIndex", -1);
         photonView.RPC("RemoveSkin", RpcTarget.All);
-        TellTagScriptMaterialChanged(); 
+        //TellTagScriptMaterialChanged();
+        PhotonVRManager.SetColour(PhotonVRManager.Manager.Colour); // This will also refresh the player values. 
     }
 
-    private void TellTagScriptMaterialChanged() {
-        PhotonVRPlayer myPlayer = PhotonVRManager.Manager.LocalPlayer;
-        myPlayer.GetComponent<TagScript6>().initialMaterial = myPlayer.ColourObjects[0].material;
-    }
+    // private void TellTagScriptMaterialChanged() {
+    //     PhotonVRPlayer myPlayer = PhotonVRManager.Manager.LocalPlayer;
+    //     myPlayer.GetComponent<TagScript6>().initialMaterial = myPlayer.ColourObjects[0].material;
+    // }
     
     [PunRPC]
     private void SetSkin(int index) {
-
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material = skins[index];
         }
@@ -92,7 +92,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     private void RemoveSkin() {
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material = materialWithDefaultProperties;    
-            colourObject.material.color = PhotonVRManager.Manager.Colour;
+
         }
 
     }

@@ -37,7 +37,6 @@ public class MOTDboard : MonoBehaviour
             // Or retrieve results as binary data
             byte[] results = www.downloadHandler.data;
             string pathTxt = www.downloadHandler.text;
-            //Debug.Log(pathTxt);
             MOTD.text = pathTxt;
         }
     }
