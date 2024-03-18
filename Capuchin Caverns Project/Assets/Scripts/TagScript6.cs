@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 using Photon.Pun;
 using Photon.VR.Player; 
+using Photon.VR;
 using easyInputs;
 
 //SEE DOCUMENTATION (in google drive coding) FOR INFORMATION
@@ -36,7 +37,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     private void Start()
     {
         colourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
-        initialMaterial = colourObjects[0].material; 
+        initialMaterial = new Material(colourObjects[0].material); // This makes a copy, not just a reference. 
 
         itMaterialName = itMaterial.name + " (Instance)";
 
@@ -95,7 +96,8 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         } 
         //outside tag area.
         else if (!GetIsInTagArea() && isInfected) {
-            photonView.RPC("UntagPlayer", RpcTarget.All);
+            UntagPlayer();
+            // photonView.RPC("UntagPlayer", RpcTarget.All);
 
         }
         //outside tag area.
@@ -179,13 +181,15 @@ public class TagScript6 : MonoBehaviourPunCallbacks
             if (isInfected && touchbackCountdown <= 0f && !otherTagScript6.isInfected)
             {
                 // an "it" player handles stuff here.
-                VibrateHands(); 
-                photonView.RPC("UntagPlayer", RpcTarget.All);
 
                 PhotonView otherPhotonView = otherTagScript6.photonView;
                 otherPhotonView.RPC("TagPlayer", RpcTarget.All);
                 otherPhotonView.RPC("PlayTagSound", RpcTarget.All);
                 otherPhotonView.RPC("LimitMovementAndVibrateHands", otherPhotonView.Owner);
+
+                VibrateHands(); 
+                //photonView.RPC("UntagPlayer", RpcTarget.All);
+                UntagPlayer();
             }
         }
 
@@ -220,16 +224,26 @@ public class TagScript6 : MonoBehaviourPunCallbacks
             tagSound.Play();
         }
     }
-
+    
+    private void UntagPlayer() {
+        photonView.RPC("RPCUntagPlayer", RpcTarget.All);
+        if (initialMaterial.mainTexture != null) {
+            int initialMaterialSkinIndex = PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().GetSkinIndex(initialMaterial);
+            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(initialMaterialSkinIndex);  
+        }
+    }
     [PunRPC]
-    private void UntagPlayer()
+    private void RPCUntagPlayer()
     {
         isInfected = false;
+            // Because every player instance does not have the same initialMaterial, I can't network this through and RPC call, this won't network it properly. It will only network it locally.
 
         foreach (Renderer colourObject in colourObjects)
         {
-            colourObject.material = initialMaterial;
+            colourObject.material = new Material(initialMaterial);
         }
+        
+
     }
 }
 

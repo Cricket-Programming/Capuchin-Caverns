@@ -59,7 +59,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
                     return index;
                 }
             }
-            Debug.LogError("Skin not found in array of skins of NetworkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material.");
+            Debug.LogError("Skin not found in array of skins of NetworkSkin script. Make sure that ChangeSkin and NetworkSkin scripts both have the skin material. Skin mainTexture name: " + skin.mainTexture.name);
         }
 
         return -1;     
@@ -67,20 +67,17 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     public void RunSetNetworkSkin(int index) {
         PlayerPrefs.SetInt("SkinIndex", index);
         photonView.RPC("SetSkin", RpcTarget.All, index);
-        PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
-        //TellTagScriptMaterialChanged();
+        //PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
+        PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = new Material(PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material); // This creates a copy, not a reference.
     }
     public void RunRemoveNetworkSkin() {
         PlayerPrefs.SetInt("SkinIndex", -1);
         photonView.RPC("RemoveSkin", RpcTarget.All);
-        //TellTagScriptMaterialChanged();
         PhotonVRManager.SetColour(PhotonVRManager.Manager.Colour); // This will also refresh the player values. 
+        PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = new Material(PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material); // This creates a copy, not a reference.
     }
 
-    // private void TellTagScriptMaterialChanged() {
-    //     PhotonVRPlayer myPlayer = PhotonVRManager.Manager.LocalPlayer;
-    //     myPlayer.GetComponent<TagScript6>().initialMaterial = myPlayer.ColourObjects[0].material;
-    // }
+
     
     [PunRPC]
     private void SetSkin(int index) {
@@ -92,8 +89,6 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     private void RemoveSkin() {
         foreach (Renderer colourObject in ColourObjects) {
             colourObject.material = materialWithDefaultProperties;    
-
         }
-
     }
 }

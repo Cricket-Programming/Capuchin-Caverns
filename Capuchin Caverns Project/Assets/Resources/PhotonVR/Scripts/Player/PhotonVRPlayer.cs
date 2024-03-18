@@ -99,7 +99,7 @@ namespace Photon.VR.Player
                     // Typecast json formatted string to string. Then, it is converted to a color object.
                     renderer.material.color = JsonUtility.FromJson<Color>((string)photonView.Owner.CustomProperties["Colour"]);
             }
-            PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material;
+            
 
 
             // Cosmetics - it's a little ugly to look at
