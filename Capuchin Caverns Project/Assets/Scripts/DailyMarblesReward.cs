@@ -17,9 +17,9 @@ public class DailyMarblesReward : MonoBehaviour
         todayDate = DateTime.Today.ToString("yyyy-MM-dd");
 
         // It's the same day so deactivate the button.
-        // if (PlayerPrefs.GetString("previousDate").Equals(todayDate)) {
-        //     RemovePurchaseButton();
-        // }
+        if (PlayerPrefs.GetString("previousDate").Equals(todayDate)) {
+            RemovePurchaseButton();
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
