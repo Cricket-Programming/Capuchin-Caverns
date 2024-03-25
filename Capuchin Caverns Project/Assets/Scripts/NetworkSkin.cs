@@ -66,15 +66,14 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
     }
     public void RunSetNetworkSkin(Material PlayerMaterial) {
         int materialIndex = GetSkinIndex(PlayerMaterial);
-        PlayerPrefs.SetInt("SkinIndex", materialIndex);
-        photonView.RPC("SetSkin", RpcTarget.All, materialIndex);
-        //PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
-        PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = new Material(PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material); // This creates a copy, not a reference.        
+        _RunSetNetworkSkin(materialIndex);        
     }
     public void RunSetNetworkSkin(int index) {
+        _RunSetNetworkSkin(index);
+    }
+    private void _RunSetNetworkSkin(int index) {
         PlayerPrefs.SetInt("SkinIndex", index);
         photonView.RPC("SetSkin", RpcTarget.All, index);
-        //PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
         PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = new Material(PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material); // This creates a copy, not a reference.
     }
     public void RunRemoveNetworkSkin() {

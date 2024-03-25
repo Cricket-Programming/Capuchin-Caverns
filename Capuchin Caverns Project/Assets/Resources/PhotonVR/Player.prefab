@@ -2538,9 +2538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e9e068007365946860362c8ed67952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itMaterial: {fileID: 2100000, guid: 34ffaeac665ecad458e5035ca17b540f, type: 2}
+  tagItMaterial: {fileID: 2100000, guid: 34ffaeac665ecad458e5035ca17b540f, type: 2}
   tagSound: {fileID: 4086976971416470632}
   touchbackDuration: 2
+  EnableInfectionMode_Alpha: 0
+  resetGameSound: {fileID: 0}
+  infectionItMaterial: {fileID: 2100000, guid: d8514bfa3a257ff419de6d0a62b704ef, type: 2}
   initialMaterial: {fileID: 0}
 --- !u!136 &8297595954352479163
 CapsuleCollider:

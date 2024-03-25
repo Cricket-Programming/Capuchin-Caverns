@@ -8,30 +8,30 @@ using Photon.VR.Player;
 using Photon.VR;
 using easyInputs;
 
-//SEE DOCUMENTATION (in google drive coding) FOR INFORMATION
-
-public class TagScript6 : MonoBehaviourPunCallbacks
+// Go to Google Drive coding for the TAG SCRIPT DOCUMENTATION.
+public class TagScript6 : MonoBehaviourPun
 {
-    [SerializeField] private Material itMaterial;
-    [SerializeField] private AudioSource tagSound;
+    [SerializeField] private Material tagItMaterial;
+    [SerializeField] private AudioSource tagSound; // Volume: 0.5 | Spatial Blend: 0.6
     
     [Tooltip("When player gets tagged, this is the amount of time before the player can start tagging other players. It is also the amount of time movement is limited.")]
     [SerializeField] private float touchbackDuration = 2f;
 
-    [HideInInspector] public Material initialMaterial; //gets changed by ChangeSkin.cs
-    private string itMaterialName;
+    // FOR INFECTION MODE ONLY
+    [SerializeField] private bool EnableInfectionMode_Alpha;     
+    [SerializeField] private AudioSource resetGameSound; // Volume: 0.2 | Spatial blend: 0 (2D)
+    [SerializeField] private Material infectionItMaterial;
+
+    [HideInInspector] public Material initialMaterial; // Changed by ChangeSkin.cs
+    private string tagItMaterialName, infectionItMaterialName;
     private bool isInfected = false;
-    private float touchbackCountdown;
-    private float limitMovementCountdown;
+    private float touchbackCountdown, limitMovementCountdown;
     
     private Rigidbody gorillaPlayerRigidbody;
     private List<MeshRenderer> colourObjects = new List<MeshRenderer>();
-
     private bool performFlag = true; //this prevents things happening multiple times repeatly.
-
     private GameObject[] players;
     private List<GameObject> infectionPlayers = new List<GameObject>();
-
     private bool isInTagArea;
 
     private void Start()
@@ -39,18 +39,17 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         colourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
         initialMaterial = new Material(colourObjects[0].material); // This makes a copy, not just a reference. 
 
-        itMaterialName = itMaterial.name + " (Instance)";
+        tagItMaterialName = tagItMaterial.name + " (Instance)";
+        infectionItMaterialName = infectionItMaterial.name + " (Instance)";
 
         gorillaPlayerRigidbody = GameObject.Find("GorillaPlayer")?.GetComponent<Rigidbody>();
         if (gorillaPlayerRigidbody == null)
-        {
             Debug.LogError("The name of the gorilla player must be `GorillaPlayer` or TagScript won't work correctly");
-        }
-
-        Invoke("newPlayerCatchUp", 0.05f); //this gives it time to process avoiding an argumentOutOfRange exception.
+        
+        Invoke("NewPlayerCatchUp", 0.05f); //this gives it time to process avoiding an argumentOutOfRange exception.
     }
 
-
+    // Modifed by TagExit.cs and TagExit.cs.
     public void ChangeIsInTagArea(bool boolean) {
         photonView.RPC("_RPCChangeIsInTagArea", RpcTarget.AllBuffered, boolean); // Buffering seems to work, and this will automatically catch up players with the value of it.
         
@@ -63,13 +62,13 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     public bool GetIsInTagArea() => isInTagArea;
 
     // because for TagPlayer stuff, RpcTarget.AllBuffered is not working, this manually "catches up" the new player with who is it.
-    private void newPlayerCatchUp() {
+    private void NewPlayerCatchUp() {
         UpdateInfectionPlayersList();
         foreach (GameObject infectionPlayer in infectionPlayers)
         {
             TagScript6 infectionPlayerTagScript6 = infectionPlayer.GetComponent<TagScript6>();
             Material infectionPlayerMaterial = infectionPlayerTagScript6.colourObjects[0].material; //the current material of the infectionPlayer
-            if (infectionPlayerMaterial.name.Equals(itMaterialName)) {
+            if (infectionPlayerMaterial.name.Equals(tagItMaterialName) || infectionPlayerMaterial.name.Equals(infectionItMaterialName)) {
                 infectionPlayerTagScript6.photonView.RPC("TagPlayer", photonView.Owner);
             }
         }
@@ -78,34 +77,35 @@ public class TagScript6 : MonoBehaviourPunCallbacks
 
     private void Update()
     {   
+        //EnableInfectionMode_Alpha = (infectionPlayers.Count <= 2) ? false : true;
         //Debug.Log(GetIsInTagArea());
         if (PhotonNetwork.IsMasterClient)
         {
             UpdateInfectionPlayersList();
-            //Debug.Log(infectionPlayers.Count);
+
             if (infectionPlayers.Count > 1) {
+                if (EnableInfectionMode_Alpha) {
+                    CheckIfAllInfected();
+                }
                 CheckIfNoneInfected();
             }
         }
         // These stuff are for doing tag entrance logic.
-        ////red is the enter
         if (GetIsInTagArea() && infectionPlayers.Count > 1 && performFlag)
         {
-            photonView.RPC("PlayTagSound", RpcTarget.All);
             performFlag = false;
+            photonView.RPC("PlayTagSound", RpcTarget.All);
         } 
         //outside tag area.
         else if (!GetIsInTagArea() && isInfected) {
             UntagPlayer();
             // photonView.RPC("UntagPlayer", RpcTarget.All);
-
         }
         //outside tag area.
         if (!GetIsInTagArea() && !performFlag) {
             performFlag = true;
         }
 
-        // Touchback countdown
         if (touchbackCountdown > 0f)
         {
             touchbackCountdown -= Time.deltaTime;      
@@ -116,7 +116,6 @@ public class TagScript6 : MonoBehaviourPunCallbacks
             limitMovementCountdown -= Time.deltaTime;
             gorillaPlayerRigidbody.velocity = Vector3.zero;
         }
-        
 
     }
 
@@ -126,11 +125,45 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
-            //Debug.Log(player.GetComponent<TagScript6>().GetIsInTagArea());         
+            // Debug.Log(player.GetComponent<TagScript6>().GetIsInTagArea());         
             if (player.GetComponent<TagScript6>().GetIsInTagArea()) 
             {      
                 infectionPlayers.Add(player);
             }
+        }
+    }
+
+    // CheckIfAllInfected(), ResetPlayers(), and PlayResetGameSound() are exclusively for the infection mode.
+    private void CheckIfAllInfected()
+    {
+        foreach (GameObject infectionPlayer in infectionPlayers)
+        {
+            //if there is a not a lava, then return because not all infected.
+            Material infectionPlayerMaterial = infectionPlayer.GetComponent<TagScript6>().colourObjects[0].material;
+            if (!infectionPlayerMaterial.name.Equals(infectionItMaterialName))
+            {
+                return;
+            }
+        }
+
+        // If all players infected
+        ResetPlayers();
+        SetRandomPlayerAsIt();
+    }
+    private void ResetPlayers()
+    {
+        photonView.RPC("PlayResetGameSound", RpcTarget.All);
+
+        foreach (GameObject infectionPlayer in infectionPlayers)
+        {
+            infectionPlayer.GetComponent<TagScript6>().photonView.RPC("UntagPlayer", RpcTarget.All);
+        }
+    }
+    [PunRPC]
+    private void PlayResetGameSound()
+    {
+        if (GetIsInTagArea()) {
+            resetGameSound.Play();
         }
     }
 
@@ -140,7 +173,7 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         foreach (GameObject infectionPlayer in infectionPlayers)    
         {
             Material infectionPlayerMaterial = infectionPlayer.GetComponent<TagScript6>().colourObjects[0].material;
-            if (infectionPlayerMaterial.name.Equals(itMaterialName))
+            if (infectionPlayerMaterial.name.Equals(tagItMaterialName) || infectionPlayerMaterial.name.Equals(tagItMaterialName))
             {
                 return;
             }
@@ -159,14 +192,11 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         randomPlayerPhotonView.RPC("LimitMovementAndVibrateHands", randomPlayerPhotonView.Owner);
         Debug.Log("Setting random player as it");
     }
-
     private void VibrateHands()
     {
         StartCoroutine(EasyInputs.Vibration(EasyHand.LeftHand, 0.3f, 0.4f));    
         StartCoroutine(EasyInputs.Vibration(EasyHand.RightHand, 0.3f, 0.4f));
     }
-
-    //handles what happens when two player collide, called from TagScriptRemoteCollider which is on a child gameObject with a tag of "PlayerModel" inside head which is inside player parent
 
     private void OnTriggerEnter(Collider other)
     {
@@ -181,18 +211,19 @@ public class TagScript6 : MonoBehaviourPunCallbacks
             if (isInfected && touchbackCountdown <= 0f && !otherTagScript6.isInfected)
             {
                 // an "it" player handles stuff here.
+                VibrateHands(); 
+
+                if (!EnableInfectionMode_Alpha) {
+                    UntagPlayer();
+                    //photonView.RPC("UntagPlayer", RpcTarget.All);
+                }
 
                 PhotonView otherPhotonView = otherTagScript6.photonView;
                 otherPhotonView.RPC("TagPlayer", RpcTarget.All);
                 otherPhotonView.RPC("PlayTagSound", RpcTarget.All);
                 otherPhotonView.RPC("LimitMovementAndVibrateHands", otherPhotonView.Owner);
-
-                VibrateHands(); 
-                //photonView.RPC("UntagPlayer", RpcTarget.All);
-                UntagPlayer();
             }
         }
-
     }
 
     [PunRPC]
@@ -201,11 +232,17 @@ public class TagScript6 : MonoBehaviourPunCallbacks
         isInfected = true;
         
         touchbackCountdown = touchbackDuration;
-
-        foreach (Renderer colourObject in colourObjects)
-        {
-            colourObject.material = itMaterial;
+        if (!EnableInfectionMode_Alpha) {
+            foreach (Renderer colourObject in colourObjects) {
+                colourObject.material = tagItMaterial;
+            }
         }
+        else {
+            foreach (Renderer colourObject in colourObjects) {
+                colourObject.material = infectionItMaterial;
+            }
+        }
+
     }
 
     [PunRPC]
@@ -236,13 +273,12 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     private void RPCUntagPlayer()
     {
         isInfected = false;
-            // Because every player instance does not have the same initialMaterial, I can't network this through and RPC call, this won't network it properly. It will only network it locally.
-
+        
+        // Because every player instance does not have the same initialMaterial, I can't network this through and RPC call, this won't network it properly. It will only network it locally.
         foreach (Renderer colourObject in colourObjects)
         {
             colourObject.material = new Material(initialMaterial);
         }
-        
 
     }
 }
