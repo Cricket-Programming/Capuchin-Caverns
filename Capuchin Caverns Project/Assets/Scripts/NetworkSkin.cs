@@ -19,10 +19,10 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
 
     private void Start() {
         ColourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
-        Invoke("newPlayerSkinCatchUp", 0.1f); 
+        Invoke("NewPlayerSkinLoadAndCatchUp", 0.1f); 
     }
 
-    private void newPlayerSkinCatchUp() {
+    private void NewPlayerSkinLoadAndCatchUp() {
         // Skin Index key exists if the player has a skin. SkinIndex equals -1 if the player has no skin on, otherwise it will be the index of the skin to put on.
         if (PlayerPrefs.HasKey("SkinIndex") && PlayerPrefs.GetInt("SkinIndex") != -1) {     
             PhotonVRPlayer myPlayer = PhotonVRManager.Manager.LocalPlayer;
@@ -31,9 +31,9 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         }  
 
         // This delay allows the SetNetworkSkin stuff above to have time to execute.      
-        Invoke("abc", 0.1f);
+        Invoke("NewPlayerSkinCatchUp", 0.1f);
     }
-    private void abc() {
+    private void NewPlayerSkinCatchUp() {
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players) {
             Material playerMaterial = player.GetComponent<PhotonVRPlayer>().ColourObjects[0].material;
@@ -63,6 +63,13 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         }
 
         return -1;     
+    }
+    public void RunSetNetworkSkin(Material PlayerMaterial) {
+        int materialIndex = GetSkinIndex(PlayerMaterial);
+        PlayerPrefs.SetInt("SkinIndex", materialIndex);
+        photonView.RPC("SetSkin", RpcTarget.All, materialIndex);
+        //PhotonVRManager.Manager.LocalPlayer.RefreshPlayerValues();
+        PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().initialMaterial = new Material(PhotonVRManager.Manager.LocalPlayer.ColourObjects[0].material); // This creates a copy, not a reference.        
     }
     public void RunSetNetworkSkin(int index) {
         PlayerPrefs.SetInt("SkinIndex", index);

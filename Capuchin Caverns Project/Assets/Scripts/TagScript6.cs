@@ -228,8 +228,8 @@ public class TagScript6 : MonoBehaviourPunCallbacks
     private void UntagPlayer() {
         photonView.RPC("RPCUntagPlayer", RpcTarget.All);
         if (initialMaterial.mainTexture != null) {
-            int initialMaterialSkinIndex = PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().GetSkinIndex(initialMaterial);
-            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(initialMaterialSkinIndex);  
+            //int initialMaterialSkinIndex = PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().GetSkinIndex(initialMaterial);
+            PhotonVRManager.Manager.LocalPlayer.GetComponent<NetworkSkin>().RunSetNetworkSkin(initialMaterial);  // RPCing to everyone that is untagged?
         }
     }
     [PunRPC]
