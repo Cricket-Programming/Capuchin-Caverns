@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4639522133820752079
 Transform:
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402106184844862960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13532652, y: 0.6940366, z: -0.6940366, w: 0.13532652}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -95.655, y: 23.61, z: 108.829}
-  m_LocalScale: {x: 0.19870128, y: 0.43445528, z: 0.07425155}
+  m_LocalScale: {x: 0.4061057, y: 0.43445528, z: 0.07425155}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5165434995838784970}
-  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: -157.933}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!33 &1224840236426614718
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5165434995838784970
 Transform:
@@ -132,7 +132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6491798, y: 0.6491798, z: 0.6491798}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4639522133820752079}
@@ -155,7 +155,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &5313927361648573481
 RectTransform:
@@ -164,13 +164,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6003390011102429992}
-  m_LocalRotation: {x: -0.000166744, y: 0.1913806, z: -0.000032514334, w: -0.98151594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 108.817}
   m_LocalScale: {x: 0.169065, y: 0.16906498, z: 0.16906506}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5165434995838784970}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -95.656, y: 22.842}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HATS
+  m_text: BADGES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
