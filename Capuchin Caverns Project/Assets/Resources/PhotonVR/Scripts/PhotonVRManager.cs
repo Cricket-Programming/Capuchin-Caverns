@@ -267,6 +267,9 @@ namespace Photon.VR
                 case CosmeticType.Face:
                     Cosmetics.Face = CosmeticId;
                     break;
+                case CosmeticType.Badge:
+                    Cosmetics.Badge = CosmeticId;
+                    break;
                 case CosmeticType.Body:
                     Cosmetics.Body = CosmeticId;
                     break;

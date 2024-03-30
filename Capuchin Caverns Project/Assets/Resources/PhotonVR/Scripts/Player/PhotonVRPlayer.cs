@@ -23,6 +23,7 @@ namespace Photon.VR.Player
         [Header("Cosmetics Parents")]
         public Transform HeadCosmetics;
         public Transform FaceCosmetics;
+        public Transform BadgeCosmetics;
         public Transform BodyCosmetics;
         public Transform LeftHandCosmetics;
         public Transform RightHandCosmetics;
@@ -120,6 +121,12 @@ namespace Photon.VR.Player
             if (FaceCosmetics != null)
                 foreach (Transform cos in FaceCosmetics.transform)
                     if (cos.name != cosmetics.Face)
+                        cos.gameObject.SetActive(false);
+                    else
+                        cos.gameObject.SetActive(true);
+            if (BadgeCosmetics != null)
+                foreach (Transform cos in BadgeCosmetics.transform)
+                    if (cos.name != cosmetics.Badge)
                         cos.gameObject.SetActive(false);
                     else
                         cos.gameObject.SetActive(true);

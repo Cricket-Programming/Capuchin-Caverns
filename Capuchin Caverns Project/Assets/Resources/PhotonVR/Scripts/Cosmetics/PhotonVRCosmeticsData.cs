@@ -10,6 +10,7 @@ namespace Photon.VR.Cosmetics
     {
         public string Head;
         public string Face;
+        public string Badge;
         public string Body;
         public string LeftHand;
         public string RightHand;
@@ -19,6 +20,7 @@ namespace Photon.VR.Cosmetics
     {
         Head,
         Face,
+        Badge,
         Body,
         BothHands,
         LeftHand,
