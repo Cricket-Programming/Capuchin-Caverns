@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 53
+  controlID: 126
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 54
+  controlID: 127
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 55
+  controlID: 70
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -660,9 +660,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -53.20138, y: 23.860023, z: 44.564793}
+    m_Target: {x: -104.262665, y: 21.917892, z: 71.54465}
     speed: 2
-    m_Value: {x: -53.20138, y: 23.860023, z: 44.564793}
+    m_Value: {x: -0.01622453, y: -0.034803767, z: 0.3107601}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -708,13 +708,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.092254885, y: -0.10081185, z: 0.0067601153, w: 0.9914646}
+    m_Target: {x: -0.016982885, y: -1.0004311, z: 0.016223257, w: -0.018012421}
     speed: 2
-    m_Value: {x: -0.09366132, y: -0.10073522, z: 0.0066026924, w: 0.9904728}
+    m_Value: {x: 0.015562369, y: 0.9949623, z: -0.06828522, w: 0.07173013}
   m_Size:
-    m_Target: 2.371569
+    m_Target: 2.4782896
     speed: 2
-    m_Value: 2.269444
+    m_Value: 0.50956
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -776,9 +776,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 220d0300
-      m_LastClickedID: 199970
-      m_ExpandedIDs: bab3fdff86b4fdfffefafdff305dfeff64d1ffff66d1ffffc4f6fffff0fafffff89b000010a2000052a3000050ad000054630300d4660300
+      m_SelectedIDs: c6ee0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: a0f6ffffa4f6ffffbcf6fffff0faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -979,7 +979,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Resources
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -987,16 +987,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Resources
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin Caverns\Capuchin Caverns Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: aced0000
-    m_LastClickedID: 60844
-    m_ExpandedIDs: 00000000aaed0000aced0000aeed0000b0ed00003eee0000
+    scrollPos: {x: 0, y: 310.2}
+    m_SelectedIDs: 1eee0000
+    m_LastClickedID: 60958
+    m_ExpandedIDs: 0000000018ee00001aee00001cee00001eee0000c8ee0000d8ee0000daee0000dcee0000deee0000b60401006e3601007036010072360100ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1024,7 +1024,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aaed0000aced0000aeed0000b0ed0000
+    m_ExpandedIDs: 0000000018ee00001aee00001cee00001eee0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1076,7 +1076,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 242.1}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 57
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
