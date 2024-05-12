@@ -15,10 +15,10 @@ MonoBehaviour:
   DevAccountEmail: liamlazaro@gmail.com
   DevAccountToken: n9i86cpngutd6dkhk3teswup48ozzyxbztt8pp3qqek4qyuhttycoi15rcckwwy9jx7gshkqmfzhbmezbwxeqb7yxquowwerqrowpuoxdpmwi41k1s3ij6zkuyuz14uamn5b6wg1ncz5rku18itqza54jqd4y858j7q5nfgn9nwc6zbqj9gj5rfeodz41gitcnbatbms
   AadAuthorization: 
-  SelectedStudio: 
+  SelectedStudio: MonkeyVision LLC
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 0
+  curMainMenuIdx: 1
   curSubMenuIdx: 0
