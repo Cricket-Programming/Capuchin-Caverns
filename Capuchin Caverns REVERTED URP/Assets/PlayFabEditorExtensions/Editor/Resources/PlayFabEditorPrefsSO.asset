@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: liamlazaro@gmail.com
-  DevAccountToken: rdxcy7338uf7xikesqmz4hwxy6wjt1sgmfyj68qixic5tb7mejjqiqmr9zxr5s95ntji57q56oec456cq4wmestb8m1ckscj86h7oabuex689878hjssejebbc6xdjzfbsm6en1hddiwxdyojjpfsdk93i161wixtr9at11zg5o5qctusofkeihfrhekf9wswo9f5kh7
+  DevAccountToken: n9i86cpngutd6dkhk3teswup48ozzyxbztt8pp3qqek4qyuhttycoi15rcckwwy9jx7gshkqmfzhbmezbwxeqb7yxquowwerqrowpuoxdpmwi41k1s3ij6zkuyuz14uamn5b6wg1ncz5rku18itqza54jqd4y858j7q5nfgn9nwc6zbqj9gj5rfeodz41gitcnbatbms
   AadAuthorization: 
-  SelectedStudio: Midday Studios
+  SelectedStudio: 
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
