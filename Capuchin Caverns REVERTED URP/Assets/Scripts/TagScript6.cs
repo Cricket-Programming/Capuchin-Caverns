@@ -1,4 +1,3 @@
-//this version is older, newer version is testingvrgame's version of TagScript6
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,15 +28,17 @@ public class TagScript6 : MonoBehaviourPun
     
     private Rigidbody gorillaPlayerRigidbody;
     private List<MeshRenderer> colourObjects = new List<MeshRenderer>();
-    private bool performFlag = true; //this prevents things happening multiple times repeatly.
+    private bool performFlag = true; // This prevents things happening multiple times repeatly.
     private GameObject[] players;
     private List<GameObject> infectionPlayers = new List<GameObject>();
     private bool isInTagArea;
 
     private void Start()
     {
+        
+        
         colourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
-        initialMaterial = new Material(colourObjects[0].material); // This makes a copy, not just a reference. 
+        initialMaterial = new Material(colourObjects[0].material); // This makes a copy, not a reference.
 
         tagItMaterialName = tagItMaterial.name + " (Instance)";
         infectionItMaterialName = infectionItMaterial.name + " (Instance)";
@@ -46,13 +47,13 @@ public class TagScript6 : MonoBehaviourPun
         if (gorillaPlayerRigidbody == null)
             Debug.LogError("The name of the gorilla player must be `GorillaPlayer` or TagScript won't work correctly");
         
-        Invoke("NewPlayerCatchUp", 0.05f); //this gives it time to process avoiding an argumentOutOfRange exception.
+        Invoke("NewPlayerCatchUp", 0.05f); // This gives it time to process avoiding an argumentOutOfRange exception.
     }
 
-    // Modifed by TagExit.cs and TagExit.cs.
+    // Invoked by TagExit.cs and TagExit.cs.
     public void ChangeIsInTagArea(bool boolean) {
+        //initialMaterial = new Material(colourObjects[0].material); // Sets initialMaterial again. This is so that if the player changed their color and then went into the tag area, initialMaterial is updated correctly.
         photonView.RPC("_RPCChangeIsInTagArea", RpcTarget.AllBuffered, boolean); // Buffering seems to work, and this will automatically catch up players with the value of it.
-        
     }
     [PunRPC]
     private void _RPCChangeIsInTagArea(bool value) {

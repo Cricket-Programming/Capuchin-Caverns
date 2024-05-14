@@ -95,9 +95,7 @@ namespace Photon.VR
 
             if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Colour")))
                 Colour = JsonUtility.FromJson<Color>(PlayerPrefs.GetString("Colour"));
-            // if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Material"))) {
-            //     Material = JsonUtility.FromJson<Material>(PlayerPrefs.GetString("Material"));
-            // }
+
             if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Cosmetics")))
                 Cosmetics = JsonUtility.FromJson<PhotonVRCosmeticsData>(PlayerPrefs.GetString("Cosmetics"));
             
