@@ -34,9 +34,7 @@ public class TagScript6 : MonoBehaviourPun
     private bool isInTagArea;
 
     private void Start()
-    {
-        
-        
+    {        
         colourObjects = GetComponent<PhotonVRPlayer>().ColourObjects;
         initialMaterial = new Material(colourObjects[0].material); // This makes a copy, not a reference.
 
