@@ -14,6 +14,5 @@ public class ShowCosmeticIfHave : MonoBehaviour
         else {
             gameObject.SetActive(false);
         }
-        
     }
 }
