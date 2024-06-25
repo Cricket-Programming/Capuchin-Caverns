@@ -12,6 +12,7 @@ public class AppEntitlementCheck : MonoBehaviour
             Entitlements.IsUserEntitledToApplication().OnComplete(EntitlementCallback);
             
             // User Age Group API Compliance
+            // Get the age category of the currently logged-in user. A callback function can be added after the method call.
             UserAgeCategory.Get();
         }
         catch (UnityException e)

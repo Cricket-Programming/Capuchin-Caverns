@@ -8,11 +8,6 @@ public class ShowCosmeticIfHave : MonoBehaviour
     [SerializeField] private string CosmeticName;
     private void Start()
     {
-        if (PlayerPrefs.GetInt(CosmeticName) == 1) {
-            gameObject.SetActive(true);
-        }
-        else {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(PlayerPrefs.GetInt(CosmeticName) == 1);
     }
 }
