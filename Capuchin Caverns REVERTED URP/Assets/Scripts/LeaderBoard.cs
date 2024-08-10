@@ -14,11 +14,10 @@ public class LeaderBoard : MonoBehaviour
 
     [SerializeField] private Transform colorSpotsParent;
     private Renderer[] colorSpots;
-    private TMP_Text peopleDisplay;
+    [SerializeField] private Material colorSpotsDefaultMaterial;
+    [SerializeField] private TMP_Text namesDisplay;
 
     private void Start() {
-        peopleDisplay = GetComponent<TMP_Text>(); 
-
         // Get all of the color Spots in colorSpotsParent.
         int childCount = colorSpotsParent.childCount;
         colorSpots = new Renderer[childCount]; 
@@ -37,7 +36,7 @@ public class LeaderBoard : MonoBehaviour
             if (PhotonNetwork.InRoom) {
                 UpdateLeaderboardData();
             } else {
-                peopleDisplay.text = "Not Connected";
+                namesDisplay.text = "Not Connected";
             }
             yield return new WaitForSeconds(interval);
         }
@@ -45,7 +44,7 @@ public class LeaderBoard : MonoBehaviour
     }
 
     // Refreshes usernames and player colorSpots on the board.
-    // I'm not sure, but I think this should not be static because it is editing instance specific variables.
+    // Not static because editing instance specific variables.
     private void UpdateLeaderboardData() {        
         PhotonVRPlayer[] allPhotonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>();  
         // Use PhotonNetwork.CurrentRoom.PlayerCount when you only need the number of players in the room. Use PhotonNetwork.PlayerList.Length when you need additional information about the players in the room.
@@ -62,23 +61,28 @@ public class LeaderBoard : MonoBehaviour
 
             foreach (PhotonVRPlayer PVRP in allPhotonVRPlayerScripts)
             {   
-                if (PVRP.gameObject.GetComponent<PhotonView>().Owner == currentPlayer)
+                if (PVRP.gameObject.GetComponent<PhotonView>().Owner == currentPlayer ) 
                 {
-                    colorSpots[i].material.mainTexture = PVRP.ColourObjects[0].material.mainTexture;
-                    colorSpots[i].material.color = PVRP.ColourObjects[0].material.color;
+                    if (i < colorSpots.Length) // This prevents an indexOutOfBounds Exception when there are more players (i) than colorspots. 
+                    {
+                        colorSpots[i].material = PVRP.ColourObjects[0].material;
+                    }
+                    // colorSpots[i].material.mainTexture = PVRP.ColourObjects[0].material.mainTexture;
+                    // colorSpots[i].material.color = PVRP.ColourObjects[0].material.color;
                 }
             }
 
         } 
-        peopleDisplay.text = string.Join("\n", usernames);
+        namesDisplay.text = string.Join("\n", usernames);
         // If the colorSpot has no player, then set the colorSpot back to white.
         resetUnusedColorSpots(PhotonNetworkPlayerListLength);
         
     }
     private void resetUnusedColorSpots(int j) {
         for (; j < colorSpotsParent.childCount; j++) {
-            colorSpots[j].material.mainTexture = null;
-            colorSpots[j].material.color = Color.white;
+            colorSpots[j].material = colorSpotsDefaultMaterial;
+            // colorSpots[j].material.mainTexture = null;
+            // colorSpots[j].material.color = Color.white;
         }
     }
 }   

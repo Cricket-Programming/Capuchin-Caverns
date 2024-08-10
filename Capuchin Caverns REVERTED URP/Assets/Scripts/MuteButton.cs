@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+
 using Photon.Pun;
 using Photon.Realtime;
 using Photon.VR;
@@ -24,18 +25,6 @@ public class MuteButton : MonoBehaviour
         unMutedMaterial = rend.material;
 
     }
-
-    // private void Update()
-    // {
-    //     if (buttonNumber > 0 && buttonNumber <= PhotonNetwork.PlayerList.Length)
-    //     {
-    //         if (PhotonNetwork.PlayerList[buttonNumber - 1] != MutedUser && muted)
-    //         {
-    //             muted = false;
-    //             rend.material = unMutedMaterial;
-    //         }
-    //     }
-    // }
 
     private void MutePress(int ButtonNumber)
     {
