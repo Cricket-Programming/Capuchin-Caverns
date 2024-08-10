@@ -10,7 +10,7 @@ using Photon.Pun; // classes such as the PhotonNetwork in this namespace are Pas
 // Credits to omarVision for some of the SetRandomDestination() code, credits to FlimcyVR for part of the findClosestPlayerTransform() code.
 
 // Note: If there is a shadow thing to produce darkness in horror, that is the same as in that area disabling the directional light/ setting directional light to baked instead of realtime.
-// Bug: If MasterClient disconnects, then Fluffy stops moving.
+// KNOWN BUG: Masterclient disconnect causes the monsters to stop roaming.
 
 // These enums are for horror direction stuff.
 public enum HorrorDirection {
@@ -31,7 +31,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     [Tooltip("This is the position between being in the safe area and the horror area. Go into code and fix x, y, or z direction.")]
     [SerializeField] private float divideLine = 15.5f;
     [SerializeField] private HorrorDirection directionToHorror;
-    [SerializeField] private Axes directionAxis = Axes.Z;
+    [SerializeField] private Axes directionAxis;
     [SerializeField] private string horrorFloorName;
     [Tooltip("If you don't know what to put for the divideLine, you can uncomment this to Debug.Log the value of the beginning of the horror area.")]
     [SerializeField] private bool PrintPlayerPosForDivLineTesting;
