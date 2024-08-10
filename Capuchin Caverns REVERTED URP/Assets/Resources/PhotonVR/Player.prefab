@@ -6836,7 +6836,9 @@ PrefabInstance:
       propertyPath: photonView
       value: 
       objectReference: {fileID: 7780029385335637883}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5657281837274016014, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
+    - {fileID: 6143593680857605635, guid: b04136af86aca2a4f8759f4ef43722e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
