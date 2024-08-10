@@ -16,23 +16,30 @@ public class MuteButton : MonoBehaviour
     private Material unMutedMaterial;
     private Renderer rend;
     private bool muted = false;
-
-    private Player MutedUser;
+    private Player mutedUser;
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
         unMutedMaterial = rend.material;
-
     }
-
-    private void MutePress(int ButtonNumber)
+    private void Update() {
+        bool isValidMuteButton = buttonNumber - 1 < PhotonNetwork.PlayerList.Length; // Checks if this mute button pressed has a player associated with it.
+            
+        rend.enabled = isValidMuteButton; // If does, show the mute button.
+        foreach (Transform child in transform)
+        {
+            // Hide the child GameObject
+            child.GetComponent<Renderer>().enabled = isValidMuteButton;
+        } 
+    }
+    private void MutePress()
     {
-        if (PhotonNetwork.PlayerList.Length >= ButtonNumber - 1) // checks if the mute button pressed has a player associated with it.
+        if (buttonNumber - 1 < PhotonNetwork.PlayerList.Length) // Checks if the mute button pressed has a player associated with it.
         {
             foreach (PhotonVRPlayer PVRP in FindObjectsOfType<PhotonVRPlayer>())
             {
-                if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[ButtonNumber - 1])
+                if (PVRP.gameObject.GetComponent<PhotonView>().Owner == PhotonNetwork.PlayerList[buttonNumber - 1])
                 {
                     AudioSource audioSource = PVRP.gameObject.GetComponent<PhotonVoiceView>().SpeakerInUse.gameObject.GetComponent<AudioSource>();
                     audioSource.mute = !audioSource.mute;
@@ -47,10 +54,10 @@ public class MuteButton : MonoBehaviour
         {
             if (other.CompareTag("HandTag"))
             {
-                MutePress(buttonNumber);
+                MutePress();
 
                 muted = !muted;
-                MutedUser = PhotonNetwork.PlayerList[buttonNumber - 1];
+                mutedUser = PhotonNetwork.PlayerList[buttonNumber - 1];
                 if (muted)
                 {
                     rend.material = mutedMaterial;
