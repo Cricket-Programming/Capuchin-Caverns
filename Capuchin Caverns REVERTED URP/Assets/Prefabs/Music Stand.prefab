@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1603274969309657931}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.214, y: -5.602, z: 28.327}
+  m_LocalPosition: {x: -0.087, y: -0.273, z: -0.282}
   m_LocalScale: {x: 0.10000003, y: 0.4, z: 0.40000013}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9489b4ca31dba4d44b7af0e45930fb6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 506446284958190939}
 --- !u!1 &3255590840296184401
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 3255590840296184401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.330002, y: -5.4400005, z: 28.625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2131584, y: 1.5424432, z: 1.2588726}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 5189498879385455026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.214, y: -5.602, z: 28.91}
+  m_LocalPosition: {x: -0.087, y: -0.272, z: 0.283}
   m_LocalScale: {x: 0.10000003, y: 0.4, z: 0.40000013}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,9 +354,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d35e9e1d6f876ce4c95f1eb8177f15ab, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 34a20d3843aa58a4fa26226d52840808, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -455,7 +456,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &8202569233887014276
 RectTransform:
@@ -465,7 +466,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5596961723706136071}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 28.626}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.043953326, y: 0.043953326, z: 0.043953326}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -473,7 +474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.221, y: -4.939}
+  m_AnchoredPosition: {x: -0.11, y: 0.543}
   m_SizeDelta: {x: 34.3775, y: 4.6194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8779930507993330453
@@ -538,7 +539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Atmospheric \nTension"
+  m_text: Name Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -624,7 +625,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &214596659843835714
 Transform:
@@ -634,8 +635,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6504071638326314455}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6864266, z: -0, w: 0.7271992}
-  m_LocalPosition: {x: -16.79, y: 21.28, z: 58.65}
+  m_LocalRotation: {x: 0, y: -0.6864278, z: 0, w: 0.72719806}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -662,7 +663,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &4528837209536868574
 RectTransform:
@@ -672,16 +673,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6559525438156217366}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 28.637}
-  m_LocalScale: {x: 0.023751497, y: 0.023751497, z: 0.023751497}
+  m_LocalPosition: {x: 0, y: 0, z: 0.004}
+  m_LocalScale: {x: 0.01682366, y: 0.01682366, z: 0.01682366}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 214596659843835714}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.22, y: -5.16}
-  m_SizeDelta: {x: 34.3775, y: 4.6194}
+  m_AnchoredPosition: {x: -0.108, y: 0.192}
+  m_SizeDelta: {x: 41.7127, y: 4.5465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1980124141138374463
 MeshRenderer:
@@ -745,7 +746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: By Pumpkin Pie Vr & Music
+  m_text: Original music by Pumpkin Pie Vr & Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -754,8 +755,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278236159
+  m_fontColor: {r: 1, g: 0.7008736, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -778,7 +779,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
