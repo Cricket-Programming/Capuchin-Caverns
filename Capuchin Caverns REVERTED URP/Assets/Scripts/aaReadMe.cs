@@ -9,7 +9,8 @@ Protection modifiers: explicit even when private for everything, only make publi
 For variables, include a lot of information and be explicit.
 Ex: [SerializeField] private float waitTime = 2f;
 
-
+Methods should have a single responsiblity.
+Use descriptive names.
 NOTES
 
 
