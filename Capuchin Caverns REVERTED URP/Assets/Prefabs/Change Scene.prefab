@@ -26,15 +26,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506174004420956151}
   m_LocalRotation: {x: -0.0001796462, y: 0.70744294, z: -0.00018129457, w: 0.7067705}
-  m_LocalPosition: {x: 0, y: 0, z: 0.048999786}
-  m_LocalScale: {x: 0.07341284, y: 0.07341284, z: 0.07341282}
+  m_LocalPosition: {x: 0, y: 0, z: 0.049}
+  m_LocalScale: {x: 0.09482737, y: 0.09482737, z: 0.09482734}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6477986564926404272}
   m_LocalEulerAnglesHint: {x: 0, y: 90.054, z: -0.029}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.15, y: -1.976}
+  m_AnchoredPosition: {x: 6.15, y: -1.792}
   m_SizeDelta: {x: 21.4812, y: -10.8222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7379280949893787680
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum
+  m_text: Teleport back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -197,7 +197,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5000001, y: 0.5, z: 0.5000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3094839659068383965}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 3810850082618105595}
   - component: {fileID: 5144202235803103533}
   - component: {fileID: 562715834214576789}
-  - component: {fileID: 533121625149228947}
+  - component: {fileID: 3988115900732640935}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -323,8 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3b2422fb9613446be49f9c32e3045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Shooter Arena
---- !u!114 &533121625149228947
+  sceneName: Capuchin Caverns
+--- !u!114 &3988115900732640935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,5 +336,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1165863db319cc409573e5e970d658e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppID: 92b28103-7cf0-4527-9199-54c1341de9a3
-  VoiceID: 2b1fc1c0-a6f6-4367-bb9f-7f98086ecae1
+  AppID: afacb457-a628-4810-b8f1-51ff7d6e3012
+  VoiceID: 86dbaa97-0c17-45ca-a33c-656d22a9f1e2
