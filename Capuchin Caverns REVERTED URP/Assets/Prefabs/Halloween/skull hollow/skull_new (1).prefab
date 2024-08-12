@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 69cf95d584bb527469f7966a7cda11af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d7da831b03ed4b84cbbe6f2aa2f6a975, type: 2}
+      objectReference: {fileID: 2100000, guid: b9dafeed138353b4a8930cc2fae186ca, type: 2}
     - target: {fileID: 919132149155446097, guid: 69cf95d584bb527469f7966a7cda11af, type: 3}
       propertyPath: m_Name
       value: skull_new (1)
