@@ -4,17 +4,18 @@ using UnityEngine;
 
 using Photon.VR;
 using Photon.Pun;
-using Photon.Realtime; //for Clientstate.Joining
+using Photon.Realtime; // for Clientstate.Joining
 using TMPro;
 
-// Bug: If player disconnects because they put their headset down, they can;t join private room
+// Bug: If player disconnects because they put their headset down, they can't join private rooms.
 namespace JoinPrivateRoomScript {
     public class JoinPrivateRoomManager : MonoBehaviourPunCallbacks, IAddLetterable
     {
         [Header("This script can go on any gameobject that remains active for the entire game")]
         [SerializeField] private TMP_Text JoinPrivateRoomNameDisplay;
         [SerializeField] private TMP_Text LeaveWarningToShow;
-        //C# property, shorthand syntax
+        
+        // C# property, shorthand syntax
         public static JoinPrivateRoomManager Manager { get; private set; } //the point of this is so that other classes can access this instance of the class without directly finding it. Ideally, in this case, it would be better to have static methods, but leaving it like this for reference purposes.
         private bool inPrivateRoom = false;
         private void Awake() {

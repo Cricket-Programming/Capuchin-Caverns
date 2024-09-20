@@ -26,14 +26,14 @@ public class NameScript : MonoBehaviour, IAddLetterable
         nameText.text = NameVar;    
     }
     private void Update() {  
-        //if NameVar got changed 
+        // If NameVar got changed 
         if (NameVar != oldUsername) {
             oldUsername = NameVar;
 
-            //change the text display to reflect the new NameVar
+            // Change the text display to reflect the new NameVar
             nameText.text = NameVar;
             
-            //sync the new NameVar with PlayFab
+            // Sync the new NameVar with PlayFab
             if (PlayFabClientAPI.IsClientLoggedIn()) {
                 PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
                 {
@@ -41,8 +41,8 @@ public class NameScript : MonoBehaviour, IAddLetterable
                 }, OnUpdateDisplayNameSuccess, OnUpdateDisplayNameError); //callback methods for PlayFab.
             }
 
-            //Sync the new NameVar with PhotonVRManager. PhotonVRManager will then sync NameVar with PlayerPrefs and PhotonNetwork.LocalPlayer.NickName
-            //inside of photonvrmanager, it also sets the "username key" in playerprefs to the NameVar.
+            // Sync the new NameVar with PhotonVRManager. PhotonVRManager will then sync NameVar with PlayerPrefs and PhotonNetwork.LocalPlayer.NickName
+            // Inside of photonvrmanager, it also sets the "username key" in playerprefs to the NameVar.
             PhotonVRManager.SetUsername(NameVar);
 
         }
@@ -50,11 +50,8 @@ public class NameScript : MonoBehaviour, IAddLetterable
     }
     //the AddLetter script does whatever is in here.
     public void AddLetter(string letter) {
-            if (NameVar.Length < 12) 
-                NameVar += letter;
-            // } else {
-            //     NameVar = NameVar.Substring(0, 12);
-            // }
+        if (NameVar.Length < 12) 
+            NameVar += letter;
     }
 
     public void Backspace() {
@@ -99,11 +96,6 @@ public class NameScript : MonoBehaviour, IAddLetterable
     private void SetDefaultName() {
         NameVar = "Monkey" + Random.Range(100, 1000);
     }
-
-
-
-
-
 
 
 

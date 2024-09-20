@@ -12,7 +12,6 @@ public class RandomColor : MonoBehaviour
 		float g = Random.Range(0f, 1f);
 		float b = Random.Range(0f, 1f);
 		PhotonVRManager.SetColour(new Color(r, g, b, 1f));
-
     }
 }
 
