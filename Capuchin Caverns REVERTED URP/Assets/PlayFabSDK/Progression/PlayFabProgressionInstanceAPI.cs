@@ -2,28 +2,28 @@
 
 using System;
 using System.Collections.Generic;
-using PlayFab.LeaderboardsModels;
+using PlayFab.ProgressionModels;
 using PlayFab.Internal;
 using PlayFab.SharedModels;
 
 namespace PlayFab
 {
     /// <summary>
-    /// Manage entity statistics Manage entity statistics
+    /// Manage entity statistics Manage entity leaderboards
     /// </summary>
-    public class PlayFabLeaderboardsInstanceAPI : IPlayFabInstanceApi
+    public class PlayFabProgressionInstanceAPI : IPlayFabInstanceApi
     {
         public readonly PlayFabApiSettings apiSettings = null;
         public readonly PlayFabAuthenticationContext authenticationContext = null;
 
-        public PlayFabLeaderboardsInstanceAPI(PlayFabAuthenticationContext context)
+        public PlayFabProgressionInstanceAPI(PlayFabAuthenticationContext context)
         {
             if (context == null)
                 throw new PlayFabException(PlayFabExceptionCode.AuthContextRequired, "Context cannot be null, create a PlayFabAuthenticationContext for each player in advance, or call <PlayFabClientInstanceAPI>.GetAuthenticationContext()");
             authenticationContext = context;
         }
 
-        public PlayFabLeaderboardsInstanceAPI(PlayFabApiSettings settings, PlayFabAuthenticationContext context)
+        public PlayFabProgressionInstanceAPI(PlayFabApiSettings settings, PlayFabAuthenticationContext context)
         {
             if (context == null)
                 throw new PlayFabException(PlayFabExceptionCode.AuthContextRequired, "Context cannot be null, create a PlayFabAuthenticationContext for each player in advance, or call <PlayFabClientInstanceAPI>.GetAuthenticationContext()");
@@ -181,17 +181,6 @@ namespace PlayFab
             var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
             if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
             PlayFabHttp.MakeApiCall("/Statistic/GetStatisticDefinition", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
-        }
-
-        /// <summary>
-        /// Get all current statistic definitions information
-        /// </summary>
-        public void GetStatisticDefinitions(GetStatisticDefinitionsRequest request, Action<GetStatisticDefinitionsResponse> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
-        {
-            var context = (request == null ? null : request.AuthenticationContext) ?? authenticationContext;
-            var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
-            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
-            PlayFabHttp.MakeApiCall("/Statistic/GetStatisticDefinitions", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
         }
 
         /// <summary>

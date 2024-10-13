@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using PlayFab.SharedModels;
 
-namespace PlayFab.LeaderboardsModels
+namespace PlayFab.ProgressionModels
 {
     [Serializable]
     public class CreateLeaderboardDefinitionRequest : PlayFabRequestCommon
@@ -459,24 +459,6 @@ namespace PlayFab.LeaderboardsModels
         /// The version reset configuration for the leaderboard definition.
         /// </summary>
         public VersionConfiguration VersionConfiguration;
-    }
-
-    [Serializable]
-    public class GetStatisticDefinitionsRequest : PlayFabRequestCommon
-    {
-        /// <summary>
-        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        /// </summary>
-        public Dictionary<string,string> CustomTags;
-    }
-
-    [Serializable]
-    public class GetStatisticDefinitionsResponse : PlayFabResultCommon
-    {
-        /// <summary>
-        /// List of statistic definitions for the title.
-        /// </summary>
-        public List<StatisticDefinition> StatisticDefinitions;
     }
 
     [Serializable]

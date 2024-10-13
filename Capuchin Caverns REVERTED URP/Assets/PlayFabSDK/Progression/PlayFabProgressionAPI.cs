@@ -2,17 +2,17 @@
 
 using System;
 using System.Collections.Generic;
-using PlayFab.LeaderboardsModels;
+using PlayFab.ProgressionModels;
 using PlayFab.Internal;
 
 namespace PlayFab
 {
     /// <summary>
-    /// Manage entity statistics Manage entity statistics
+    /// Manage entity statistics Manage entity leaderboards
     /// </summary>
-    public static class PlayFabLeaderboardsAPI
+    public static class PlayFabProgressionAPI
     {
-        static PlayFabLeaderboardsAPI() {}
+        static PlayFabProgressionAPI() {}
 
 
         /// <summary>
@@ -186,19 +186,6 @@ namespace PlayFab
 
 
             PlayFabHttp.MakeApiCall("/Statistic/GetStatisticDefinition", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings);
-        }
-
-        /// <summary>
-        /// Get all current statistic definitions information
-        /// </summary>
-        public static void GetStatisticDefinitions(GetStatisticDefinitionsRequest request, Action<GetStatisticDefinitionsResponse> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
-        {
-            var context = (request == null ? null : request.AuthenticationContext) ?? PlayFabSettings.staticPlayer;
-            var callSettings = PlayFabSettings.staticSettings;
-            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
-
-
-            PlayFabHttp.MakeApiCall("/Statistic/GetStatisticDefinitions", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings);
         }
 
         /// <summary>
