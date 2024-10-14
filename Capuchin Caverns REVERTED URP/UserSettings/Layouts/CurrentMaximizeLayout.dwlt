@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 65632
+  controlID: 68482
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -394,9 +394,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -81.8785, y: 24.574013, z: 98.90509}
+    m_Target: {x: -58.06433, y: 18.759098, z: 105.58266}
     speed: 2
-    m_Value: {x: -81.8785, y: 24.574013, z: 98.90509}
+    m_Value: {x: -58.06433, y: 18.759098, z: 105.58266}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -442,20 +442,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.024765486, y: -0.72388107, z: -0.026121905, w: -0.68911}
+    m_Target: {x: 0.08260781, y: -0.28763914, z: 0.025014322, w: 0.95405835}
     speed: 2
-    m_Value: {x: 0.024731994, y: -0.72464526, z: -0.026149359, w: -0.68818164}
+    m_Value: {x: 0.08373527, y: -0.2875495, z: 0.025354503, w: 0.95376146}
   m_Size:
-    m_Target: 14.489174
+    m_Target: 10
     speed: 2
-    m_Value: 2.8220294
+    m_Value: 10.000001
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.30084994
-    m_SpeedNormalized: 0.14999998
+    m_Speed: 0.66067
+    m_SpeedNormalized: 0.32999998
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 65633
+  controlID: 68483
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 65634
+  controlID: 68484
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 65635
+  controlID: 68485
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -614,10 +614,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b86e1500
+      scrollPos: {x: 0, y: 52.399994}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 38aff1ff82aff1ff46f7f1ff984ff2ff76e3f3ffc8e3f3ffae2bf4ff0484f4ff22faf9ff26faf9ff2afcf9ff76fcf9ffce04fcff1805fcfffa4cfcff3ca3fcff16e2fcfff281fdffa4b5fdfff0b5fdffd8fdfdff2253feffc861feffd699feff249afeff0ce2feff0637ffffc6f7ffff36f9ffff549f000090ae000006b8000036c3000016c50000e8d00000c0d300005877030064c503002c84050074860500e8a60500d0ae05006cb105000eb205009cb2050050be0500bace0500e8da0500cede05003adf050030f00500bafc0500e0fc050058fd050014ff0500aeff05000c01060094030600a4030600ce0509001208090054310900de450900546c0900ca7209007a7f0900927f090030800900ec8109003a23130086251300722c1300723e13002c44130010491300904f13003c5613005856130054641300146913003e7a130048891300248b1300b21b15001022150070521500da6d1500a6971500
+      m_ExpandedIDs: 1c3cefff683cefff2c84efffacdcefff0895f0ff5295f0ff38ddf0ffbc35f1ff38aff1ff82aff1ff46f7f1ff984ff2ff76e3f3ffc8e3f3ffae2bf4ff0484f4ff22faf9ff26faf9ff2afcf9ff76fcf9ffce04fcff1805fcfffa4cfcff3ca3fcff16e2fcfff281fdffa4b5fdfff0b5fdffd8fdfdff2253feffc861feffd699feff249afeff0ce2feff0637ffffc6f7ffff36f9ffff549f000090ae000006b8000036c3000016c50000e8d00000c0d300005877030064c503002c84050074860500e8a60500d0ae05006cb105000eb205009cb2050050be0500bace0500e8da0500cede05003adf050030f00500bafc0500e0fc050058fd050014ff0500aeff05000c01060094030600a4030600ce0509001208090054310900de450900546c0900ca7209007a7f0900927f090030800900ec8109003a23130086251300722c1300723e13002c44130010491300904f13003c5613005856130054641300146913003e7a130048891300248b1300b21b15001022150070521500da6d1500a697150006b9160052bb160062e51600d6ea160026fa1600840b1700580d1700800d17005c34170052371700226018009492180090b618002cd91800
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -821,13 +821,13 @@ MonoBehaviour:
     height: 297.19998
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -873,7 +873,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Halloween
+    - Assets/Scripts/Cosmetic Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -881,17 +881,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Prefabs/Halloween
+  - Assets/Scripts/Cosmetic Scripts
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin-Caverns REVERTED URP\Capuchin Caverns
     REVERTED URP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 63.80002}
-    m_SelectedIDs: a2080100
-    m_LastClickedID: 67746
-    m_ExpandedIDs: 00000000fc070100fe070100
+    scrollPos: {x: 0, y: 239.80002}
+    m_SelectedIDs: 0cf80300
+    m_LastClickedID: 260108
+    m_ExpandedIDs: 00000000fc070100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -944,9 +944,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b86e1500
-    m_LastClickedInstanceID: 1404600
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 1e011700
+    m_LastClickedInstanceID: 1507614
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000000000018d80100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Halloween
+    - Assets/Resources/PhotonVR
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1028,17 +1028,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Prefabs/Halloween
+  - Assets/Resources/PhotonVR
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin-Caverns REVERTED URP\Capuchin Caverns
     REVERTED URP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 95.80002}
-    m_SelectedIDs: a2080100
-    m_LastClickedID: 67746
-    m_ExpandedIDs: 00000000fc070100
+    scrollPos: {x: 0, y: 151}
+    m_SelectedIDs: 06080100
+    m_LastClickedID: 67590
+    m_ExpandedIDs: 00000000fc07010000080100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1091,9 +1091,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 70521500
-    m_LastClickedInstanceID: 1397360
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 24.90001}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 57
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 200
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: LightingWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -1175,16 +1175,16 @@ MonoBehaviour:
     y: 0
     width: 455.19995
     height: 722.8
-  m_MinSize: {x: 391, y: 411}
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &51502695548302289
 Transform:
@@ -108,12 +108,12 @@ GameObject:
   - component: {fileID: 6572418288304661374}
   - component: {fileID: 8526059954673788559}
   - component: {fileID: 6962220434330205222}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Blue Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1810631020573296432
 Transform:
