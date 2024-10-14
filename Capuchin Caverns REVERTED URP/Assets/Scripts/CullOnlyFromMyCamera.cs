@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-// On Culling mask - can be seen.
+// On Culling mask = can be seen.
 // Not on culling mask - cannot be seen.
-// This script hides the gameobject with this script from this player's view. All the other players are able still see that gameobject.
+// This script hides the gameobject with this script from this player's view. All the other players are able to still see that gameobject.
 // My Camera will NOT see it.
 // Mirror camera will see it.
 // Other player's cameras will see it.
 // SET UP GUIDE
 // - Create a layer for gameobjects that are going to be hidden from the player's view. Put that in this script
 // - On the gorilla player's main camera, unselect that layer from the culling mask..
-// - Attack this script to the gameobjects which are going to be hidden from the player's view. 
+// - Attach this script to the gameobjects which are going to be hidden from the player's view. 
 // - Fill in the photonView blank in the inspector.
 
 
