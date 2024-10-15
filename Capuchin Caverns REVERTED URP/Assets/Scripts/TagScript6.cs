@@ -8,6 +8,7 @@ using Photon.VR;
 using easyInputs;
 
 // Go to Google Drive coding for the TAG SCRIPT DOCUMENTATION.
+// This version is MORE UP TO DATE than the Testing VR Game version
 public class TagScript6 : MonoBehaviourPun
 {
     [SerializeField] private Material tagItMaterial;
@@ -121,16 +122,32 @@ public class TagScript6 : MonoBehaviourPun
     private void UpdateInfectionPlayersList()
     {
         infectionPlayers.Clear();
-        players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
+        TagScript6[] tagScript6Scripts = FindObjectsOfType<TagScript6>();
+        foreach (TagScript6 script in tagScript6Scripts)
         {
             // Debug.Log(player.GetComponent<TagScript6>().GetIsInTagArea());         
-            if (player.GetComponent<TagScript6>().GetIsInTagArea()) 
+            if (script.GetIsInTagArea()) 
             {      
+                GameObject player = script.gameObject;
                 infectionPlayers.Add(player);
             }
         }
     }
+
+    // private void UpdateInfectionPlayersList()
+    // {
+    //     infectionPlayers.Clear();
+    //     TagScript6 tagScript6Scripts = FindObjectsOfType<TagScript6>();
+    //     players = GameObject.FindGameObjectsWithTag("Player");
+    //     foreach (GameObject player in players)
+    //     {
+    //         // Debug.Log(player.GetComponent<TagScript6>().GetIsInTagArea());         
+    //         if (player.GetComponent<TagScript6>().GetIsInTagArea()) 
+    //         {      
+    //             infectionPlayers.Add(player);
+    //         }
+    //     }
+    // }
 
     // CheckIfAllInfected(), ResetPlayers(), and PlayResetGameSound() are exclusively for the infection mode.
     private void CheckIfAllInfected()

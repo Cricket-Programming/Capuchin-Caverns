@@ -1,5 +1,6 @@
 trackSelection = true
 refreshSearchWindowsInPlayMode = false
+pickerAdvancedUI = false
 fetchPreview = true
 defaultFlags = 0
 keepOpen = false
@@ -17,6 +18,9 @@ scopes = {
 	"last_search.310DEAF1" = "p: t:texture"
 	"OpenInspectorPreview.310DEAF1" = "0"
 	"currentGroup.310DEAF1" = "all"
+	"last_search.66F56946" = "player"
+	"OpenInspectorPreview.66F56946" = "0"
+	"currentGroup.66F56946" = "_group_provider_Files"
 }
 providers = {
 	adb = {
