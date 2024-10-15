@@ -3020,7 +3020,7 @@ Rigidbody:
     m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 3575
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -8522,14 +8522,39 @@ PrefabInstance:
       value: Early Access Badge
       objectReference: {fileID: 0}
     - target: {fileID: 4629911180969631665, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629911180969631665, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4629911180969631665, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2328241903974123963}
   m_SourcePrefab: {fileID: 100100000, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}
+--- !u!1 &3569545147223596147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4629911180969631665, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}
+  m_PrefabInstance: {fileID: 8199134995876840386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2328241903974123963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569545147223596147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44595273f3ba97c4988c0fdc6b90cf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 7780029385335637883}
 --- !u!4 &9218264227191372257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1019211747184622115, guid: 0120e95a78dbe1a4f876e774c2a45cf0, type: 3}

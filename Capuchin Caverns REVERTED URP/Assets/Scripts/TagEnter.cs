@@ -8,6 +8,6 @@ public class TagEnter : MonoBehaviour
 {
     private void OnTriggerEnter() {
         PhotonVRManager.Manager.LocalPlayer.GetComponent<TagScript6>().ChangeIsInTagArea(true);
-        // Debug.Log("Trigger enter");
+        Debug.Log("Trigger enter");
     }
 }

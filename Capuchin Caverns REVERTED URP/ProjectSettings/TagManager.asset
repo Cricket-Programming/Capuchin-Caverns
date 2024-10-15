@@ -9,7 +9,6 @@ TagManager:
   - Train Track Waypoint
   - OthersVRHand
   - NoVibrations
-  - SamplesInfoPanel
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - Tag Mode Related
   - Realtime Directional Lightable
   - Realtime Directional Lightable and Cull From Main Camera
-  - IgnoreDirectionalLight
+  - 
   - 
   - 
   - 
