@@ -110,7 +110,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
         {
             Axes.X => target.position.x, // If directionAxis equals Axes.X, return target.position.x
             Axes.Y => target.position.y,
-            _ => target.position.z // Default case/discard pattern
+            _ => target.position.z // Default case / discard pattern
         };
     }
 
@@ -118,8 +118,7 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
     private void FindClosestPlayersTransform() {
         distanceToClosestPlayer = Mathf.Infinity;
 
-        PhotonVRPlayer[] photonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>(); // This tag is ONLY on the head of the photonVR player. If there is 3 players in the room, then the length of this array will be 3. The reason I put this on the head instead of the parent is because the parent always stays at Vector3(0, 0 ,0), NOT TRUE ANYMORE BC OF this transform thing in PhotonVRPlayer
-
+        PhotonVRPlayer[] photonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>(); 
         foreach (PhotonVRPlayer p in photonVRPlayerScripts)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, p.transform.position);
@@ -128,7 +127,6 @@ public class NetworkedEnemyFollow : MonoBehaviour // MonoBehaviour is the class 
                 distanceToClosestPlayer = distanceToPlayer;
                 target = p.transform;
             }
-
         }
 
     }

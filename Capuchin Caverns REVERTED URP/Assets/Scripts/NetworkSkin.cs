@@ -33,23 +33,40 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         // This delay allows the SetNetworkSkin stuff above to have time to execute.      
         Invoke("NewPlayerSkinCatchUp", 0.1f);
     }
-    
+
     private void NewPlayerSkinCatchUp() {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players) {
-            Material playerMaterial = player.GetComponent<PhotonVRPlayer>().ColourObjects[0].material;
+        PhotonVRPlayer[] photonVRPlayerScripts = FindObjectsOfType<PhotonVRPlayer>();
+
+        foreach (PhotonVRPlayer playerScript in photonVRPlayerScripts) {
+            Material playerMaterial = playerScript.ColourObjects[0].material;
             // Player has a skin
             if (playerMaterial.mainTexture != null) {
                 // Linear search the skins in the array to find out which one the current player has. 
                 for (int i = 0; i < skins.Length; i++) {
                     // Check if the current skin is the player's skin.
                     if (skins[i].mainTexture.name.Equals(playerMaterial.mainTexture.name)) {
-                        player.GetComponent<NetworkSkin>().photonView.RPC("SetSkin", photonView.Owner, i);
+                        playerScript.GetComponent<NetworkSkin>().photonView.RPC("SetSkin", photonView.Owner, i);
                     }
                 }
             }
         }
     }
+    // private void NewPlayerSkinCatchUp() {
+    //     players = GameObject.FindGameObjectsWithTag("Player");
+    //     foreach (GameObject player in players) {
+    //         Material playerMaterial = player.GetComponent<PhotonVRPlayer>().ColourObjects[0].material;
+    //         // Player has a skin
+    //         if (playerMaterial.mainTexture != null) {
+    //             // Linear search the skins in the array to find out which one the current player has. 
+    //             for (int i = 0; i < skins.Length; i++) {
+    //                 // Check if the current skin is the player's skin.
+    //                 if (skins[i].mainTexture.name.Equals(playerMaterial.mainTexture.name)) {
+    //                     player.GetComponent<NetworkSkin>().photonView.RPC("SetSkin", photonView.Owner, i);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     
     // GetSkinIndex(), RunSetNetworkSkin, and RunRemoveNetworkSkin are called in the ChangeSkin class.
     // The skin is serialized as a number, which is reconstructed on the receiving end (networkSkin classes). We do this because skins can't travel through RPC calls.
