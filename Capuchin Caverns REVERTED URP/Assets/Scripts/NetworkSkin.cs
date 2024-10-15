@@ -33,6 +33,7 @@ public class NetworkSkin : MonoBehaviourPunCallbacks
         // This delay allows the SetNetworkSkin stuff above to have time to execute.      
         Invoke("NewPlayerSkinCatchUp", 0.1f);
     }
+    
     private void NewPlayerSkinCatchUp() {
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players) {

@@ -2751,9 +2751,10 @@ GameObject:
   - component: {fileID: 6882900286286247707}
   - component: {fileID: 6389673683048677347}
   - component: {fileID: 4119738955165290196}
+  - component: {fileID: 7988480407024976674}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 2800000, guid: 4ba584fefdb18ee4b887d15b6f4055a0, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3056,6 +3057,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 287faa6d7535c7042ac081ee3d645be2, type: 2}
   - {fileID: 2100000, guid: ab6e54aace8bb7c40a0042148ea5da6c, type: 2}
   materialWithDefaultProperties: {fileID: 2100000, guid: 411075764774dcc4ea2cdb49eaee0167, type: 2}
+--- !u!114 &7988480407024976674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550819733793230860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe112b51af69ba342bfc7f2fca8b47f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 'As of right now, Player has to have a tag of "Player" because Network skin
+    gets all the players using the player tag
+
+'
 --- !u!1 &5733000909736595080
 GameObject:
   m_ObjectHideFlags: 0
@@ -8613,16 +8630,8 @@ PrefabInstance:
       value: 355.572
       objectReference: {fileID: 0}
     - target: {fileID: 3822056631513055795, guid: f1c8a171c04c72c429eda3431b3bf9a2, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822056631513055795, guid: f1c8a171c04c72c429eda3431b3bf9a2, type: 3}
       propertyPath: m_VersionIndex
       value: 1791
-      objectReference: {fileID: 0}
-    - target: {fileID: 3822056631513055804, guid: f1c8a171c04c72c429eda3431b3bf9a2, type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3822056631513055806, guid: f1c8a171c04c72c429eda3431b3bf9a2, type: 3}
       propertyPath: m_Name
