@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 61
+  controlID: 213
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 62
+  controlID: 214
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 63
+  controlID: 76
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 62
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -217,8 +217,8 @@ MonoBehaviour:
     y: 0
     width: 351.2
     height: 433.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: LightingWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -299,17 +299,17 @@ MonoBehaviour:
     y: 0
     width: 493.59998
     height: 722.8
-  m_MinSize: {x: 391, y: 411}
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 22}
   - {fileID: 23}
   - {fileID: 24}
-  m_Selected: 2
-  m_LastSelected: 3
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -355,7 +355,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Prefabs/Winter/Christmas
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -363,17 +363,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Prefabs/Winter/Christmas
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Unity Projects\Capuchin-Caverns REVERTED URP\Capuchin Caverns
     REVERTED URP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 183.80002}
-    m_SelectedIDs: 28490100
-    m_LastClickedID: 84264
-    m_ExpandedIDs: 000000005e48010060480100624801006448010028490100304901009c630c009e630c00fe2d1000
+    scrollPos: {x: 0, y: 135.80002}
+    m_SelectedIDs: eca60100
+    m_LastClickedID: 108268
+    m_ExpandedIDs: 000000008a4801008c4801008e480100904801002e49010072490100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -401,7 +401,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e480100604801006248010064480100
+    m_ExpandedIDs: 000000008a4801008c4801008e48010090480100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -493,10 +493,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 2908}
-      m_SelectedIDs: 86a40d00
-      m_LastClickedID: 894086
-      m_ExpandedIDs: 20ddf8ff22ddf8ffacdef8ffccdef8ff30b6f9ff6ea0faffb8a0faffdc37fbff58eafbffa2eafbffc681fcff6666fdffb066fdffd4fdfdffee87feff3688feff5a1ffffff2faffff14c80000c0080200644b020092870200e2b0020078d80400a61405009a1c0700c85807006a2b0b0080450b0098670b00c66c0d00ca6c0d00d26f0d00728a0d0008a30d00e0b00d00e6b50d003abb0d00b4c70d0026c80d00a6d00d00b2e40d00a2ea0d001ef10d0048070e0020110e00e6220e001c230e001e230e0084230e0042250e00c6290e00
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2a88feff9288feff8022fffff2faffff229e0000069f0000f8b40000cebd000016be000024c60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 340.6
+    width: 350.2
     height: 412.6
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -923,9 +923,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -88.82538, y: 23.689255, z: 85.9549}
+    m_Target: {x: -106.08647, y: 23.250372, z: 101.161354}
     speed: 2
-    m_Value: {x: -88.82538, y: 23.689255, z: 85.9549}
+    m_Value: {x: -106.08647, y: 23.250372, z: 101.161354}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -971,13 +971,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0543603, y: 0.43269408, z: 0.025416242, w: 0.9003724}
+    m_Target: {x: 0.011848888, y: -0.80177045, z: -0.013627866, w: -0.59871787}
     speed: 2
-    m_Value: {x: -0.061747696, y: 0.5415345, z: 0.039188642, w: 0.8374914}
+    m_Value: {x: 0.011855604, y: -0.8004014, z: -0.01360259, w: -0.59919286}
   m_Size:
-    m_Target: 0.90831584
+    m_Target: 0.8284068
     speed: 2
-    m_Value: 51.82595
+    m_Value: 0.86744165
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 873.50006, y: 489.5}
+  m_TargetSize: {x: 698.80005, y: 391.6}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1057,10 +1057,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -349.40002
-    m_HBaseRangeMax: 349.40002
-    m_VBaseRangeMin: -195.8
-    m_VBaseRangeMax: 195.8
+    m_HBaseRangeMin: -279.52002
+    m_HBaseRangeMax: 279.52002
+    m_VBaseRangeMin: -156.64
+    m_VBaseRangeMax: 156.64
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1163,7 +1163,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 247.80002}
     m_SelectedIDs: 30490100
     m_LastClickedID: 84272
-    m_ExpandedIDs: 000000005e48010060480100624801006448010030490100
+    m_ExpandedIDs: 000000008a4801008c4801008e48010090480100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1191,7 +1191,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e480100604801006248010064480100
+    m_ExpandedIDs: 000000008a4801008c4801008e48010090480100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
