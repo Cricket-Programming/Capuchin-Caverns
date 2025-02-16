@@ -66,18 +66,18 @@ namespace Photon.Voice.PUN
                         GameObject singleton = new GameObject();
                         singleton.name = "PunVoiceClient";
                         instance = singleton.AddComponent<PunVoiceClient>();
-                        instance.Logger.LogError("PunVoiceClient component was not found in the scene. Creating PunVoiceClient object.");
+                        instance.Logger.Log(LogLevel.Error, "PunVoiceClient component was not found in the scene. Creating PunVoiceClient object.");
                     }
                     else if (objects.Length >= 1)
                     {
                         instance = objects[0];
-                        instance.Logger.LogInfo("An instance of PunVoiceClient is found in the scene.");
+                        instance.Logger.Log(LogLevel.Info, "An instance of PunVoiceClient is found in the scene.");
                         if (objects.Length > 1)
                         {
-                            instance.Logger.LogError("{0} instances of PunVoiceClient found in the scene. Using a random instance.", objects.Length);
+                            instance.Logger.Log(LogLevel.Error, "{0} instances of PunVoiceClient found in the scene. Using a random instance.", objects.Length);
                         }
                     }
-                    instance.Logger.LogInfo("PunVoiceClient singleton instance is now set.");
+                    instance.Logger.Log(LogLevel.Info, "PunVoiceClient singleton instance is now set.");
                 }
                 return instance;
             }
@@ -131,7 +131,7 @@ namespace Photon.Voice.PUN
                     }
                     else
                     {
-                        this.Logger.LogError("Primary Recorder is not set.");
+                        this.Logger.Log(LogLevel.Error, "Primary Recorder is not set.");
                     }
                 }
             }
@@ -143,7 +143,7 @@ namespace Photon.Voice.PUN
             base.OnDestroy();
             if (instance == this)
             {
-                instance.Logger.LogInfo("PunVoiceClient singleton instance is being reset because destroyed.");
+                instance.Logger.Log(LogLevel.Info, "PunVoiceClient singleton instance is being reset because destroyed.");
                 instance = null;
             }
         }
@@ -152,13 +152,13 @@ namespace Photon.Voice.PUN
         {
             if (userData == null) // Recorder w/o PhotonVoiceView: probably created due to this.UsePrimaryRecorder = true
             {
-                this.Logger.LogInfo("Creating Speaker for remote voice p#{0} v#{1} PunVoiceClient Primary Recorder (userData == null).", playerId, voiceId);
+                this.Logger.Log(LogLevel.Info, "Creating Speaker for remote voice p#{0} v#{1} PunVoiceClient Primary Recorder (userData == null).", playerId, voiceId);
                 return this.InstantiateSpeakerPrefab(this.gameObject, true);
             }
 
             if (!(userData is int))
             {
-                this.Logger.LogWarning("UserData ({0}) does not contain PhotonViewId. Remote voice p#{1} v#{2} not linked. Do you have a Recorder not used with a PhotonVoiceView? is this expected?", userData == null ? "null" : userData.ToString(), playerId, voiceId);
+                this.Logger.Log(LogLevel.Warning, "UserData ({0}) does not contain PhotonViewId. Remote voice p#{1} v#{2} not linked. Do you have a Recorder not used with a PhotonVoiceView? is this expected?", userData == null ? "null" : userData.ToString(), playerId, voiceId);
                 return null;
             }
 
@@ -166,17 +166,17 @@ namespace Photon.Voice.PUN
             PhotonView photonView = PhotonView.Find(photonViewId);
             if (null == photonView || !photonView)
             {
-                this.Logger.LogWarning("No PhotonView with ID {0} found. Remote voice p#{1} v#{2} not linked.", userData, playerId, voiceId);
+                this.Logger.Log(LogLevel.Warning, "No PhotonView with ID {0} found. Remote voice p#{1} v#{2} not linked.", userData, playerId, voiceId);
                 return null;
             }
 
             PhotonVoiceView photonVoiceView = photonView.GetComponent<PhotonVoiceView>();
             if (null == photonVoiceView || !photonVoiceView)
             {
-                this.Logger.LogWarning("No PhotonVoiceView attached to the PhotonView with ID {0}. Remote voice p#{1} v#{2} not linked.", userData, playerId, voiceId);
+                this.Logger.Log(LogLevel.Warning, "No PhotonVoiceView attached to the PhotonView with ID {0}. Remote voice p#{1} v#{2} not linked.", userData, playerId, voiceId);
                 return null;
             }
-            this.Logger.LogInfo("Using PhotonVoiceView {0} Speaker for remote voice p#{1} v#{2}.", userData, playerId, voiceId);
+            this.Logger.Log(LogLevel.Info, "Using PhotonVoiceView {0} Speaker for remote voice p#{1} v#{2}.", userData, playerId, voiceId);
             return photonVoiceView.SpeakerInUse;
         }
 

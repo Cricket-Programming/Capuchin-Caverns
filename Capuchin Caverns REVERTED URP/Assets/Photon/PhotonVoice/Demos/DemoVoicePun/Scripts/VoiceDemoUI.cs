@@ -266,9 +266,9 @@ namespace ExitGames.Demos.DemoPunVoice
             }
             if (this.devicesInfoText != null)
             {
-                using (var unityMicEnum = new Photon.Voice.Unity.AudioInEnumerator(this.punVoiceClient.Client))
+                using (var unityMicEnum = new Photon.Voice.Unity.AudioInEnumerator(this.punVoiceClient.Logger))
                 {
-                    using (var photonMicEnum = Photon.Voice.Platform.CreateAudioInEnumerator(this.punVoiceClient.Client))
+                    using (var photonMicEnum = Photon.Voice.Platform.CreateAudioInEnumerator(this.punVoiceClient.Logger))
                     {
                         if (unityMicEnum.Count() + photonMicEnum.Count() == 0)
                         {
@@ -285,7 +285,7 @@ namespace ExitGames.Demos.DemoPunVoice
                 }
             }
 
-            
+
             this.VoiceClientStateChanged(ClientState.PeerCreated, this.punVoiceClient.ClientState);
             this.PunClientStateChanged(ClientState.PeerCreated, PhotonNetwork.NetworkingClient.State);
 

@@ -46,7 +46,7 @@ namespace Photon.Voice
                 try
                 {
                     encoder = new OpusEncoder((SamplingRate)i.SamplingRate, (Channels)i.Channels, i.Bitrate, OpusApplicationType.Voip, (Delay)(i.FrameDurationUs * 2 / 1000));
-                    logger.LogInfo("[PV] OpusCodec.Encoder created. Opus version " + Version + ", " + i);
+                    logger.Log(LogLevel.Info, "[PV] OpusCodec.Encoder created. Opus version " + Version + ", " + i);
                 }
                 catch (Exception e)
                 {
@@ -55,7 +55,7 @@ namespace Photon.Voice
                     {
                         Error = "Exception in OpusCodec.Encoder constructor";
                     }
-                    logger.LogError("[PV] OpusCodec.Encoder: " + Error);
+                    logger.Log(LogLevel.Error, "[PV] OpusCodec.Encoder: " + Error);
                 }
             }
 
@@ -163,6 +163,7 @@ namespace Photon.Voice
             {
                 try
                 {
+#pragma warning disable CS0162 // Unreachable code detected (AsyncAPI is const)
                     if (Wrapper.AsyncAPI)
                     {
                         decoder = new OpusDecoderAsync<T>(output, (SamplingRate)i.SamplingRate, (Channels)i.Channels, i.FrameDurationSamples);
@@ -171,7 +172,8 @@ namespace Photon.Voice
                     {
                         decoder = new OpusDecoder<T>(output, (SamplingRate)i.SamplingRate, (Channels)i.Channels, i.FrameDurationSamples);
                     }
-                    logger.LogInfo("[PV] OpusCodec.Decoder created. Opus version " + Version + ", " + i);
+                    logger.Log(LogLevel.Info, "[PV] OpusCodec.Decoder created. Opus version " + Version + ", " + i);
+#pragma warning restore CS0162
                 }
                 catch (Exception e)
                 {
@@ -180,7 +182,7 @@ namespace Photon.Voice
                     {
                         Error = "Exception in OpusCodec.Decoder constructor";
                     }
-                    logger.LogError("[PV] OpusCodec.Decoder: " + Error);
+                    logger.Log(LogLevel.Error, "[PV] OpusCodec.Decoder: " + Error);
                 }
             }
 
