@@ -39,6 +39,12 @@ namespace PlayFab.ProgressionModels
     public class CreateStatisticDefinitionRequest : PlayFabRequestCommon
     {
         /// <summary>
+        /// [In Preview]: The list of statistic definition names whose scores must be aggregated towards this stat. If
+        /// AggregationSource is specified, the entityType of this definition MUST be Title (making it a CommunityStat). Currently,
+        /// only one aggregation source can be specified.
+        /// </summary>
+        public List<string> AggregationSources;
+        /// <summary>
         /// The columns for the statistic defining the aggregation method for each column.
         /// </summary>
         public List<StatisticColumn> Columns;
@@ -241,7 +247,7 @@ namespace PlayFab.ProgressionModels
         /// </summary>
         public string LeaderboardName;
         /// <summary>
-        /// Maximum number of results to return from the leaderboard. Minimum 1, maximum 1,000.
+        /// Maximum number of results to return from the leaderboard. Minimum 1, maximum 100.
         /// </summary>
         public uint PageSize;
         /// <summary>
@@ -268,6 +274,10 @@ namespace PlayFab.ProgressionModels
         /// The number of entries on the leaderboard.
         /// </summary>
         public uint EntryCount;
+        /// <summary>
+        /// The time the next scheduled reset will occur. Null if the leaderboard does not reset on a schedule.
+        /// </summary>
+        public DateTime? NextReset;
         /// <summary>
         /// Individual entity rankings in the leaderboard, in sorted order by rank.
         /// </summary>
@@ -431,6 +441,16 @@ namespace PlayFab.ProgressionModels
     [Serializable]
     public class GetStatisticDefinitionResponse : PlayFabResultCommon
     {
+        /// <summary>
+        /// The list of statistic definitions names this definition aggregates to.
+        /// </summary>
+        public List<string> AggregationDestinations;
+        /// <summary>
+        /// The list of statistic definitions names whose values must be aggregated towards this stat. If AggregationSource is
+        /// specified, the entityType of this definition MUST be Title (making it a CommunityStat). Currently, only one aggregation
+        /// source can be specified.
+        /// </summary>
+        public List<string> AggregationSources;
         /// <summary>
         /// The columns for the statistic defining the aggregation method for each column.
         /// </summary>
@@ -742,6 +762,16 @@ namespace PlayFab.ProgressionModels
     public class StatisticDefinition : PlayFabBaseModel
     {
         /// <summary>
+        /// The list of statistic definitions names this definition aggregates to.
+        /// </summary>
+        public List<string> AggregationDestinations;
+        /// <summary>
+        /// The list of statistic definitions names whose values must be aggregated towards this stat. If AggregationSource is
+        /// specified, the entityType of this definition MUST be Title (making it a CommunityStat). Currently, only one aggregation
+        /// source can be specified.
+        /// </summary>
+        public List<string> AggregationSources;
+        /// <summary>
         /// The columns for the statistic defining the aggregation method for each column.
         /// </summary>
         public List<StatisticColumn> Columns;
@@ -827,6 +857,27 @@ namespace PlayFab.ProgressionModels
     }
 
     [Serializable]
+    public class UpdateLeaderboardDefinitionRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        /// </summary>
+        public Dictionary<string,string> CustomTags;
+        /// <summary>
+        /// The name of the leaderboard to update the definition for.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// Maximum number of entries on this leaderboard
+        /// </summary>
+        public int? SizeLimit;
+        /// <summary>
+        /// The version reset configuration for the leaderboard definition.
+        /// </summary>
+        public VersionConfiguration VersionConfiguration;
+    }
+
+    [Serializable]
     public class UpdateLeaderboardEntriesRequest : PlayFabRequestCommon
     {
         /// <summary>
@@ -841,6 +892,23 @@ namespace PlayFab.ProgressionModels
         /// The name of the leaderboard.
         /// </summary>
         public string LeaderboardName;
+    }
+
+    [Serializable]
+    public class UpdateStatisticDefinitionRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        /// </summary>
+        public Dictionary<string,string> CustomTags;
+        /// <summary>
+        /// Name of the statistic. Must be less than 150 characters. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// The version reset configuration for the statistic definition.
+        /// </summary>
+        public VersionConfiguration VersionConfiguration;
     }
 
     [Serializable]
