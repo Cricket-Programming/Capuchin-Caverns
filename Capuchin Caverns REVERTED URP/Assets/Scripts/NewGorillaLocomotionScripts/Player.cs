@@ -294,7 +294,8 @@
             {
                 endPosition = startPosition;
                 return true;
-            } else
+            }
+            else
             {
                 endPosition = Vector3.zero;
                 return false;

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using Oculus.Platform;
 using Oculus.Platform.Models;
 using TMPro;
@@ -11,16 +11,18 @@ public class PlayFabShopManager : MonoBehaviour
     [SerializeField] private int currencyAmount;
     //[SerializeField] private TMP_Text purchaseFailedText; 
 
-    private void BuyProduct() {
+    private void BuyProduct()
+    {
         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
     }
 
     private void BuyProductCallback(Message<Oculus.Platform.Models.Purchase> msg)
     {
-        if (msg.IsError) {
+        if (msg.IsError)
+        {
             //purchaseFailedText.gameObject.SetActive(true);
             return;
-        }         
+        }
         IAP.ConsumePurchase(skuToPurchase).OnComplete(msg =>
         {
             if (msg.IsError)
@@ -29,8 +31,8 @@ public class PlayFabShopManager : MonoBehaviour
                 return;
             }
             CurrencyManager.Instance.AddPlayFabCurrency(currencyAmount);
-        });  
-    }    
+        });
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -76,7 +78,7 @@ public class PlayFabShopManager : MonoBehaviour
 //             Amount = currencyAmount,
 //             VirtualCurrency = "HS"
 //         };
-    
+
 //         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
 //         IAP.ConsumePurchase(skuToPurchase);//is optional and in this method I don't need it.        
 //     }
@@ -91,7 +93,7 @@ public class PlayFabShopManager : MonoBehaviour
 //     {
 //         Debug.LogError("Failed to add currency: " + error.ErrorMessage);
 //     }
-    
+
 
 //     private void OnTriggerEnter(Collider other)
 //     {
@@ -168,10 +170,10 @@ public class PlayFabShopManager : MonoBehaviour
 
 //         IAP.LaunchCheckoutFlow(skuToPurchase).OnComplete(BuyProductCallback);
 //         IAP.ConsumePurchase(skuToPurchase);//.OnComplete(ConsumePurchaseCallback); //is optional and in this method I don't need it.
-        
+
 //     }
 //     // private void ConsumePurchaseCallback(Message.Callback callbackParameter) {
-       
+
 //     // }
 //     private void ReconnectToServer()
 //     {
@@ -187,7 +189,7 @@ public class PlayFabShopManager : MonoBehaviour
 //             Amount = currencyAmount,
 //             VirtualCurrency = "HS"
 //         };
-    
+
 //         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCurrencySuccess, OnAddCurrencyFailure);
 //     }
 
@@ -201,7 +203,7 @@ public class PlayFabShopManager : MonoBehaviour
 //     {
 //         Debug.LogError("Failed to add currency: " + error.ErrorMessage);
 //     }
-    
+
 
 //     private void OnTriggerEnter(Collider other)
 //     {
