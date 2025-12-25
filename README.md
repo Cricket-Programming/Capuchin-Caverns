@@ -1,7 +1,8 @@
 ## Capuchin Caverns Codebase
 
 - Capuchin Caverns is a is a live multiplayer VR title on the Meta Horizon Store which I built and shipped.
-- This codebase contains the entire version-controlled Unity Project for Capuchin Caverns, including C# scripts, prefabs, scenes, media, art assets, dependencies, project settings. The systems in this repository are all deployed to production and have proven their worth in live multiplayer conditions.
+- This codebase contains the entire version-controlled Unity Project for Capuchin Caverns, including C# scripts, prefabs, scenes, media, art assets, dependencies, project settings.
+- The systems in this repository are all deployed to production and have proven their worth in live multiplayer conditions.
 
 ## Key Directories
 ### C# Scripts
