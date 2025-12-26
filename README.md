@@ -58,7 +58,7 @@ When the monster eats a player, they teleport back to the spawn through this scr
 
 ⚪ **Feature: Jump on parkour obstacle courses and super bouncy trampolines**
 
-"Take a simple idea and take it seriously." - Charlie Munger.  I've scattered trampolines across Capuchin Caverns - players shoot into the sky and come back down at 9.8 m/s^2. To achieve this, force is applied upward on the player's Rigid Body for a time - in other words, an impulse. I later learned the actual physics (impulse-momentum theorem (F*t=delta p) in my AP Physics 1 class and it's helped me build bigger and better trampolines ever since then.
+"Take a simple idea and take it seriously." - Charlie Munger.  I've scattered trampolines across Capuchin Caverns - players shoot into the sky and come back down at 9.8 m/s^2. To achieve this, force is applied upward on the player's Rigid Body for a time - in other words, an impulse. I later learned the actual physics (impulse-momentum theorem: FΔt = Δp)in my AP Physics 1 class and it's helped me build bigger and better trampolines ever since then.
 
 [Trampoline Impulse Application Script:](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/ApplyForce.cs)
 
@@ -71,7 +71,7 @@ This script represents the pinnacle of my work with event-driven RPCS. It requir
 
 ⚪ **Feature: Do an explosive, roller coaster train ride**
 
-The "train" is in essence a collection of objects that move along a path of waypoints. The waypoints are embedded into the track rails. The track rails are prefabs so that I could easily add custom routes for the train. I also had to implement networking logic for the train so that it appears in the same place for every single player. The MasterClient controls the train's movement. The train has a PhotonView component, which makes every other player see the train as the MasterClient sees it, thereby creating "syncing". For the architecture, masterclient is better than a server-authoritative model because it reduces CPU compute cost since less cloud processing as well as reducing the all-important latency because no roundtrip needed between server and client.
+The "train" is in essence a collection of objects that move along a path of waypoints. The waypoints are embedded into the track rails. The track rails are prefabs so that I could easily add custom routes for the train. I also had to implement networking logic for the train so that it appears in the same place for every single player. The MasterClient controls the train's movement. The train has a PhotonView component, which makes every other player see the train as the MasterClient sees it, thereby creating "syncing". For my use case, MasterClient (client-authoritative) is better than a server-authoritative model because it reduces CPU compute cost since less cloud processing as well as reducing the all-important latency because no roundtrip is needed between server and client.
 
 [Waypoint Train Controller Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TrainController.cs)
 
