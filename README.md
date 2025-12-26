@@ -17,15 +17,16 @@ This code has been refactored, optimized and improved over and over again.
 
 [Movement Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NewGorillaLocomotionScripts/Player.cs)
 
-This movement script is what I attach to an XR Origin component, which has the player's camera and hands; I've applied this base VR movement system in surprising ways by varying constraints - creating new movement systems like slippery walls, flying, and zero gravity. All the while, I've made sure to reduce motion sickness by making momentum transfers feel self-controlled, mitigating a common problem many other VR apps face.
+This movement script is what I attach to an XR Origin component, which has the player's camera and hands; I've applied this base VR movement system in novel ways by varying constraints - creating new movement systems like slippery walls, flying, and zero gravity. All the while, I've made sure to reduce motion sickness by making momentum transfers feel self-controlled, mitigating a common problem many other VR apps face.
 
 ⚪ **Feature: Real-time multiplayer**
 
 [My Networking Controller Script (this talks directly to Photon PUN 2 API)](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Resources/PhotonVR/Scripts/PhotonVRManager.cs)
 
-Multiplayer system is built on Photon PUN 2 and refactored into a centralized networking layer.
+Multiplayer system is built on the Photon PUN 2 architecture with a client-authoritative model abstracted behind a reusable networking controller. Ultimately, it's a low overhead way to process network changes. Calls only happen explicitly, not at every frame. 
 Each client owns a networking controller responsible for player instantiation, state synchronization, and RPC dispatch via the Photon Network.
-For instance, let's say one player wanted to change his color. Since this new color needs to be broadcasted to all other players, the networking controller script is a low overhead way to get to this outcome. 
+
+Practical Example: Let's say one player wanted to change his color. Since this new color needs to be broadcasted to all other players, the networking controller script first changes the color locally, then dispatches an RPC targeting the entire room.  
 
 Here's the color-changing script, one of many scripts in the codebase that directly work with my networking controller script. [Color Changing Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/Computer%20Scripts/Colorer.cs)
 
@@ -43,14 +44,17 @@ Here's the color-changing script, one of many scripts in the codebase that direc
 [In App Purchasing Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/PlayFabShopManager.cs)
 
 
-The cosmetic shop has skins available for purchase: skin equiping syncs to all other players in the room. Network buffers allow new players who join late to an existing server to be “caught up” on game states such as who is "it" in the tag mode. [NetworkSkin.cs](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkSkin.cs) is a script that is a reusable component doing the networking heavy lifting for all skins in the cosmetic shop.
+- The cosmetic shop has skins available for purchase: skin equiping syncs to all other players in the room. Network buffers allow new players who join late to an existing server to be “caught up” on game states such as who is "it" in the tag mode. [NetworkSkin.cs](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkSkin.cs) is a script that is a reusable component doing the networking heavy lifting for all skins in the cosmetic shop.
 
 ⚪ **Feature: Explore 3 levels of terrifying horror**
 
-The names of the horror monsters are Fluffy, Gruffy, and Scruffy. They roam different maps and are able to dynamically pathfind their way around obstacles to the nearest player to eat them alive. I used Unity's Navigation Mesh AI Agent because it's system can traverse environments aren't predictable or stable. In order for every player to see the monster in the exact same place, these monsters had to be networked too. See this script for the implementation: [Networked Enemy Follow Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkedEnemyFollow.cs)
+The names of the horror monsters are Fluffy, Gruffy, and Scruffy. They roam different maps and are able to dynamically pathfind their way around obstacles to the nearest player to eat them alive. I used Unity's Navigation Mesh AI Agent because it's system can traverse environments aren't predictable or stable. In order for every player to see the monster in the exact same place, these monsters had to be networked too. 
 
-When the monster eats the players, they player get teleported back to the spawn.
-[Teleport and jumpscare script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TeleportAndJumpscare.cs)
+See this script for the implementation: [Networked Enemy Follow Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkedEnemyFollow.cs)
+
+When the monster eats a player, they teleport back to the spawn through this script.
+
+[Teleport and Jumpscare Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TeleportAndJumpscare.cs)
 
 ⚪ **Feature: Jump on parkour obstacle courses and super bouncy trampolines**
 
@@ -60,19 +64,25 @@ When the monster eats the players, they player get teleported back to the spawn.
 
 ⚪ **Feature: Play tag inside an ever-changing forest and village**
 
-This script represents the pinnacle of my work with event-driven RPCS. It required me to understand in depth how to search through the multiplayer client list and manipulating data streams. It now powers the "tag mode" in my game. It makes me proud that I followed through on it, considering it's difficulty all the way to production.
+This script represents the pinnacle of my work with event-driven RPCS. It required me to understand in depth how to search through the multiplayer client list and manipulating data streams through the Photon Network. It now powers the "tag mode" in my game. It makes me proud that I followed through on it - considering it's difficulty - all the way to production.
+
 [Tag Mode Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TagScript6.cs)
 
 
 ⚪ **Feature: Do an explosive, roller coaster train ride**
+
 The "train" is in essence a collection of objects that move along a path of waypoints. The waypoints are embedded into the track rails. The track rails are prefabs so that I could easily add custom routes for the train. I also had to implement networking logic for the train so that it appears in the same place for every single player. The MasterClient controls the train's movement. The train has a PhotonView component, which makes every other player see the train as the MasterClient sees it, thereby creating "syncing". For the architecture, masterclient is better than a server-authoritative model because it reduces CPU compute cost since less cloud processing as well as reducing the all-important latency because no roundtrip needed between server and client.
 
-[Waypoint Train Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TrainController.cs)
+[Waypoint Train Controller Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TrainController.cs)
+
 ⚪ **Feature: A trick glass bridge with glass stepping stones**
-Players must jump across glass bridge suspended high into the air like Squid Game. Some stepping stones are fake; some are real. If they step on the wrong stone, they die and teleport back to the start. Initially, I approached this as a simple teleport. I soon found out that objects blocking the path would interfere with the player moving forward, which forced me to disable and reenable the map each time they fell in a coroutine. 
+
+Players must jump across a glass bridge suspended high into the air like Squid Game. Some stepping stones are fake; some are real. If they step on the wrong stone, they die and teleport back to the start. Initially, I approached this as a simple teleport. I soon found out that objects blocking the path would interfere with the player moving forward, which forced me to disable and reenable the map each time they fell with a coroutine. 
+
 [Teleport Player If Fall Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TeleportPlayer.cs)
 
 ⚪ **Feature: In Game "Computer"**
-I soon realized that I would need to add controls for players to join/create private rooms, change name, change color, etc. It's a 3D computer in game because 3D always feels more natural in VR than a 2D user interface screen.
+
+I soon realized that I would need to add controls for players to join/create private rooms, change name, change color, etc. Controls are disguised as a 3D computer in game because 3D always feels more natural in VR than a 2D user interface screen.
 Controlling Scripts for the computer require being able to reason about servers, multiplayer, and user experience: [Computer Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/Computer%20Scripts)
 
