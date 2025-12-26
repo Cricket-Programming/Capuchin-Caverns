@@ -6,7 +6,7 @@
 
 ## Overview
 5,000-10,000 lines of original gameplay + systems code throughout project.
-This code has been refactored, optimized and improved so many times.
+This code has been refactored, optimized and improved over and over again.
 
 ## Key Directories
 - [C# Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts) (most are MonoBehaviors or MonoBehaviorPunCallbacks, some are interfaces)
@@ -43,17 +43,18 @@ Here's the color-changing script, one of many scripts in the codebase that direc
 [In App Purchasing Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/PlayFabShopManager.cs)
 
 
-The cosmetic shop has skins available for purchase: skin equiping syncs to all other players in the room. Network buffers allow new players who join late to an existing server to be “caught up” on game states such as who is "it" in the tag mode. [NetworkSkin.cs]() is a script that is a reusable component doing the networking heavy lifting for all skins in the cosmetic shop.
+The cosmetic shop has skins available for purchase: skin equiping syncs to all other players in the room. Network buffers allow new players who join late to an existing server to be “caught up” on game states such as who is "it" in the tag mode. [NetworkSkin.cs](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkSkin.cs) is a script that is a reusable component doing the networking heavy lifting for all skins in the cosmetic shop.
+
 ⚪ **Feature: Explore 3 levels of terrifying horror**
 
-The names of the horror monsters are Fluffy, Gruffy, and Scruffy. They roam different parts of the game and are able to dynamically pathfind their way around obstacles to the nearest player to eat them alive. I used Unity's Navigation Mesh AI Agent because it's system can traverse environments aren't predictable or stable. In order for every player to see the monster in the exact same place, these monsters had to be networked too. See this script for the implementation: [Networked Enemy Follow Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkedEnemyFollow.cs)
+The names of the horror monsters are Fluffy, Gruffy, and Scruffy. They roam different maps and are able to dynamically pathfind their way around obstacles to the nearest player to eat them alive. I used Unity's Navigation Mesh AI Agent because it's system can traverse environments aren't predictable or stable. In order for every player to see the monster in the exact same place, these monsters had to be networked too. See this script for the implementation: [Networked Enemy Follow Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkedEnemyFollow.cs)
 
 When the monster eats the players, they player get teleported back to the spawn.
 [Teleport and jumpscare script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TeleportAndJumpscare.cs)
 
 ⚪ **Feature: Jump on parkour obstacle courses and super bouncy trampolines**
 
-"Take a simple idea and take it seriously." I've scattered trampolines across Capuchin Caverns - players shoot into the sky and come back down at 9.8 m/s^2. To achieve this, force is applied upward on the player's Rigid Body for a time - in other words, an impulse. I later learned the actual physics (impulse-momentum theorem (F*t=delta p) in my AP Physics 1 class and it's helped me build bigger and better trampolines.
+"Take a simple idea and take it seriously." - Charlie Munger.  I've scattered trampolines across Capuchin Caverns - players shoot into the sky and come back down at 9.8 m/s^2. To achieve this, force is applied upward on the player's Rigid Body for a time - in other words, an impulse. I later learned the actual physics (impulse-momentum theorem (F*t=delta p) in my AP Physics 1 class and it's helped me build bigger and better trampolines ever since then.
 
 [Trampoline Impulse Application Script:](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/ApplyForce.cs)
 
@@ -64,21 +65,14 @@ This script represents the pinnacle of my work with event-driven RPCS. It requir
 
 
 ⚪ **Feature: Do an explosive, roller coaster train ride**
-The "train" is basically a collection of objects that move along a path of waypoints. The waypoints are embedded into tracks, which are prefabs so that I could easily add custom routes for the train. I also had to implement networking logic for the train so that it appears in the same place for every single player. The MasterClient controls the train's movement. The train has a PhotonView component, which makes every other player see the train as the MasterClient sees it, thereby creating "syncing."
+The "train" is in essence a collection of objects that move along a path of waypoints. The waypoints are embedded into the track rails. The track rails are prefabs so that I could easily add custom routes for the train. I also had to implement networking logic for the train so that it appears in the same place for every single player. The MasterClient controls the train's movement. The train has a PhotonView component, which makes every other player see the train as the MasterClient sees it, thereby creating "syncing". For the architecture, masterclient is better than a server-authoritative model because it reduces CPU compute cost since less cloud processing as well as reducing the all-important latency because no roundtrip needed between server and client.
 
 [Waypoint Train Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TrainController.cs)
 ⚪ **Feature: A trick glass bridge with glass stepping stones**
-Players must jump across glass bridge suspended high into the air like Squid Game. Some stepping stones are fake; some are real. If they step on the wrong stone, they die and teleport back to the start. Initially, I approached this as a simple teleport. I soon found out that objects blocking the path would interfere with the player moving back, which forced me to disable and reenable the map each time they fell. 
+Players must jump across glass bridge suspended high into the air like Squid Game. Some stepping stones are fake; some are real. If they step on the wrong stone, they die and teleport back to the start. Initially, I approached this as a simple teleport. I soon found out that objects blocking the path would interfere with the player moving forward, which forced me to disable and reenable the map each time they fell in a coroutine. 
 [Teleport Player If Fall Script](https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TeleportPlayer.cs)
 
-⚪ **Feature: In Game "Computer" allowing players to join/create private rooms, change name, change color, etc**
-I soon realized that the onl
-See this directory, which contains all the relevant scripts: [Computer Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/Computer%20Scripts)
+⚪ **Feature: In Game "Computer"**
+I soon realized that I would need to add controls for players to join/create private rooms, change name, change color, etc. It's a 3D computer in game because 3D always feels more natural in VR than a 2D user interface screen.
+Controlling Scripts for the computer require being able to reason about servers, multiplayer, and user experience: [Computer Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/Computer%20Scripts)
 
-
-https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/NetworkSkin.cs
-Virtual Currency Syncing with my game’s backend.
-Capuchin Caverns REVERTED URP/Assets/Scripts/CurrencyManager.cs
-One of the most fun features in my game is a train, which is basically a roller coaster. Here’s the waypoint finding code.
-https://github.com/Cricket-Programming/Capuchin-Caverns/blob/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts/TrainController.cs
-Prefabs:
