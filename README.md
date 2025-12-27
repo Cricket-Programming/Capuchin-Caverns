@@ -6,10 +6,10 @@
 
 ## Overview
 5,000-10,000 lines of original gameplay + systems code throughout project.
-This code has been refactored, optimized and improved over and over again.
+This code has been refactored, optimized, and improved over and over again based on live user load.
 
 ## Key Directories
-- [C# Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts) (most are MonoBehaviors or MonoBehaviorPunCallbacks, some are interfaces)
+- [C# Scripts](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Scripts) 
 - [Prefabs](https://github.com/Cricket-Programming/Capuchin-Caverns/tree/main/Capuchin%20Caverns%20REVERTED%20URP/Assets/Prefabs)
 
 ## Systems Underlying Key Features
